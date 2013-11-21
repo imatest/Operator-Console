@@ -1,0 +1,17 @@
+<map id="ImageTest::ThreadProc" name="ImageTest::ThreadProc">
+<area shape="rect" id="node2" href="$d8/d08/class_timer.html#a40773739b5fe60e836329bbbe6ed65ce" title="gets the elapsed time in milliseconds " alt="" coords="258,192,353,221"/>
+<area shape="rect" id="node3" href="$da/d92/class_image_test.html#a7334d76c1cc6780f46626be5b9ff1adb" title="Runs the test pointed to by m_imatestFunc. " alt="" coords="240,245,371,275"/>
+<area shape="rect" id="node14" href="$d8/d08/class_timer.html#a4e607b129b392c11adddd9641a320436" title="Timer::Start" alt="" coords="254,299,357,328"/>
+<area shape="rect" id="node15" href="$d8/d08/class_timer.html#a6379e797f968aaee6ac3bb12dc6b81c5" title="Timer::Stop" alt="" coords="254,405,357,435"/>
+<area shape="rect" id="node4" href="$da/d92/class_image_test.html#a8e026cbe52c6fd5eb83eef7196c93ada" title="ImageTest::AppendLog" alt="" coords="438,5,623,35"/>
+<area shape="rect" id="node5" href="$dd/d46/class_timestamp.html#ac1238e7ef53954ee90d6687601bc95e9" title="Timestamp::Get" alt="" coords="464,59,597,88"/>
+<area shape="rect" id="node6" href="$da/d92/class_image_test.html#a3b66aa4095c338dd90f6e57e108f3038" title="ImageTest::InitResults" alt="" coords="444,112,617,141"/>
+<area shape="rect" id="node8" href="$da/d92/class_image_test.html#ad03c43bf481a29e5f8cd143446be4ca1" title="This must be implemented by subclass. " alt="" coords="433,165,629,195"/>
+<area shape="rect" id="node9" href="$da/d92/class_image_test.html#acfb4336b719c918a612640d9d8c63834" title="converts from m_rawPixels to m_rgb " alt="" coords="419,219,642,248"/>
+<area shape="rect" id="node10" href="$d0/d59/_documentation_2_operator-_console_2jsonhelpers_8cpp.html#aa7615c9874e29e598b0d0fd34967390d" title="prepareTestSettings" alt="" coords="449,272,613,301"/>
+<area shape="rect" id="node11" href="$da/d92/class_image_test.html#ae9ca0a6007b17711f0159e61dbb62e39" title="converts from m_rgb to rgb " alt="" coords="419,325,642,355"/>
+<area shape="rect" id="node12" href="$da/d92/class_image_test.html#a92af335f5f0e96e443b4a938a69d4800" title="ImageTest::SaveImage" alt="" coords="439,379,622,408"/>
+<area shape="rect" id="node13" href="$da/d92/class_image_test.html#af4e55cf62f52fda3a5fc7b3c63dce083" title="ImageTest::SetJSON" alt="" coords="446,432,615,461"/>
+<area shape="rect" id="node7" href="$d6/d56/class_critical_c_string.html#afaf8265c286f1ee918bbd6d9cfd575ae" title="CriticalCString::Clear" alt="" coords="691,112,861,141"/>
+<area shape="rect" id="node16" href="$d8/d08/class_timer.html#a0d8d7aab98c1c4b20e28aae017873294" title="calculates elapsed time in milliseconds " alt="" coords="467,485,595,515"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="ImageAcquisition" name="ImageAcquisition">
+<area shape="rect" id="node2" href="$dc/d78/class_file_acq.html" title="A class for acquiring from a file with the data in RGB format. " alt="" coords="5,83,80,112"/>
+<area shape="rect" id="node3" href="$db/def/class_file_acquisition.html" title="Another class for loading an image file that loads into the critical buffer m_frame inherited from cl..." alt="" coords="105,83,231,112"/>
+<area shape="rect" id="node4" href="$df/d22/class_imatest_lib_acq.html" title="A class for acquiring live images through the Imatest library. " alt="" coords="255,83,377,112"/>
+<area shape="rect" id="node5" href="$d0/d1f/class_simple_direct_show_acq.html" title="A class for acquiring directly from a camera with a DirectShow driver. " alt="" coords="402,83,581,112"/>
+</map>

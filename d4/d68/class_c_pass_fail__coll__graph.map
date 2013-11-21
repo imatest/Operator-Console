@@ -1,0 +1,18 @@
+<map id="CPassFail" name="CPassFail">
+<area shape="rect" id="node3" href="$d9/d8f/class_c_pass_fail_settings.html" title="A class to contain the pass/fail criteria including the descriptions of each pass/fail variable..." alt="" coords="1993,436,2146,465"/>
+<area shape="rect" id="node4" href="$da/ded/_pass_fail_settings_8h.html#df/d39/struct_blemish_pass_fail" title="A struct that contains an entry&lt;T&gt;,minMaxEntry&lt;T&gt;, or vecEntry&lt;T&gt; for every pass/fail Blemish variabl..." alt="" coords="1745,835,1885,864"/>
+<area shape="rect" id="node5" href="$d3/d96/structentry.html" title="entry\&lt; double \&gt;" alt="" coords="929,857,1057,887"/>
+<area shape="rect" id="node16" href="$da/ded/_pass_fail_settings_8h.html#d2/dca/struct_s_f_rplus_pass_fail" title="A struct that contains an entry&lt;T&gt;,minMaxEntry&lt;T&gt;, etc. " alt="" coords="1341,245,1485,275"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="289,748,378,777"/>
+<area shape="rect" id="node8" href="$d3/d96/structentry.html" title="A templated struct that contains all information for a single, scalar pass/fail variable. " alt="" coords="572,791,663,820"/>
+<area shape="rect" id="node10" href="$d3/d96/structentry.html" title="entry\&lt; long \&gt;" alt="" coords="938,728,1049,757"/>
+<area shape="rect" id="node11" href="$dc/d74/structvec_entry.html" title="vecEntry\&lt; long \&gt;" alt="" coords="1345,1072,1481,1101"/>
+<area shape="rect" id="node15" href="$dc/d74/structvec_entry.html" title="A templated struct that contains all the information for a single vector pass/fail variable..." alt="" coords="935,1135,1051,1164"/>
+<area shape="rect" id="node17" href="$de/ddc/structmin_max_entry.html" title="minMaxEntry\&lt; double \&gt;" alt="" coords="901,516,1085,545"/>
+<area shape="rect" id="node18" href="$de/ddc/structmin_max_entry.html" title="A templated struct that contains all information for a single min&#45;max variable pair. " alt="" coords="544,579,691,608"/>
+<area shape="rect" id="node19" href="$d3/d96/structentry.html" title="entry\&lt; CString \&gt;" alt="" coords="926,608,1061,637"/>
+<area shape="rect" id="node7" title="STL class. " alt="" coords="6,739,151,786"/>
+<area shape="rect" id="node13" title="STL class. " alt="" coords="269,1060,397,1089"/>
+<area shape="rect" id="node22" href="$da/ded/_pass_fail_settings_8h.html#d5/dc9/struct_o_i_s_pass_fail" title="A struct that contains an entry&lt;T&gt;,minMaxEntry&lt;T&gt;, or vecEntry&lt;T&gt; for every pass/fail OIS variable..." alt="" coords="1573,411,1683,440"/>
+<area shape="rect" id="node20" href="$da/ded/_pass_fail_settings_8h.html#d6/da0/struct_other_pass_fail" title="A struct that can be used to catch other (that is, not Blemish, OIS, or SFRplus) pass/fail categories..." alt="" coords="1753,473,1876,503"/>
+</map>

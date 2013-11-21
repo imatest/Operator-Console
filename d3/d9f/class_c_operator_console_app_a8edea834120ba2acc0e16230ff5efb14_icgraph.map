@@ -1,0 +1,7 @@
+<map id="COperatorConsoleApp::InitBlemishAcq" name="COperatorConsoleApp::InitBlemishAcq">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d" title="Init perform application&#45;specific initialization. " alt="" coords="238,5,421,51"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="238,75,421,122"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="470,5,653,51"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="470,75,653,122"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="701,75,885,122"/>
+</map>

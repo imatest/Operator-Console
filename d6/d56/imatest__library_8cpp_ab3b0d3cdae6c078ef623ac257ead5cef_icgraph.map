@@ -1,0 +1,10 @@
+<map id="inifile" name="inifile">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a3ee628baf779a1be1e323a84fccc1d23" title="This function reads in items for the setup dialog from imatest.ini. " alt="" coords="113,5,295,51"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a864bc0130d261b22868920143919ceb7" title="This function reads in the pass/fail variable values as in the pass/fail file listed in the imatest I..." alt="" coords="113,75,295,122"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a7bcf9790237d98d6b2182623b4e500fd" title="This function writes items for the setup dialog to imatest.ini. " alt="" coords="113,146,295,193"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#aab4583fb7e725968ea95224ef0c773e7" title="This function writes the pass/fail variables to the pass/fail file listed in the imatest INI file..." alt="" coords="113,217,295,263"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="345,75,527,122"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="345,146,527,193"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="576,182,760,229"/>
+<area shape="rect" id="node9" href="$d3/d9f/class_c_operator_console_app.html#a04972a8a1e21b10b9bf422396ff97644" title="Called after MSG_PASS_FAIL is received. " alt="" coords="345,217,527,263"/>
+</map>

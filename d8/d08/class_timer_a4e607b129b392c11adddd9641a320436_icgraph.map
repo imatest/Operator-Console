@@ -1,0 +1,10 @@
+<map id="Timer::Start" name="Timer::Start">
+<area shape="rect" id="node2" href="$da/d92/class_image_test.html#a372478d09c06cd7ab3684840add6215e" title="param must be a pointer to a ThreadControl object; param&#45;&gt;m_data must point to an ImageTest object ..." alt="" coords="158,49,343,79"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a51ad7e6e8f370072c3e89d0d7e9e41a8" title="COperatorConsoleApp\l::InitBlemishThread" alt="" coords="393,5,575,51"/>
+<area shape="rect" id="node9" href="$d3/d9f/class_c_operator_console_app.html#af7328d2c00abb1d4a09a65492c69b2b0" title="COperatorConsoleApp\l::InitSFRplusThread" alt="" coords="393,75,575,122"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d" title="Init perform application&#45;specific initialization. " alt="" coords="625,5,807,51"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="625,75,807,122"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="857,5,1039,51"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="857,75,1039,122"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="1088,75,1272,122"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="SimpleDirectShowAcq" name="SimpleDirectShowAcq">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html" title="the base class for image acquisition " alt="" coords="23,181,165,211"/>
+<area shape="rect" id="node3" href="$d3/d1e/class_critical_buf.html" title="a buffer class where all access (read or write) to the buffer is protected by critical sections ..." alt="" coords="47,85,141,115"/>
+</map>

@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['secondary_5freadout_5f1_5fcenter_5fmean_5fmin',['Secondary_readout_1_center_mean_min',['../da/ded/_pass_fail_settings_8h.html#a1dae30ad8a5ee38eaa2a3412600782d0',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f1_5fouter_5fmean_5fmin',['Secondary_readout_1_outer_mean_min',['../da/ded/_pass_fail_settings_8h.html#a2c7c67f709ad828ab02c5753161f76ad',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f1_5fouter_5fmin_5fmin',['Secondary_readout_1_outer_min_min',['../da/ded/_pass_fail_settings_8h.html#aaa5f1f82dbd4e85d6fed46ebc3d66246',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f1_5fouter_5fquadrant_5fdelta_5fmax',['Secondary_readout_1_outer_quadrant_delta_max',['../da/ded/_pass_fail_settings_8h.html#af330ad9ff37a2ad77c511839a9bf4cc4',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f1_5fouter_5fquadrant_5fmean_5fmin_5fmin',['Secondary_readout_1_outer_quadrant_mean_min_min',['../da/ded/_pass_fail_settings_8h.html#a69ad4931cef019bba2ae856f7af96fd4',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f2_5fcenter_5fmean_5fmin',['Secondary_readout_2_center_mean_min',['../da/ded/_pass_fail_settings_8h.html#ae121e47f975d89a3e3416a0d72cca10c',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f2_5fouter_5fmean_5fmin',['Secondary_readout_2_outer_mean_min',['../da/ded/_pass_fail_settings_8h.html#aae694e8908dbadec38b0a6df3eefefd8',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f2_5fouter_5fmin_5fmin',['Secondary_readout_2_outer_min_min',['../da/ded/_pass_fail_settings_8h.html#a1304822b3a9c49c296dc92c6cd66dcb1',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f2_5fouter_5fquadrant_5fdelta_5fmax',['Secondary_readout_2_outer_quadrant_delta_max',['../da/ded/_pass_fail_settings_8h.html#aec6b9eb8f4580cec2c49464d5462938e',1,'SFRplusPassFail']]],
+  ['secondary_5freadout_5f2_5fouter_5fquadrant_5fmean_5fmin_5fmin',['Secondary_readout_2_outer_quadrant_mean_min_min',['../da/ded/_pass_fail_settings_8h.html#a4429e85ea5911eaa2e41ac68a6703874',1,'SFRplusPassFail']]],
+  ['serial_5fnumber',['serial_number',['../dd/de1/structsetup__settings.html#a174059c8589ef0681c874d6c5eca50cf',1,'setup_settings']]],
+  ['sfrplus',['sfrplus',['../d9/d8f/class_c_pass_fail_settings.html#a2711566c6bf83855a72e2a761b7ae8b4',1,'CPassFailSettings']]],
+  ['sfrplusthread',['sfrplusThread',['../da/de6/_operator_console_8h.html#ad03c270deb53b012e35a52f3dd9590f6',1,'AppFlags']]],
+  ['skip',['skip',['../d7/d0e/_resize_dlg_8cpp.html#a5183410f6214a0404065dd797d1a84d3',1,'MoveData']]],
+  ['sourceid',['sourceID',['../dd/de1/structsetup__settings.html#a0d81976e46a8e8e1a7f9733efc437f1c',1,'setup_settings']]],
+  ['stderr',['stdErr',['../da/de6/_operator_console_8h.html#a12a145fb0316b88c621b4e60872a55be',1,'AppFlags']]],
+  ['stdout',['stdOut',['../da/de6/_operator_console_8h.html#a0af68a9d5d2bf10930e29a1a9a97b916',1,'AppFlags']]],
+  ['stepchart_5fexpected_5fdetected',['Stepchart_expected_detected',['../da/ded/_pass_fail_settings_8h.html#a2f7a792c4507e3ba4c0408f363d573be',1,'SFRplusPassFail']]],
+  ['sub_5fdescriptions',['sub_descriptions',['../dc/d74/structvec_entry.html#a32bd6b624434cfae5a45ac62418e2888',1,'vecEntry']]],
+  ['sub_5fnames',['sub_names',['../dc/d74/structvec_entry.html#a12c522d37bced82d7ef91499696b5f78',1,'vecEntry']]],
+  ['summary',['summary',['../da/de6/_operator_console_8h.html#ab8f4f8c9ce70fa02f5d9c391ee409f71',1,'TestResults']]]
+];

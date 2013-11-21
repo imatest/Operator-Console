@@ -1,0 +1,5 @@
+<map id="StdoutRedirect" name="StdoutRedirect">
+<area shape="rect" id="node2" href="$da/de2/class_stderr_redirect.html" title="Defines functions for redirecting stderr through a buffered pipe. " alt="" coords="5,83,128,112"/>
+<area shape="rect" id="node3" href="$d5/d67/class_stdout_thread.html" title="Defines a thread class for capturing stdout. " alt="" coords="153,83,268,112"/>
+<area shape="rect" id="node4" href="$df/d44/class_stderr_thread.html" title="Defines a thread class for capturing stderr. " alt="" coords="153,160,268,189"/>
+</map>

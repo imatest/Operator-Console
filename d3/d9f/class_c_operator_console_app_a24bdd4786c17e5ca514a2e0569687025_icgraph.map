@@ -1,0 +1,5 @@
+<map id="COperatorConsoleApp::SendAppMessage" name="COperatorConsoleApp::SendAppMessage">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#aeed50eef07f7d6350dffd5730793908c" title="Called after MSG_BLEMISH_DONE is received. " alt="" coords="238,5,421,51"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a58fa1716c660b80c55845b79505ff4d6" title="Called after MSG_SFRPLUS_DONE is received. " alt="" coords="238,75,421,122"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="469,41,653,87"/>
+</map>

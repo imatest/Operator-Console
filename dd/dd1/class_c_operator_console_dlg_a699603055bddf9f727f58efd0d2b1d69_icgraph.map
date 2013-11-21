@@ -1,0 +1,7 @@
+<map id="COperatorConsoleDlg::UpdateFPS" name="COperatorConsoleDlg::UpdateFPS">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a61fec0ac8bc8938749e977686e37e0dc" title="COperatorConsoleApp\l::UpdateResults" alt="" coords="233,39,415,86"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#aeed50eef07f7d6350dffd5730793908c" title="Called after MSG_BLEMISH_DONE is received. " alt="" coords="705,5,887,51"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#afcaa58d4a5fb9c7cff5e35ae64e1420c" title="COperatorConsoleApp\l::UpdateResultsSFRplus" alt="" coords="464,71,656,118"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="936,41,1120,87"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a58fa1716c660b80c55845b79505ff4d6" title="Called after MSG_SFRPLUS_DONE is received. " alt="" coords="705,75,887,122"/>
+</map>

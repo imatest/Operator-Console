@@ -1,0 +1,5 @@
+<map id="CSetup::OnInitDialog" name="CSetup::OnInitDialog">
+<area shape="rect" id="node2" href="$da/d8d/class_c_setup.html#a8f165e6d1265d67b00c5dbacffdf5e2d" title="This function shows dialog elements that are meant only for Epiphan and hides those meant for Omnivis..." alt="" coords="231,5,476,35"/>
+<area shape="rect" id="node3" href="$da/d8d/class_c_setup.html#a50408bc691c2cc2fa14a7a9c7d53d9a0" title="This function hides dialog elements that are meant only for Omnivision or Epiphan. " alt="" coords="235,59,472,88"/>
+<area shape="rect" id="node4" href="$da/d8d/class_c_setup.html#aecb4c2bbab8d7434f2d4b83698f0f00b" title="This function shows dialog elements that are meant only for Omnivision and hides those meant for Epip..." alt="" coords="221,112,485,141"/>
+</map>

@@ -1,0 +1,23 @@
+<map id="Timestamp::Get" name="Timestamp::Get">
+<area shape="rect" id="node2" href="$da/d92/class_image_test.html#aca5fb71bfeae5b95079e97e3cb22d40a" title="ImageTest::GetDataNode" alt="" coords="201,5,401,35"/>
+<area shape="rect" id="node3" href="$da/d92/class_image_test.html#a45319e33d6d338270ca12a6fdc3f0efd" title="ImageTest::GetPassFailNode" alt="" coords="187,59,415,88"/>
+<area shape="rect" id="node4" href="$da/d92/class_image_test.html#a3115f3892d84abcde05ab105ae4aaa8f" title="ImageTest::GetString" alt="" coords="217,112,386,141"/>
+<area shape="rect" id="node5" href="$dd/dd1/class_c_operator_console_dlg.html#ae937941b5c3b8b9655ad4f2f91c7ea9a" title="COperatorConsoleDlg\l::LogMessage" alt="" coords="468,222,647,269"/>
+<area shape="rect" id="node14" href="$da/d92/class_image_test.html#a7334d76c1cc6780f46626be5b9ff1adb" title="Runs the test pointed to by m_imatestFunc. " alt="" coords="236,165,367,195"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a5e4a6598aa6a33636d283e29f19c76ca" title="COperatorConsoleApp\l::GetStdoutMsg" alt="" coords="935,222,1118,269"/>
+<area shape="rect" id="node10" href="$d3/d9f/class_c_operator_console_app.html#a61fec0ac8bc8938749e977686e37e0dc" title="COperatorConsoleApp\l::UpdateResults" alt="" coords="699,294,882,341"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a5ffde398d86b31aa60e8dbb3cd0cf8f4" title="Called after MSG_STDERR is received. " alt="" coords="1171,242,1354,289"/>
+<area shape="rect" id="node9" href="$d3/d9f/class_c_operator_console_app.html#a1baba590ed8125440723c012ff6a4e77" title="Called after MSG_STDOUT is received. " alt="" coords="1171,171,1354,218"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="1403,242,1587,289"/>
+<area shape="rect" id="node11" href="$d3/d9f/class_c_operator_console_app.html#aeed50eef07f7d6350dffd5730793908c" title="Called after MSG_BLEMISH_DONE is received. " alt="" coords="935,294,1118,341"/>
+<area shape="rect" id="node12" href="$d3/d9f/class_c_operator_console_app.html#afcaa58d4a5fb9c7cff5e35ae64e1420c" title="COperatorConsoleApp\l::UpdateResultsSFRplus" alt="" coords="931,365,1123,411"/>
+<area shape="rect" id="node13" href="$d3/d9f/class_c_operator_console_app.html#a58fa1716c660b80c55845b79505ff4d6" title="Called after MSG_SFRPLUS_DONE is received. " alt="" coords="1171,365,1354,411"/>
+<area shape="rect" id="node15" href="$da/d92/class_image_test.html#accf2cfff6fe48fd19888727208dd6728" title="ImageTest::Run" alt="" coords="492,165,623,195"/>
+<area shape="rect" id="node16" href="$da/d92/class_image_test.html#a372478d09c06cd7ab3684840add6215e" title="param must be a pointer to a ThreadControl object; param&#45;&gt;m_data must point to an ImageTest object ..." alt="" coords="465,109,650,139"/>
+<area shape="rect" id="node17" href="$d3/d9f/class_c_operator_console_app.html#a51ad7e6e8f370072c3e89d0d7e9e41a8" title="COperatorConsoleApp\l::InitBlemishThread" alt="" coords="699,30,882,77"/>
+<area shape="rect" id="node22" href="$d3/d9f/class_c_operator_console_app.html#af7328d2c00abb1d4a09a65492c69b2b0" title="COperatorConsoleApp\l::InitSFRplusThread" alt="" coords="699,101,882,147"/>
+<area shape="rect" id="node18" href="$d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d" title="Init perform application&#45;specific initialization. " alt="" coords="935,30,1118,77"/>
+<area shape="rect" id="node20" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="935,101,1118,147"/>
+<area shape="rect" id="node19" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="1171,30,1354,77"/>
+<area shape="rect" id="node21" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="1171,101,1354,147"/>
+</map>

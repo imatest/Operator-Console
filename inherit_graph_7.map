@@ -1,0 +1,4 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$d3/d1e/class_critical_buf.html" title="a buffer class where all access (read or write) to the buffer is protected by critical sections ..." alt="" coords="205,5,299,35"/>
+<area shape="rect" id="node3" href="$d6/d56/class_critical_c_string.html" title="A null&#45;terminated string class for which all access is controlled by critical sections. " alt="" coords="190,59,314,88"/>
+</map>

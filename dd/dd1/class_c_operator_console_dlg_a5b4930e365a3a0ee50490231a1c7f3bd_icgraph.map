@@ -1,0 +1,9 @@
+<map id="COperatorConsoleDlg::PostParentMessage" name="COperatorConsoleDlg::PostParentMessage">
+<area shape="rect" id="node2" href="$dd/dd1/class_c_operator_console_dlg.html#ae6399ed7580603b8ed446d7a9f75261d" title="COperatorConsoleDlg\l::OnBnClickedRadioBlemish" alt="" coords="233,5,453,51"/>
+<area shape="rect" id="node3" href="$dd/dd1/class_c_operator_console_dlg.html#ab40731589fb00011221425e72fdda457" title="COperatorConsoleDlg\l::OnBnClickedRadioSfr" alt="" coords="251,75,435,122"/>
+<area shape="rect" id="node4" href="$dd/dd1/class_c_operator_console_dlg.html#a44fbf05e3794267d701d7fee17130316" title="COperatorConsoleDlg\l::OnBnClickedSetupButton" alt="" coords="239,146,446,193"/>
+<area shape="rect" id="node5" href="$dd/dd1/class_c_operator_console_dlg.html#a5208e78010e26e6d6365837f20b73d5d" title="COperatorConsoleDlg\l::OnBnClickedShowjson" alt="" coords="248,217,437,263"/>
+<area shape="rect" id="node6" href="$dd/dd1/class_c_operator_console_dlg.html#a06e65f3bdd1f81a84cb640294857b551" title="COperatorConsoleDlg\l::OnBnClickedStart" alt="" coords="253,287,432,334"/>
+<area shape="rect" id="node7" href="$dd/dd1/class_c_operator_console_dlg.html#adedefafc419a2848159a3ab24e1b2b93" title="COperatorConsoleDlg\l::OnBnClickedStop" alt="" coords="253,358,432,405"/>
+<area shape="rect" id="node8" href="$dd/dd1/class_c_operator_console_dlg.html#ac6cc9ecf017ab55d8068284ac9493121" title="COperatorConsoleDlg\l::OnClickedPassFail" alt="" coords="253,429,432,475"/>
+</map>

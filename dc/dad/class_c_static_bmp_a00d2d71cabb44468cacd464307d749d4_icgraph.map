@@ -1,0 +1,9 @@
+<map id="CStaticBmp::Update" name="CStaticBmp::Update">
+<area shape="rect" id="node2" href="$dd/dd1/class_c_operator_console_dlg.html#add79ed364a2fd29eb4dd69f831bd0119" title="Allows the display to be resized after the user changes the image size. " alt="" coords="221,5,400,51"/>
+<area shape="rect" id="node3" href="$dd/dd1/class_c_operator_console_dlg.html#a652b4785d94be4b8b18809662edb28bd" title="COperatorConsoleDlg\l::UpdateImage" alt="" coords="221,75,400,122"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a61fec0ac8bc8938749e977686e37e0dc" title="COperatorConsoleApp\l::UpdateResults" alt="" coords="449,75,631,122"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#aeed50eef07f7d6350dffd5730793908c" title="Called after MSG_BLEMISH_DONE is received. " alt="" coords="921,41,1103,87"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#afcaa58d4a5fb9c7cff5e35ae64e1420c" title="COperatorConsoleApp\l::UpdateResultsSFRplus" alt="" coords="680,107,872,154"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="1152,77,1336,123"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#a58fa1716c660b80c55845b79505ff4d6" title="Called after MSG_SFRPLUS_DONE is received. " alt="" coords="921,111,1103,158"/>
+</map>

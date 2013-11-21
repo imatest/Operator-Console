@@ -1,0 +1,4 @@
+<map id="COperatorConsoleApp::GetTestName" name="COperatorConsoleApp::GetTestName">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a55ce42948d0ff61bbc0dc9aeb83855f7" title="Called after MSG_RUN_TEST is received. " alt="" coords="238,5,421,51"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="469,5,653,51"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="COperatorConsoleApp::InitOutput" name="COperatorConsoleApp::InitOutput">
+<area shape="rect" id="node2" href="$d5/d67/class_stdout_thread.html#aab5207762f1d6036974b9bbd4b854a23" title="StdoutThread::InitThread" alt="" coords="237,59,429,88"/>
+<area shape="rect" id="node3" href="$d5/d52/class_stdout_redirect.html#a9dd34e73829d728660436c9d6b4d6d20" title="StdoutRedirect::Init" alt="" coords="505,5,658,35"/>
+<area shape="rect" id="node4" href="$d5/d52/class_stdout_redirect.html#a4151d5c4322285b87c3121e2f69dfc5e" title="StdoutRedirect::Start" alt="" coords="498,59,665,88"/>
+<area shape="rect" id="node5" href="$d5/d67/class_stdout_thread.html#a5527fa5fc7f110414f03e63b759bc4c3" title="StdoutThread::ThreadProc" alt="" coords="478,112,685,141"/>
+<area shape="rect" id="node6" href="$d6/d56/class_critical_c_string.html#a708b83f5264a7240ebc66018647363e7" title="CriticalCString::Set" alt="" coords="755,32,911,61"/>
+<area shape="rect" id="node7" href="$d5/d52/class_stdout_redirect.html#a00cab998df19e149495fd3f1671d1bff" title="StdoutRedirect::GetBuffer" alt="" coords="733,85,933,115"/>
+<area shape="rect" id="node8" href="$db/d23/_documentation_2_operator-_console_2_stdout_thread_8cpp.html#ace7ef40e0acb2373d17bd7a563643e9a" title="FindChar" alt="" coords="790,139,877,168"/>
+<area shape="rect" id="node9" href="$d6/d56/class_critical_c_string.html#a1f9bbccd2c753e413ff341e4acb40454" title="CriticalCString::Append" alt="" coords="740,192,927,221"/>
+</map>

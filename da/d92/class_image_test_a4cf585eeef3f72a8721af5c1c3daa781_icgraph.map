@@ -1,0 +1,8 @@
+<map id="ImageTest::GetSummary" name="ImageTest::GetSummary">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#ae1cbaab939cb91a18fe8c63e54367fdb" title="COperatorConsoleApp\l::GetResults" alt="" coords="249,39,431,86"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a61fec0ac8bc8938749e977686e37e0dc" title="COperatorConsoleApp\l::UpdateResults" alt="" coords="481,39,663,86"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#aeed50eef07f7d6350dffd5730793908c" title="Called after MSG_BLEMISH_DONE is received. " alt="" coords="953,5,1135,51"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#afcaa58d4a5fb9c7cff5e35ae64e1420c" title="COperatorConsoleApp\l::UpdateResultsSFRplus" alt="" coords="712,71,904,118"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="1184,41,1368,87"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a58fa1716c660b80c55845b79505ff4d6" title="Called after MSG_SFRPLUS_DONE is received. " alt="" coords="953,75,1135,122"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="COperatorConsoleApp::ReInit" name="COperatorConsoleApp::ReInit">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="238,5,421,51"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="469,5,653,51"/>
+</map>

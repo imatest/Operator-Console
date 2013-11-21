@@ -1,0 +1,5 @@
+<map id="StderrThread" name="StderrThread">
+<area shape="rect" id="node2" href="$d5/d67/class_stdout_thread.html" title="Defines a thread class for capturing stdout. " alt="" coords="10,181,125,211"/>
+<area shape="rect" id="node3" href="$d5/d52/class_stdout_redirect.html" title="Defines functions for redirecting stdout through a buffered pipe. " alt="" coords="5,85,131,115"/>
+<area shape="rect" id="node4" href="$d6/d56/class_critical_c_string.html" title="A null&#45;terminated string class for which all access is controlled by critical sections. " alt="" coords="155,85,279,115"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="COperatorConsoleApp::OnFrameReady" name="COperatorConsoleApp::OnFrameReady">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html#a1f434970b49d88473a1b943acd6ef48e" title="ImageAcquisition::GetFrame" alt="" coords="237,5,459,35"/>
+<area shape="rect" id="node4" href="$d7/da0/class_thread_control.html#ae7875d6cedc96ca7688012ece3f8fe6b" title="ThreadControl::Run" alt="" coords="270,59,426,88"/>
+<area shape="rect" id="node3" href="$d3/d1e/class_critical_buf.html#aa1d37c59b94e873cd14f9aece1cfaebd" title="CriticalBuf::Get" alt="" coords="507,5,634,35"/>
+</map>

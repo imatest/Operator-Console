@@ -1,0 +1,6 @@
+<map id="ImatestLibAcq" name="ImatestLibAcq">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html" title="the base class for image acquisition " alt="" coords="5,200,147,229"/>
+<area shape="rect" id="node3" href="$d3/d1e/class_critical_buf.html" title="a buffer class where all access (read or write) to the buffer is protected by critical sections ..." alt="" coords="26,95,120,124"/>
+<area shape="rect" id="node5" title="STL class. " alt="" coords="173,200,261,229"/>
+<area shape="rect" id="node6" title="STL class. " alt="" coords="145,86,289,133"/>
+</map>

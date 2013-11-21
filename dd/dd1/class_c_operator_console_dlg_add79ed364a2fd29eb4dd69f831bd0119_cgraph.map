@@ -1,0 +1,13 @@
+<map id="COperatorConsoleDlg::ReInitDialog" name="COperatorConsoleDlg::ReInitDialog">
+<area shape="rect" id="node2" href="$df/d14/class_resize_dlg.html#abbc1b69a8e4b0ef7b28bda23385a6697" title="Resizes an object within a parent window that allows the object to shrink vertically, but not below a minimum size. " alt="" coords="232,99,421,146"/>
+<area shape="rect" id="node8" href="$dc/dad/class_c_static_bmp.html#ad7cc3a6242ed127721a559ac4f9dbf99" title="CStaticBmp::Init" alt="" coords="259,171,394,200"/>
+<area shape="rect" id="node9" href="$dd/dd1/class_c_operator_console_dlg.html#ae1eb7b114c7d3a43fe4b3e73117a197d" title="COperatorConsoleDlg\l::MoveFPS" alt="" coords="237,225,416,271"/>
+<area shape="rect" id="node10" href="$dd/dd1/class_c_operator_console_dlg.html#a2eeb3b1e858acfd13c7a15bf9b3806ee" title="COperatorConsoleDlg\l::QsoMove" alt="" coords="237,295,416,342"/>
+<area shape="rect" id="node12" href="$dc/dad/class_c_static_bmp.html#a00d2d71cabb44468cacd464307d749d4" title="CStaticBmp::Update" alt="" coords="243,367,410,396"/>
+<area shape="rect" id="node3" href="$df/d14/class_resize_dlg.html#a39f24d6991e0289185f55fe79220b7ae" title="A function that acquires either the window or client size. " alt="" coords="750,77,965,107"/>
+<area shape="rect" id="node4" href="$df/d14/class_resize_dlg.html#abe2cd6505a36ea159640b6b35cf81bbc" title="Calculates the differences in window height and width between the current and new sizes..." alt="" coords="472,37,699,83"/>
+<area shape="rect" id="node5" href="$df/d14/class_resize_dlg.html#ad862978f7d388156953bcad1ee8fb7d0" title="Changes the window size. " alt="" coords="470,108,701,137"/>
+<area shape="rect" id="node6" href="$df/d14/class_resize_dlg.html#ac488d477589ed7bf19d53c0a2f14b02a" title="A function that centers an object with respect to the parent with the option to select only vertical ..." alt="" coords="483,161,688,191"/>
+<area shape="rect" id="node7" href="$df/d14/class_resize_dlg.html#ac1be0074b5ee381220d10b01f54e3c58" title="ResizeDlg::OffsetChildPos" alt="" coords="482,215,689,244"/>
+<area shape="rect" id="node11" href="$dd/dd1/class_c_operator_console_dlg.html#a5259b5a3edff8df084f64268a125d135" title="move &#39;wnd&#39; so its center is at the screen coordinate (centerX, centerY) " alt="" coords="496,319,675,366"/>
+</map>

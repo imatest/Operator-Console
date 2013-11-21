@@ -1,0 +1,4 @@
+<map id="ImageAcquisition::ThreadProc" name="ImageAcquisition::ThreadProc">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html#abb79a26a0c95f3fae6d5469ad936d12c" title="capture a single image into m_buf " alt="" coords="286,5,493,51"/>
+<area shape="rect" id="node3" href="$d3/d1e/class_critical_buf.html#abeb31c8a1c19e03799e9a7ee4397d86b" title="CriticalBuf::Set" alt="" coords="326,76,453,105"/>
+</map>

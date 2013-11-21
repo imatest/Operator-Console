@@ -1,0 +1,6 @@
+<map id="COperatorConsoleDlg::UpdateQuadrants" name="COperatorConsoleDlg::UpdateQuadrants">
+<area shape="rect" id="node2" href="$dd/dd1/class_c_operator_console_dlg.html#a06e65f3bdd1f81a84cb640294857b551" title="COperatorConsoleDlg\l::OnBnClickedStart" alt="" coords="239,5,417,51"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#afcaa58d4a5fb9c7cff5e35ae64e1420c" title="COperatorConsoleApp\l::UpdateResultsSFRplus" alt="" coords="232,75,424,122"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a58fa1716c660b80c55845b79505ff4d6" title="Called after MSG_SFRPLUS_DONE is received. " alt="" coords="473,75,655,122"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="704,75,888,122"/>
+</map>

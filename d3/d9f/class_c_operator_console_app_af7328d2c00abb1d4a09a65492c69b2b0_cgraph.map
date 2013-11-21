@@ -1,0 +1,25 @@
+<map id="COperatorConsoleApp::InitSFRplusThread" name="COperatorConsoleApp::InitSFRplusThread">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html#a0964521623ef639396b854aceebbcbef" title="ImageAcquisition::GetHeight" alt="" coords="238,5,458,35"/>
+<area shape="rect" id="node3" href="$d8/d29/class_image_acquisition.html#a589eb2272d57ee982b6970667b034a0d" title="ImageAcquisition::GetWidth" alt="" coords="241,59,455,88"/>
+<area shape="rect" id="node4" href="$d7/da0/class_thread_control.html#a5054f2ad6297cc65b4cb9146437f48b0" title="ThreadControl::Init" alt="" coords="274,112,422,141"/>
+<area shape="rect" id="node6" href="$da/d92/class_image_test.html#ab97f2724bc4060b68dd623c2ff8bbb8d" title="ImageTest::Init" alt="" coords="287,165,409,195"/>
+<area shape="rect" id="node9" href="$da/d92/class_image_test.html#a372478d09c06cd7ab3684840add6215e" title="param must be a pointer to a ThreadControl object; param&#45;&gt;m_data must point to an ImageTest object ..." alt="" coords="255,352,441,381"/>
+<area shape="rect" id="node5" href="$d7/da0/class_thread_control.html#ae2bdd5434d609141dda49566f81c9ce6" title="ThreadControl::InitThread" alt="" coords="507,112,704,141"/>
+<area shape="rect" id="node7" href="$da/d92/class_image_test.html#a19f4ba2329209f42293e735fe9797e7c" title="ImageTest::AllocateRGB" alt="" coords="509,165,702,195"/>
+<area shape="rect" id="node8" href="$da/d92/class_image_test.html#ad019b2cd49f147623a4f0ded3a927aee" title="ImageTest::DeleteRGB" alt="" coords="773,85,955,115"/>
+<area shape="rect" id="node10" href="$d8/d08/class_timer.html#a4e607b129b392c11adddd9641a320436" title="Timer::Start" alt="" coords="554,299,657,328"/>
+<area shape="rect" id="node11" href="$da/d92/class_image_test.html#a7334d76c1cc6780f46626be5b9ff1adb" title="Runs the test pointed to by m_imatestFunc. " alt="" coords="540,352,671,381"/>
+<area shape="rect" id="node22" href="$d8/d08/class_timer.html#a6379e797f968aaee6ac3bb12dc6b81c5" title="Timer::Stop" alt="" coords="554,405,657,435"/>
+<area shape="rect" id="node24" href="$d8/d08/class_timer.html#a40773739b5fe60e836329bbbe6ed65ce" title="gets the elapsed time in milliseconds " alt="" coords="558,459,653,488"/>
+<area shape="rect" id="node12" href="$da/d92/class_image_test.html#a3b66aa4095c338dd90f6e57e108f3038" title="ImageTest::InitResults" alt="" coords="777,139,951,168"/>
+<area shape="rect" id="node14" href="$da/d92/class_image_test.html#acfb4336b719c918a612640d9d8c63834" title="converts from m_rawPixels to m_rgb " alt="" coords="753,192,975,221"/>
+<area shape="rect" id="node15" href="$da/d92/class_image_test.html#ae9ca0a6007b17711f0159e61dbb62e39" title="converts from m_rgb to rgb " alt="" coords="753,245,975,275"/>
+<area shape="rect" id="node16" href="$da/d92/class_image_test.html#a92af335f5f0e96e443b4a938a69d4800" title="ImageTest::SaveImage" alt="" coords="773,299,955,328"/>
+<area shape="rect" id="node17" href="$d0/d59/_documentation_2_operator-_console_2jsonhelpers_8cpp.html#aa7615c9874e29e598b0d0fd34967390d" title="prepareTestSettings" alt="" coords="782,352,946,381"/>
+<area shape="rect" id="node18" href="$da/d92/class_image_test.html#ad03c43bf481a29e5f8cd143446be4ca1" title="This must be implemented by subclass. " alt="" coords="766,405,962,435"/>
+<area shape="rect" id="node19" href="$da/d92/class_image_test.html#af4e55cf62f52fda3a5fc7b3c63dce083" title="ImageTest::SetJSON" alt="" coords="779,459,949,488"/>
+<area shape="rect" id="node20" href="$dd/d46/class_timestamp.html#ac1238e7ef53954ee90d6687601bc95e9" title="Timestamp::Get" alt="" coords="797,512,931,541"/>
+<area shape="rect" id="node21" href="$da/d92/class_image_test.html#a8e026cbe52c6fd5eb83eef7196c93ada" title="ImageTest::AppendLog" alt="" coords="771,565,957,595"/>
+<area shape="rect" id="node13" href="$d6/d56/class_critical_c_string.html#afaf8265c286f1ee918bbd6d9cfd575ae" title="CriticalCString::Clear" alt="" coords="1024,139,1195,168"/>
+<area shape="rect" id="node23" href="$d8/d08/class_timer.html#a0d8d7aab98c1c4b20e28aae017873294" title="calculates elapsed time in milliseconds " alt="" coords="800,619,928,648"/>
+</map>

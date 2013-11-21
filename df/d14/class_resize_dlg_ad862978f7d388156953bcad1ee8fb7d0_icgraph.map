@@ -1,0 +1,6 @@
+<map id="ResizeDlg::OffsetWindowSize" name="ResizeDlg::OffsetWindowSize">
+<area shape="rect" id="node2" href="$df/d14/class_resize_dlg.html#abbc1b69a8e4b0ef7b28bda23385a6697" title="Resizes an object within a parent window that allows the object to shrink vertically, but not below a minimum size. " alt="" coords="285,7,475,54"/>
+<area shape="rect" id="node4" href="$df/d14/class_resize_dlg.html#af2c9f4bac99e8845c6b5167bd25068eb" title="Resizes an object within a parent window but does not allow the object to shrink vertically. " alt="" coords="305,80,455,109"/>
+<area shape="rect" id="node3" href="$dd/dd1/class_c_operator_console_dlg.html#add79ed364a2fd29eb4dd69f831bd0119" title="Allows the display to be resized after the user changes the image size. " alt="" coords="523,5,701,51"/>
+<area shape="rect" id="node5" href="$dd/dd1/class_c_operator_console_dlg.html#ad5b6ec38f5046264163133739861dd0e" title="COperatorConsoleDlg\l::OnInitDialog" alt="" coords="523,75,701,122"/>
+</map>

@@ -1,0 +1,6 @@
+<map id="COperatorConsoleApp::InitBlemishAcq" name="COperatorConsoleApp::InitBlemishAcq">
+<area shape="rect" id="node2" href="$db/def/class_file_acquisition.html#a797827242308ce8dba037e6c36ca4b30" title="Initializes the buffers inherited from class ImageAcquisition with 2 bytes per pixel. " alt="" coords="247,5,399,35"/>
+<area shape="rect" id="node5" href="$db/def/class_file_acquisition.html#af5cffdb393fa3c0dffb9efd4af5fcc68" title="FileAcquisition::Open" alt="" coords="237,59,408,88"/>
+<area shape="rect" id="node3" href="$d8/d29/class_image_acquisition.html#a09e47283e2ae3e6c352b8842bde2332a" title="may be overridden, but be sure to call parent function also " alt="" coords="457,5,626,35"/>
+<area shape="rect" id="node4" href="$d3/d1e/class_critical_buf.html#af55d2c476f545955912617611c18cbee" title="CriticalBuf::Init" alt="" coords="675,5,797,35"/>
+</map>

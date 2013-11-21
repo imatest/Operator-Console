@@ -1,0 +1,45 @@
+<map id="COperatorConsoleApp::OnSetup" name="COperatorConsoleApp::OnSetup">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="238,443,421,490"/>
+<area shape="rect" id="node43" href="$d3/d9f/class_c_operator_console_app.html#a7bcf9790237d98d6b2182623b4e500fd" title="This function writes items for the setup dialog to imatest.ini. " alt="" coords="238,643,421,690"/>
+<area shape="rect" id="node3" href="$d7/da0/class_thread_control.html#afd86c1fc3e09d219cf48f5a15539b920" title="ThreadControl::Quit" alt="" coords="491,319,648,348"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#ac47de682b105a11015ceef305c225924" title="COperatorConsoleApp\l::CheckFiles" alt="" coords="478,177,661,223"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a8edea834120ba2acc0e16230ff5efb14" title="COperatorConsoleApp\l::InitBlemishAcq" alt="" coords="478,585,661,631"/>
+<area shape="rect" id="node11" href="$d8/d29/class_image_acquisition.html#af32c2cc8a87105465ba8620e77745c2b" title="ImageAcquisition::GetInfo" alt="" coords="470,656,669,685"/>
+<area shape="rect" id="node12" href="$d3/d9f/class_c_operator_console_app.html#a7e42ecea8d8270d3b3cf9552abc00eba" title="COperatorConsoleApp\l::InitSFRplusAcq" alt="" coords="478,514,661,561"/>
+<area shape="rect" id="node13" href="$d3/d9f/class_c_operator_console_app.html#a74df2a3e42b3980069fa3946b67ecf79" title="COperatorConsoleApp\l::InitCamera" alt="" coords="478,710,661,757"/>
+<area shape="rect" id="node15" href="$d3/d9f/class_c_operator_console_app.html#aeb93b88acfe6d11d64f493f63f74bca6" title="COperatorConsoleApp\l::AllocateImageBuf" alt="" coords="478,106,661,153"/>
+<area shape="rect" id="node17" href="$d3/d9f/class_c_operator_console_app.html#a51ad7e6e8f370072c3e89d0d7e9e41a8" title="COperatorConsoleApp\l::InitBlemishThread" alt="" coords="478,373,661,419"/>
+<area shape="rect" id="node41" href="$d3/d9f/class_c_operator_console_app.html#af7328d2c00abb1d4a09a65492c69b2b0" title="COperatorConsoleApp\l::InitSFRplusThread" alt="" coords="478,443,661,490"/>
+<area shape="rect" id="node42" href="$d3/d9f/class_c_operator_console_app.html#a603dc5a9e0c64b5d2a604965b023c936" title="Called after MSG_SET_SFRPLUS is received. " alt="" coords="478,247,661,294"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a9f0e96c6628d1c991c7a4bf6741ed6d9" title="COperatorConsoleApp\l::FileExists" alt="" coords="737,177,919,223"/>
+<area shape="rect" id="node7" href="$db/def/class_file_acquisition.html#a797827242308ce8dba037e6c36ca4b30" title="Initializes the buffers inherited from class ImageAcquisition with 2 bytes per pixel. " alt="" coords="752,559,904,588"/>
+<area shape="rect" id="node10" href="$db/def/class_file_acquisition.html#af5cffdb393fa3c0dffb9efd4af5fcc68" title="FileAcquisition::Open" alt="" coords="743,612,913,641"/>
+<area shape="rect" id="node8" href="$d8/d29/class_image_acquisition.html#a09e47283e2ae3e6c352b8842bde2332a" title="may be overridden, but be sure to call parent function also " alt="" coords="1001,655,1170,684"/>
+<area shape="rect" id="node9" href="$d3/d1e/class_critical_buf.html#af55d2c476f545955912617611c18cbee" title="CriticalBuf::Init" alt="" coords="1283,655,1405,684"/>
+<area shape="rect" id="node14" href="$df/d22/class_imatest_lib_acq.html#af8b94cf2a548d2edbd61e0e39d7e5cce" title="ImatestLibAcq::Open" alt="" coords="744,667,912,696"/>
+<area shape="rect" id="node16" href="$d8/d29/class_image_acquisition.html#aa77f9ea82fa88ae12c6b9fba9e13006e" title="ImageAcquisition::BytesPer\lFrame" alt="" coords="721,106,935,153"/>
+<area shape="rect" id="node18" href="$d8/d29/class_image_acquisition.html#a0964521623ef639396b854aceebbcbef" title="ImageAcquisition::GetHeight" alt="" coords="718,399,938,428"/>
+<area shape="rect" id="node19" href="$d8/d29/class_image_acquisition.html#a589eb2272d57ee982b6970667b034a0d" title="ImageAcquisition::GetWidth" alt="" coords="721,452,935,481"/>
+<area shape="rect" id="node20" href="$d7/da0/class_thread_control.html#a5054f2ad6297cc65b4cb9146437f48b0" title="ThreadControl::Init" alt="" coords="754,345,902,375"/>
+<area shape="rect" id="node22" href="$da/d92/class_image_test.html#ab97f2724bc4060b68dd623c2ff8bbb8d" title="ImageTest::Init" alt="" coords="767,505,889,535"/>
+<area shape="rect" id="node25" href="$da/d92/class_image_test.html#a372478d09c06cd7ab3684840add6215e" title="param must be a pointer to a ThreadControl object; param&#45;&gt;m_data must point to an ImageTest object ..." alt="" coords="735,279,921,308"/>
+<area shape="rect" id="node21" href="$d7/da0/class_thread_control.html#ae2bdd5434d609141dda49566f81c9ce6" title="ThreadControl::InitThread" alt="" coords="987,379,1184,408"/>
+<area shape="rect" id="node23" href="$da/d92/class_image_test.html#a19f4ba2329209f42293e735fe9797e7c" title="ImageTest::AllocateRGB" alt="" coords="989,532,1182,561"/>
+<area shape="rect" id="node24" href="$da/d92/class_image_test.html#ad019b2cd49f147623a4f0ded3a927aee" title="ImageTest::DeleteRGB" alt="" coords="1253,539,1435,568"/>
+<area shape="rect" id="node26" href="$d8/d08/class_timer.html#a4e607b129b392c11adddd9641a320436" title="Timer::Start" alt="" coords="1034,219,1137,248"/>
+<area shape="rect" id="node27" href="$da/d92/class_image_test.html#a7334d76c1cc6780f46626be5b9ff1adb" title="Runs the test pointed to by m_imatestFunc. " alt="" coords="1020,272,1151,301"/>
+<area shape="rect" id="node38" href="$d8/d08/class_timer.html#a6379e797f968aaee6ac3bb12dc6b81c5" title="Timer::Stop" alt="" coords="1034,325,1137,355"/>
+<area shape="rect" id="node40" href="$d8/d08/class_timer.html#a40773739b5fe60e836329bbbe6ed65ce" title="gets the elapsed time in milliseconds " alt="" coords="1038,165,1133,195"/>
+<area shape="rect" id="node28" href="$da/d92/class_image_test.html#a3b66aa4095c338dd90f6e57e108f3038" title="ImageTest::InitResults" alt="" coords="1257,432,1431,461"/>
+<area shape="rect" id="node30" href="$da/d92/class_image_test.html#acfb4336b719c918a612640d9d8c63834" title="converts from m_rawPixels to m_rgb " alt="" coords="1233,5,1455,35"/>
+<area shape="rect" id="node31" href="$da/d92/class_image_test.html#ae9ca0a6007b17711f0159e61dbb62e39" title="converts from m_rgb to rgb " alt="" coords="1233,59,1455,88"/>
+<area shape="rect" id="node32" href="$da/d92/class_image_test.html#a92af335f5f0e96e443b4a938a69d4800" title="ImageTest::SaveImage" alt="" coords="1253,112,1435,141"/>
+<area shape="rect" id="node33" href="$d0/d59/_documentation_2_operator-_console_2jsonhelpers_8cpp.html#aa7615c9874e29e598b0d0fd34967390d" title="prepareTestSettings" alt="" coords="1262,165,1426,195"/>
+<area shape="rect" id="node34" href="$da/d92/class_image_test.html#ad03c43bf481a29e5f8cd143446be4ca1" title="This must be implemented by subclass. " alt="" coords="1246,219,1442,248"/>
+<area shape="rect" id="node35" href="$da/d92/class_image_test.html#af4e55cf62f52fda3a5fc7b3c63dce083" title="ImageTest::SetJSON" alt="" coords="1259,272,1429,301"/>
+<area shape="rect" id="node36" href="$dd/d46/class_timestamp.html#ac1238e7ef53954ee90d6687601bc95e9" title="Timestamp::Get" alt="" coords="1277,325,1411,355"/>
+<area shape="rect" id="node37" href="$da/d92/class_image_test.html#a8e026cbe52c6fd5eb83eef7196c93ada" title="ImageTest::AppendLog" alt="" coords="1251,379,1437,408"/>
+<area shape="rect" id="node29" href="$d6/d56/class_critical_c_string.html#afaf8265c286f1ee918bbd6d9cfd575ae" title="CriticalCString::Clear" alt="" coords="1504,432,1675,461"/>
+<area shape="rect" id="node39" href="$d8/d08/class_timer.html#a0d8d7aab98c1c4b20e28aae017873294" title="calculates elapsed time in milliseconds " alt="" coords="1280,485,1408,515"/>
+<area shape="rect" id="node44" href="$d6/d56/imatest__library_8cpp.html#ab3b0d3cdae6c078ef623ac257ead5cef" title="inifile" alt="" coords="540,781,599,811"/>
+</map>

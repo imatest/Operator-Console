@@ -1,0 +1,12 @@
+<map id="ImageAcquisition::Init" name="ImageAcquisition::Init">
+<area shape="rect" id="node2" href="$db/def/class_file_acquisition.html#a797827242308ce8dba037e6c36ca4b30" title="Initializes the buffers inherited from class ImageAcquisition with 2 bytes per pixel. " alt="" coords="224,84,376,113"/>
+<area shape="rect" id="node10" href="$d3/d9f/class_c_operator_console_app.html#a74df2a3e42b3980069fa3946b67ecf79" title="COperatorConsoleApp\l::InitCamera" alt="" coords="425,146,607,193"/>
+<area shape="rect" id="node11" href="$dc/d78/class_file_acq.html#afa3f029144b805b817b87dcae7fde0e6" title="Loads a file first into the CImage object m_image, and then into m_buf inherited from class ImageAcqu..." alt="" coords="239,197,361,227"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a8edea834120ba2acc0e16230ff5efb14" title="COperatorConsoleApp\l::InitBlemishAcq" alt="" coords="425,75,607,122"/>
+<area shape="rect" id="node9" href="$d3/d9f/class_c_operator_console_app.html#a7e42ecea8d8270d3b3cf9552abc00eba" title="COperatorConsoleApp\l::InitSFRplusAcq" alt="" coords="425,5,607,51"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d" title="Init perform application&#45;specific initialization. " alt="" coords="657,41,839,87"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="657,111,839,158"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="889,41,1071,87"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="889,111,1071,158"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="1120,111,1304,158"/>
+</map>

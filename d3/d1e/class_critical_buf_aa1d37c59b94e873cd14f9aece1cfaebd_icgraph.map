@@ -1,0 +1,6 @@
+<map id="CriticalBuf::Get" name="CriticalBuf::Get">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html#a1f434970b49d88473a1b943acd6ef48e" title="ImageAcquisition::GetFrame" alt="" coords="181,49,403,79"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a55ce42948d0ff61bbc0dc9aeb83855f7" title="Called after MSG_RUN_TEST is received. " alt="" coords="451,5,634,51"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a02d49d758d0b69a772df7b6ed00a013a" title="Called after MSG_FRAME_READY is received. " alt="" coords="451,75,634,122"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="683,41,867,87"/>
+</map>

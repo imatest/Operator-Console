@@ -1,0 +1,5 @@
+<map id="TextDlg::SetTitle" name="TextDlg::SetTitle">
+<area shape="rect" id="node2" href="$db/da2/class_modeless_dialog_thread.html#a2d249f81b6f299b56c23f1ffb86888fe" title="ModelessDialogThread\l::SetTitle" alt="" coords="190,5,375,51"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a571a9da96d69ae7ec8e3bb59a393ba6c" title="Called after MSG_JSON is received. " alt="" coords="425,5,607,51"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="656,5,840,51"/>
+</map>

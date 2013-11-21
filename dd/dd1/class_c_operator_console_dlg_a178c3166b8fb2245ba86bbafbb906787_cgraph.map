@@ -1,0 +1,5 @@
+<map id="COperatorConsoleDlg::OnDrawItem" name="COperatorConsoleDlg::OnDrawItem">
+<area shape="rect" id="node2" href="$dd/dd1/class_c_operator_console_dlg.html#a17ff7053c275c487f63649575d08f8f2" title="COperatorConsoleDlg\l::DrawImage" alt="" coords="232,5,411,51"/>
+<area shape="rect" id="node4" href="$dd/dd1/class_c_operator_console_dlg.html#ab29ed8b0ac731c5f78fc399a0740e266" title="COperatorConsoleDlg\l::DrawLogo" alt="" coords="232,75,411,122"/>
+<area shape="rect" id="node3" href="$dc/dad/class_c_static_bmp.html#a7d4d8f239d43303b6a0ce2d6a84e39b6" title="CStaticBmp::Draw" alt="" coords="459,13,611,43"/>
+</map>

@@ -1,0 +1,20 @@
+<map id="COperatorConsoleApp::UpdateResultsSFRplus" name="COperatorConsoleApp::UpdateResultsSFRplus">
+<area shape="rect" id="node2" href="$dd/d12/class_s_f_rplus_test.html#a5ea622bc758ce179adae18196b0ddf8b" title="SFRplusTest::GetQSO" alt="" coords="247,73,427,103"/>
+<area shape="rect" id="node3" href="$dd/dd1/class_c_operator_console_dlg.html#ac6388b6097a94350ecf4abf7e166f9a6" title="COperatorConsoleDlg\l::UpdateQuadrants" alt="" coords="248,127,427,174"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a61fec0ac8bc8938749e977686e37e0dc" title="COperatorConsoleApp\l::UpdateResults" alt="" coords="246,295,429,342"/>
+<area shape="rect" id="node4" href="$dd/dd1/class_c_operator_console_dlg.html#a3dc3be61b2ebac3cd120e8542b3952c3" title="COperatorConsoleDlg\l::UpdateQuadrant" alt="" coords="480,59,659,106"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#ae1cbaab939cb91a18fe8c63e54367fdb" title="COperatorConsoleApp\l::GetResults" alt="" coords="478,130,661,177"/>
+<area shape="rect" id="node12" href="$dd/dd1/class_c_operator_console_dlg.html#ae937941b5c3b8b9655ad4f2f91c7ea9a" title="COperatorConsoleDlg\l::LogMessage" alt="" coords="480,201,659,247"/>
+<area shape="rect" id="node14" href="$da/d92/class_image_test.html#a9c723f8f2839a5e455bcc13c7dbdb39d" title="ImageTest::Passed" alt="" coords="491,272,648,301"/>
+<area shape="rect" id="node15" href="$dd/dd1/class_c_operator_console_dlg.html#a699603055bddf9f727f58efd0d2b1d69" title="COperatorConsoleDlg\l::UpdateFPS" alt="" coords="480,326,659,373"/>
+<area shape="rect" id="node16" href="$dd/dd1/class_c_operator_console_dlg.html#a652b4785d94be4b8b18809662edb28bd" title="COperatorConsoleDlg\l::UpdateImage" alt="" coords="480,397,659,443"/>
+<area shape="rect" id="node18" href="$dd/dd1/class_c_operator_console_dlg.html#a8951b07d9665d1994a9ba7d6896fb816" title="COperatorConsoleDlg\l::UpdateStatus" alt="" coords="480,467,659,514"/>
+<area shape="rect" id="node19" href="$dd/dd1/class_c_operator_console_dlg.html#a696a817ef9e443f40c13674083426771" title="COperatorConsoleDlg\l::UpdateSummary" alt="" coords="480,538,659,585"/>
+<area shape="rect" id="node7" href="$da/d92/class_image_test.html#a2dfac15fc3e18dcd1400d2e6fe7f4b1a" title="ImageTest::GetFailInfo" alt="" coords="717,5,896,35"/>
+<area shape="rect" id="node8" href="$da/d92/class_image_test.html#ada4d8a43edec3fa01bbc4b01ef4b6b0e" title="ImageTest::GetJSON" alt="" coords="721,59,892,88"/>
+<area shape="rect" id="node9" href="$da/d92/class_image_test.html#aec44cc808c82707c05710bdaf2b10b4a" title="ImageTest::GetLog" alt="" coords="729,112,884,141"/>
+<area shape="rect" id="node10" href="$da/d92/class_image_test.html#a0f7d70f970bde7af57011132e4cb49fc" title="ImageTest::GetName" alt="" coords="721,165,892,195"/>
+<area shape="rect" id="node11" href="$da/d92/class_image_test.html#a4cf585eeef3f72a8721af5c1c3daa781" title="ImageTest::GetSummary" alt="" coords="709,219,904,248"/>
+<area shape="rect" id="node13" href="$dd/d46/class_timestamp.html#ac1238e7ef53954ee90d6687601bc95e9" title="Timestamp::Get" alt="" coords="740,272,873,301"/>
+<area shape="rect" id="node17" href="$dc/dad/class_c_static_bmp.html#a00d2d71cabb44468cacd464307d749d4" title="CStaticBmp::Update" alt="" coords="723,405,890,435"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="COperatorConsoleDlg::OnInitDialog" name="COperatorConsoleDlg::OnInitDialog">
+<area shape="rect" id="node2" href="$df/d14/class_resize_dlg.html#af2c9f4bac99e8845c6b5167bd25068eb" title="Resizes an object within a parent window but does not allow the object to shrink vertically. " alt="" coords="233,103,383,132"/>
+<area shape="rect" id="node3" href="$df/d14/class_resize_dlg.html#abe2cd6505a36ea159640b6b35cf81bbc" title="Calculates the differences in window height and width between the current and new sizes..." alt="" coords="435,5,661,51"/>
+<area shape="rect" id="node5" href="$df/d14/class_resize_dlg.html#ad862978f7d388156953bcad1ee8fb7d0" title="Changes the window size. " alt="" coords="433,76,663,105"/>
+<area shape="rect" id="node6" href="$df/d14/class_resize_dlg.html#ac488d477589ed7bf19d53c0a2f14b02a" title="A function that centers an object with respect to the parent with the option to select only vertical ..." alt="" coords="445,129,651,159"/>
+<area shape="rect" id="node7" href="$df/d14/class_resize_dlg.html#ac1be0074b5ee381220d10b01f54e3c58" title="ResizeDlg::OffsetChildPos" alt="" coords="445,183,651,212"/>
+<area shape="rect" id="node4" href="$df/d14/class_resize_dlg.html#a39f24d6991e0289185f55fe79220b7ae" title="A function that acquires either the window or client size. " alt="" coords="713,45,927,75"/>
+</map>

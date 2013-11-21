@@ -1,0 +1,16 @@
+<map id="ImageTest::Run" name="ImageTest::Run">
+<area shape="rect" id="node2" href="$da/d92/class_image_test.html#ab97f2724bc4060b68dd623c2ff8bbb8d" title="ImageTest::Init" alt="" coords="188,85,311,115"/>
+<area shape="rect" id="node5" href="$da/d92/class_image_test.html#a7334d76c1cc6780f46626be5b9ff1adb" title="Runs the test pointed to by m_imatestFunc. " alt="" coords="184,245,315,275"/>
+<area shape="rect" id="node3" href="$da/d92/class_image_test.html#a19f4ba2329209f42293e735fe9797e7c" title="ImageTest::AllocateRGB" alt="" coords="378,5,571,35"/>
+<area shape="rect" id="node4" href="$da/d92/class_image_test.html#ad019b2cd49f147623a4f0ded3a927aee" title="ImageTest::DeleteRGB" alt="" coords="635,5,818,35"/>
+<area shape="rect" id="node6" href="$da/d92/class_image_test.html#a8e026cbe52c6fd5eb83eef7196c93ada" title="ImageTest::AppendLog" alt="" coords="382,59,567,88"/>
+<area shape="rect" id="node7" href="$dd/d46/class_timestamp.html#ac1238e7ef53954ee90d6687601bc95e9" title="Timestamp::Get" alt="" coords="408,112,541,141"/>
+<area shape="rect" id="node8" href="$da/d92/class_image_test.html#a3b66aa4095c338dd90f6e57e108f3038" title="ImageTest::InitResults" alt="" coords="388,165,561,195"/>
+<area shape="rect" id="node10" href="$da/d92/class_image_test.html#ad03c43bf481a29e5f8cd143446be4ca1" title="This must be implemented by subclass. " alt="" coords="377,219,573,248"/>
+<area shape="rect" id="node11" href="$da/d92/class_image_test.html#acfb4336b719c918a612640d9d8c63834" title="converts from m_rawPixels to m_rgb " alt="" coords="363,272,586,301"/>
+<area shape="rect" id="node12" href="$d0/d59/_documentation_2_operator-_console_2jsonhelpers_8cpp.html#aa7615c9874e29e598b0d0fd34967390d" title="prepareTestSettings" alt="" coords="393,325,557,355"/>
+<area shape="rect" id="node13" href="$da/d92/class_image_test.html#ae9ca0a6007b17711f0159e61dbb62e39" title="converts from m_rgb to rgb " alt="" coords="363,379,586,408"/>
+<area shape="rect" id="node14" href="$da/d92/class_image_test.html#a92af335f5f0e96e443b4a938a69d4800" title="ImageTest::SaveImage" alt="" coords="383,432,566,461"/>
+<area shape="rect" id="node15" href="$da/d92/class_image_test.html#af4e55cf62f52fda3a5fc7b3c63dce083" title="ImageTest::SetJSON" alt="" coords="390,485,559,515"/>
+<area shape="rect" id="node9" href="$d6/d56/class_critical_c_string.html#afaf8265c286f1ee918bbd6d9cfd575ae" title="CriticalCString::Clear" alt="" coords="641,165,812,195"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="COperatorConsoleApp::InitCameraThread" name="COperatorConsoleApp::InitCameraThread">
+<area shape="rect" id="node2" href="$d7/da0/class_thread_control.html#a5054f2ad6297cc65b4cb9146437f48b0" title="ThreadControl::Init" alt="" coords="279,11,427,40"/>
+<area shape="rect" id="node4" href="$d8/d29/class_image_acquisition.html#a87bc694942384075ece4dd9256215f0d" title="ImageAcquisition::ThreadProc" alt="" coords="237,68,469,97"/>
+<area shape="rect" id="node3" href="$d7/da0/class_thread_control.html#ae2bdd5434d609141dda49566f81c9ce6" title="ThreadControl::InitThread" alt="" coords="523,5,720,35"/>
+<area shape="rect" id="node5" href="$d8/d29/class_image_acquisition.html#abb79a26a0c95f3fae6d5469ad936d12c" title="capture a single image into m_buf " alt="" coords="518,59,725,106"/>
+<area shape="rect" id="node6" href="$d3/d1e/class_critical_buf.html#abeb31c8a1c19e03799e9a7ee4397d86b" title="CriticalBuf::Set" alt="" coords="558,131,685,160"/>
+</map>

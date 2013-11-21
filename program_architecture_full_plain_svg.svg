@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.2"
+   width="699.09375"
+   height="398.25"
+   id="svg3011">
+  <defs
+     id="defs3013">
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lstart"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         id="path4463"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1Lend"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.8,0,0,-0.8,-10,0)"
+         id="path4288"
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1pt" />
+    </marker>
+    <marker
+       refX="0"
+       refY="0"
+       orient="auto"
+       id="Arrow1SendT"
+       style="overflow:visible">
+      <path
+         d="M 0,0 5,-5 -12.5,0 5,5 0,0 z"
+         transform="matrix(-0.2,0,0,-0.2,-1.2,0)"
+         id="path7346"
+         style="fill:#4a0000;fill-rule:evenodd;stroke:#4a0000;stroke-width:1pt" />
+    </marker>
+  </defs>
+  <metadata
+     id="metadata3016">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-21.15625,-20.09375)"
+     id="layer1">
+    <rect
+       width="198.57143"
+       height="77.14286"
+       x="274.7908"
+       y="339.7128"
+       id="rect3027"
+       style="fill:#ffe680;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <rect
+       width="697.07196"
+       height="281.39697"
+       ry="24.243662"
+       x="22.168209"
+       y="21.102192"
+       id="rect4251"
+       style="fill:#ffffff;fill-opacity:0;stroke:#000000;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:3.99999976, 1.99999988, 0.99999994, 1.99999988;stroke-dashoffset:0" />
+    <text
+       x="295.45151"
+       y="382.42874"
+       id="text3072"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="295.45151"
+         y="382.42874"
+         id="tspan3074"><tspan
+           x="295.45151"
+           y="382.42874"
+           id="tspan3076"
+           style="font-size:16px">COperatorConsoleDlg</tspan></tspan></text>
+    <flowRoot
+       id="flowRoot3056"
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><flowRegion
+         id="flowRegion3058"><rect
+           width="150"
+           height="134.28572"
+           x="494.28571"
+           y="459.50504"
+           id="rect3060"
+           style="font-size:16px" /></flowRegion><flowPara
+         id="flowPara3062" /></flowRoot>    <rect
+       width="139.045"
+       height="90.375999"
+       x="535.59698"
+       y="38.10223"
+       id="rect3023"
+       style="fill:#ffccaa;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="544.21362"
+       y="56.623852"
+       id="text3123"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="544.21362"
+         y="56.623852"
+         id="tspan3125"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Sans Bold">External dialogs</tspan><tspan
+         x="544.21362"
+         y="72.452705"
+         id="tspan3127">CSetup</tspan><tspan
+         x="544.21362"
+         y="87.452705"
+         id="tspan3129">CPassFail</tspan><tspan
+         x="544.21362"
+         y="102.45271"
+         id="tspan3131">ModelessDialogThread</tspan><tspan
+         x="544.21362"
+         y="117.45271"
+         id="tspan3151">CPasswordDialog</tspan></text>
+    <rect
+       width="195.71428"
+       height="88.571419"
+       x="277.02554"
+       y="161.47517"
+       id="rect3019"
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="293.80847"
+       y="209.99918"
+       id="text3163"
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="293.80847"
+         y="209.99918"
+         id="tspan3167">COperatorConsoleApp</tspan></text>
+    <rect
+       width="173.64301"
+       height="105.547"
+       x="535.59698"
+       y="152.98738"
+       id="rect3277"
+       style="fill:#afc6e9;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="544.11475"
+       y="171.67995"
+       id="text3259"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="544.11475"
+         y="171.67995"
+         id="tspan3261"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Sans Bold">Data structures/classes</tspan><tspan
+         x="544.11475"
+         y="187.5088"
+         id="tspan3263">TestResults</tspan><tspan
+         x="544.11475"
+         y="202.5088"
+         id="tspan3265">AppFlags</tspan><tspan
+         x="544.11475"
+         y="217.5088"
+         id="tspan3267">setup_settings</tspan><tspan
+         x="544.11475"
+         y="232.5088"
+         id="tspan3269">Config</tspan><tspan
+         x="544.11475"
+         y="247.5088"
+         id="tspan3271">CPassFailSettings</tspan></text>
+    <rect
+       width="161.922"
+       height="75.235001"
+       x="293.92166"
+       y="45.672729"
+       id="rect3302"
+       style="fill:#ccaaff;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="302.42172"
+       y="64.19416"
+       id="text3290"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="302.42172"
+         y="64.19416"
+         id="tspan3300"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Sans Bold">Image-testing classes</tspan><tspan
+         x="302.42172"
+         y="80.02301"
+         id="tspan3294">ImageTest</tspan><tspan
+         x="302.42172"
+         y="95.02301"
+         id="tspan3296">    BlemishTest</tspan><tspan
+         x="302.42172"
+         y="110.02301"
+         id="tspan3298">    SFRplusTest</tspan></text>
+    <rect
+       width="149.42599"
+       height="105.406"
+       x="53.707394"
+       y="153.05789"
+       id="rect3346"
+       style="fill:#e9afc6;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="62.207508"
+       y="171.75027"
+       id="text3320"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="62.207508"
+         y="171.75027"
+         id="tspan3322"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Sans Bold">Acquisition Classes</tspan><tspan
+         x="62.207508"
+         y="187.57913"
+         id="tspan3324">ImageAcquisition</tspan><tspan
+         x="62.207508"
+         y="202.57913"
+         id="tspan3326">    FileAcquisition</tspan><tspan
+         x="62.207508"
+         y="217.57913"
+         id="tspan3328">    ImatestLibAcq</tspan><tspan
+         x="62.207508"
+         y="232.57913"
+         id="tspan3330">    SimpleDirectShowAcq</tspan><tspan
+         x="62.207508"
+         y="247.57913"
+         id="tspan3332">    FileAcq</tspan></text>
+    <path
+       d="m 374.88267,161.47517 0,-38.48171"
+       id="path4265"
+       style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <path
+       d="m 275.76283,205.76088 -69.85152,0"
+       id="path4269"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <path
+       d="m 472.73981,205.76088 60.83687,0"
+       id="path4277"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <text
+       x="251.57332"
+       y="13.401377"
+       transform="matrix(0.89493396,0.44619862,-0.44619862,0.89493396,0,0)"
+       id="text5635"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="251.57332"
+         y="13.401377"
+         id="tspan5637"
+         style="font-size:10px">Creates and inits</tspan></text>
+    <text
+       x="329.06552"
+       y="139.23883"
+       id="text5635-1"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="329.06552"
+         y="139.23883"
+         id="tspan5637-7"
+         style="font-size:10px">Creates </tspan><tspan
+         x="329.06552"
+         y="151.73883"
+         id="tspan5756"
+         style="font-size:10px">and inits</tspan></text>
+    <text
+       x="325.91705"
+       y="351.51242"
+       transform="matrix(0.88413892,-0.46722412,0.46722412,0.88413892,0,0)"
+       id="text5635-1-4"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="325.91705"
+         y="351.51242"
+         id="tspan5637-7-0"
+         style="font-size:10px">Creates and inits</tspan></text>
+    <text
+       x="481.85501"
+       y="219.7677"
+       id="text5635-1-5"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="481.85501"
+         y="219.7677"
+         id="tspan5637-7-5"
+         style="font-size:10px">Creates </tspan><tspan
+         x="481.85501"
+         y="232.2677"
+         id="tspan5756-1"
+         style="font-size:10px">and inits</tspan></text>
+    <text
+       x="226.28644"
+       y="219.7677"
+       id="text5635-1-5-7"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="226.28644"
+         y="219.7677"
+         id="tspan5637-7-5-1"
+         style="font-size:10px">Creates </tspan><tspan
+         x="226.28644"
+         y="232.2677"
+         id="tspan5756-1-1"
+         style="font-size:10px">and inits</tspan></text>
+    <text
+       x="378.31439"
+       y="280.88193"
+       id="text5635-1-5-5"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="378.31439"
+         y="280.88193"
+         id="tspan5637-7-5-2"
+         style="font-size:10px">Creates </tspan><tspan
+         x="378.31439"
+         y="293.38193"
+         id="tspan5756-1-7"
+         style="font-size:10px">and inits</tspan></text>
+    <path
+       d="m 316.17776,339.19449 0,-77.51143"
+       id="path5968"
+       style="fill:none;stroke:#4a0000;stroke-width:6.00000048;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:6.00000017, 6.00000017;stroke-dashoffset:0;marker-end:url(#Arrow1SendT)" />
+    <path
+       d="m 374.67573,250.04659 -0.41899,89.6662"
+       id="path7120"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+    <text
+       x="257.5889"
+       y="298.64624"
+       id="text7321"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#4a0000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="257.5889"
+         y="298.64624"
+         id="tspan7323">Message-</tspan><tspan
+         x="257.5889"
+         y="313.64624"
+         id="tspan7325">passing</tspan><tspan
+         x="257.5889"
+         y="328.64624"
+         id="tspan7327">interface</tspan></text>
+    <rect
+       width="172.246"
+       height="103.997"
+       x="32.168392"
+       y="31.291729"
+       id="rect3225"
+       style="fill:#aade87;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       x="41.168346"
+       y="50.313305"
+       id="text3091"
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+         x="41.168346"
+         y="50.313305"
+         id="tspan3093"
+         style="font-size:14px;font-weight:bold;-inkscape-font-specification:Sans Bold">External thread objects</tspan><tspan
+         x="41.168346"
+         y="66.142159"
+         id="tspan3095">ThreadControl</tspan><tspan
+         x="41.168346"
+         y="81.142159"
+         id="tspan3097">ModelessDialogThread</tspan><tspan
+         x="41.168346"
+         y="96.142159"
+         id="tspan3103">StdoutRedirect</tspan><tspan
+         x="41.168346"
+         y="111.14216"
+         id="tspan3099">   StdoutThread</tspan><tspan
+         x="41.168346"
+         y="126.14216"
+         id="tspan3101">   StderrThread</tspan></text>
+    <path
+       d="m 459.20834,160.89885 75.31722,-40.05096"
+       id="path3125"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-start:none;marker-end:url(#Arrow1Lend)" />
+    <path
+       d="M 280.01126,160.46502 206.50174,125.40677"
+       id="path5279"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)" />
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<map id="ImageTest::SetJSON" name="ImageTest::SetJSON">
+<area shape="rect" id="node2" href="$da/d92/class_image_test.html#a7334d76c1cc6780f46626be5b9ff1adb" title="Runs the test pointed to by m_imatestFunc. " alt="" coords="224,32,355,61"/>
+<area shape="rect" id="node3" href="$da/d92/class_image_test.html#accf2cfff6fe48fd19888727208dd6728" title="ImageTest::Run" alt="" coords="431,5,561,35"/>
+<area shape="rect" id="node4" href="$da/d92/class_image_test.html#a372478d09c06cd7ab3684840add6215e" title="param must be a pointer to a ThreadControl object; param&#45;&gt;m_data must point to an ImageTest object ..." alt="" coords="403,59,589,88"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a51ad7e6e8f370072c3e89d0d7e9e41a8" title="COperatorConsoleApp\l::InitBlemishThread" alt="" coords="638,14,821,61"/>
+<area shape="rect" id="node11" href="$d3/d9f/class_c_operator_console_app.html#af7328d2c00abb1d4a09a65492c69b2b0" title="COperatorConsoleApp\l::InitSFRplusThread" alt="" coords="638,85,821,131"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d" title="Init perform application&#45;specific initialization. " alt="" coords="870,14,1053,61"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="870,85,1053,131"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="1102,14,1285,61"/>
+<area shape="rect" id="node9" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="1102,85,1285,131"/>
+<area shape="rect" id="node10" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="1333,85,1517,131"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="COperatorConsoleApp::GetStdoutMsg" name="COperatorConsoleApp::GetStdoutMsg">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a5ffde398d86b31aa60e8dbb3cd0cf8f4" title="Called after MSG_STDERR is received. " alt="" coords="238,5,421,51"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a1baba590ed8125440723c012ff6a4e77" title="Called after MSG_STDOUT is received. " alt="" coords="238,75,421,122"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="469,41,653,87"/>
+</map>

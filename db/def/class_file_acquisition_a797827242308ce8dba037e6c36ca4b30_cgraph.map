@@ -1,0 +1,4 @@
+<map id="FileAcquisition::Init" name="FileAcquisition::Init">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html#a09e47283e2ae3e6c352b8842bde2332a" title="may be overridden, but be sure to call parent function also " alt="" coords="206,5,375,35"/>
+<area shape="rect" id="node3" href="$d3/d1e/class_critical_buf.html#af55d2c476f545955912617611c18cbee" title="CriticalBuf::Init" alt="" coords="425,5,546,35"/>
+</map>

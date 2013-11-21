@@ -1,0 +1,9 @@
+<map id="FileAcquisition::Open" name="FileAcquisition::Open">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a8edea834120ba2acc0e16230ff5efb14" title="COperatorConsoleApp\l::InitBlemishAcq" alt="" coords="225,5,407,51"/>
+<area shape="rect" id="node8" href="$d3/d9f/class_c_operator_console_app.html#a7e42ecea8d8270d3b3cf9552abc00eba" title="COperatorConsoleApp\l::InitSFRplusAcq" alt="" coords="225,75,407,122"/>
+<area shape="rect" id="node3" href="$d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d" title="Init perform application&#45;specific initialization. " alt="" coords="457,5,639,51"/>
+<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728" title="This function allows for reallocation of the various image buffers when we change the image size..." alt="" coords="457,75,639,122"/>
+<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="689,5,871,51"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6" title="Called after MSG_SETUP is received. " alt="" coords="689,75,871,122"/>
+<area shape="rect" id="node7" href="$d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1" title="Intercepts messages of interest before Windows or MFC. " alt="" coords="920,75,1104,122"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="COperatorConsoleApp::OnUpdateStderr" name="COperatorConsoleApp::OnUpdateStderr">
+<area shape="rect" id="node2" href="$d3/d9f/class_c_operator_console_app.html#a5e4a6598aa6a33636d283e29f19c76ca" title="COperatorConsoleApp\l::GetStdoutMsg" alt="" coords="238,29,421,75"/>
+<area shape="rect" id="node3" href="$d5/d67/class_stdout_thread.html#a6989ce68e4bbc93a7ff7370901a808c0" title="StdoutThread::Get" alt="" coords="484,5,633,35"/>
+<area shape="rect" id="node5" href="$dd/dd1/class_c_operator_console_dlg.html#ae937941b5c3b8b9655ad4f2f91c7ea9a" title="COperatorConsoleDlg\l::LogMessage" alt="" coords="469,59,648,106"/>
+<area shape="rect" id="node4" href="$d6/d56/class_critical_c_string.html#a889c4327ebcbf028214950d6d65291bf" title="copy m_string into str, then optionally clear m_string " alt="" coords="696,5,853,35"/>
+<area shape="rect" id="node6" href="$dd/d46/class_timestamp.html#ac1238e7ef53954ee90d6687601bc95e9" title="Timestamp::Get" alt="" coords="708,68,841,97"/>
+</map>

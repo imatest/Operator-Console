@@ -1,0 +1,7 @@
+<map id="COperatorConsoleDlg::OnBnClickedStart" name="COperatorConsoleDlg::OnBnClickedStart">
+<area shape="rect" id="node2" href="$dd/dd1/class_c_operator_console_dlg.html#a5b4930e365a3a0ee50490231a1c7f3bd" title="COperatorConsoleDlg\l::PostParentMessage" alt="" coords="232,5,411,51"/>
+<area shape="rect" id="node3" href="$dd/dd1/class_c_operator_console_dlg.html#a97e4afb686fa8055a81928767b8f3f67" title="COperatorConsoleDlg\l::ShowStartStop" alt="" coords="232,75,411,122"/>
+<area shape="rect" id="node4" href="$dd/dd1/class_c_operator_console_dlg.html#ac6388b6097a94350ecf4abf7e166f9a6" title="COperatorConsoleDlg\l::UpdateQuadrants" alt="" coords="232,146,411,193"/>
+<area shape="rect" id="node6" href="$dd/dd1/class_c_operator_console_dlg.html#a8951b07d9665d1994a9ba7d6896fb816" title="COperatorConsoleDlg\l::UpdateStatus" alt="" coords="232,217,411,263"/>
+<area shape="rect" id="node5" href="$dd/dd1/class_c_operator_console_dlg.html#a3dc3be61b2ebac3cd120e8542b3952c3" title="COperatorConsoleDlg\l::UpdateQuadrant" alt="" coords="459,146,637,193"/>
+</map>

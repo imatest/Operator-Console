@@ -1,0 +1,5 @@
+<map id="COperatorConsoleApp::InitCamera" name="COperatorConsoleApp::InitCamera">
+<area shape="rect" id="node2" href="$d8/d29/class_image_acquisition.html#a09e47283e2ae3e6c352b8842bde2332a" title="may be overridden, but be sure to call parent function also " alt="" coords="238,5,407,35"/>
+<area shape="rect" id="node4" href="$df/d22/class_imatest_lib_acq.html#af8b94cf2a548d2edbd61e0e39d7e5cce" title="ImatestLibAcq::Open" alt="" coords="239,59,407,88"/>
+<area shape="rect" id="node3" href="$d3/d1e/class_critical_buf.html#af55d2c476f545955912617611c18cbee" title="CriticalBuf::Init" alt="" coords="457,5,578,35"/>
+</map>

@@ -1,0 +1,4 @@
+<map id="StdoutThread" name="StdoutThread">
+<area shape="rect" id="node3" href="$df/d44/class_stderr_thread.html" title="Defines a thread class for capturing stderr. " alt="" coords="11,160,125,189"/>
+<area shape="rect" id="node2" href="$d5/d52/class_stdout_redirect.html" title="Defines functions for redirecting stdout through a buffered pipe. " alt="" coords="5,5,131,35"/>
+</map>

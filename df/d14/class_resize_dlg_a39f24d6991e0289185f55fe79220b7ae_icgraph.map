@@ -1,0 +1,9 @@
+<map id="ResizeDlg::GetWindowSize" name="ResizeDlg::GetWindowSize">
+<area shape="rect" id="node2" href="$df/d14/class_resize_dlg.html#abbc1b69a8e4b0ef7b28bda23385a6697" title="Resizes an object within a parent window that allows the object to shrink vertically, but not below a minimum size. " alt="" coords="549,91,739,138"/>
+<area shape="rect" id="node4" href="$df/d14/class_resize_dlg.html#abe2cd6505a36ea159640b6b35cf81bbc" title="Calculates the differences in window height and width between the current and new sizes..." alt="" coords="272,162,499,209"/>
+<area shape="rect" id="node7" href="$df/d14/class_resize_dlg.html#ad862978f7d388156953bcad1ee8fb7d0" title="Changes the window size. " alt="" coords="270,108,501,137"/>
+<area shape="rect" id="node8" href="$dd/dd1/class_c_operator_console_dlg.html#a2eeb3b1e858acfd13c7a15bf9b3806ee" title="COperatorConsoleDlg\l::QsoMove" alt="" coords="555,5,733,51"/>
+<area shape="rect" id="node3" href="$dd/dd1/class_c_operator_console_dlg.html#add79ed364a2fd29eb4dd69f831bd0119" title="Allows the display to be resized after the user changes the image size. " alt="" coords="787,45,965,91"/>
+<area shape="rect" id="node5" href="$df/d14/class_resize_dlg.html#af2c9f4bac99e8845c6b5167bd25068eb" title="Resizes an object within a parent window but does not allow the object to shrink vertically. " alt="" coords="569,163,719,192"/>
+<area shape="rect" id="node6" href="$dd/dd1/class_c_operator_console_dlg.html#ad5b6ec38f5046264163133739861dd0e" title="COperatorConsoleDlg\l::OnInitDialog" alt="" coords="787,154,965,201"/>
+</map>
