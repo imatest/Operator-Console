@@ -1,0 +1,12 @@
+del 126test.ncb
+del testoutput.bin
+del *.sdf
+del Release\*.pch
+del Release\*.obj
+del Release\*.idb
+del Release\*.pdb
+del Release\*.bin
+del Debug\*.pch
+del Debug\*.obj
+del Debug\*.idb
+del Debug\*.pdb

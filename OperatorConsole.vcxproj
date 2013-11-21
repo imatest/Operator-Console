@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release_2013a|Win32">
+      <Configuration>Release_2013a</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5F479E98-E5B6-4D4D-BE0D-E722117B568C}</ProjectGuid>
+    <RootNamespace>OperatorConsole</RootNamespace>
+    <Keyword>MFCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
+      <AdditionalDependencies>imatest_library.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\imatest\projects\OpConsole\trunk;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile />
+      <PrecompiledHeaderOutputFile />
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
+      <AdditionalDependencies>imatest_library.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\imatest\matlab\build\imatest_it\final\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>
+      </PrecompiledHeaderOutputFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\imatest\matlab\build\imatest_it\final\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
+      <AdditionalDependencies>imatest_library.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <LargeAddressAware>true</LargeAddressAware>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <ValidateAllParameters>true</ValidateAllParameters>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0409</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Imatest\IT\libs\blemish\cpp\imatest_blemish.h" />
+    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Imatest\IT\libs\sfrplus\cpp\imatest_sfrplus.h" />
+    <ClInclude Include="AppThread.h" />
+    <ClInclude Include="BlemishTest.h" />
+    <ClInclude Include="Config.h" />
+    <ClInclude Include="CriticalBuf.h" />
+    <ClInclude Include="CriticalCString.h" />
+    <ClInclude Include="escapi21\escapi.h" />
+    <ClInclude Include="FileAcq.h" />
+    <ClInclude Include="FileAcquisition.h" />
+    <ClInclude Include="ImageAcquisition.h" />
+    <ClInclude Include="ImageTest.h" />
+    <ClInclude Include="ImatestLibAcq.h" />
+    <ClInclude Include="jsonhelpers.h" />
+    <ClInclude Include="JSONOptions.h" />
+    <ClInclude Include="JSON\internalJSONNode.h" />
+    <ClInclude Include="JSON\JSONAllocator.h" />
+    <ClInclude Include="JSON\JSONChildren.h" />
+    <ClInclude Include="JSON\JSONDebug.h" />
+    <ClInclude Include="JSON\JSONDefs.h" />
+    <ClInclude Include="JSON\JSONDefs\GNU_C.h" />
+    <ClInclude Include="JSON\JSONDefs\Strings_Defs.h" />
+    <ClInclude Include="JSON\JSONDefs\Unknown_C.h" />
+    <ClInclude Include="JSON\JSONDefs\Visual_C.h" />
+    <ClInclude Include="JSON\JSONGlobals.h" />
+    <ClInclude Include="JSON\JSONMemory.h" />
+    <ClInclude Include="JSON\JSONMemoryPool.h" />
+    <ClInclude Include="JSON\JSONNode.h" />
+    <ClInclude Include="JSON\JSONPreparse.h" />
+    <ClInclude Include="JSON\JSONSharedString.h" />
+    <ClInclude Include="JSON\JSONSingleton.h" />
+    <ClInclude Include="JSON\JSONStream.h" />
+    <ClInclude Include="JSON\JSONValidator.h" />
+    <ClInclude Include="JSON\JSONWorker.h" />
+    <ClInclude Include="JSON\JSON_Base64.h" />
+    <ClInclude Include="JSON\NumberToString.h" />
+    <ClInclude Include="libjson.h" />
+    <ClInclude Include="ModelessDialogThread.h" />
+    <ClInclude Include="OperatorConsole.h" />
+    <ClInclude Include="OperatorConsoleDlg.h" />
+    <ClInclude Include="PassFail.h" />
+    <ClInclude Include="PassFailSettings.h" />
+    <ClInclude Include="PasswordDialog.h" />
+    <ClInclude Include="qso.h" />
+    <ClInclude Include="ResizeDlg.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="Setup.h" />
+    <ClInclude Include="setup_settings.h" />
+    <ClInclude Include="SFRplusTest.h" />
+    <ClInclude Include="SimpleDirectShowAcq.h" />
+    <ClInclude Include="StaticBmp.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="StderrRedirect.h" />
+    <ClInclude Include="StderrThread.h" />
+    <ClInclude Include="StdoutRedirect.h" />
+    <ClInclude Include="StdoutThread.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextDlg.h" />
+    <ClInclude Include="ThreadControl.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Timestamp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="BlemishTest.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="CriticalBuf.cpp" />
+    <ClCompile Include="CriticalCString.cpp" />
+    <ClCompile Include="escapi21\escapi.cpp" />
+    <ClCompile Include="FileAcq.cpp" />
+    <ClCompile Include="FileAcquisition.cpp" />
+    <ClCompile Include="ImageAcquisition.cpp" />
+    <ClCompile Include="ImageTest.cpp" />
+    <ClCompile Include="ImatestLibAcq.cpp" />
+    <ClCompile Include="jsonhelpers.cpp" />
+    <ClCompile Include="JSON\internalJSONNode.cpp" />
+    <ClCompile Include="JSON\JSONAllocator.cpp" />
+    <ClCompile Include="JSON\JSONChildren.cpp" />
+    <ClCompile Include="JSON\JSONDebug.cpp" />
+    <ClCompile Include="JSON\JSONIterators.cpp" />
+    <ClCompile Include="JSON\JSONMemory.cpp" />
+    <ClCompile Include="JSON\JSONNode.cpp" />
+    <ClCompile Include="JSON\JSONNode_Mutex.cpp" />
+    <ClCompile Include="JSON\JSONPreparse.cpp" />
+    <ClCompile Include="JSON\JSONStream.cpp" />
+    <ClCompile Include="JSON\JSONValidator.cpp" />
+    <ClCompile Include="JSON\JSONWorker.cpp" />
+    <ClCompile Include="JSON\JSONWriter.cpp" />
+    <ClCompile Include="JSON\JSON_Base64.cpp" />
+    <ClCompile Include="JSON\libjson.cpp" />
+    <ClCompile Include="ModelessDialogThread.cpp" />
+    <ClCompile Include="OperatorConsole.cpp" />
+    <ClCompile Include="OperatorConsoleDlg.cpp" />
+    <ClCompile Include="PassFail.cpp" />
+    <ClCompile Include="PassFailSettings.cpp" />
+    <ClCompile Include="PasswordDialog.cpp" />
+    <ClCompile Include="ResizeDlg.cpp" />
+    <ClCompile Include="Setup.cpp" />
+    <ClCompile Include="SFRplusTest.cpp" />
+    <ClCompile Include="SimpleDirectShowAcq.cpp" />
+    <ClCompile Include="StaticBmp.cpp" />
+    <ClCompile Include="StderrRedirect.cpp" />
+    <ClCompile Include="StderrThread.cpp" />
+    <ClCompile Include="StdoutRedirect.cpp" />
+    <ClCompile Include="StdoutThread.cpp" />
+    <ClCompile Include="TextDlg.cpp" />
+    <ClCompile Include="ThreadControl.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Timestamp.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="OperatorConsole.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\OperatorConsole.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Data\icons\icon256x256.png" />
+    <Image Include="Data\icons\icon16x16_32.bmp" />
+    <Image Include="Data\icons\icon256x256.png" />
+    <Image Include="Data\icons\icon32x32_32.bmp" />
+    <Image Include="Data\icons\icon48x48_32.bmp" />
+    <Image Include="Data\logo_flat_550x150.bmp" />
+    <Image Include="Data\logo_flat_550x150.png" />
+    <Image Include="res\icon1.ico" />
+    <Image Include="res\OperatorConsole.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="OperatorConsole.rc" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
