@@ -1,0 +1,23 @@
+Imatest Operator Console Contributors
+-------------------------------------
+Ty Cumby <Ty@imatest.com>
+   Created settings interface windows for devices 
+   Integrated with epiphan & omnivision Capture
+   Documentation, commenting & open source project curation
+
+Jeff Buck <jeffbuck@hawaii.rr.com>
+   Developed first MFC GUI version of the Operator Console
+   Designed multi-threaded optimized acuquisition/analysis framework
+   Integraed webcam capture using ESCAPI
+
+Henry Koren <Henry@imatest.com>
+   Product lead for Imatest IT (Industrial Testing)
+   Optimization of mass production manufacturing using Imatest IT
+   Developed technical specifications for operator console
+   Integration of Imatest IT with automated testing machines
+
+Matt Hulse <hulsem@gmail.com>
+   Developed first DLL version of Imatest IT
+
+Norman Koren <Norman@imatest.com>
+   Developed the Imatest Image Quality testing algorithms using Matlab
