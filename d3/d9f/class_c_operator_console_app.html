@@ -106,11 +106,6 @@ Inheritance diagram for COperatorConsoleApp:</div>
 <div class="dyncontent">
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../db/d28/class_c_operator_console_app__inherit__graph.svg" width="192" height="118"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 <center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for COperatorConsoleApp:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="../../dc/d1f/class_c_operator_console_app__coll__graph.svg" width="2574" height="1967"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-<center><span class="legend">[<a href="../../graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -1313,7 +1308,7 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 
 <p>References <a class="el" href="../../d7/da0/class_thread_control.html#a5237d37da8aeb00bae01f0660cd930f3">ThreadControl::m_data</a>, and <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a4bbfaef9f19d5af3600e076a1aa53c66">m_test</a>.</p>
-<div class="fragment"><div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;{ <span class="keywordflow">return</span> (<a class="code" href="../../d3/d9f/class_c_operator_console_app.html#a4bbfaef9f19d5af3600e076a1aa53c66">m_test</a> == NULL) ? <span class="stringliteral">&quot;&quot;</span> : ((<a class="code" href="../../da/d92/class_image_test.html">ImageTest</a> *)<a class="code" href="../../d3/d9f/class_c_operator_console_app.html#a4bbfaef9f19d5af3600e076a1aa53c66">m_test</a>-&gt;<a class="code" href="../../d7/da0/class_thread_control.html#a5237d37da8aeb00bae01f0660cd930f3">m_data</a>)-&gt;m_name;}</div>
+<div class="fragment"><div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{ <span class="keywordflow">return</span> (<a class="code" href="../../d3/d9f/class_c_operator_console_app.html#a4bbfaef9f19d5af3600e076a1aa53c66">m_test</a> == NULL) ? <span class="stringliteral">&quot;&quot;</span> : ((<a class="code" href="../../da/d92/class_image_test.html">ImageTest</a> *)<a class="code" href="../../d3/d9f/class_c_operator_console_app.html#a4bbfaef9f19d5af3600e076a1aa53c66">m_test</a>-&gt;<a class="code" href="../../d7/da0/class_thread_control.html#a5237d37da8aeb00bae01f0660cd930f3">m_data</a>)-&gt;m_name;}</div>
 <div class="ttc" id="class_thread_control_html_a5237d37da8aeb00bae01f0660cd930f3"><div class="ttname"><a href="../../d7/da0/class_thread_control.html#a5237d37da8aeb00bae01f0660cd930f3">ThreadControl::m_data</a></div><div class="ttdeci">void * m_data</div><div class="ttdoc">pointer to whatever is useful </div><div class="ttdef"><b>Definition:</b> ThreadControl.h:77</div></div>
 <div class="ttc" id="class_image_test_html"><div class="ttname"><a href="../../da/d92/class_image_test.html">ImageTest</a></div><div class="ttdoc">An abstract class that defines an image test to be performed. </div><div class="ttdef"><b>Definition:</b> ImageTest.h:86</div></div>
 <div class="ttc" id="class_c_operator_console_app_html_a4bbfaef9f19d5af3600e076a1aa53c66"><div class="ttname"><a href="../../d3/d9f/class_c_operator_console_app.html#a4bbfaef9f19d5af3600e076a1aa53c66">COperatorConsoleApp::m_test</a></div><div class="ttdeci">ThreadControl * m_test</div><div class="ttdoc">the current test being run (either &amp;amp;m_blemishControl or &amp;amp;sfrPlusControl) </div><div class="ttdef"><b>Definition:</b> OperatorConsole.h:258</div></div>
@@ -1617,29 +1612,6 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a class="anchor" id="a51ad7e6e8f370072c3e89d0d7e9e41a8"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool COperatorConsoleApp::InitBlemishThread </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
 <p>References <a class="el" href="../../da/de6/_operator_console_8h.html#a0233a900aec9e35a8089e1c53f6f45ef">AppFlags::blemishThread</a>, <a class="el" href="../../d8/d29/class_image_acquisition.html#a0964521623ef639396b854aceebbcbef">ImageAcquisition::GetHeight()</a>, <a class="el" href="../../d8/d29/class_image_acquisition.html#a589eb2272d57ee982b6970667b034a0d">ImageAcquisition::GetWidth()</a>, <a class="el" href="../../dd/de1/structsetup__settings.html#ae02d14e5fff53108d02717fad311badf">setup_settings::height</a>, <a class="el" href="../../d7/da0/class_thread_control.html#a5054f2ad6297cc65b4cb9146437f48b0">ThreadControl::Init()</a>, <a class="el" href="../../da/d92/class_image_test.html#ab97f2724bc4060b68dd623c2ff8bbb8d">ImageTest::Init()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a98cd32b254e4ac459e7bc05d0fa78cca">m_blemish</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a351175c3a8e0a49d11427f7478d5ea70">m_blemishAcq</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7af5a7c4b1f70472f0cce3ea6f076af1">m_blemishControl</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a3bc449ace8d265cbfd1b6db3ca1af4ce">m_cameraImage</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a353a7cc4dc9b42a466f1f8cbd8481e2e">m_config</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a6c8d77079672f500b168dfb0b0104975">m_fileImage</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#ae5c241398e1830a5356dad62de490e72">m_flags</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aa0731d2e89cbf9c3dfab1c85ad0ddd1f">m_setup</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#ad1e76633e2fd9134b6708afa87e870d7">MSG_BLEMISH_DONE</a>, <a class="el" href="../../da/d92/class_image_test.html#a372478d09c06cd7ab3684840add6215e">ImageTest::ThreadProc()</a>, and <a class="el" href="../../dd/de1/structsetup__settings.html#a5df384f00c034ace1473c590f7156ec4">setup_settings::width</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7f0cd7b21cee2171dea973e4e6e7bb9d">Init()</a>, and <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aede77af6cae8053d49c752fd95910728">ReInit()</a>.</p>
@@ -1691,7 +1663,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a74df2a3e42b3980069fa3946b67ecf79"></a>
+<a class="anchor" id="a51ad7e6e8f370072c3e89d0d7e9e41a8"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -1699,7 +1671,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool COperatorConsoleApp::InitCamera </td>
+          <td class="memname">bool COperatorConsoleApp::InitBlemishThread </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -1790,6 +1762,29 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_a74df2a3e42b3980069fa3946b67ecf79_icgraph.svg" width="891" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a74df2a3e42b3980069fa3946b67ecf79"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool COperatorConsoleApp::InitCamera </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -2047,31 +2042,6 @@ Here is the call graph for this function:</div>
 
 <p>Function that initializes the Imatest library. Must be called before any Imatest library functions are used. </p>
 
-</div>
-</div>
-<a class="anchor" id="a609b0f5874afb0cf46b76de94e0312e5"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool COperatorConsoleApp::InitLibs </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Function that initializes the Imatest library. Must be called before any Imatest library functions are used. </p>
-
 <p>References <a class="el" href="../../d6/d56/imatest__library_8cpp.html#a5e2883cbd4857cc3ccca20aadd262f91">imatest_libraryInitialize()</a>, <a class="el" href="../../da/de6/_operator_console_8h.html#a4d9c60c5b408a856e29879c4b83aa1fa">AppFlags::imatestIT</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#ae5c241398e1830a5356dad62de490e72">m_flags</a>, and <a class="el" href="../../da/de6/_operator_console_8h.html#acead4765a5246b5b8fecb4116642839e">AppFlags::matlab</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a">InitInstance()</a>.</p>
@@ -2125,7 +2095,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a9d9bd1fee378f6066530372f8d0ae6a1"></a>
+<a class="anchor" id="a609b0f5874afb0cf46b76de94e0312e5"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2133,7 +2103,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool COperatorConsoleApp::InitModelessThread </td>
+          <td class="memname">bool COperatorConsoleApp::InitLibs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2145,6 +2115,8 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Function that initializes the Imatest library. Must be called before any Imatest library functions are used. </p>
 
 </div>
 </div>
@@ -2193,7 +2165,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a3326d8200d481631ffb26bff5c621e05"></a>
+<a class="anchor" id="a9d9bd1fee378f6066530372f8d0ae6a1"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2201,7 +2173,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool COperatorConsoleApp::InitOutput </td>
+          <td class="memname">bool COperatorConsoleApp::InitModelessThread </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2279,7 +2251,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a7e42ecea8d8270d3b3cf9552abc00eba"></a>
+<a class="anchor" id="a3326d8200d481631ffb26bff5c621e05"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2287,7 +2259,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool COperatorConsoleApp::InitSFRplusAcq </td>
+          <td class="memname">bool COperatorConsoleApp::InitOutput </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2359,7 +2331,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="af7328d2c00abb1d4a09a65492c69b2b0"></a>
+<a class="anchor" id="a7e42ecea8d8270d3b3cf9552abc00eba"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2367,7 +2339,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool COperatorConsoleApp::InitSFRplusThread </td>
+          <td class="memname">bool COperatorConsoleApp::InitSFRplusAcq </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -2447,6 +2419,29 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_af7328d2c00abb1d4a09a65492c69b2b0_icgraph.svg" width="891" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="af7328d2c00abb1d4a09a65492c69b2b0"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool COperatorConsoleApp::InitSFRplusThread </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -2630,42 +2625,6 @@ Here is the caller graph for this function:</div>
 
 <p>Called after MSG_BLEMISH_DONE is received. </p>
 
-</div>
-</div>
-<a class="anchor" id="aeed50eef07f7d6350dffd5730793908c"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void COperatorConsoleApp::OnBlemishDone </td>
-          <td>(</td>
-          <td class="paramtype">WPARAM&#160;</td>
-          <td class="paramname"><em>wParam</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LPARAM&#160;</td>
-          <td class="paramname"><em>lParam</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called after MSG_BLEMISH_DONE is received. </p>
-
 <p>References <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a98cd32b254e4ac459e7bc05d0fa78cca">m_blemish</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aa183ddca6b426cc1b104fbf40d8e8485">m_status</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#aea820eb893a370ae0b709562c2bb1266">MSG_RUN_TEST</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#afb5e66487ac6527e6d1293c2dbaa808ead0725f7875c69a8efedf044e4af0b808">quitting</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#afb5e66487ac6527e6d1293c2dbaa808ea94a618af865bcd533fffc9ede39a9407">runningTest</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a24bdd4786c17e5ca514a2e0569687025">SendAppMessage()</a>, and <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a61fec0ac8bc8938749e977686e37e0dc">UpdateResults()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1">PreTranslateMessage()</a>.</p>
@@ -2704,7 +2663,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a02d49d758d0b69a772df7b6ed00a013a"></a>
+<a class="anchor" id="aeed50eef07f7d6350dffd5730793908c"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2712,7 +2671,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::OnFrameReady </td>
+          <td class="memname">void COperatorConsoleApp::OnBlemishDone </td>
           <td>(</td>
           <td class="paramtype">WPARAM&#160;</td>
           <td class="paramname"><em>wParam</em>, </td>
@@ -2736,7 +2695,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called after MSG_FRAME_READY is received. </p>
+<p>Called after MSG_BLEMISH_DONE is received. </p>
 
 </div>
 </div>
@@ -2810,7 +2769,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a04972a8a1e21b10b9bf422396ff97644"></a>
+<a class="anchor" id="a02d49d758d0b69a772df7b6ed00a013a"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2818,7 +2777,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::OnPassFail </td>
+          <td class="memname">void COperatorConsoleApp::OnFrameReady </td>
           <td>(</td>
           <td class="paramtype">WPARAM&#160;</td>
           <td class="paramname"><em>wParam</em>, </td>
@@ -2842,7 +2801,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called after MSG_PASS_FAIL is received. </p>
+<p>Called after MSG_FRAME_READY is received. </p>
 
 </div>
 </div>
@@ -2956,7 +2915,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a55ce42948d0ff61bbc0dc9aeb83855f7"></a>
+<a class="anchor" id="a04972a8a1e21b10b9bf422396ff97644"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -2964,7 +2923,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::OnRunTest </td>
+          <td class="memname">void COperatorConsoleApp::OnPassFail </td>
           <td>(</td>
           <td class="paramtype">WPARAM&#160;</td>
           <td class="paramname"><em>wParam</em>, </td>
@@ -2988,7 +2947,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called after MSG_RUN_TEST is received. </p>
+<p>Called after MSG_PASS_FAIL is received. </p>
 
 </div>
 </div>
@@ -3077,7 +3036,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a763f44d5de062ffd259e695c45942533"></a>
+<a class="anchor" id="a55ce42948d0ff61bbc0dc9aeb83855f7"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -3085,7 +3044,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::OnSetBlemish </td>
+          <td class="memname">void COperatorConsoleApp::OnRunTest </td>
           <td>(</td>
           <td class="paramtype">WPARAM&#160;</td>
           <td class="paramname"><em>wParam</em>, </td>
@@ -3109,7 +3068,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called after MSG_SET_BLEMISH is received. </p>
+<p>Called after MSG_RUN_TEST is received. </p>
 
 </div>
 </div>
@@ -3168,7 +3127,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a603dc5a9e0c64b5d2a604965b023c936"></a>
+<a class="anchor" id="a763f44d5de062ffd259e695c45942533"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -3176,7 +3135,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::OnSetSFRplus </td>
+          <td class="memname">void COperatorConsoleApp::OnSetBlemish </td>
           <td>(</td>
           <td class="paramtype">WPARAM&#160;</td>
           <td class="paramname"><em>wParam</em>, </td>
@@ -3200,7 +3159,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called after MSG_SET_SFRPLUS is received. </p>
+<p>Called after MSG_SET_BLEMISH is received. </p>
 
 </div>
 </div>
@@ -3256,6 +3215,42 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_a603dc5a9e0c64b5d2a604965b023c936_icgraph.svg" width="891" height="179"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a603dc5a9e0c64b5d2a604965b023c936"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void COperatorConsoleApp::OnSetSFRplus </td>
+          <td>(</td>
+          <td class="paramtype">WPARAM&#160;</td>
+          <td class="paramname"><em>wParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LPARAM&#160;</td>
+          <td class="paramname"><em>lParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called after MSG_SET_SFRPLUS is received. </p>
 
 </div>
 </div>
@@ -3459,42 +3454,6 @@ Here is the caller graph for this function:</div>
 
 <p>Called after MSG_SFRPLUS_DONE is received. </p>
 
-</div>
-</div>
-<a class="anchor" id="a58fa1716c660b80c55845b79505ff4d6"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void COperatorConsoleApp::OnSFRplusDone </td>
-          <td>(</td>
-          <td class="paramtype">WPARAM&#160;</td>
-          <td class="paramname"><em>wParam</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">LPARAM&#160;</td>
-          <td class="paramname"><em>lParam</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called after MSG_SFRPLUS_DONE is received. </p>
-
 <p>References <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aeabeb0fa2c1c118854c6234147e98415">m_sfrPlus</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aa183ddca6b426cc1b104fbf40d8e8485">m_status</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#aea820eb893a370ae0b709562c2bb1266">MSG_RUN_TEST</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#afb5e66487ac6527e6d1293c2dbaa808ead0725f7875c69a8efedf044e4af0b808">quitting</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#afb5e66487ac6527e6d1293c2dbaa808ea94a618af865bcd533fffc9ede39a9407">runningTest</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a24bdd4786c17e5ca514a2e0569687025">SendAppMessage()</a>, and <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#afcaa58d4a5fb9c7cff5e35ae64e1420c">UpdateResultsSFRplus()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1">PreTranslateMessage()</a>.</p>
@@ -3533,7 +3492,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a571a9da96d69ae7ec8e3bb59a393ba6c"></a>
+<a class="anchor" id="a58fa1716c660b80c55845b79505ff4d6"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -3541,15 +3500,15 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::OnShowJSON </td>
+          <td class="memname">void COperatorConsoleApp::OnSFRplusDone </td>
           <td>(</td>
-          <td class="paramtype">UINT&#160;</td>
+          <td class="paramtype">WPARAM&#160;</td>
           <td class="paramname"><em>wParam</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">LONG&#160;</td>
+          <td class="paramtype">LPARAM&#160;</td>
           <td class="paramname"><em>lParam</em>&#160;</td>
         </tr>
         <tr>
@@ -3565,7 +3524,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Called after MSG_JSON is received. </p>
+<p>Called after MSG_SFRPLUS_DONE is received. </p>
 
 </div>
 </div>
@@ -3635,6 +3594,42 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_a571a9da96d69ae7ec8e3bb59a393ba6c_icgraph.svg" width="427" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a571a9da96d69ae7ec8e3bb59a393ba6c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void COperatorConsoleApp::OnShowJSON </td>
+          <td>(</td>
+          <td class="paramtype">UINT&#160;</td>
+          <td class="paramname"><em>wParam</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LONG&#160;</td>
+          <td class="paramname"><em>lParam</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Called after MSG_JSON is received. </p>
 
 </div>
 </div>
@@ -3897,31 +3892,6 @@ Here is the caller graph for this function:</div>
 
 <p>Called after MSG_STDOUT is received. </p>
 
-</div>
-</div>
-<a class="anchor" id="a1baba590ed8125440723c012ff6a4e77"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void COperatorConsoleApp::OnUpdateStdout </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Called after MSG_STDOUT is received. </p>
-
 <p>References <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a5e4a6598aa6a33636d283e29f19c76ca">GetStdoutMsg()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a34e6e19d44069aa63736e5a9b062d934">m_stdoutStr</a>, and <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a14148089f33aa064be3f57aaa4c4c638">m_stdoutThread</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7041d197c4e6549f2cb7219981b4eec1">PreTranslateMessage()</a>.</p>
@@ -3948,7 +3918,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a7041d197c4e6549f2cb7219981b4eec1"></a>
+<a class="anchor" id="a1baba590ed8125440723c012ff6a4e77"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -3956,10 +3926,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BOOL COperatorConsoleApp::PreTranslateMessage </td>
+          <td class="memname">void COperatorConsoleApp::OnUpdateStdout </td>
           <td>(</td>
-          <td class="paramtype">MSG *&#160;</td>
-          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -3970,7 +3939,7 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>Intercepts messages of interest before Windows or MFC. </p>
+<p>Called after MSG_STDOUT is received. </p>
 
 </div>
 </div>
@@ -4109,6 +4078,47 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
+<a class="anchor" id="a7041d197c4e6549f2cb7219981b4eec1"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOL COperatorConsoleApp::PreTranslateMessage </td>
+          <td>(</td>
+          <td class="paramtype">MSG *&#160;</td>
+          <td class="paramname"><em>pMsg</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Intercepts messages of interest before Windows or MFC. </p>
+
+</div>
+</div>
+<a class="anchor" id="a59dada996addd1a16a558b431bcb922e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void COperatorConsoleApp::Quit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a59dada996addd1a16a558b431bcb922e"></a>
 <div class="memitem">
 <div class="memproto">
@@ -4210,18 +4220,21 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a59dada996addd1a16a558b431bcb922e"></a>
+<a class="anchor" id="a3ee628baf779a1be1e323a84fccc1d23"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::Quit </td>
+          <td class="memname">bool COperatorConsoleApp::ReadINISettings </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>This function reads in items for the setup dialog from imatest.ini. </p>
 
 </div>
 </div>
@@ -4400,24 +4413,6 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_a3ee628baf779a1be1e323a84fccc1d23_icgraph.svg" width="427" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="a3ee628baf779a1be1e323a84fccc1d23"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool COperatorConsoleApp::ReadINISettings </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function reads in items for the setup dialog from imatest.ini. </p>
 
 </div>
 </div>
@@ -5114,6 +5109,24 @@ Here is the caller graph for this function:</div>
 
 <p>This function allows for reallocation of the various image buffers when we change the image size. </p>
 
+</div>
+</div>
+<a class="anchor" id="aede77af6cae8053d49c752fd95910728"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool COperatorConsoleApp::ReInit </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function allows for reallocation of the various image buffers when we change the image size. </p>
+
 <p>References <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aeb93b88acfe6d11d64f493f63f74bca6">AllocateImageBuf()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#ac47de682b105a11015ceef305c225924">CheckFiles()</a>, <a class="el" href="../../d8/d29/class_image_acquisition.html#af32c2cc8a87105465ba8620e77745c2b">ImageAcquisition::GetInfo()</a>, <a class="el" href="../../da/d65/_documentation_2_operator-_console_2_operator_console_8h.html#afb5e66487ac6527e6d1293c2dbaa808ea0e9a37114c0e458d28d52f06ec0f2242">idle</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a8edea834120ba2acc0e16230ff5efb14">InitBlemishAcq()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a51ad7e6e8f370072c3e89d0d7e9e41a8">InitBlemishThread()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a74df2a3e42b3980069fa3946b67ecf79">InitCamera()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7e42ecea8d8270d3b3cf9552abc00eba">InitSFRplusAcq()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#af7328d2c00abb1d4a09a65492c69b2b0">InitSFRplusThread()</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a351175c3a8e0a49d11427f7478d5ea70">m_blemishAcq</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a7af5a7c4b1f70472f0cce3ea6f076af1">m_blemishControl</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#ac5287062d8dfa9a06b06b9aa528e8de2">m_camera</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a63a19f0400a60d5dc0739901416070a1">m_sfrPlusAcq</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#af453415dde193020effd8062d7e24690">m_sfrPlusControl</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#aa183ddca6b426cc1b104fbf40d8e8485">m_status</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a603dc5a9e0c64b5d2a604965b023c936">OnSetSFRplus()</a>, and <a class="el" href="../../d7/da0/class_thread_control.html#afd86c1fc3e09d219cf48f5a15539b920">ThreadControl::Quit()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a620f8d2eed65d743bb177abcb90936e6">OnSetup()</a>.</p>
@@ -5205,24 +5218,6 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="aede77af6cae8053d49c752fd95910728"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool COperatorConsoleApp::ReInit </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function allows for reallocation of the various image buffers when we change the image size. </p>
-
-</div>
-</div>
 <a class="anchor" id="a7dcc2b25940ca8bd08efb01da75d8648"></a>
 <div class="memitem">
 <div class="memproto">
@@ -5257,30 +5252,6 @@ Here is the caller graph for this function:</div>
           <td class="memname">bool COperatorConsoleApp::SaveConfig </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a class="anchor" id="aa0ad15e15b08dc7c2704d9978f271954"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void COperatorConsoleApp::SaveLog </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>filePathName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -5357,7 +5328,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a24bdd4786c17e5ca514a2e0569687025"></a>
+<a class="anchor" id="aa0ad15e15b08dc7c2704d9978f271954"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -5365,10 +5336,10 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">BOOL COperatorConsoleApp::SendAppMessage </td>
+          <td class="memname">void COperatorConsoleApp::SaveLog </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>msg</em></td><td>)</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>filePathName</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -5421,7 +5392,7 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a class="anchor" id="a61fec0ac8bc8938749e977686e37e0dc"></a>
+<a class="anchor" id="a24bdd4786c17e5ca514a2e0569687025"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -5429,10 +5400,10 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void COperatorConsoleApp::UpdateResults </td>
+          <td class="memname">BOOL COperatorConsoleApp::SendAppMessage </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../da/d92/class_image_test.html">ImageTest</a> *&#160;</td>
-          <td class="paramname"><em>test</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>msg</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -5536,6 +5507,30 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_a61fec0ac8bc8938749e977686e37e0dc_icgraph.svg" width="899" height="127"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
+
+</div>
+</div>
+<a class="anchor" id="a61fec0ac8bc8938749e977686e37e0dc"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void COperatorConsoleApp::UpdateResults </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../da/d92/class_image_test.html">ImageTest</a> *&#160;</td>
+          <td class="paramname"><em>test</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -5875,6 +5870,24 @@ Here is the caller graph for this function:</div>
 
 <p>This function writes the pass/fail variables to the pass/fail file listed in the imatest INI file. </p>
 
+</div>
+</div>
+<a class="anchor" id="aab4583fb7e725968ea95224ef0c773e7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool COperatorConsoleApp::WritePassFail </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>This function writes the pass/fail variables to the pass/fail file listed in the imatest INI file. </p>
+
 <p>References <a class="el" href="../../db/db5/_documentation_2_operator-_console_2_operator_console_8cpp.html#a11ecb189cc593bc1e924280e66d85a77">addKeysAndValues()</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a55c28aa877d582ec6fb18aa7df4d206b">SFRplusPassFail::All_Edge_IDs_detected</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a8e6e9e60c349ac86646ec3575091b8cb">SFRplusPassFail::b_enable</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a24f5d1cf66eff238f6b212811621b577">BlemishPassFail::b_enable</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a5ee54f8704c4c2f4d1b942f236806066">OISPassFail::b_enable</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a0be91ed37c23df8ccbadb0bea85c22bf">OtherPassFail::b_enable</a>, <a class="el" href="../../d3/d96/structentry.html#aa4b9389f804889d84ee2a18ec3b813e8">entry&lt; T &gt;::b_isUsed</a>, <a class="el" href="../../de/ddc/structmin_max_entry.html#ac21329d7754eaa9ba92c49bf7419ca81">minMaxEntry&lt; T &gt;::b_isUsed</a>, <a class="el" href="../../dc/d74/structvec_entry.html#a128c99352471e7d2ba51f35212ee68db">vecEntry&lt; T &gt;::b_isUsed</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a51c18ea3670ba66ac4beec428756e51a">SFRplusPassFail::Bayer_decode</a>, <a class="el" href="../../d9/d8f/class_c_pass_fail_settings.html#acef17900e7d16b5ffe15b599afba438c">CPassFailSettings::blemish</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#acb9fe96a6cc94fca4191f827c1089b14">BlemishPassFail::Blemish_maximum_count</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ae61504fbe6b46878ada9434ab1ee6279">BlemishPassFail::Blemish_size_pixels</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a519460f0292ac443a0b915e065bea818">SFRplusPassFail::Chart_mean_pixel_level_bounds</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a4b6bbc7a95479f685208262ed0273754">SFRplusPassFail::Chart_radial_pixel_shift_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ac2e3dc818fa637d5e9d5b5903c3fea6e">SFRplusPassFail::Color_expected_detected</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aa8c22fa27515d39ce0571f08c0f345fe">SFRplusPassFail::Convergence_angle_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a7751fc83e3569495fbd9e401a72878d5">BlemishPassFail::Dead_pixel_clusters_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a6670f45a9cc9d028b02bba6f3c1b8582">BlemishPassFail::Dead_pixels_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ae744caf8d0de44fc73b4be6b0888ecaf">BlemishPassFail::Defective_pixels_max_count</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a6cf0c93f796dbabf264d9f0ecc09321d">OtherPassFail::ent_vec</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a3d7f9ce99d1fbb674fb5552e23cd9477">SFRplusPassFail::FOV_degrees_diagonal_min</a>, <a class="el" href="../../de/ddc/structmin_max_entry.html#a5e005a88a290e96f8f1c6edea0e1ce00">minMaxEntry&lt; T &gt;::group_name</a>, <a class="el" href="../../dc/d74/structvec_entry.html#aca1ae8be88b88d2b197d0eabc8556b4a">vecEntry&lt; T &gt;::group_name</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a4d648dbc480c00003bc16a3dbc9a464b">SFRplusPassFail::High_pixel_saturation_fraction_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a77d5c52473a8aa4b8ffaca8c18bb45c6">SFRplusPassFail::Horizontal_bars_OK_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aec265bc5faab5747b5bd1c6bc5d6c6e3">BlemishPassFail::Hot_pixel_clusters_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ab8924952e5ab442d80fc3d20a8c4d321">BlemishPassFail::Hot_pixels_max</a>, <a class="el" href="../../d6/d56/imatest__library_8cpp.html#ab3b0d3cdae6c078ef623ac257ead5cef">inifile()</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aff671eed1ed98f037fa904d4ef52dffe">OISPassFail::L_MTF50_delta2_gain_summary_all_dB_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a7218771cbc6b0dd2e43c381d2c2d04f2">SFRplusPassFail::Low_pixel_saturation_fraction_max</a>, <a class="el" href="../../d9/d8f/class_c_pass_fail_settings.html#a729904b85bea4850993a69b70731b4ad">CPassFailSettings::m_ini_file</a>, <a class="el" href="../../d9/d8f/class_c_pass_fail_settings.html#ac82106107635364246bebe4ce3d6efd2">CPassFailSettings::m_pass_fail_file</a>, <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#ad1c31776c11921540031e663753f0754">m_PFSettings</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a024d044320681d6aab64c350835d3e06">SFRplusPassFail::Mirrored_chart</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aa04279bd4b276daf708275452275e5c3">SFRplusPassFail::MTF50P_CP_weighted_mean_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a6b2e4b2afe409ac874e84c1b59feb8a2">SFRplusPassFail::MTF50P_ratio_min</a>, <a class="el" href="../../d3/d96/structentry.html#a692550b7da238ec5e56dd114a37b7a27">entry&lt; T &gt;::name</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a635e6c1853da2aae21d7de4de97ab1a6">SFRplusPassFail::name</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a4d24a8a1909434b92919f920b860b2bc">BlemishPassFail::name</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a1a4b1ccf2c577f8be45d117a19f48432">OISPassFail::name</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a6890cabd8b0922c07e801b875dc2f318">OtherPassFail::name</a>, <a class="el" href="../../d9/d8f/class_c_pass_fail_settings.html#a9875ac5f8658c36f89e58473cf8b6b4f">CPassFailSettings::ois</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a708eab61a791d145468612b0e4872e81">BlemishPassFail::Optical_center_offset_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a93fbef8f5161ef99e60411b5ab16f8b3">BlemishPassFail::Optical_center_offset_X_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ac88fd167df885d6c253a4be49d8fb9e2">BlemishPassFail::Optical_center_offset_Y_max</a>, <a class="el" href="../../d9/d8f/class_c_pass_fail_settings.html#a41b3203b996dfc21d48d134e728b2f57">CPassFailSettings::other</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a123110f05f38ecc03a49c6222042fb35">SFRplusPassFail::passfail_ini_file_date</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ae3e5b03faf00ca318aee4c67fc022c05">OISPassFail::R_improve_ALL_dB_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a35fa3ac6b5dfa664bbe69011884bd5d9">OISPassFail::R_improve_H_dB_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a849307bc7629dc8c7e0ec9121b23fdc0">OISPassFail::R_improve_V_dB_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a899d62b8b08cf9281362de8d38f162b1">BlemishPassFail::Relative_illumination_corner_diff_pct_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a37c6ba8c4e104152c8c37410d489d2a0">BlemishPassFail::Relative_illumination_worst_corner_pct_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a5815898cb0265d40a1380663deca2102">SFRplusPassFail::Rotation_degrees_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a1dae30ad8a5ee38eaa2a3412600782d0">SFRplusPassFail::Secondary_readout_1_center_mean_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a2c7c67f709ad828ab02c5753161f76ad">SFRplusPassFail::Secondary_readout_1_outer_mean_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aaa5f1f82dbd4e85d6fed46ebc3d66246">SFRplusPassFail::Secondary_readout_1_outer_min_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#af330ad9ff37a2ad77c511839a9bf4cc4">SFRplusPassFail::Secondary_readout_1_outer_quadrant_delta_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a69ad4931cef019bba2ae856f7af96fd4">SFRplusPassFail::Secondary_readout_1_outer_quadrant_mean_min_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ae121e47f975d89a3e3416a0d72cca10c">SFRplusPassFail::Secondary_readout_2_center_mean_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aae694e8908dbadec38b0a6df3eefefd8">SFRplusPassFail::Secondary_readout_2_outer_mean_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a1304822b3a9c49c296dc92c6cd66dcb1">SFRplusPassFail::Secondary_readout_2_outer_min_min</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#aec6b9eb8f4580cec2c49464d5462938e">SFRplusPassFail::Secondary_readout_2_outer_quadrant_delta_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a4429e85ea5911eaa2e41ac68a6703874">SFRplusPassFail::Secondary_readout_2_outer_quadrant_mean_min_min</a>, <a class="el" href="../../d9/d8f/class_c_pass_fail_settings.html#a2711566c6bf83855a72e2a761b7ae8b4">CPassFailSettings::sfrplus</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a2f7a792c4507e3ba4c0408f363d573be">SFRplusPassFail::Stepchart_expected_detected</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a975891386487ab0d1e59d272d755fdb9">BlemishPassFail::Uniformity_BoverG_corners_pct_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#ac4665d423989e296ec86fb7b59e2a872">BlemishPassFail::Uniformity_RoverG_corners_pct_max</a>, <a class="el" href="../../da/ded/_pass_fail_settings_8h.html#a3c76892251110b0b84fc3c383627bb22">SFRplusPassFail::upside_down</a>, <a class="el" href="../../db/db5/_documentation_2_operator-_console_2_operator_console_8cpp.html#a6bde8a4b872c50e28d3bd8910865951d">writeEntValueString()</a>, <a class="el" href="../../db/db5/_documentation_2_operator-_console_2_operator_console_8cpp.html#aac809da01c6c75d04fe012a93ebfec3a">writeMinMaxEntValueString()</a>, and <a class="el" href="../../db/db5/_documentation_2_operator-_console_2_operator_console_8cpp.html#ad10a2b1599ac382806e6218f4ccd07c1">writeVecEntValueString()</a>.</p>
 
 <p>Referenced by <a class="el" href="../../d3/d9f/class_c_operator_console_app.html#a04972a8a1e21b10b9bf422396ff97644">OnPassFail()</a>.</p>
@@ -6170,24 +6183,6 @@ Here is the caller graph for this function:</div>
 <div class="center"><iframe scrolling="no" frameborder="0" src="../../d3/d9f/class_c_operator_console_app_aab4583fb7e725968ea95224ef0c773e7_icgraph.svg" width="659" height="56"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </p>
-
-</div>
-</div>
-<a class="anchor" id="aab4583fb7e725968ea95224ef0c773e7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool COperatorConsoleApp::WritePassFail </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>This function writes the pass/fail variables to the pass/fail file listed in the imatest INI file. </p>
 
 </div>
 </div>
@@ -6873,7 +6868,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Nov 21 2013 16:22:37 for Operator Console by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Nov 22 2013 15:37:49 for Operator Console by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
