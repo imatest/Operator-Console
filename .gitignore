@@ -228,6 +228,4 @@ Spec_full*
 foo.cpp
 main.cpp
 *.bat
-copyright_notice.txt
-
-
+copyright_notice*

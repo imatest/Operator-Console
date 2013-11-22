@@ -61,10 +61,10 @@ static const TestID gTestID[] =
 	{"Secondary_readout_1_outer_mean_passed",              "Secondary readout 1 outer mean"},
 	{"Secondary_readout_2_center_mean_passed",             "Secondary readout 2 center mean"},
 	{"Secondary_readout_2_outer_mean_passed",              "Secondary readout 2 outer mean"},
-	{"Secondary_readout_1_outer_quadrant_delta_passed",    "Secondary readout 1 outer quadrant delta"}, // Covered by QSO?
-	{"Secondary_readout_1_outer_quadrant_mean_min_passed", "Secondary readout 1 outer quadrant mean min"},// Covered by QSO?
-	{"Secondary_readout_2_outer_quadrant_delta_passed",    "Secondary readout 2 outer quadrant delta"},// Covered by QSO?
-	{"Secondary_readout_2_outer_quadrant_mean_min_passed", "Secondary readout 2 outer quadrant mean min"},// Covered by QSO?
+	{"Secondary_readout_1_outer_quadrant_delta_passed",    "Secondary readout 1 outer quadrant delta"}, 
+	{"Secondary_readout_1_outer_quadrant_mean_min_passed", "Secondary readout 1 outer quadrant mean min"},
+	{"Secondary_readout_2_outer_quadrant_delta_passed",    "Secondary readout 2 outer quadrant delta"},
+	{"Secondary_readout_2_outer_quadrant_mean_min_passed", "Secondary readout 2 outer quadrant mean min"},
 	{"High_pixel_saturation_fraction_passed",              "High pixel saturation fraction"},
 	{"Low_pixel_saturation_fraction_passed",               "Low pixel saturation fraction"},
 	{"Chart_mean_pixel_level_passed",                      "Chart mean pixel level"},
@@ -247,8 +247,22 @@ void SFRplusTest::ParseOverlay(JSONNode &data, JSONNode &passfail)
 		//
 		minCenter1 = passfail.at("Secondary_readout_1_center_mean_min").as_array()[0].as_float();	// get the readout1 center min value
 		minCenter2 = passfail.at("Secondary_readout_2_center_mean_min").as_array()[0].as_float();	// get the readout2 center min value
-		minOuter1  = passfail.at("Secondary_readout_1_outer_mean_min").as_array()[0].as_float();	// get the readout1 outer min value
-		minOuter2  = passfail.at("Secondary_readout_2_outer_mean_min").as_array()[0].as_float();	// get the readout2 outer min value
+
+		try 
+		{
+			minOuter1  = passfail.at("Secondary_readout_1_outer_quadrant_mean_min_min").as_array()[0].as_float();	// get the readout1 outer quadrant min value
+			minOuter2  = passfail.at("Secondary_readout_2_outer_quadrant_mean_min_min").as_array()[0].as_float();	// get the readout2 outer quadrant min value
+		}
+		catch (const std::exception &ex)
+		{
+			cerr << ex.what() << endl;
+			cout << "Unable to locate 'Secondary_readout_1_outer_quadrant_mean_min_min' or" <<endl;
+			cout << "'Secondary_readout_2_outer_quadrant_mean_min_min'. Will use 'Secondary_readout_1_outer_mean_min'" << endl;
+			cout << " and 'Secondary_readout_2_outer_mean_min' instead. Note that there may be discrepancy between" << endl;
+			cout << " the overall pass/fail result and the Quadrant-status overlays." << endl;
+			minOuter1  = passfail.at("Secondary_readout_1_outer_mean_min").as_array()[0].as_float();	// get the readout1 outer min value
+			minOuter2  = passfail.at("Secondary_readout_2_outer_mean_min").as_array()[0].as_float();	// get the readout2 outer min value
+		}
 
 		//
 		// See whether or not each quadrant passed the test.
