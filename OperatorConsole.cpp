@@ -216,13 +216,11 @@ BOOL COperatorConsoleApp::InitInstance()
 
 	if (!ReadINISettings()) // if we're unable to read the ini file, we must generate image dimensions from user input before continuing
 	{
-		CSetup setup(NULL, m_setup);
-		setup.DoModal();
-		INT_PTR nRet = setup.DoModal();
-		if (nRet == IDOK)
-		{
-			m_setup = setup.m_setup_settings;
-		}
+		m_setup.width = 640;
+		m_setup.height = 480;
+		cout << "INI settings for Operator Console not found." << endl;
+		cout << "Please click the 'Setup' button and fill in the" << endl;
+		cout << "appropriate fields before proceeding." << endl;
 
 	}
 	if (!ReadPassFail())
@@ -1055,19 +1053,19 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	vararginParam.Get(2,1,2).Set(mode);
 	vararginParam.Get(2,1,3).Set(readKeys);
 	mwArray readSett = mwArray(1,1,mxCELL_CLASS);
+	int temp_source_id = m_setup.sourceID;
 	try
 	{
 		inifile(1,readSett,vararginParam);
+		temp_source_id = (int)readSett.Get(1,1).Get(1,1);
+		m_setup.sourceID = temp_source_id;
 
 	}
 	catch (const mwException& e)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
-	}
-
-	m_setup.sourceID = (int)readSett.Get(1,1).Get(1,1);
-
+	}	
 
 	if (m_setup.sourceID ==2)
 	{
@@ -1128,24 +1126,36 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	vararginParam.Get(1,3).Set(readKeys);
 
 	readSett = mwArray(1,6,mxCELL_CLASS);
-
+	int temp_epiphan_deviceid = m_setup.epiphan_deviceID;
+	int temp_width = m_setup.width;
+	int temp_height = m_setup.height;
+	int temp_bits_per_pixel = m_setup.bits_per_pixel;
+	int temp_bayer = m_setup.bayer;
+	CString temp_reg_file = m_setup.omnivision_reg_file;
 	try
 	{
 		inifile(1,readSett,vararginParam);
+		temp_epiphan_deviceid =		(int)readSett.Get(1,1).Get(1,1);
+		temp_width =				(int)readSett.Get(1,1).Get(1,2);
+		temp_height =				(int)readSett.Get(1,1).Get(1,3);
+		temp_bits_per_pixel =		(int)readSett.Get(1,1).Get(1,4);
+		temp_bayer =				(int)readSett.Get(1,1).Get(1,5);
+		temp_reg_file =				readSett.Get(1,1).Get(1,6).ToString();
+
+		// copy the values into the corresponding fields in m_setup
+		m_setup.epiphan_deviceID =		temp_epiphan_deviceid;
+		m_setup.width =					temp_width;
+		m_setup.height =				temp_height;
+		m_setup.bits_per_pixel =		temp_bits_per_pixel;
+		m_setup.bayer =					temp_bayer;
+		m_setup.omnivision_reg_file =	temp_reg_file; 
 	}
 	catch (const mwException& e)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
-	}
 
-	// copy the values into the corresponding fields in m_setup
-	m_setup.epiphan_deviceID =	(int)readSett.Get(1,1).Get(1,1);
-	m_setup.width =				(int)readSett.Get(1,1).Get(1,2);
-	m_setup.height =			(int)readSett.Get(1,1).Get(1,3);
-	m_setup.bits_per_pixel =	(int)readSett.Get(1,1).Get(1,4);
-	m_setup.bayer =				(int)readSett.Get(1,1).Get(1,5);
-	m_setup.omnivision_reg_file =	 readSett.Get(1,1).Get(1,6).ToString(); 
+	}	
 
 	m_setup.omnivision_reg_file.Remove('\n'); // inifile() reads newline and carriage return characters into the string
 	m_setup.omnivision_reg_file.Remove('\r'); // which causes the setup window to be unable to find the file. These characters must be removed.
