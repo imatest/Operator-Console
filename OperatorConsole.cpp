@@ -419,7 +419,7 @@ bool COperatorConsoleApp::InitCamera()
 			m_camera->m_source_ID = m_setup.sourceID;
 			m_camera->m_ini_file.assign(m_setup.ini_file);
 		}
-		cout << "Imatest camera initialized" << endl;
+		
 	}
 	else if (m_image_source==directshow_source)
 	{
@@ -431,7 +431,7 @@ bool COperatorConsoleApp::InitCamera()
 			m_camera->m_source_ID = m_setup.sourceID;
 			m_camera->m_ini_file.assign(m_setup.ini_file);
 		}
-		cout << "DirectShow camera initialized" << endl;
+		
 	}
 	else if (m_image_source==file_source)
 	{
@@ -2220,7 +2220,7 @@ void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
 {
 	m_camera = &m_imatest_cam;
 	m_cameraControl = &m_ImatestCameraControl;
-	cout << "Switch to Imatest camera thread" << endl;
+	
 }
 
 
@@ -2228,5 +2228,5 @@ void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
 {
 	m_camera = &m_directshow_cam;
 	m_cameraControl = &m_DirectShowCameraControl;
-	cout << "Switch to DirectShow camera thread" << endl;
+	
 }
