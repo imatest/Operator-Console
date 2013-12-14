@@ -139,6 +139,7 @@ COperatorConsoleApp::COperatorConsoleApp()
 	m_PFSettings.m_ini_file.Remove('\r');
 	m_password = _T(ADMIN_PASSWORD);
 	m_passFailIsUnlocked = false; // Keep this initialized to false unless you want to completely disable password-protection for pass/fail settings!
+	m_image_source = imatest_source;
 #if defined(STDIO_DEBUG)
 	printf("Hello from constructor [stdout]\n");
 	cout << "Hello from constructor [cout]" << endl;
@@ -341,7 +342,7 @@ bool COperatorConsoleApp::Init()
 	}
 	else if (!InitCamera())
 	{
-		errMsg = m_camera.GetInfo();
+		errMsg = m_camera->GetInfo();
 	}
 	else if (!AllocateImageBuf())	// allocate a buffer large enough to hold an image [must be done after call to m_blemishAcq.Open()]
 	{
@@ -408,23 +409,56 @@ bool COperatorConsoleApp::InitCamera()
 {
 	bool	success = false;
 
-#ifdef IMATEST_CAMERA
-	if (m_camera.Init(m_setup.width, m_setup.height, 4))
+	if (m_image_source==imatest_source)
 	{
-		success = m_camera.Open();
-		m_camera.m_device_ID = m_setup.epiphan_deviceID;
-		m_camera.m_source_ID = m_setup.sourceID;
-		m_camera.m_ini_file.assign(m_setup.ini_file);
+		m_camera = &m_imatest_cam;
+		if (m_camera->Init(m_setup.width, m_setup.height, 4))
+		{
+			success = m_camera->Open();
+			m_camera->m_device_ID = m_setup.epiphan_deviceID;
+			m_camera->m_source_ID = m_setup.sourceID;
+			m_camera->m_ini_file.assign(m_setup.ini_file);
+		}
+		cout << "Imatest camera initialized" << endl;
 	}
-#elif !defined FAKE_CAMERA
-	if (m_camera.Init(CAMERA_WIDTH, CAMERA_HEIGHT, 4))
+	else if (m_image_source==directshow_source)
 	{
-		success = m_camera.Open();
+		m_camera = &m_directshow_cam;
+		if (m_camera->Init(m_setup.width, m_setup.height, 4))
+		{
+			success = m_camera->Open();
+			m_camera->m_device_ID = m_setup.epiphan_deviceID;
+			m_camera->m_source_ID = m_setup.sourceID;
+			m_camera->m_ini_file.assign(m_setup.ini_file);
+		}
+		cout << "DirectShow camera initialized" << endl;
 	}
-#else
-	m_camera.Init(IMAGE_NAME);
-	success = m_camera.Open();
-#endif
+	else if (m_image_source==file_source)
+	{
+		//	m_camera = &m_file_cam;
+		//	m_camera->Init(IMAGE_NAME);
+		//success = m_camera->Open();
+
+		cerr << "Error! Image file loading not yet implemented." << endl;
+	}
+	
+//#ifdef IMATEST_CAMERA
+//	if (m_camera.Init(m_setup.width, m_setup.height, 4))
+//	{
+//		success = m_camera.Open();
+//		m_camera.m_device_ID = m_setup.epiphan_deviceID;
+//		m_camera.m_source_ID = m_setup.sourceID;
+//		m_camera.m_ini_file.assign(m_setup.ini_file);
+//	}
+//#elif !defined FAKE_CAMERA
+//	if (m_camera.Init(CAMERA_WIDTH, CAMERA_HEIGHT, 4))
+//	{
+//		success = m_camera.Open();
+//	}
+//#else
+//	m_camera.Init(IMAGE_NAME);
+//	success = m_camera.Open();
+//#endif
 
 	return success;
 }
@@ -461,9 +495,18 @@ bool COperatorConsoleApp::InitSFRplusThread()
 
 bool COperatorConsoleApp::InitCameraThread()
 {
-	m_flags.cameraThread = m_cameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_camera.ThreadProc, &m_camera);
-
-	return m_flags.cameraThread;
+	//m_flags.cameraThread = m_cameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_camera.ThreadProc, &m_camera);
+	m_flags.ImatestCameraThread = m_ImatestCameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_imatest_cam.ThreadProc, &m_imatest_cam);
+	m_flags.DirectshowCameraThread = m_DirectShowCameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_directshow_cam.ThreadProc, &m_directshow_cam);
+	if (m_image_source == imatest_source)
+	{
+		SendAppMessage(MSG_SET_IMATEST_CAM);
+	}
+	else if (m_image_source == directshow_source)
+	{
+		SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
+	}
+	return (m_flags.ImatestCameraThread)&& (m_flags.DirectshowCameraThread);
 }
 
 
@@ -551,7 +594,7 @@ bool COperatorConsoleApp::AllocateImageBuf()
 	}
 
 	m_fileImage   = new char[m_blemishAcq.BytesPerFrame()];
-	m_cameraImage = new char[m_camera.BytesPerFrame()];
+	m_cameraImage = new char[m_camera->BytesPerFrame()];
 
 	return m_fileImage != NULL && m_cameraImage != NULL;
 }
@@ -633,6 +676,14 @@ BOOL COperatorConsoleApp::PreTranslateMessage(MSG* pMsg)
 		OnPassFail(pMsg->wParam, pMsg->lParam);
 		handled = TRUE;
 		break;
+	case MSG_SET_IMATEST_CAM:
+		OnSetImatestCamera(pMsg->wParam, pMsg->lParam);
+		handled = TRUE;
+		break;
+	case MSG_SET_DIRECTSHOW_CAM:
+		OnSetDirectshowCamera(pMsg->wParam, pMsg->lParam);
+		handled = TRUE;
+		break;
 	}
 
 	return handled;
@@ -694,7 +745,6 @@ void COperatorConsoleApp::Quit()
 	{
 		m_sfrPlusControl.Quit();	// wait for the sfrplus thread to quit
 		m_flags.sfrplusThread = false;
-
 	}
 
 	if (m_flags.blemishThread)
@@ -703,10 +753,22 @@ void COperatorConsoleApp::Quit()
 		m_flags.blemishThread = false;
 	}
 
-	if (m_flags.cameraThread)
+	//if (m_flags.cameraThread)
+	//{
+	//	m_cameraControl.Quit();	// wait for the camera thread to quit
+	//	m_flags.cameraThread = false;
+	//}
+
+	if (m_flags.DirectshowCameraThread)
 	{
-		m_cameraControl.Quit();	// wait for the camera thread to quit
-		m_flags.cameraThread = false;
+		m_DirectShowCameraControl.Quit(); // wait for the DirectShow camera thread to quit
+		m_flags.DirectshowCameraThread = false;
+	}
+
+	if (m_flags.ImatestCameraThread)
+	{
+		m_ImatestCameraControl.Quit(); // wait for the Imatest library camera thread to quit
+		m_flags.ImatestCameraThread = false;
 	}
 
 	if (m_flags.modelessThread)
@@ -746,8 +808,8 @@ void COperatorConsoleApp::OnRunTest(WPARAM wParam, LPARAM lParam)
 #endif
 
 #ifdef IMATEST_CAMERA
-	m_camera.GetFrame(m_cameraImage);
-	m_cameraControl.Run();	// capture 1 frame from the camera (we'll run the test after the frame is captured)
+	m_camera->GetFrame(m_cameraImage);
+	m_cameraControl->Run();	// capture 1 frame from the camera (we'll run the test after the frame is captured)
 #elif !defined START_TEST_FROM_FRAME_READY
 	m_test->Run();							// tell the thread to run 1 test (it will send our thread a message when it's done)
 #else
@@ -758,7 +820,7 @@ void COperatorConsoleApp::OnRunTest(WPARAM wParam, LPARAM lParam)
 void COperatorConsoleApp::OnFrameReady(WPARAM w, LPARAM l)
 {
 #if defined START_TEST_FROM_FRAME_READY
-	m_camera.GetFrame(m_cameraImage);
+	m_camera->GetFrame(m_cameraImage);
 	m_test->Run();	// tell the thread to run 1 test (it will send our thread a message when it's done)
 #else
 	((COperatorConsoleDlg *)m_pMainWnd)->UpdateImage(m_cameraImage);	// display it in the dialog
@@ -976,15 +1038,16 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 {
 	int oldWidth = m_setup.width;
 	int oldHeight = m_setup.height;
+	int oldSourceID = m_setup.sourceID;
 
 	CSetup setup(NULL, m_setup);
 	INT_PTR nRet = setup.DoModal();
 	if (nRet==IDOK)
 	{
 		m_setup = setup.m_setup_settings;
-		m_camera.m_device_ID = m_setup.epiphan_deviceID; // update the device_ID used by acquire_image
-		m_camera.m_source_ID = m_setup.sourceID; // update the source_ID used by acquire_image
-		m_camera.m_ini_file.assign(m_setup.ini_file); //TDC
+		m_camera->m_device_ID = m_setup.epiphan_deviceID; // update the device_ID used by acquire_image
+		m_camera->m_source_ID = m_setup.sourceID; // update the source_ID used by acquire_image
+		m_camera->m_ini_file.assign(m_setup.ini_file); //TDC
 
 
 		// transfer the configuration details to the other classes
@@ -1004,8 +1067,25 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 		m_sfrPlus.m_programPath = m_config->m_programPath;
 
 		WriteINISettings(); // store new settings
-		if ( oldWidth != m_setup.width || oldHeight != m_setup.height)
+		if ( oldWidth != m_setup.width || oldHeight != m_setup.height || oldSourceID<7&&m_setup.sourceID>6 || oldSourceID>6&&m_setup.sourceID<7)
 		{
+			
+			if (m_setup.sourceID < 7)
+			{
+				m_image_source=imatest_source;
+				if (oldSourceID ==7)
+				{
+					SendAppMessage(MSG_SET_IMATEST_CAM);
+				}
+			}
+			else if (m_setup.sourceID ==7)
+			{
+				m_image_source=directshow_source;
+				if (oldSourceID < 7)
+				{
+					SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
+				}
+			}
 			// image dimensions have changed, so we must reallocate
 			try
 			{
@@ -1149,6 +1229,18 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		m_setup.bits_per_pixel =		temp_bits_per_pixel;
 		m_setup.bayer =					temp_bayer;
 		m_setup.omnivision_reg_file =	temp_reg_file; 
+
+		// change the image source if needed
+		if (m_setup.sourceID < 7)
+		{
+			m_image_source=imatest_source;
+			SendAppMessage(MSG_SET_IMATEST_CAM);
+		}
+		else if (m_setup.sourceID ==7)
+		{
+			m_image_source=directshow_source;
+			SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
+		}
 	}
 	catch (const mwException& e)
 	{
@@ -1259,7 +1351,6 @@ void COperatorConsoleApp::WriteINISettings(void)
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
 	}
-
 }
 
 //
@@ -1288,7 +1379,7 @@ bool COperatorConsoleApp::ReInit(void)
 	}
 	else if (!InitCamera())
 	{
-		errMsg = m_camera.GetInfo();
+		errMsg = m_camera->GetInfo();
 	}
 	else if (!AllocateImageBuf())	// allocate a buffer large enough to hold an image [must be done after call to m_blemishAcq.Open()]
 	{
@@ -2122,4 +2213,20 @@ bool COperatorConsoleApp::WritePassFail(void)
 	}
 
 	return result;
+}
+
+
+void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
+{
+	m_camera = &m_imatest_cam;
+	m_cameraControl = &m_ImatestCameraControl;
+	cout << "Switch to Imatest camera thread" << endl;
+}
+
+
+void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
+{
+	m_camera = &m_directshow_cam;
+	m_cameraControl = &m_DirectShowCameraControl;
+	cout << "Switch to DirectShow camera thread" << endl;
 }

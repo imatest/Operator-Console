@@ -142,8 +142,6 @@ BOOL CSetup::OnInitDialog()
 	c_setup_height.SetWindowTextA(strheight);
 	c_setup_width.SetWindowTextA(strwidth);
 
-
-
 	// fill the list of devices
 	for (std::size_t i1 = 0; i1 < m_setup_settings.device_list.size(); ++i1)
 	{
@@ -181,7 +179,7 @@ BOOL CSetup::OnInitDialog()
 	//device_list[3] = _T("STM Conduit");
 	//device_list[4] = _T("Graphin EasyLab");
 	//device_list[5] = _T("Epiphan");	
-
+	//device_list[6] = _T("DirectShow camera");
 	if (m_setup_settings.sourceID != 0)
 	{
 		CString str;
@@ -211,6 +209,10 @@ BOOL CSetup::OnInitDialog()
 		case 6:
 			str.SetString(m_setup_settings.device_list[5]); // Epiphan
 			ShowEpiphanElements();
+			break;
+		case 7:
+			str.SetString(m_setup_settings.device_list[6]); // DirectShow camera
+			ShowNormalElements();
 			break;
 		default:
 			str.SetString(m_setup_settings.device_list[0]); // Default: Aptina DevWare
@@ -318,6 +320,11 @@ void CSetup::OnLbnSelchangeDeviceList()
 	{
 		m_setup_settings.sourceID = 6;
 		ShowEpiphanElements();
+	}
+	else if (str.Compare(m_setup_settings.device_list[6]) ==0) // DirectShow camera
+	{
+		m_setup_settings.sourceID = 7;
+		ShowNormalElements();
 	}
 	else
 	{

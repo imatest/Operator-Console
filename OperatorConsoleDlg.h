@@ -68,6 +68,7 @@ public:
 	afx_msg void OnClose();
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 	afx_msg void OnBnClickedSetupButton();
+	afx_msg void OnClickedPassFail();
 	void DrawImage(LPDRAWITEMSTRUCT info);
 	void DrawLogo(LPDRAWITEMSTRUCT info);
 	void GetLog(CString &dst);
@@ -133,11 +134,8 @@ public:
 	CStatic		c_qsoCENTER;				//!< The static text for the center QSO 
 	CStatic		c_fps;						//!< The frames-per-second display
 	CButton		c_showjson;					//!< The 'show JSON' button
-	CButton		c_setup;					//!< The setup button
-
-
+	CButton		c_setup;					//!< The setup button	
+	CButton		c_pass_fail;
 	
-	CButton c_pass_fail;
-	afx_msg void OnClickedPassFail();
 
 };

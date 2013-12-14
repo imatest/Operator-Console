@@ -113,19 +113,21 @@
 //
 // These are messages that get sent to our application object
 //
-#define MSG_START			(WM_APP + 0x10)	// gets sent when Start button is clicked in dialog
-#define MSG_STOP			(WM_APP + 0x11)	// gets sent when Stop  button is clicked in dialog
-#define MSG_RUN_TEST		(WM_APP + 0x12) // gets sent to start running a test
-#define MSG_BLEMISH_DONE	(WM_APP + 0x13)	// gets sent from blemish thread when the blemish test has finished
-#define MSG_SFRPLUS_DONE	(WM_APP + 0x14)	// gets sent from SFRplus thread when the SFRplus test has finished
-#define MSG_SET_BLEMISH		(WM_APP + 0x15)	// gets sent from dialog when "Blemish" radio button is pressed
-#define MSG_SET_SFRPLUS		(WM_APP + 0x16)	// gets sent from dialog when "SFRplus" radio button is pressed
-#define MSG_JSON			(WM_APP + 0x17)	// gets sent from dialog when user wants to see the JSON output from the latest test
-#define MSG_STDOUT			(WM_APP + 0x18)	// gets sent from StdoutThread when console output is available
-#define MSG_STDERR			(WM_APP + 0x19)	// gets sent from StderrThread when console output is available
-#define MSG_FRAME_READY		(WM_APP + 0x20)	// gets sent from capture thread when a frame is ready for display
-#define MSG_SETUP			(WM_APP + 0x21)	// gets sent when the Setup button is clicked in dialog
-#define MSG_PASS_FAIL		(WM_APP + 0x22) // gets sent when the 'Set Pass/Fail' button is clicked in dialog
+#define MSG_START				(WM_APP + 0x10)	// gets sent when Start button is clicked in dialog
+#define MSG_STOP				(WM_APP + 0x11)	// gets sent when Stop  button is clicked in dialog
+#define MSG_RUN_TEST			(WM_APP + 0x12) // gets sent to start running a test
+#define MSG_BLEMISH_DONE		(WM_APP + 0x13)	// gets sent from blemish thread when the blemish test has finished
+#define MSG_SFRPLUS_DONE		(WM_APP + 0x14)	// gets sent from SFRplus thread when the SFRplus test has finished
+#define MSG_SET_BLEMISH			(WM_APP + 0x15)	// gets sent from dialog when "Blemish" radio button is pressed
+#define MSG_SET_SFRPLUS			(WM_APP + 0x16)	// gets sent from dialog when "SFRplus" radio button is pressed
+#define MSG_JSON				(WM_APP + 0x17)	// gets sent from dialog when user wants to see the JSON output from the latest test
+#define MSG_STDOUT				(WM_APP + 0x18)	// gets sent from StdoutThread when console output is available
+#define MSG_STDERR				(WM_APP + 0x19)	// gets sent from StderrThread when console output is available
+#define MSG_FRAME_READY			(WM_APP + 0x20)	// gets sent from capture thread when a frame is ready for display
+#define MSG_SETUP				(WM_APP + 0x21)	// gets sent when the Setup button is clicked in dialog
+#define MSG_PASS_FAIL			(WM_APP + 0x22) // gets sent when the 'Set Pass/Fail' button is clicked in dialog
+#define MSG_SET_IMATEST_CAM		(WM_APP + 0x23) // gets sent when one of the Imatest library camera devices is selected
+#define MSG_SET_DIRECTSHOW_CAM	(WM_APP + 0x24) // gets sent when the DirectShow camera is selected
 
 typedef enum AppStatus
 {
@@ -159,7 +161,18 @@ typedef struct AppFlags
 	unsigned int	imatestIT:1;		//!< imatestIT lib has been initialized
 	unsigned int	stdOut:1;			//!< stdout pipe is open
 	unsigned int	stdErr:1;			//!< stderr pipe is open
+	unsigned int	ImatestCameraThread:1;
+	unsigned int	DirectshowCameraThread:1;
 } AppFlags;
+
+///
+/// An enum type for indicating the image source
+///
+typedef enum image_source_t{
+	imatest_source,	//!< image acquisition using the Imatest library
+	directshow_source, //!< imaging from a DirectShow camera
+	file_source		//!< loading a file for the image source
+};
 
 // COperatorConsoleApp:
 // See OperatorConsole.cpp for the implementation of this class
@@ -184,6 +197,11 @@ public:
 	static bool			FileExists(LPCTSTR filePathName, char *errorMsg, int len);
 	int					GetImageWidth()  {return m_setup.width;}
 	int					GetImageHeight() {return m_setup.height;}
+	bool				ReadINISettings(void);					//!< This function reads in items for the setup dialog from imatest.ini
+	void				WriteINISettings(void);					//!< This function writes items for the setup dialog to imatest.ini
+	bool				ReInit(void);							//!< This function allows for reallocation of the various image buffers when we change the image size
+	bool				ReadPassFail(void);						//!< This function reads in the pass/fail variable values as in the pass/fail file listed in the imatest INI file
+	bool				WritePassFail(void);					//!< This function writes the pass/fail variables to the pass/fail file listed in the imatest INI file
 
 protected:
 	bool				AllocateImageBuf();
@@ -211,6 +229,8 @@ protected:
 	void				OnSFRplusDone(WPARAM wParam, LPARAM lParam);//!< Called after MSG_SFRPLUS_DONE is received
 	void				OnSetBlemish(WPARAM wParam, LPARAM lParam);	//!< Called after MSG_SET_BLEMISH is received
 	void				OnSetSFRplus(WPARAM wParam, LPARAM lParam);	//!< Called after MSG_SET_SFRPLUS is received
+	void				OnSetImatestCamera(WPARAM wParam, LPARAM lParam);
+	void				OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam);
 	void				OnShowJSON(UINT wParam, LONG lParam);		//!< Called after MSG_JSON is received
 	void				OnStop(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_STOP is received
 	void				OnStart(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_START is received
@@ -240,13 +260,18 @@ protected:
 	FileAcquisition			m_blemishAcq;		//!< raw data for blemish tests (no longer needed, now that live capture is working)
 	FileAcquisition			m_sfrPlusAcq;		//!< raw data for SFRplus tests (no longer needed, now that live capture is working)
 	ImageAcquisition		*m_acq;				//!< pointer to current acquisition object being used
-#if defined IMATEST_CAMERA
-	ImatestLibAcq			m_camera;			//!< live acquisition using Imatest acquire_image()
-#elif !defined FAKE_CAMERA
-	SimpleDirectShowAcq		m_camera;			// live acquisition using a camera
-#else
-	FileAcq					m_camera;			// acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
-#endif
+//#if defined IMATEST_CAMERA
+//	ImatestLibAcq			m_camera;			//!< live acquisition using Imatest acquire_image()
+//#elif !defined FAKE_CAMERA
+//	SimpleDirectShowAcq		m_camera;			// live acquisition using a camera
+//#else
+//	FileAcq					m_camera;			// acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
+//#endif
+	ImatestLibAcq			m_imatest_cam;		//!< live acquisition using Imatest acquire_image()	
+	SimpleDirectShowAcq		m_directshow_cam;	//!< live acquisition using a camera
+	//FileAcq					m_file_cam;			//!< acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
+	ImageAcquisition		*m_camera;	
+
 	int						m_width;
 	int						m_height;
 	setup_settings			m_setup;			//!< this contains settings from/for the setup dialog
@@ -254,8 +279,12 @@ protected:
 	SFRplusTest				m_sfrPlus;			//!< this will run the SFRplus tests
 	ThreadControl			m_blemishControl;	//!< this is the thread control for running Blemish tests
 	ThreadControl			m_sfrPlusControl;	//!< this is the thread control for running SFRplus tests
-	ThreadControl			m_cameraControl;	//!< this captures images from the acquisition source
+	ThreadControl			m_ImatestCameraControl;
+	ThreadControl			m_DirectShowCameraControl;
+	ThreadControl			*m_cameraControl;	//!< points to the current image source's  control thread
+	//ThreadControl			m_cameraControl;	//!< this captures images from the acquisition source
 	ThreadControl			*m_test;			//!< the current test being run (either &m_blemishControl or &sfrPlusControl)
+
 	ModelessDialogThread	*m_jsonDlgThread;
 	TestResults				m_results;
 	StdoutThread			m_stdoutThread;
@@ -266,19 +295,13 @@ protected:
 
 	DECLARE_MESSAGE_MAP()
 
-
 public:
-	bool ReadINISettings(void);					//!< This function reads in items for the setup dialog from imatest.ini
-	void WriteINISettings(void);				//!< This function writes items for the setup dialog to imatest.ini
-	bool ReInit(void);							//!< This function allows for reallocation of the various image buffers when we change the image size
-
-	bool ReadPassFail(void);					//!< This function reads in the pass/fail variable values as in the pass/fail file listed in the imatest INI file
-	bool WritePassFail(void);					//!< This function writes the pass/fail variables to the pass/fail file listed in the imatest INI file
-
 	CPassFailSettings m_PFSettings;				//!< Contains the pass/fail criteria given by the pass/fail file listed in imatest.ini
 private:
 	CString m_password;							//!< This contains the administrator password
 	bool m_passFailIsUnlocked;					//!< Indicates whether the administrator has chosen to unlock access to pass/fail settings for the duration that the executable runs
+	image_source_t m_image_source;
+	
 };
 
 extern COperatorConsoleApp theApp;
