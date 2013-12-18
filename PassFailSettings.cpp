@@ -51,6 +51,11 @@ CPassFailSettings::CPassFailSettings(void): b_isReadOnly(false)
 	sfrplus.Color_expected_detected.value = long_bad_val;
 	sfrplus.Color_expected_detected.description = _T("A color pattern is expected above the chart center when colorchart = 1 in the [sfrplus] section of the main ini file. If the color pattern is not present, this test will fail. This could indicate bad chart positioning or simply that the color pattern is not present in the test chart.");
 
+	sfrplus.DeltaE_00_mean_max.data_type.append("d");
+	sfrplus.DeltaE_00_mean_max.name.SetString(_T("DeltaE_00_mean_max"));
+	sfrplus.DeltaE_00_mean_max.value = dbl_bad_val;
+	sfrplus.DeltaE_00_mean_max.description = _T("Maximum allowed mean color difference between reference values and measured color values according to CIE Delta-E 2000 Standard");
+
 	sfrplus.Convergence_angle_max.data_type.append("d");
 	sfrplus.Convergence_angle_max.name.SetString(_T("Convergence_angle_max"));
 	sfrplus.Convergence_angle_max.value = dbl_bad_val;

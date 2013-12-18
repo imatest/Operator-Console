@@ -164,8 +164,6 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Imatest\IT\libs\blemish\cpp\imatest_blemish.h" />
-    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Imatest\IT\libs\sfrplus\cpp\imatest_sfrplus.h" />
     <ClInclude Include="AppThread.h" />
     <ClInclude Include="BlemishTest.h" />
     <ClInclude Include="Config.h" />
@@ -177,6 +175,7 @@
     <ClInclude Include="ImageAcquisition.h" />
     <ClInclude Include="ImageTest.h" />
     <ClInclude Include="ImatestLibAcq.h" />
+    <ClInclude Include="imatest_library.h" />
     <ClInclude Include="jsonhelpers.h" />
     <ClInclude Include="JSONOptions.h" />
     <ClInclude Include="JSON\internalJSONNode.h" />
@@ -289,6 +288,9 @@
     <Image Include="Data\logo_flat_550x150.png" />
     <Image Include="res\icon1.ico" />
     <Image Include="res\OperatorConsole.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="imatest_library.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

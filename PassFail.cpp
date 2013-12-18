@@ -198,6 +198,7 @@ BOOL CPassFail::OnInitDialog()
 		AddSubEntry(apGroup1, PFSettings.sfrplus.Mirrored_chart);
 		AddSubEntry(apGroup1, PFSettings.sfrplus.Bayer_decode);
 		AddSubEntry(apGroup1, PFSettings.sfrplus.Color_expected_detected);
+		AddSubEntry(apGroup1, PFSettings.sfrplus.DeltaE_00_mean_max);
 		AddSubEntry(apGroup1, PFSettings.sfrplus.Stepchart_expected_detected);
 		AddSubEntry(apGroup1, PFSettings.sfrplus.upside_down);
 		AddSubEntry(apGroup1, PFSettings.sfrplus.passfail_ini_file_date);
@@ -394,6 +395,10 @@ void CPassFail::OnBnClickedOk()
 				else if (subItemName.Compare(PFSettings.sfrplus.Color_expected_detected.name)==0) // Color_expected_detected
 				{
 					PFSettings.sfrplus.Color_expected_detected.value = subItemProp->GetValue().lVal;
+				}
+				else if (subItemName.Compare(PFSettings.sfrplus.DeltaE_00_mean_max.name)==0) // DeltaE_00_mean_max
+				{
+					PFSettings.sfrplus.DeltaE_00_mean_max.value = subItemProp->GetValue().lVal;
 				}
 				else if (subItemName.Compare(PFSettings.sfrplus.Convergence_angle_max.name)==0) // Convergence_angle_max
 				{
