@@ -1765,6 +1765,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		addDataTypeAndKey(m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.data_type,m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.group_name,data_types,sfr_keys);									// 3
 		addDataTypeAndKey(m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.data_type,m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.name,data_types,sfr_keys);											// 4
 		addDataTypeAndKey(m_PFSettings.sfrplus.Color_expected_detected.data_type,m_PFSettings.sfrplus.Color_expected_detected.name,data_types,sfr_keys);													// 5
+		addDataTypeAndKey(m_PFSettings.sfrplus.DeltaE_00_mean_max.data_type,m_PFSettings.sfrplus.DeltaE_00_mean_max.name,data_types,sfr_keys);
 		addDataTypeAndKey(m_PFSettings.sfrplus.Convergence_angle_max.data_type,m_PFSettings.sfrplus.Convergence_angle_max.name,data_types,sfr_keys);														// 6
 		addDataTypeAndKey(m_PFSettings.sfrplus.FOV_degrees_diagonal_min.data_type,m_PFSettings.sfrplus.FOV_degrees_diagonal_min.name,data_types,sfr_keys);													// 7
 		addDataTypeAndKey(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.data_type,m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.name,data_types,sfr_keys);								// 8
@@ -1852,6 +1853,9 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 		readSett.Get(1,1).Get(1,6).GetData(&dblBuf, 1);
 		m_PFSettings.sfrplus.Convergence_angle_max.assign_value(dblBuf,(double)badval);
+
+		readSett.Get(1,1).Get(1,6).GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.DeltaE_00_mean_max.assign_value(dblBuf,(double)badval);
 
 		readSett.Get(1,1).Get(1,7).GetData(&dblBuf, 1);
 		m_PFSettings.sfrplus.FOV_degrees_diagonal_min.assign_value(dblBuf,badval);
@@ -2159,28 +2163,29 @@ bool COperatorConsoleApp::WritePassFail(void)
 		addKeysAndValues(m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.group_name.GetString(), writeMinMaxEntValueString(m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds), keys, vals, m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.b_isUsed);			// 3
 		addKeysAndValues(m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Chart_radial_pixel_shift_max), keys, vals, m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.b_isUsed);							// 4
 		addKeysAndValues(m_PFSettings.sfrplus.Color_expected_detected.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Color_expected_detected), keys, vals, m_PFSettings.sfrplus.Color_expected_detected.b_isUsed);										// 5
-		addKeysAndValues(m_PFSettings.sfrplus.Convergence_angle_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Convergence_angle_max), keys, vals, m_PFSettings.sfrplus.Convergence_angle_max.b_isUsed);												// 6
-		addKeysAndValues(m_PFSettings.sfrplus.FOV_degrees_diagonal_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.FOV_degrees_diagonal_min), keys, vals, m_PFSettings.sfrplus.FOV_degrees_diagonal_min.b_isUsed);										// 7
-		addKeysAndValues(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max), keys, vals, m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.b_isUsed);		// 8
-		addKeysAndValues(m_PFSettings.sfrplus.Horizontal_bars_OK_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Horizontal_bars_OK_min), keys, vals, m_PFSettings.sfrplus.Horizontal_bars_OK_min.b_isUsed);											// 9
-		addKeysAndValues(m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max), keys, vals, m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.b_isUsed);			//10
-		addKeysAndValues(m_PFSettings.sfrplus.Mirrored_chart.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Mirrored_chart), keys, vals, m_PFSettings.sfrplus.Mirrored_chart.b_isUsed);																	//11
-		addKeysAndValues(m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min), keys, vals, m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.b_isUsed);							//12
-		addKeysAndValues(m_PFSettings.sfrplus.MTF50P_ratio_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.MTF50P_ratio_min), keys, vals, m_PFSettings.sfrplus.MTF50P_ratio_min.b_isUsed);																//13
-		addKeysAndValues(m_PFSettings.sfrplus.passfail_ini_file_date.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.passfail_ini_file_date), keys, vals, m_PFSettings.sfrplus.passfail_ini_file_date.b_isUsed);											//14
-		addKeysAndValues(m_PFSettings.sfrplus.Rotation_degrees_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Rotation_degrees_max), keys, vals, m_PFSettings.sfrplus.Rotation_degrees_max.b_isUsed);													//15
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.b_isUsed);	//16
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.b_isUsed);		//17
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.b_isUsed);			//18
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.b_isUsed);			//19
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.b_isUsed);//20
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.b_isUsed);	//21
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.b_isUsed);		//22
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.b_isUsed);			//23
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.b_isUsed);			//24
-		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.b_isUsed);//25
-		addKeysAndValues(m_PFSettings.sfrplus.Stepchart_expected_detected.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Stepchart_expected_detected), keys, vals, m_PFSettings.sfrplus.Stepchart_expected_detected.b_isUsed);							//26
-		addKeysAndValues(m_PFSettings.sfrplus.upside_down.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.upside_down), keys, vals, m_PFSettings.sfrplus.upside_down.b_isUsed);																			//27
+		addKeysAndValues(m_PFSettings.sfrplus.DeltaE_00_mean_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.DeltaE_00_mean_max), keys, vals, m_PFSettings.sfrplus.DeltaE_00_mean_max.b_isUsed);										// 6
+		addKeysAndValues(m_PFSettings.sfrplus.Convergence_angle_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Convergence_angle_max), keys, vals, m_PFSettings.sfrplus.Convergence_angle_max.b_isUsed);												// 7
+		addKeysAndValues(m_PFSettings.sfrplus.FOV_degrees_diagonal_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.FOV_degrees_diagonal_min), keys, vals, m_PFSettings.sfrplus.FOV_degrees_diagonal_min.b_isUsed);										// 8
+		addKeysAndValues(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max), keys, vals, m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.b_isUsed);		// 9
+		addKeysAndValues(m_PFSettings.sfrplus.Horizontal_bars_OK_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Horizontal_bars_OK_min), keys, vals, m_PFSettings.sfrplus.Horizontal_bars_OK_min.b_isUsed);											// 10
+		addKeysAndValues(m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max), keys, vals, m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.b_isUsed);			//11
+		addKeysAndValues(m_PFSettings.sfrplus.Mirrored_chart.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Mirrored_chart), keys, vals, m_PFSettings.sfrplus.Mirrored_chart.b_isUsed);																	//12
+		addKeysAndValues(m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min), keys, vals, m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.b_isUsed);							//13
+		addKeysAndValues(m_PFSettings.sfrplus.MTF50P_ratio_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.MTF50P_ratio_min), keys, vals, m_PFSettings.sfrplus.MTF50P_ratio_min.b_isUsed);																//14
+		addKeysAndValues(m_PFSettings.sfrplus.passfail_ini_file_date.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.passfail_ini_file_date), keys, vals, m_PFSettings.sfrplus.passfail_ini_file_date.b_isUsed);											//15
+		addKeysAndValues(m_PFSettings.sfrplus.Rotation_degrees_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Rotation_degrees_max), keys, vals, m_PFSettings.sfrplus.Rotation_degrees_max.b_isUsed);													//16
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.b_isUsed);	//17
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.b_isUsed);		//18
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.b_isUsed);			//19
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.b_isUsed);			//20
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.b_isUsed);//21
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.b_isUsed);	//22
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.b_isUsed);		//23
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.b_isUsed);			//24
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.b_isUsed);			//25
+		addKeysAndValues(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min), keys, vals, m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.b_isUsed);//26
+		addKeysAndValues(m_PFSettings.sfrplus.Stepchart_expected_detected.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Stepchart_expected_detected), keys, vals, m_PFSettings.sfrplus.Stepchart_expected_detected.b_isUsed);							//27
+		addKeysAndValues(m_PFSettings.sfrplus.upside_down.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.upside_down), keys, vals, m_PFSettings.sfrplus.upside_down.b_isUsed);																			//28
 
 		mwArray writeKeys = mwArray(keys.size(),4,mxCELL_CLASS);
 		// add the contents of keys and vals to writeKeys
