@@ -291,3 +291,12 @@ void SFRplusTest::ParseOverlay(JSONNode &data, JSONNode &passfail)
 		m_log.Append(log);
 	} 
 }
+
+
+void SFRplusTest::ClearQSO(void)
+{
+	for (int i1 = 0; i1 < eNumQuadrants; ++i1)
+	{
+		m_qso[i1] = false;
+	}
+}

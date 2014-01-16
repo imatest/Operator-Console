@@ -34,6 +34,7 @@ public:
 	virtual ~SFRplusTest(void);
 
 	const bool *GetQSO() {return m_qso;}
+	void ClearQSO(void);
 #if 0
 	void		Run();															//!< DEPRECATED: The Run method has been moved up to the parent class (ImageTest).
 	void		Run(void *raw_pixels, int width, int height, Config &config);	//!< DEPRECATED: The Run method has been moved up to the parent class (ImageTest).
@@ -46,5 +47,6 @@ protected:
 
 protected:
 	bool		m_qso[eNumQuadrants];	//!< pass/fail for each quadrant
+	
 };
 
