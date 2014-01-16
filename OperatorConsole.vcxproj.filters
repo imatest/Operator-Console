@@ -39,12 +39,6 @@
     <ClInclude Include="FileAcquisition.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Imatest\IT\libs\blemish\cpp\imatest_blemish.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\..\Program Files (x86)\Imatest\IT\libs\sfrplus\cpp\imatest_sfrplus.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ImageTest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -196,6 +190,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PasswordDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="imatest_library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -374,5 +371,10 @@
     <Image Include="..\Data\icons\icon256x256.png">
       <Filter>Resource Files</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="imatest_library.lib">
+      <Filter>Header Files</Filter>
+    </Library>
   </ItemGroup>
 </Project>

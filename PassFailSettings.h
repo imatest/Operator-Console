@@ -118,6 +118,7 @@ typedef struct SFRplusPassFail{
 	minMaxEntry<double> Chart_mean_pixel_level_bounds;
 	entry<double>		Chart_radial_pixel_shift_max;
 	entry<long>			Color_expected_detected;
+	entry<double>		DeltaE_00_mean_max;
 	entry<double>		Convergence_angle_max;
 	entry<double>		FOV_degrees_diagonal_min;
 	entry<double>		High_pixel_saturation_fraction_max;
