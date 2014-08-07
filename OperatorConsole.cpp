@@ -2015,6 +2015,8 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			cout << "Run Error!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.ois
 		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
@@ -2094,6 +2096,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error! Unable to write to Pass/Fail file" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 
@@ -2136,6 +2140,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error writing OIS keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 
@@ -2170,6 +2176,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error writing Blemish keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 

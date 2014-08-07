@@ -122,6 +122,7 @@ bool ImatestLibAcq::CaptureFrame()
         cout << "Run Error!" << endl;
         cerr << e.what() << endl;
 		mwException e2 = e;
+		cerr << e.what() << endl;
 		e2.print_stack_trace();
 	}
 
