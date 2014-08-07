@@ -140,6 +140,7 @@ COperatorConsoleApp::COperatorConsoleApp()
 	m_password = _T(ADMIN_PASSWORD);
 	m_passFailIsUnlocked = false; // Keep this initialized to false unless you want to completely disable password-protection for pass/fail settings!
 	m_image_source = imatest_source;
+	m_logFileName = _T(LOG_FILENAME);
 #if defined(STDIO_DEBUG)
 	printf("Hello from constructor [stdout]\n");
 	cout << "Hello from constructor [cout]" << endl;
@@ -226,7 +227,7 @@ BOOL COperatorConsoleApp::InitInstance()
 	}
 	if (!ReadPassFail())
 	{
-		
+
 	}
 	if (!Init())	// do our application-specific initialization
 	{
@@ -237,7 +238,6 @@ BOOL COperatorConsoleApp::InitInstance()
 	{
 		COperatorConsoleDlg dlg;
 		m_pMainWnd = &dlg;
-
 		INT_PTR nResponse = dlg.DoModal();
 		if (nResponse == IDOK)
 		{
@@ -419,7 +419,7 @@ bool COperatorConsoleApp::InitCamera()
 			m_camera->m_source_ID = m_setup.sourceID;
 			m_camera->m_ini_file.assign(m_setup.ini_file);
 		}
-		
+
 	}
 	else if (m_image_source==directshow_source)
 	{
@@ -431,7 +431,7 @@ bool COperatorConsoleApp::InitCamera()
 			m_camera->m_source_ID = m_setup.sourceID;
 			m_camera->m_ini_file.assign(m_setup.ini_file);
 		}
-		
+
 	}
 	else if (m_image_source==file_source)
 	{
@@ -441,24 +441,24 @@ bool COperatorConsoleApp::InitCamera()
 
 		cerr << "Error! Image file loading not yet implemented." << endl;
 	}
-	
-//#ifdef IMATEST_CAMERA
-//	if (m_camera.Init(m_setup.width, m_setup.height, 4))
-//	{
-//		success = m_camera.Open();
-//		m_camera.m_device_ID = m_setup.epiphan_deviceID;
-//		m_camera.m_source_ID = m_setup.sourceID;
-//		m_camera.m_ini_file.assign(m_setup.ini_file);
-//	}
-//#elif !defined FAKE_CAMERA
-//	if (m_camera.Init(CAMERA_WIDTH, CAMERA_HEIGHT, 4))
-//	{
-//		success = m_camera.Open();
-//	}
-//#else
-//	m_camera.Init(IMAGE_NAME);
-//	success = m_camera.Open();
-//#endif
+
+	//#ifdef IMATEST_CAMERA
+	//	if (m_camera.Init(m_setup.width, m_setup.height, 4))
+	//	{
+	//		success = m_camera.Open();
+	//		m_camera.m_device_ID = m_setup.epiphan_deviceID;
+	//		m_camera.m_source_ID = m_setup.sourceID;
+	//		m_camera.m_ini_file.assign(m_setup.ini_file);
+	//	}
+	//#elif !defined FAKE_CAMERA
+	//	if (m_camera.Init(CAMERA_WIDTH, CAMERA_HEIGHT, 4))
+	//	{
+	//		success = m_camera.Open();
+	//	}
+	//#else
+	//	m_camera.Init(IMAGE_NAME);
+	//	success = m_camera.Open();
+	//#endif
 
 	return success;
 }
@@ -777,7 +777,6 @@ void COperatorConsoleApp::Quit()
 		::WaitForSingleObject(m_jsonDlgThread->m_hThread, INFINITE);				// wait for it to quit (thread gets deleted automatically)
 		m_flags.modelessThread = false;
 	}
-
 #if defined(REDIRECT_STDIO)
 	if (m_flags.stdOut)
 	{
@@ -790,8 +789,12 @@ void COperatorConsoleApp::Quit()
 		m_flags.stdErr = false;
 	}
 #endif
-
-	SaveLog(LOG_FILENAME);
+	// TDC 2014/08/07 Calling SaveLog() anywhere in Quit() will NOT copy the contents of 
+	// c_log as c_log.GetWindowText returns an empty string instead of the contents of c_log. Additionally,
+	// if you use SetSel to set to the entire edit box, the values it returns have nStart > nStop.
+	//SaveLog(LOG_FILENAME); 
+	
+	
 }
 
 void COperatorConsoleApp::OnRunTest(WPARAM wParam, LPARAM lParam)
@@ -1001,27 +1004,32 @@ bool COperatorConsoleApp::FileExists(LPCTSTR filePathName, char *errorMsg, int l
 	return exists;
 }
 
-void COperatorConsoleApp::SaveLog(const char *filePathName)
+void COperatorConsoleApp::SaveLog(void)
+{
+	SaveLog(m_logFileName);
+}
+
+
+void COperatorConsoleApp::SaveLog(const CString& filePathName)
 {
 	UINT	len;
 	CString	str;
 	CFile	file(filePathName, CFile::modeWrite | CFile::modeCreate);
-
-
+	
 
 	//
 	// Copy the contents of the log window into a string
 	//
-	if (m_pMainWnd)
+	if (m_pMainWnd){
 		((COperatorConsoleDlg *)m_pMainWnd)->GetLog(str);
-
+	} 
+	
 	//
 	// str may have lines ending with \r\n or just \n.  We want all lines to end with \r\n, so first we need to 
 	// convert any \r\n combinations to \n.  Then we can go back and replace all of the \n characters with \r\n.
 	//
 	str.Replace("\r\n", "\n");
 	str.Replace("\n", "\r\n");
-
 	len = (UINT)str.GetLength();
 
 	//
@@ -1031,6 +1039,7 @@ void COperatorConsoleApp::SaveLog(const char *filePathName)
 	// log window already has \r\n in it.
 	//
 	file.Write(str, len);
+	file.Close();
 }
 
 
@@ -1069,7 +1078,7 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 		WriteINISettings(); // store new settings
 		if ( oldWidth != m_setup.width || oldHeight != m_setup.height || oldSourceID<7&&m_setup.sourceID>6 || oldSourceID>6&&m_setup.sourceID<7)
 		{
-			
+
 			if (m_setup.sourceID < 7)
 			{
 				m_image_source=imatest_source;
@@ -1145,6 +1154,8 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
+		mwException e2 = e;
+		e2.print_stack_trace();
 	}	
 
 	if (m_setup.sourceID ==2)
@@ -1246,6 +1257,8 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
+		mwException e2 = e;
+		e2.print_stack_trace();
 
 	}	
 
@@ -1350,6 +1363,8 @@ void COperatorConsoleApp::WriteINISettings(void)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
+		mwException e2 = e;
+		e2.print_stack_trace();
 	}
 }
 
@@ -1499,6 +1514,8 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	{
 		cout << "Run Error! Unable to read Pass/Fail file" << endl;
 		cerr << e.what() << endl;
+		mwException e2 = e;
+		e2.print_stack_trace();
 	}
 
 	m_PFSettings.m_pass_fail_file.SetString(_T(readSett.Get(1,1).Get(1,1).ToString()));
@@ -1507,7 +1524,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 	//Now we find the Pass/Fail file and check if it is read-only
 
-	
+
 	if ( GetFileAttributes(m_PFSettings.m_pass_fail_file) % 2 == 1) // this returns an odd number if and only if the file is read-only
 	{
 		m_PFSettings.b_isReadOnly = TRUE;
@@ -1538,6 +1555,8 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	{
 		cout << "Run Error! Unable to read Pass/Fail file" << endl;
 		cerr << e.what() << endl;
+		mwException e2 = e;
+		e2.print_stack_trace();
 	} 
 
 	std::size_t numSections = varargout.Get(1,2).NumberOfElements();
@@ -1612,7 +1631,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 	if (m_PFSettings.blemish.b_enable)
 	{
-		
+
 		readKeys = mwArray(m_PFSettings.blemish.numEntries,5,mxCELL_CLASS);
 		varargin = mwArray(1,3,mxCELL_CLASS);
 		mwArray section_Blemish("Blemish");
@@ -1674,6 +1693,8 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			cout << "Run Error! Unable to read Blemish keys from Pass/Fail file" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 		}
 
 		// now to copy the values into m_PFSettings.blemish
@@ -1706,7 +1727,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			}
 			m_PFSettings.blemish.Blemish_size_pixels.b_isUsed = true;
 		}
-		
+
 		int intBuf = 0;
 		double dblBuf = 0.0;
 
@@ -1752,7 +1773,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	if ( m_PFSettings.sfrplus.b_enable)
 	{
 
-	
+
 		readKeys = mwArray(m_PFSettings.sfrplus.numEntries,5,mxCELL_CLASS);
 		varargin = mwArray(1,3,mxCELL_CLASS);
 		mwArray section_sfr(m_PFSettings.sfrplus.name.GetString());
@@ -1832,6 +1853,8 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			cout << "Run Error! Unable to read SFRplus keys from Pass/Fail file" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.sfrplus
 		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
@@ -1911,7 +1934,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 		readSett.Get(1,1).Get(1,20).GetData(&dblBuf, 1);
 		m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.assign_value(dblBuf,(double)badval);
-	
+
 		readSett.Get(1,1).Get(1,21).GetData(&dblBuf, 1);
 		m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.assign_value(dblBuf,(double)badval);
 
@@ -1992,6 +2015,8 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			cout << "Run Error!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.ois
 		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
@@ -2071,6 +2096,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error! Unable to write to Pass/Fail file" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 
@@ -2113,6 +2140,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error writing OIS keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 
@@ -2147,6 +2176,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error writing Blemish keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 
@@ -2213,6 +2244,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			cout << "Run Error writing SFRplus keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
+			mwException e2 = e;
+			e2.print_stack_trace();
 			result = false;
 		}
 	}
@@ -2225,7 +2258,7 @@ void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
 {
 	m_camera = &m_imatest_cam;
 	m_cameraControl = &m_ImatestCameraControl;
-	
+
 }
 
 
@@ -2233,5 +2266,5 @@ void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
 {
 	m_camera = &m_directshow_cam;
 	m_cameraControl = &m_DirectShowCameraControl;
-	
+
 }

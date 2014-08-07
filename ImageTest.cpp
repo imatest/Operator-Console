@@ -264,6 +264,10 @@ void ImageTest::Run()
 		log.AppendFormat("%s Error running %s test\n%s\n", (LPCTSTR)m_timestamp.Get(), m_name, e.what());
 		log.Replace("\n", "\r\n");	// the exception may have '\n' characters that we need to replace with "\r\n"
 		AppendLog(log);
+		mwException e2 = e;
+		cout << "Run Error!" << endl;
+		cerr << e.what() << endl;
+		e2.print_stack_trace();
 		m_passed = false;
 	}
 }

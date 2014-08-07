@@ -157,6 +157,8 @@ void SFRplusTest::Run()
 		CString	log;
 		log.AppendFormat("Error running %s test\n%s\n", TEST_NAME, e.what());
 		m_log.Append(log);
+		mwException e2 = e;
+		e2.print_stack_trace();
 		m_passed = false;	
 	}
 }

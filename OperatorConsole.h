@@ -52,7 +52,7 @@
 #include "ThreadControl.h"
 #include "setup_settings.h"
 #include "PassFailSettings.h"
-
+#include "OperatorConsoleDlg.h"
 //
 // Hard coded values go here.  Most or all will eventually come from a Config or Setup dialog.
 //
@@ -238,7 +238,7 @@ protected:
 	void				OnUpdateStderr();							//!< Called after MSG_STDERR is received
 	void				OnUpdateStdout();							//!< Called after MSG_STDOUT is received
 	bool				SaveConfig();
-	void				SaveLog(const char *filePathName);
+	void				SaveLog(const CString& filePathName);
 	BOOL				PreTranslateMessage(MSG* pMsg);				//!< Intercepts messages of interest before Windows or MFC.
 	BOOL				SendAppMessage(int msg);
 	void				LogTime();
@@ -250,6 +250,8 @@ protected:
 public:
 
 	// Implementation
+	void				SaveLog(void);			//!< A public function to save the contents of the log CEdit to m_logFileName.
+
 protected:
 	AppStatus				m_status;
 	Config					m_configRAW;		//!< for using raw files:  will eventually come from a dialog (uses hard coded values for now)
@@ -301,7 +303,7 @@ private:
 	CString m_password;							//!< This contains the administrator password
 	bool m_passFailIsUnlocked;					//!< Indicates whether the administrator has chosen to unlock access to pass/fail settings for the duration that the executable runs
 	image_source_t m_image_source;
-	
+	CString m_logFileName;						//!< Contains the file name for the log file (log file is filled with the contents of the log edit box upon app closure).
 };
 
 extern COperatorConsoleApp theApp;

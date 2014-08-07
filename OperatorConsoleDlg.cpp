@@ -303,7 +303,8 @@ void COperatorConsoleDlg::OnBnClickedStart()
 	// This is test code that toggles the values of the QSO display
 	// without running an actual test
 	//
-	static bool quad[eNumQuadrants] = {true, true, true, true, true};
+	static bool quad[eNumQuadrants] = {false, false, false, false, false};
+	//static bool quad[eNumQuadrants] = {true, true, true, true, true};
 	UpdateQuadrants(quad);
 	for (int i = 0; i < eNumQuadrants; i++)
 		quad[i] = !quad[i];
@@ -410,7 +411,9 @@ void COperatorConsoleDlg::UpdateQuadrant(const bool *passed, EQuadrant quadrant,
 void COperatorConsoleDlg::GetLog(CString &dst)
 {
 	if (c_log)
+	{
 		c_log.GetWindowTextA(dst);
+	}
 }
 
 void COperatorConsoleDlg::LogMessage(LPCTSTR msg, bool timestamp)
@@ -673,7 +676,7 @@ void COperatorConsoleDlg::OnOK()	// the user clicked on IDOK (the Quit button)
 	CDialogEx::OnOK();
 }
 
-void COperatorConsoleDlg::OnCancel()	// the suer clicked on IDCANCEL
+void COperatorConsoleDlg::OnCancel()	// the user clicked on IDCANCEL
 {
 	Quit();
 	CDialogEx::OnCancel();
@@ -696,7 +699,12 @@ void COperatorConsoleDlg::Quit()
 	// 
 	// Once the app is done, we can go ahead and close the dialog.
 	//
+	// TDC 2014/08/07 Must save the log outside of running theApp.Quit() otherwise the 
+	// coordinate system of c_log gets garbled and c_log.GetWindowText returns an 
+	// empty string.
+
 	theApp.Quit();
+	theApp.SaveLog(); 
 }
 
 
