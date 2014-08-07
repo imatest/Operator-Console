@@ -121,6 +121,8 @@ bool ImatestLibAcq::CaptureFrame()
     {
         cout << "Run Error!" << endl;
         cerr << e.what() << endl;
+		mwException e2 = e;
+		e2.print_stack_trace();
 	}
 
 	//im_orig.GetData((mxUint64*)m_buf,(mwSize)im_orig.ElementSize());
