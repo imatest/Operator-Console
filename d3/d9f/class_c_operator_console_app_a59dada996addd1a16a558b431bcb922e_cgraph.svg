@@ -43,7 +43,7 @@
 </g>
 <!-- Node6 -->
 <g id="node6" class="node"><title>Node6</title>
-<g id="a_node6"><a xlink:href="../../d3/d9f/class_c_operator_console_app.html#aa0ad15e15b08dc7c2704d9978f271954" target="_top" xlink:title="COperatorConsoleApp\l::SaveLog">
+<g id="a_node6"><a xlink:href="../../d3/d9f/class_c_operator_console_app.html#a13535438650fa9d707e82037b7d64bd7" target="_top" xlink:title="A public function to save the contents of the log CEdit to m_logFileName. ">
 <polygon fill="white" stroke="black" points="174.5,-0 174.5,-34 311.5,-34 311.5,-0 174.5,-0"/>
 <text text-anchor="start" x="182.5" y="-20.4" font-family="Helvetica,sans-Serif" font-size="12.00">COperatorConsoleApp</text>
 <text text-anchor="middle" x="243" y="-7.4" font-family="Helvetica,sans-Serif" font-size="12.00">::SaveLog</text>

@@ -16,7 +16,7 @@
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
-<g id="a_node2"><a xlink:href="../../dc/d0a/class_j_s_o_n_base64.html#a5c29b5d5de4239569e0f8c80bf04b0b3" target="_top" target="_top" xlink:title="JSONBase64::json_encode64">
+<g id="a_node2"><a xlink:href="../../dc/d0a/class_j_s_o_n_base64.html#a5c29b5d5de4239569e0f8c80bf04b0b3" target="_top" xlink:title="JSONBase64::json_encode64">
 <polygon fill="white" stroke="black" points="144,-0.5 144,-21.5 320,-21.5 320,-0.5 144,-0.5"/>
 <text text-anchor="middle" x="232" y="-7.9" font-family="Helvetica,sans-Serif" font-size="12.00">JSONBase64::json_encode64</text>
 </a>
@@ -29,7 +29,7 @@
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
-<g id="a_node3"><a xlink:href="../../de/d85/_j_s_o_n___base64_8cpp.html#a020e9fb20635ef0dfa3f79151f7f975a" target="_top" target="_top" xlink:title="chars64">
+<g id="a_node3"><a xlink:href="../../d0/d4c/_documentation_2_operator-_console_2_j_s_o_n_2_j_s_o_n___base64_8cpp.html#a020e9fb20635ef0dfa3f79151f7f975a" target="_top" xlink:title="chars64">
 <polygon fill="white" stroke="black" points="356.5,-0.5 356.5,-21.5 415.5,-21.5 415.5,-0.5 356.5,-0.5"/>
 <text text-anchor="middle" x="386" y="-7.9" font-family="Helvetica,sans-Serif" font-size="12.00">chars64</text>
 </a>

@@ -1,7 +1,0 @@
-<map id="BlemishTest" name="BlemishTest">
-<area shape="rect" id="node2" href="$da/d92/class_image_test.html" title="An abstract class that defines an image test to be performed. " alt="" coords="227,232,321,261"/>
-<area shape="rect" id="node3" href="$d6/d56/class_critical_c_string.html" title="A null&#45;terminated string class for which all access is controlled by critical sections. " alt="" coords="11,85,135,115"/>
-<area shape="rect" id="node5" href="$dd/d46/class_timestamp.html" title="A class for acquiring the current time. " alt="" coords="159,85,259,115"/>
-<area shape="rect" id="node6" href="$d9/da7/_image_test_8h.html#d7/de9/struct_test_i_d" title="This struct is used for figuring out which test(s) failed in class ImageTest. " alt="" coords="307,85,373,115"/>
-<area shape="rect" id="node7" href="$d8/d08/class_timer.html" title="a timer class for getting the elapsed time between events " alt="" coords="399,85,461,115"/>
-</map>

@@ -1,7 +1,7 @@
 <map id="COperatorConsoleApp::Quit" name="COperatorConsoleApp::Quit">
 <area shape="rect" id="node2" href="$d5/d67/class_stdout_thread.html#aa1e6ea9a0ab824dd75cfe81fe2686de2" title="StdoutThread::Quit" alt="" coords="253,32,405,61"/>
 <area shape="rect" id="node5" href="$d7/da0/class_thread_control.html#afd86c1fc3e09d219cf48f5a15539b920" title="ThreadControl::Quit" alt="" coords="251,85,408,115"/>
-<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#aa0ad15e15b08dc7c2704d9978f271954" title="COperatorConsoleApp\l::SaveLog" alt="" coords="238,139,421,186"/>
+<area shape="rect" id="node6" href="$d3/d9f/class_c_operator_console_app.html#a13535438650fa9d707e82037b7d64bd7" title="A public function to save the contents of the log CEdit to m_logFileName. " alt="" coords="238,139,421,186"/>
 <area shape="rect" id="node3" href="$d5/d52/class_stdout_redirect.html#a95ecf8bde26cbfb1bcdc77bf9311af57" title="StdoutRedirect::Stop" alt="" coords="474,5,641,35"/>
 <area shape="rect" id="node4" href="$d5/d52/class_stdout_redirect.html#a16592c4b15073ca7825c04de07503eac" title="StdoutRedirect::Close" alt="" coords="470,59,645,88"/>
 </map>

@@ -1,4 +1,12 @@
 <map id="OperatorConsoleDlg.h" name="OperatorConsoleDlg.h">
-<area shape="rect" id="node2" href="$de/da2/_operator_console_8cpp.html" title="OperatorConsole.cpp" alt="" coords="5,83,176,112"/>
-<area shape="rect" id="node3" href="$d8/d29/_operator_console_dlg_8cpp.html" title="OperatorConsoleDlg.cpp" alt="" coords="201,83,396,112"/>
+<area shape="rect" id="node2" href="$da/de6/_operator_console_8h.html" title="OperatorConsole.h" alt="" coords="605,83,760,112"/>
+<area shape="rect" id="node7" href="$de/da2/_operator_console_8cpp.html" title="OperatorConsole.cpp" alt="" coords="1019,160,1191,189"/>
+<area shape="rect" id="node8" href="$d8/d29/_operator_console_dlg_8cpp.html" title="OperatorConsoleDlg.cpp" alt="" coords="1215,160,1411,189"/>
+<area shape="rect" id="node3" href="$d3/d22/_app_thread_8cpp.html" title="AppThread.cpp" alt="" coords="123,160,253,189"/>
+<area shape="rect" id="node4" href="$d6/df7/_critical_buf_8cpp.html" title="CriticalBuf.cpp" alt="" coords="278,160,401,189"/>
+<area shape="rect" id="node5" href="$d8/d53/_image_test_8cpp.html" title="ImageTest.cpp" alt="" coords="427,160,552,189"/>
+<area shape="rect" id="node6" href="$df/d0a/main_8cpp.html" title="main.cpp" alt="" coords="577,160,663,189"/>
+<area shape="rect" id="node9" href="$d0/d57/_pass_fail_8cpp.html" title="PassFail.cpp" alt="" coords="688,160,803,189"/>
+<area shape="rect" id="node10" href="$da/d46/_password_dialog_8cpp.html" title="PasswordDialog.cpp" alt="" coords="827,160,995,189"/>
+<area shape="rect" id="node11" href="$d5/d27/_setup_8cpp.html" title="Setup.cpp" alt="" coords="5,160,99,189"/>
 </map>

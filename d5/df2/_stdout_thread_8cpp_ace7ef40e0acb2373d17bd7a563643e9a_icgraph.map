@@ -1,6 +1,0 @@
-<map id="FindChar" name="FindChar">
-<area shape="rect" id="node2" href="$d5/d67/class_stdout_thread.html#a5527fa5fc7f110414f03e63b759bc4c3" title="StdoutThread::ThreadProc" alt="" coords="142,13,349,43"/>
-<area shape="rect" id="node3" href="$d5/d67/class_stdout_thread.html#aab5207762f1d6036974b9bbd4b854a23" title="StdoutThread::InitThread" alt="" coords="397,13,589,43"/>
-<area shape="rect" id="node4" href="$d3/d9f/class_c_operator_console_app.html#a3326d8200d481631ffb26bff5c621e05" title="COperatorConsoleApp\l::InitOutput" alt="" coords="638,5,821,51"/>
-<area shape="rect" id="node5" href="$d3/d9f/class_c_operator_console_app.html#a94f4b258145e77e31644beb999bf099a" title="COperatorConsoleApp initialization. " alt="" coords="870,5,1053,51"/>
-</map>

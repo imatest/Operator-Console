@@ -1,6 +1,6 @@
 <map id="JSONStream::parse" name="JSONStream::parse">
 <area shape="rect" id="node2" href="$d7/dfd/class_j_s_o_n_stream.html#a0d6988d7ba074f37e1b72596b0793bd2" title="JSONStream::getIdentifier" alt="" coords="245,5,449,35"/>
 <area shape="rect" id="node3" href="$d2/d52/class_j_s_o_n_validator.html#ac07990f0678973f419611f55bf236596" title="JSONValidator::isValidPartialRoot" alt="" coords="216,59,477,88"/>
-<area shape="rect" id="node4" href="$d0/d9e/namespacelibjson.html#a75a584ccbb433f7555d6450e44d8dc9c" title="libjson::parse" alt="" coords="289,112,404,141"/>
-<area shape="rect" id="node5" href="$d5/d31/classjson__auto.html#ada0214818c5f9522f649b7916eab2682" title="json_auto::set" alt="" coords="287,165,406,195"/>
+<area shape="rect" id="node4" href="$d0/d9e/namespacelibjson.html#a75a584ccbb433f7555d6450e44d8dc9c" title="libjson::parse" alt="" coords="289,136,404,165"/>
+<area shape="rect" id="node5" href="$d5/d31/classjson__auto.html#ada0214818c5f9522f649b7916eab2682" title="json_auto::set" alt="" coords="287,189,406,219"/>
 </map>

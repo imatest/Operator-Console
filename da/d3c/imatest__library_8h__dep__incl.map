@@ -1,15 +1,14 @@
 <map id="imatest_library.h" name="imatest_library.h">
 <area shape="rect" id="node2" href="$d9/da7/_image_test_8h.html" title="ImageTest.h" alt="" coords="911,92,1017,121"/>
 <area shape="rect" id="node9" href="$de/da2/_operator_console_8cpp.html" title="OperatorConsole.cpp" alt="" coords="1238,380,1409,409"/>
-<area shape="rect" id="node14" href="$dd/d8a/_blemish_test_8cpp.html" title="BlemishTest.cpp" alt="" coords="1392,284,1531,313"/>
-<area shape="rect" id="node16" href="$dc/d7a/_s_f_rplus_test_8cpp.html" title="SFRplusTest.cpp" alt="" coords="1139,284,1281,313"/>
-<area shape="rect" id="node17" href="$d5/dd6/_documentation_2_operator-_console_2_image_test_8h.html" title="Documentation/Operator\l&#45;Console/ImageTest.h" alt="" coords="1923,83,2116,130"/>
+<area shape="rect" id="node14" href="$dd/d8a/_blemish_test_8cpp.html" title="BlemishTest.cpp" alt="" coords="1383,284,1521,313"/>
+<area shape="rect" id="node16" href="$dc/d7a/_s_f_rplus_test_8cpp.html" title="SFRplusTest.cpp" alt="" coords="1145,284,1287,313"/>
+<area shape="rect" id="node17" href="$d5/dd6/_documentation_2_operator-_console_2_image_test_8h.html" title="Documentation/Operator\l&#45;Console/ImageTest.h" alt="" coords="1906,83,2099,130"/>
 <area shape="rect" id="node24" href="$db/db5/_documentation_2_operator-_console_2_operator_console_8cpp.html" title="Documentation/Operator\l&#45;Console/OperatorConsole.cpp" alt="" coords="3293,371,3531,418"/>
 <area shape="rect" id="node29" href="$dc/d58/_documentation_2_operator-_console_2_blemish_test_8cpp.html" title="Documentation/Operator\l&#45;Console/BlemishTest.cpp" alt="" coords="2372,275,2577,322"/>
 <area shape="rect" id="node31" href="$d6/d7f/_documentation_2_operator-_console_2_s_f_rplus_test_8cpp.html" title="Documentation/Operator\l&#45;Console/SFRplusTest.cpp" alt="" coords="2138,275,2347,322"/>
-<area shape="rect" id="node32" href="$dc/db7/_documentation_2_operator-_console_2_imatest_lib_acq_8cpp.html" title="Documentation/Operator\l&#45;Console/ImatestLibAcq.cpp" alt="" coords="2545,83,2764,130"/>
-<area shape="rect" id="node33" href="$d6/d56/imatest__library_8cpp.html" title="imatest_library.cpp" alt="" coords="2788,92,2943,121"/>
-<area shape="rect" id="node34" href="$d5/d85/_imatest_lib_acq_8cpp.html" title="ImatestLibAcq.cpp" alt="" coords="2967,92,3119,121"/>
+<area shape="rect" id="node32" href="$dc/db7/_documentation_2_operator-_console_2_imatest_lib_acq_8cpp.html" title="Documentation/Operator\l&#45;Console/ImatestLibAcq.cpp" alt="" coords="2652,83,2871,130"/>
+<area shape="rect" id="node33" href="$d5/d85/_imatest_lib_acq_8cpp.html" title="ImatestLibAcq.cpp" alt="" coords="2895,92,3047,121"/>
 <area shape="rect" id="node3" href="$dc/d69/_blemish_test_8h.html" title="BlemishTest.h" alt="" coords="1051,188,1171,217"/>
 <area shape="rect" id="node4" href="$da/de6/_operator_console_8h.html" title="OperatorConsole.h" alt="" coords="787,284,941,313"/>
 <area shape="rect" id="node7" href="$d8/d53/_image_test_8cpp.html" title="ImageTest.cpp" alt="" coords="5,380,131,409"/>
@@ -21,10 +20,10 @@
 <area shape="rect" id="node11" href="$d0/d57/_pass_fail_8cpp.html" title="PassFail.cpp" alt="" coords="487,380,601,409"/>
 <area shape="rect" id="node12" href="$da/d46/_password_dialog_8cpp.html" title="PasswordDialog.cpp" alt="" coords="625,380,793,409"/>
 <area shape="rect" id="node13" href="$d5/d27/_setup_8cpp.html" title="Setup.cpp" alt="" coords="817,380,911,409"/>
-<area shape="rect" id="node18" href="$da/df8/_documentation_2_operator-_console_2_blemish_test_8h.html" title="Documentation/Operator\l&#45;Console/BlemishTest.h" alt="" coords="2141,179,2333,226"/>
+<area shape="rect" id="node18" href="$da/df8/_documentation_2_operator-_console_2_blemish_test_8h.html" title="Documentation/Operator\l&#45;Console/BlemishTest.h" alt="" coords="2123,179,2316,226"/>
 <area shape="rect" id="node19" href="$da/d65/_documentation_2_operator-_console_2_operator_console_8h.html" title="Documentation/Operator\l&#45;Console/OperatorConsole.h" alt="" coords="1892,275,2113,322"/>
 <area shape="rect" id="node22" href="$da/df9/_documentation_2_operator-_console_2_image_test_8cpp.html" title="Documentation/Operator\l&#45;Console/ImageTest.cpp" alt="" coords="1434,371,1627,418"/>
-<area shape="rect" id="node30" href="$d5/d79/_documentation_2_operator-_console_2_s_f_rplus_test_8h.html" title="Documentation/Operator\l&#45;Console/SFRplusTest.h" alt="" coords="1923,179,2116,226"/>
+<area shape="rect" id="node30" href="$d5/d79/_documentation_2_operator-_console_2_s_f_rplus_test_8h.html" title="Documentation/Operator\l&#45;Console/SFRplusTest.h" alt="" coords="1906,179,2099,226"/>
 <area shape="rect" id="node20" href="$d7/d4b/_documentation_2_operator-_console_2_app_thread_8cpp.html" title="Documentation/Operator\l&#45;Console/AppThread.cpp" alt="" coords="2853,371,3051,418"/>
 <area shape="rect" id="node21" href="$de/d31/_documentation_2_operator-_console_2_critical_buf_8cpp.html" title="Documentation/Operator\l&#45;Console/CriticalBuf.cpp" alt="" coords="3075,371,3268,418"/>
 <area shape="rect" id="node23" href="$d4/d9c/_msg_dialog_8cpp.html" title="Documentation/Operator\l&#45;Console/MsgDialog.cpp" alt="" coords="1652,371,1847,418"/>

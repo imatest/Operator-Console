@@ -1,5 +1,0 @@
-<map id="toBinary" name="toBinary">
-<area shape="rect" id="node2" href="$dc/d0a/class_j_s_o_n_base64.html#a566563ff3817aafca958b61fa6808c98" title="JSONBase64::json_decode64" alt="" coords="133,32,368,61"/>
-<area shape="rect" id="node3" href="$d6/dc7/class_j_s_o_n_node.html#aef64df34be4901e4bf7ef7d20146a8c5" title="JSONNode::as_binary" alt="" coords="416,5,595,35"/>
-<area shape="rect" id="node4" href="$d0/d9e/namespacelibjson.html#a299db1223a2bd5cc157edcebe8a25a68" title="libjson::decode64" alt="" coords="433,59,578,88"/>
-</map>
