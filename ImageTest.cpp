@@ -258,16 +258,15 @@ void ImageTest::Run()
 		SetJSON(jsonResults);	// copy results into m_jsonResults (m_jsonResults is shared between threads, so we don't want to access it directly)
 	}
 
-	catch (const mwException &e)
+	catch (mwException &e)
 	{
 		CString log;
 		log.AppendFormat("%s Error running %s test\n%s\n", (LPCTSTR)m_timestamp.Get(), m_name, e.what());
 		log.Replace("\n", "\r\n");	// the exception may have '\n' characters that we need to replace with "\r\n"
 		AppendLog(log);
-		mwException e2 = e;
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 		m_passed = false;
 	}
 }

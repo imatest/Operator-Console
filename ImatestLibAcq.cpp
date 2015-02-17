@@ -21,6 +21,8 @@
 #include "imatest_library.h"
 #include "ImatestLibAcq.h"
 #include "ThreadControl.h"
+#include "imatest_acquisition.h"
+#include "ImatestSourceIDs.h"
 #include <iostream>
 
 using namespace std;
@@ -104,7 +106,7 @@ bool ImatestLibAcq::CaptureFrame()
 	mwArray vararginParam = mwArray(1,2,mxCELL_CLASS);
 	vararginParam.Get(1,1).Set(toRGBrows);		
 
-	if ( m_source_ID == 2)
+	if ( m_source_ID == SOURCE_Omnivision)
 	{
 		vararginParam.Get(1,2).Set(ini_file);				// Path to INI file
 	}
@@ -117,13 +119,11 @@ bool ImatestLibAcq::CaptureFrame()
 	{
 		acquire_image(2, im_orig, vstr, source_id, vararginParam);
 	}
-	catch (const mwException& e)
+	catch (mwException& e)
     {
         cout << "Run Error!" << endl;
         cerr << e.what() << endl;
-		mwException e2 = e;
-		cerr << e.what() << endl;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 	}
 
 	//im_orig.GetData((mxUint64*)m_buf,(mwSize)im_orig.ElementSize());

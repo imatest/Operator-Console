@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
-      <AdditionalDependencies>imatest_library.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Midl>
@@ -114,7 +114,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
-      <AdditionalDependencies>imatest_library.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Midl>
@@ -149,7 +149,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\imatest\matlab\build\imatest_it\final\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
-      <AdditionalDependencies>imatest_library.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Midl>
@@ -175,6 +175,7 @@
     <ClInclude Include="ImageAcquisition.h" />
     <ClInclude Include="ImageTest.h" />
     <ClInclude Include="ImatestLibAcq.h" />
+    <ClInclude Include="ImatestSourceIDs.h" />
     <ClInclude Include="imatest_library.h" />
     <ClInclude Include="jsonhelpers.h" />
     <ClInclude Include="JSONOptions.h" />

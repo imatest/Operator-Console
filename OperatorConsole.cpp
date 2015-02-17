@@ -24,11 +24,13 @@
 #include "stdafx.h"
 #include "Config.h"
 #include "imatest_library.h"
+#include "imatest_acquisition.h"
 #include "OperatorConsole.h"
 #include "OperatorConsoleDlg.h"
 #include "Setup.h"
 #include "PassFail.h"
 #include "PasswordDialog.h"
+#include "ImatestSourceIDs.h"
 #include <sstream>
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -532,6 +534,13 @@ bool COperatorConsoleApp::InitLibs()
 		{
 			str = "Unable to initialize imatest library.";
 		}
+
+		m_flags.imatestAcq = imatest_acquisitionInitialize();
+
+		if (!m_flags.imatestAcq)
+		{
+			str = "Unable to initialize imatest acquisition library.";
+		}
 	}
 
 	if (!str.IsEmpty())
@@ -539,7 +548,7 @@ bool COperatorConsoleApp::InitLibs()
 		AfxMessageBox(str);
 	}
 
-	return m_flags.matlab && m_flags.imatestIT;
+	return m_flags.matlab && m_flags.imatestIT && m_flags.imatestAcq;
 }
 
 void COperatorConsoleApp::CloseLibs()
@@ -548,6 +557,12 @@ void COperatorConsoleApp::CloseLibs()
 	{
 		imatest_libraryTerminate();
 		m_flags.imatestIT = false;
+	}
+
+	if (m_flags.imatestAcq)
+	{
+		imatest_acquisitionTerminate();
+		m_flags.imatestAcq = false;
 	}
 
 	if (m_flags.matlab)
@@ -1076,21 +1091,23 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 		m_sfrPlus.m_programPath = m_config->m_programPath;
 
 		WriteINISettings(); // store new settings
-		if ( oldWidth != m_setup.width || oldHeight != m_setup.height || oldSourceID<7&&m_setup.sourceID>6 || oldSourceID>6&&m_setup.sourceID<7)
+		if ( oldWidth != m_setup.width || oldHeight != m_setup.height 
+			|| (oldSourceID != SOURCE_OpConsoleDirectShow) && (m_setup.sourceID == SOURCE_OpConsoleDirectShow) 
+			|| (oldSourceID == SOURCE_OpConsoleDirectShow) && (m_setup.sourceID != SOURCE_OpConsoleDirectShow))
 		{
 
-			if (m_setup.sourceID < 7)
+			if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
 			{
 				m_image_source=imatest_source;
-				if (oldSourceID ==7)
+				if (oldSourceID == SOURCE_OpConsoleDirectShow)
 				{
 					SendAppMessage(MSG_SET_IMATEST_CAM);
 				}
 			}
-			else if (m_setup.sourceID ==7)
+			else 
 			{
 				m_image_source=directshow_source;
-				if (oldSourceID < 7)
+				if (oldSourceID != SOURCE_OpConsoleDirectShow)
 				{
 					SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
 				}
@@ -1150,12 +1167,11 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		m_setup.sourceID = temp_source_id;
 
 	}
-	catch (const mwException& e)
+	catch (mwException& e)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
-		mwException e2 = e;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 	}	
 
 	if (m_setup.sourceID ==2)
@@ -1242,23 +1258,22 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		m_setup.omnivision_reg_file =	temp_reg_file; 
 
 		// change the image source if needed
-		if (m_setup.sourceID < 7)
+		if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
 		{
 			m_image_source=imatest_source;
 			SendAppMessage(MSG_SET_IMATEST_CAM);
 		}
-		else if (m_setup.sourceID ==7)
+		else
 		{
 			m_image_source=directshow_source;
 			SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
 		}
 	}
-	catch (const mwException& e)
+	catch (mwException& e)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
-		mwException e2 = e;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 
 	}	
 
@@ -1300,7 +1315,7 @@ void COperatorConsoleApp::WriteINISettings(void)
 	writeKeys.Get(2,1,3).Set(key_acquire);
 	writeKeys.Get(2,1,4).Set(val_acquire);
 
-	if (m_setup.sourceID ==2) // Omnivision
+	if (m_setup.sourceID == SOURCE_Omnivision) // Omnivision
 	{
 		section = section_ovt;
 		subsection = subsection_current;
@@ -1359,12 +1374,11 @@ void COperatorConsoleApp::WriteINISettings(void)
 	{
 		inifile(vararginParam);
 	}
-	catch (const mwException& e)
+	catch (mwException& e)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
-		mwException e2 = e;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 	}
 }
 
@@ -1510,12 +1524,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	{
 		inifile(1,readSett,vararginParam);
 	}
-	catch (const mwException& e)
+	catch (mwException& e)
 	{
 		cout << "Run Error! Unable to read Pass/Fail file" << endl;
 		cerr << e.what() << endl;
-		mwException e2 = e;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 	}
 
 	m_PFSettings.m_pass_fail_file.SetString(_T(readSett.Get(1,1).Get(1,1).ToString()));
@@ -1551,12 +1564,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	{
 		inifile(3, varargout,varargin);
 	}
-	catch (const mwException& e)
+	catch (mwException& e)
 	{
 		cout << "Run Error! Unable to read Pass/Fail file" << endl;
 		cerr << e.what() << endl;
-		mwException e2 = e;
-		e2.print_stack_trace();
+		e.print_stack_trace();
 	} 
 
 	std::size_t numSections = varargout.Get(1,2).NumberOfElements();
@@ -1689,12 +1701,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			inifile(1,readSett,varargin);
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error! Unable to read Blemish keys from Pass/Fail file" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 		}
 
 		// now to copy the values into m_PFSettings.blemish
@@ -1849,12 +1860,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			inifile(1,readSett,varargin);
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error! Unable to read SFRplus keys from Pass/Fail file" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.sfrplus
 		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
@@ -2011,12 +2021,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		{
 			inifile(1,readSett,varargin);
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error!" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.ois
 		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
@@ -2092,12 +2101,11 @@ bool COperatorConsoleApp::WritePassFail(void)
 			inifile(varargin);
 			result = true;
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error! Unable to write to Pass/Fail file" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 			result = false;
 		}
 
@@ -2136,12 +2144,11 @@ bool COperatorConsoleApp::WritePassFail(void)
 			inifile(varargin);
 			result = true;
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error writing OIS keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 			result = false;
 		}
 
@@ -2172,12 +2179,11 @@ bool COperatorConsoleApp::WritePassFail(void)
 			inifile(varargin);
 			result = true;
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error writing Blemish keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 			result = false;
 		}
 
@@ -2240,12 +2246,11 @@ bool COperatorConsoleApp::WritePassFail(void)
 			inifile(varargin);
 			result = true;
 		}
-		catch (const mwException& e)
+		catch (mwException& e)
 		{
 			cout << "Run Error writing SFRplus keys to Pass/Fail file!" << endl;
 			cerr << e.what() << endl;
-			mwException e2 = e;
-			e2.print_stack_trace();
+			e.print_stack_trace();
 			result = false;
 		}
 	}

@@ -25,7 +25,7 @@
 #include "Setup.h"
 #include "afxdialogex.h"
 #include <algorithm>
-
+#include "ImatestSourceIDs.h"
 
 // CSetup dialog
 
@@ -186,31 +186,31 @@ BOOL CSetup::OnInitDialog()
 
 		switch (m_setup_settings.sourceID)
 		{
-		case 1:
+		case SOURCE_Aptina:
 			str.SetString(m_setup_settings.device_list[0]); // Aptina DevWare
 			ShowNormalElements();
 			break;
-		case 2:
+		case SOURCE_Omnivision:
 			str.SetString(m_setup_settings.device_list[1]); // Omnivision OVTA
 			ShowOmnivisionElements();
 			break;
-		case 3:
+		case SOURCE_Toshiba:
 			str.SetString(m_setup_settings.device_list[2]); // Toshiba ImaTuning
 			ShowNormalElements();
 			break;
-		case 4:
+		case SOURCE_STM:
 			str.SetString(m_setup_settings.device_list[3]); // STM Conduit
 			ShowNormalElements();
 			break;
-		case 5:
+		case SOURCE_Graphin:
 			str.SetString(m_setup_settings.device_list[4]); // Graphin EasyLab
 			ShowNormalElements();
 			break;
-		case 6:
+		case SOURCE_Epiphan:
 			str.SetString(m_setup_settings.device_list[5]); // Epiphan
 			ShowEpiphanElements();
 			break;
-		case 7:
+		case SOURCE_OpConsoleDirectShow:
 			str.SetString(m_setup_settings.device_list[6]); // DirectShow camera
 			ShowNormalElements();
 			break;
@@ -293,42 +293,42 @@ void CSetup::OnLbnSelchangeDeviceList()
 
 	if (str.Compare(m_setup_settings.device_list[0]) ==0) // Aptina DevWare
 	{
-		m_setup_settings.sourceID = 1;
+		m_setup_settings.sourceID = SOURCE_Aptina;
 		ShowNormalElements();
 	}
 	else if (str.Compare(m_setup_settings.device_list[1]) ==0) // Omnivision OVTA
 	{
-		m_setup_settings.sourceID = 2;
+		m_setup_settings.sourceID = SOURCE_Omnivision;
 		ShowOmnivisionElements();
 	}
 	else if (str.Compare(m_setup_settings.device_list[2]) ==0) // Toshiba ImaTuning
 	{
-		m_setup_settings.sourceID = 3;
+		m_setup_settings.sourceID = SOURCE_Toshiba;
 		ShowNormalElements();
 	}
 	else if (str.Compare(m_setup_settings.device_list[3]) ==0) // STM Conduit
 	{
-		m_setup_settings.sourceID = 4;
+		m_setup_settings.sourceID = SOURCE_STM;
 		ShowNormalElements();
 	}
 	else if (str.Compare(m_setup_settings.device_list[4]) ==0) // Graphin EasyLab
 	{
-		m_setup_settings.sourceID = 5;
+		m_setup_settings.sourceID = SOURCE_Graphin;
 		ShowNormalElements();
 	}
 	else if (str.Compare(m_setup_settings.device_list[5]) ==0) // Epiphan
 	{
-		m_setup_settings.sourceID = 6;
+		m_setup_settings.sourceID = SOURCE_Epiphan;
 		ShowEpiphanElements();
 	}
 	else if (str.Compare(m_setup_settings.device_list[6]) ==0) // DirectShow camera
 	{
-		m_setup_settings.sourceID = 7;
+		m_setup_settings.sourceID = SOURCE_OpConsoleDirectShow;
 		ShowNormalElements();
 	}
 	else
 	{
-		m_setup_settings.sourceID = 1;
+		m_setup_settings.sourceID = SOURCE_Aptina;
 		fprintf(stderr,"Error: Unknown device selection. The program will revert to Aptina DevWare");
 		ShowNormalElements();
 	}

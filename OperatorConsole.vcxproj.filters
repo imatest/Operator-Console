@@ -195,6 +195,9 @@
     <ClInclude Include="imatest_library.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ImatestSourceIDs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OperatorConsole.cpp">

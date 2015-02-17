@@ -159,6 +159,7 @@ typedef struct AppFlags
 	unsigned int	modelessThread:1;
 	unsigned int	matlab:1;			//!< MATLAB lib has been initialized
 	unsigned int	imatestIT:1;		//!< imatestIT lib has been initialized
+	unsigned int    imatestAcq:1;		//!< Imatest IT acquisition lib has been initialized
 	unsigned int	stdOut:1;			//!< stdout pipe is open
 	unsigned int	stdErr:1;			//!< stderr pipe is open
 	unsigned int	ImatestCameraThread:1;
