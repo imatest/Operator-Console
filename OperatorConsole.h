@@ -61,7 +61,7 @@
 // RAW_SFRPLUS_IMAGE is the name of the file to use for SFRplus tests
 // RAW_WDITH and RAW_HEIGHT are the width and height of the images in pixels
 //
-#define LOGO_NAME			"..\\data\\logo_flat_550x150.png"	// imatest logo to be displayed in dialog
+#define LOGO_NAME			"..\\data\\imatest_logo.png"	// imatest logo to be displayed in dialog
 #define IMAGE_NAME			"..\\data\\sfrplus.raw.png"			// image file to be displayed in the application window (until live acquisition is implemented)
 #define RAW_BLEMISH_IMAGE	"..\\data\\blemish.raw"				// raw file to use for blemish tests
 #define RAW_SFRPLUS_IMAGE	"..\\data\\sfrplus.raw"				// raw file to use for SFRplus tests
@@ -102,7 +102,7 @@
 // These values are put into m_config, and get passed to the sfrplus and blemish functions
 //
 #define INI_FILENAME		"..\\Data\\imatest.ini"
-#define PROGRAMPATH			"c:\\Program Files (x86)\\Imatest\\IT\\bin"
+#define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v4.1\\IT\\bin"
 #define RAW_EXTENSION		"raw"
 #define RGB_EXTENSION		"rgb2"
 #define FILE_ROOT			"NoFile"
