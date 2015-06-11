@@ -37,14 +37,14 @@ const unsigned short isource_id = EPIPHAN_SOURCE_ID;
 
 ImatestLibAcq::ImatestLibAcq(void)
 {
-	m_width     = 0;
-	m_height    = 0;
-	m_numBytes  = 0;
-	m_numPixels = 0;
-	m_buf       = NULL;
-	m_source_ID = 0;
-	m_device_ID = 0;
-	m_ini_file = "";
+   m_width     = 0;
+   m_height    = 0;
+   m_numBytes  = 0;
+   m_numPixels = 0;
+   m_buf       = NULL;
+   m_source_ID = 0;
+   m_device_ID = 0;
+   m_ini_file = "";
 }
 
 
@@ -54,92 +54,104 @@ ImatestLibAcq::~ImatestLibAcq(void)
 
 bool ImatestLibAcq::Open()
 {
-	//struct SimpleCapParams	params;
-	bool					success = false;
+   //struct SimpleCapParams	params;
+   bool					success = false;
 
-	m_inited = true;
+   m_inited = true;
 
-	if (m_width == 0 || m_height == 0)	// these get set in Init()
-	{
-		m_logMsg = "Unable to Open camera:  width and height are not set.";
-	}
-	else
-	{
-	}
+   if (m_width == 0 || m_height == 0)	// these get set in Init()
+   {
+      m_logMsg = "Unable to Open camera:  width and height are not set.";
+   }
+   else
+   {
+   }
 
-	return m_inited;
+   return m_inited;
 }
 
 
 
 bool ImatestLibAcq::Close()
 {
-	if (m_inited)
-	{
-		//deinitCapture(m_cameraIndex);
-	}
+   if (m_inited)
+   {
+      //deinitCapture(m_cameraIndex);
+   }
 
-	return true;
+   return true;
 }
 
 bool ImatestLibAcq::CaptureFrame()
 {
 
-	// This required parameter will hold return data.
-	mwArray out;
-	//mwArray nover;
+   // This required parameter will hold return data.
+   mwArray out;
+   //mwArray nover;
 
-	// Load our file in
-	//raw_pixels_char = load_raw_file(BLEMISH_RAW_FILE, &pixel_count);
-	mwArray im_orig, vstr;
+   // Load our file in
+   //raw_pixels_char = load_raw_file(BLEMISH_RAW_FILE, &pixel_count);
+   mwArray im_orig, vstr;
 
-	mwArray source_id((mxDouble)m_source_ID);
-	
-	mwArray toRGBrows =  mwArray(1,1,mxDOUBLE_CLASS);
-	toRGBrows=1.0;// by being TRUE we call for the image to be in column major format
+   mwArray source_id((mxDouble)m_source_ID);
 
-	mwArray deviceID((mxDouble)m_device_ID);// select which source we are using
+   mwArray toRGBrows =  mwArray(1,1,mxDOUBLE_CLASS);
+   toRGBrows=1.0;// by being TRUE we call for the image to be in column major format
 
-	mwArray ini_file(m_ini_file.c_str());	// the Omnivision part of acquire_image needs to read from 
-											// the correct imatest.ini file
-	//const double varArgIn[] = {1.0, 1.0};   
-	mwArray vararginParam = mwArray(1,2,mxCELL_CLASS);
-	vararginParam.Get(1,1).Set(toRGBrows);		
+   mwArray deviceID((mxDouble)m_device_ID);// select which source we are using
 
-	if ( m_source_ID == SOURCE_Omnivision)
-	{
-		vararginParam.Get(1,2).Set(ini_file);				// Path to INI file
-	}
-	else
-	{
-		vararginParam.Get(1,2).Set(deviceID);				// 16bit RAW data
-	}
-	
-	try 
-	{
-		acquire_image(2, im_orig, vstr, source_id, vararginParam);
-	}
-	catch (mwException& e)
-    {
-        cout << "Run Error!" << endl;
-        cerr << e.what() << endl;
-		e.print_stack_trace();
-	}
+   mwArray ini_file(m_ini_file.c_str());	// the Omnivision part of acquire_image needs to read from 
+   // the correct imatest.ini file
+   //const double varArgIn[] = {1.0, 1.0};   
+   mwArray vararginParam = mwArray(1,2,mxCELL_CLASS);
+   vararginParam.Get(1,1).Set(toRGBrows);		
 
-	//im_orig.GetData((mxUint64*)m_buf,(mwSize)im_orig.ElementSize());
-	mwSize dataSize = im_orig.NumberOfElements();
+   if ( m_source_ID == SOURCE_Omnivision)
+   {
+      vararginParam.Get(1,2).Set(ini_file);				// Path to INI file
+   }
+   else
+   {
+      vararginParam.Get(1,2).Set(deviceID);				// 16bit RAW data
+   }
 
-	im_orig.GetData((mxUint8*)m_buf, dataSize);
-	
-	
+   try 
+   {
+      acquire_image(2, im_orig, vstr, source_id, vararginParam);
+   }
+   catch (mwException& e)
+   {
+      cout << "Run Error!" << endl;
+      cerr << e.what() << endl;
+      e.print_stack_trace();
+   }
 
-	//m_buf = (char*)mxGetPr(im_orig);
-	//doCapture(m_cameraIndex);
+   //im_orig.GetData((mxUint64*)m_buf,(mwSize)im_orig.ElementSize());
+   mwSize dataSize = im_orig.NumberOfElements();
 
-	//while (!isCaptureDone(m_cameraIndex))	// captures into m_buf
-	//{
-	//	Sleep(1);
-	//}
+   if (dataSize*im_orig.ElementSize() != m_numBytes && m_buf != NULL)
+   {
+      m_numBytes = dataSize*im_orig.ElementSize();
 
-	return true;
+      delete[] m_buf;
+
+      m_buf = new byte[m_numBytes];
+      if (NULL == m_buf)
+      {
+         m_logMsg.Format("%s: Unable to allocate image buffer (%u bytes)", __FUNCTION__, m_numPixels);
+      }
+   }
+
+   im_orig.GetData((mxUint8*)m_buf, dataSize);
+
+
+   //m_buf = (char*)mxGetPr(im_orig);
+   //doCapture(m_cameraIndex);
+
+   //while (!isCaptureDone(m_cameraIndex))	// captures into m_buf
+   //{
+   //	Sleep(1);
+   //}
+
+   return true;
 }
