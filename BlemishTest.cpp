@@ -147,11 +147,46 @@ void BlemishTest::Run()
 ///
 void BlemishTest::ParseResults(string &results)
 {
-	CString		summary;
-    JSONNode	pixelErrors;
-	JSONNode	blemishSize;
 	JSONNode	passfail;
     JSONNode	data;
+
+	InitResults();
+
+	if (GetDataNode(results, data) && GetPassFailNode(data, passfail))// this will copy any errors into m_log
+	{
+		//
+		// Get the pass/fail results
+		// 
+		try 
+		{
+			m_passed = passfail.at("all_tests_passed").as_array()[0].as_bool();
+
+			if (!m_passed)
+			{
+				ParseFailures(&passfail);
+			}
+		}
+		catch(...) 
+		{
+			CString str("Unable to find pass/fail result");
+			m_failInfo.Set(str);
+			m_log.Append(str);
+			m_passed = false;
+		}
+
+		//
+		// Get the results of interest from the data and passfail node
+		//
+		GetResults(data, passfail);
+	}
+}
+
+
+void BlemishTest::GetResults(const JSONNode& data, const JSONNode &passfail)
+{
+	CString		summary;
+	JSONNode	pixelErrors;
+	JSONNode	blemishSize;
 	json_string	sizes;
 	int			total;
 	int			dead;
@@ -159,65 +194,33 @@ void BlemishTest::ParseResults(string &results)
 	int			blemishes;
 	const char	*format = "Total pixel errors %d\r\nDead pixels %d\r\nHot pixels %d\r\nBlemishes %d\r\nBlemish size (pixels) %s";
 
-	InitResults();
-
-	if (GetDataNode(results, data))
+	try
 	{
-		//
-		// Get the results of interest from the data node
-		//
-		try
+		pixelErrors = data.at("pixelErrors").as_array();
+		total       = sumArrayInt(pixelErrors, PIXEL_ERROR_REGIONS);
+		blemishes   = getIntFromArray(data, "N_blemish_count");
+		blemishSize = data.at("blemishSizePxls").as_array();
+
+		// Note: blemishSize is limited to 50 entries in the Imatest library and does 
+		// not necessarily equal the JSON entry "N_blemish_count" = blemishes
+		if ( blemishes < (int)blemishSize.size())
 		{
-			pixelErrors = data.at("pixelErrors").as_array();
-			total       = sumArrayInt(pixelErrors, PIXEL_ERROR_REGIONS);
-			dead        = getIntFromArray(data, "nDeadPixels");
-			hot         = getIntFromArray(data, "nHotPixels");
-			blemishes   = getIntFromArray(data, "N_blemish_count");
-			blemishSize = data.at("blemishSizePxls").as_array();
-
-			// Note: blemishSize is limited to 50 entries in the Imatest library and does 
-			// not necessarily equal the JSON entry "N_blemish_count" = blemishes
-			if ( blemishes < (int)blemishSize.size())
-			{
-				getStringArray(blemishSize, blemishes, &sizes);
-			}
-			else
-			{
-				getStringArray(blemishSize, blemishSize.size(), &sizes);
-			}
-			summary.Format(format, total, dead, hot, blemishes, sizes.c_str());
-			m_summary.Set(summary);
+			getStringArray(blemishSize, blemishes, &sizes);
 		}
-
-		catch(...)
+		else
 		{
-			CString	log;
-			log.AppendFormat("%s Error parsing results\n", (LPCTSTR)m_timestamp.Get());
-			AppendLog(log);
+			getStringArray(blemishSize, blemishSize.size(), &sizes);
 		}
-	
-		//
-		// Now get the pass/fail results
-		// 
-		if (GetPassFailNode(data, passfail))	// this will copy any errors into m_log
-		{
-			try 
-			{
-				m_passed = passfail.at("all_tests_passed").as_array()[0].as_bool();
+		dead = passfail.at("Dead_pixels").as_array()[0].as_int();
+		hot = passfail.at("Hot_pixels").as_array()[0].as_int();
+		summary.Format(format, total, dead, hot, blemishes, sizes.c_str());
+		m_summary.Set(summary);
+	}
 
-				if (!m_passed)
-				{
-					ParseFailures(&passfail);
-				}
-			}
-
-			catch(...) 
-			{
-				CString str("Unable to find pass/fail result");
-				m_failInfo.Set(str);
-				m_log.Append(str);
-				m_passed = false;
-			}
-		}
+	catch(...)
+	{
+		CString	log;
+		log.AppendFormat("%s Error parsing results\n", (LPCTSTR)m_timestamp.Get());
+		AppendLog(log);
 	}
 }

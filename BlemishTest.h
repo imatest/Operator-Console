@@ -38,5 +38,6 @@ public:
 
 protected:
 	void ParseResults(string &results);
+	void GetResults(const JSONNode& data, const JSONNode &passfail);
 };
 
