@@ -20,7 +20,7 @@
 #pragma once
 #include "ImageAcquisition.h"
 #include <string>
-
+#include "program_settings.h"
 ///
 /// A class for acquiring live images through the Imatest library.
 ///

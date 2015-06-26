@@ -106,7 +106,7 @@ bool ImatestLibAcq::CaptureFrame()
    mwArray vararginParam = mwArray(1,2,mxCELL_CLASS);
    vararginParam.Get(1,1).Set(toRGBrows);		
 
-   if ( m_source_ID == SOURCE_Omnivision)
+   if ( m_source_ID == SOURCE_Omnivision || m_source_ID == SOURCE_File)
    {
       vararginParam.Get(1,2).Set(ini_file);				// Path to INI file
    }
@@ -129,6 +129,7 @@ bool ImatestLibAcq::CaptureFrame()
    //im_orig.GetData((mxUint64*)m_buf,(mwSize)im_orig.ElementSize());
    mwSize dataSize = im_orig.NumberOfElements();
 
+#ifdef USE_RGB_DATA
    if (dataSize*im_orig.ElementSize() != m_numBytes && m_buf != NULL)
    {
       m_numBytes = dataSize*im_orig.ElementSize();
@@ -141,6 +142,8 @@ bool ImatestLibAcq::CaptureFrame()
          m_logMsg.Format("%s: Unable to allocate image buffer (%u bytes)", __FUNCTION__, m_numPixels);
       }
    }
+
+#endif
 
    im_orig.GetData((mxUint8*)m_buf, dataSize);
 
