@@ -28,6 +28,8 @@ ImageAcquisition::ImageAcquisition(void)
 	m_height    = 0;
 	m_numBytes  = 0;
 	m_numPixels = 0;
+   m_bytesPerPixel = 0;
+   m_ncolors   = 1;
 	m_buf       = NULL;
 }
 
@@ -46,6 +48,7 @@ bool ImageAcquisition::Init(int width, int height, int bytesPerPixel)
 
 	m_width     = width;
 	m_height    = height;
+   m_bytesPerPixel = bytesPerPixel;
 	m_numPixels = m_width * m_height;
 	m_numBytes  = m_numPixels * bytesPerPixel;
 
@@ -64,6 +67,24 @@ bool ImageAcquisition::Init(int width, int height, int bytesPerPixel)
 	{
 		success = m_frame.Init(m_numBytes);
 	}
+
+   if ( m_displayBuf != NULL) // allow for resizing of buffer by re-initialization
+	{
+		delete[] m_displayBuf;
+	}
+
+   unsigned int displayBytes = m_numPixels*4;
+	m_displayBuf       = new byte[displayBytes];
+
+	if (m_displayBuf == NULL)
+	{
+		m_logMsg.Format("%s: Unable to allocate display buffer (%u bytes)", __FUNCTION__, displayBytes);
+	}
+	else
+	{
+		success = m_displayFrame.Init(displayBytes);
+	}
+
 
 	return success;
 }
@@ -88,7 +109,7 @@ UINT __cdecl ImageAcquisition::ThreadProc(LPVOID param)
 		{
 			acq->CaptureFrame();
 			acq->m_frame.Set(acq->m_buf);
-//			acq->m_mwarray.Set(acq->m_mwarray);
+         acq->m_displayFrame.Set(acq->m_displayBuf);
 			::PostThreadMessage(info->m_parentID, info->m_threadMsg, (WPARAM)0, (LPARAM)0);
 		}
 	}

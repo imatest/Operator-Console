@@ -91,14 +91,14 @@ public:
 
 	virtual void	ParseResults(string &results) = 0;	//!< This must be implemented by subclass
 	virtual void	Run();
-	virtual void	Run(void *raw_pixels, int width, int height, const Config *config);
+	virtual void	Run(void *raw_pixels, int width, int height, int bytesPerColor, const Config *config);
 
 	void			GetLog(CString &dst) {m_log.Get(dst);}
 	void			GetFailInfo(CString &dst) {m_failInfo.Get(dst);}
 	void			GetJSON(CString &dst) {m_jsonResults.Get(dst);}
 	void			GetName(CString &name) {name = m_name;}
 	void			GetSummary(CString &dst) {m_summary.Get(dst);}
-	void			Init(void *raw_pixels, int width, int height, const Config *config);
+	void			Init(void *raw_pixels, int width, int height, int bytesPerColor, const Config *config);
 	bool			Passed() {return m_passed;}
 	void			SetBuffer(void *buf) {m_rawPixels = buf;}
 
@@ -114,7 +114,7 @@ protected:
 	void			DeleteRGB();
 	bool			GetDataNode(string &results, JSONNode &data, bool logErrors=true);
 	bool			GetPassFailNode(JSONNode &data, JSONNode &passFail, bool logErrors=true);
-	void			PlanesFromRGB();
+	template <typename T> void			PlanesFromRGB();
 	void			GetString(JSONNode &node, const char *name, json_string &string, bool logErrors=true);
 	void			InitResults();
 	void			ParseFailures(const JSONNode *data);
@@ -127,6 +127,7 @@ public:
 	int					m_width;
 	int					m_height;
 	int					m_ncolors;				//<! gets passed to library (1 = raw data, 3 = rgb)
+   int               m_bytesPerColor;
 	const char			*m_extension;
 	const char			*m_fileroot;
 	const char			*m_serialNumber;

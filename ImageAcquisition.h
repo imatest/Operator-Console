@@ -22,6 +22,7 @@
 #include "stdafx.h"
 #include "CriticalBuf.h"
 #include <string>
+
 ///
 /// the base class for image acquisition
 ///
@@ -36,10 +37,13 @@ public:
 	virtual bool		Open() = 0;
 
 	void				GetFrame(void *buf) {m_frame.Get(buf);}
+   void           GetDisplayFrame(void *buf) {m_displayFrame.Get(buf);}
 	virtual bool		Init(int width, int height, int bytesPerPixel=4);	//!< may be overridden, but be sure to call parent function also
 
 	unsigned int		BytesPerFrame() {return m_numBytes;}
 	unsigned int		PixelsPerFrame() {return m_numPixels;}
+   unsigned int      BytesPerPixel() {return m_bytesPerPixel;}
+   int               GetNumColors() {return m_ncolors;};
 	int					GetHeight() {return m_height;}
 	CString				&GetInfo()  {return m_logMsg;}
 	int					GetWidth()  {return m_width;}
@@ -54,11 +58,15 @@ public:
 
 protected:
 	CriticalBuf		m_frame;		//!< shared memory to hold copy of current frame
+   CriticalBuf    m_displayFrame;
 	int				m_width;		//!< width of image in pixels
 	int				m_height;		//!< height of image in pixels
+   int            m_ncolors;      //!< The number of colors in the image
 	unsigned int	m_numBytes;		//!< number of bytes in a frame
 	unsigned int	m_numPixels;	//!< number of pixels in a frame
+   unsigned int m_bytesPerPixel; //!< the number of bytes per pixel
 	CString			m_logMsg;		//!< error or information message
 	void			*m_buf;			//!< buffer to capture into
+   void        *m_displayBuf; //!< buffer to capture 32-bit color for display
 };
 

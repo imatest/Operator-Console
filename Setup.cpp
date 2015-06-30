@@ -180,7 +180,7 @@ BOOL CSetup::OnInitDialog()
 	//device_list[4] = _T("Graphin EasyLab");
 	//device_list[5] = _T("Epiphan");	
 	//device_list[6] = _T("DirectShow camera");
-	if (m_setup_settings.sourceID != 0)
+	if (m_setup_settings.sourceID >= 0)
 	{
 		CString str;
 
@@ -214,6 +214,10 @@ BOOL CSetup::OnInitDialog()
 			str.SetString(m_setup_settings.device_list[6]); // DirectShow camera
 			ShowNormalElements();
 			break;
+      case SOURCE_File:
+         str.SetString(m_setup_settings.device_list[7]); // Load an image file
+         ShowNormalElements();
+         break;
 		default:
 			str.SetString(m_setup_settings.device_list[0]); // Default: Aptina DevWare
 			ShowNormalElements();
@@ -324,6 +328,11 @@ void CSetup::OnLbnSelchangeDeviceList()
 	else if (str.Compare(m_setup_settings.device_list[6]) ==0) // DirectShow camera
 	{
 		m_setup_settings.sourceID = SOURCE_OpConsoleDirectShow;
+		ShowNormalElements();
+	}
+   else if (str.Compare(m_setup_settings.device_list[7]) ==0) // Image File
+	{
+		m_setup_settings.sourceID = SOURCE_File;
 		ShowNormalElements();
 	}
 	else
