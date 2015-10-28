@@ -32,7 +32,6 @@ ImageTest::ImageTest(void)
 {
 	m_width           = 0;
 	m_height          = 0;
-   m_bytesPerColor   = 0;
 	m_extension       = NULL;
 	m_fileroot        = NULL;
 	m_serialNumber    = NULL;
@@ -51,12 +50,11 @@ ImageTest::~ImageTest(void)
 	DeleteRGB();
 }
 
-void ImageTest::Init(void *raw_pixels, int width, int height, int bytesPerColor, const Config *config)
+void ImageTest::Init(void *raw_pixels, int width, int height, const Config *config)
 {
 	m_rawPixels       = raw_pixels;
 	m_width           = width;
 	m_height          = height;
-   m_bytesPerColor   = bytesPerColor;
 	m_fileroot        = config->m_fileRoot;
 	m_serialNumber    = config->m_serialNumber;
 	m_partNumber      = config->m_partNumber;
@@ -77,8 +75,7 @@ bool ImageTest::AllocateRGB()
 	if (m_ncolors == 3)
 	{
 		DeleteRGB();
-
-		m_rgb = new unsigned char[m_width * m_height * m_bytesPerColor * 3];
+		m_rgb = new unsigned char[m_width * m_height * 3];
 	}
 
 	return m_rgb != NULL;
@@ -94,25 +91,24 @@ void ImageTest::DeleteRGB()
 }
 
 /// converts from m_rawPixels to m_rgb
-template <typename T>
 void ImageTest::PlanesFromRGB()
 {
 	int				i, numPixels;
-	T	*r, *g, *b;		// pointers into m_rgb
-	T	*R, *G, *B;		// pointers into m_rawPixels
+	unsigned char	*r, *g, *b;		// pointers into m_rgb
+	unsigned char	*R, *G, *B;		// pointers into m_rawPixels
 
 
 	//
 	// m_rawPixels is an array of RGBQUAD structs (32-bit ints), where each byte represents one color component (r, g, b), plus
 	// one unused byte.  MATLAB stores an RGB image sequentially, with all of the red values followed by all of the green values, 
-	// followed by all of the blue values.  This function converts an array of RGBQUAD values into MATLAB's color plane format.
+	// followed by all of the blue values.  This function converts an arry of RGBQUAD values into MATLAB's color plane format.
 	//
 	numPixels = m_width * m_height;
-	r = (T*)m_rgb;
+	r = m_rgb;
 	g = r + numPixels;
 	b = g + numPixels;
 
-	R = (T *)m_rawPixels;
+	R = (unsigned char *)m_rawPixels;
 	G = R+1;
 	B = G+1;
 
@@ -171,9 +167,9 @@ void ImageTest::RGBFromPlanes(UINT *rgb)
 	}
 }
 
-void ImageTest::Run(void *raw_pixels, int width, int height, int bytesPerColor, const Config *config)
+void ImageTest::Run(void *raw_pixels, int width, int height, const Config *config)
 {
-	Init(raw_pixels, width, height, bytesPerColor,  config);
+	Init(raw_pixels, width, height, config);
 	Run();
 }
 
@@ -184,31 +180,13 @@ void ImageTest::Run()
 {
 	json_string		test_settings;
 	int				crop_borders[4] = {0,0,0,0};
-   mxClassID classID = mxUNKNOWN_CLASS;
 
 	InitResults();	// clear out strings, set m_passed to false
 
 //#ifdef IMATEST_CAMERA
 //	RGBFromPlanes((UINT *)m_rawPixels);	
 //#else
-   switch (m_bytesPerColor) 
-   {
-   case 1:
-      PlanesFromRGB<unsigned char>();					// convert m_rawPixels from rgba format to planar format for MATLAB
-      classID = mxUINT8_CLASS;
-      break;
-   case 2:
-      PlanesFromRGB<unsigned short>();
-      classID = mxUINT16_CLASS;
-      break;
-   case 4:
-      PlanesFromRGB<unsigned int>();
-      classID = mxUINT32_CLASS;
-      break;
-   default:
-      PlanesFromRGB<unsigned char>();					// convert m_rawPixels from rgba format to planar format for MATLAB
-      break;
-   }
+	PlanesFromRGB();					// convert m_rawPixels from rgba format to planar format for MATLAB
 //#endif
 	//	RGBFromPlanes((UINT *)m_rawPixels);	// convert it back, just for fun
 
@@ -241,29 +219,16 @@ void ImageTest::Run()
 		mwArray keysParam(1, input_keys);										// Argument 3 - Mode of Control
 		mwArray modeParam(1, operation_flag);									// Argument 4 - Operation Flag
 		mwArray iniFileParam(1, iniFile);										// Argument 5 INI file
-		mwArray rawFileParam(m_width * m_height * 3, 1, classID, mxREAL);	// Argument 6 - RGB Data
+//		mwArray rawFileParam(m_width * m_height, 1, mxUINT16_CLASS, mxREAL);	// Argument 6 - Raw Data
+		mwArray rawFileParam(m_width * m_height * 3, 1, mxUINT8_CLASS, mxREAL);	// Argument 6 - RGB Data
 		mwArray	json_options_param(1,json_options);								// JSON options describing the RAW file;
 		mwArray	vararginParam(1,3,mxCELL_CLASS);								// The remaining arguments go in this param
 		mwArray	out;															// this will hold returned data
 
 #ifdef IMATEST_CAMERA
-      int numElements = m_width * m_height * 3;
-		switch (m_bytesPerColor) 
-      {
-      case 1:
-         rawFileParam.SetData((mxUint8*)m_rgb, numElements);
-         break;
-      case 2:
-         rawFileParam.SetData((mxUint16*)m_rgb, numElements);
-         break;
-      case 4:
-         rawFileParam.SetData((mxUint32*)m_rgb, numElements);
-         break;
-      default:
-         rawFileParam.SetData((mxUint8*)m_rgb, numElements);
-         break;
-      }
-
+		
+		rawFileParam.SetData(m_rgb, m_width * m_height * 3);
+		//rawFileParam.SetData((unsigned short *)m_rawPixels, m_width * m_height);
 #else
 		rawFileParam.SetData(m_rgb, m_width * m_height * 3);
 #endif
