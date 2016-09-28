@@ -174,7 +174,11 @@ CPassFailSettings::CPassFailSettings(void): b_isReadOnly(false)
 	sfrplus.passfail_ini_file_date.name.SetString(_T("passfail_ini_file_date"));
 	sfrplus.passfail_ini_file_date.value = "";
 
+#ifdef LOWER_CASE_INI_SECTIONS
+	sfrplus.name.SetString(_T("sfrplus"));
+#else
 	sfrplus.name.SetString(_T("SFRplus"));
+#endif
 	sfrplus.numEntries = 27;
 	sfrplus.b_enable = false;
 	//////////////////////////////////////////////
@@ -251,7 +255,11 @@ CPassFailSettings::CPassFailSettings(void): b_isReadOnly(false)
 	blemish.Blemish_maximum_count.group_description = _T("Maximum number of blemishes for pixels with maximum sizes specified by Blemish_size_pixels");
 	blemish.Blemish_maximum_count.value =long_bad_vec;
 
+#ifdef LOWER_CASE_INI_SECTIONS
+	blemish.name.SetString(_T("blemish"));
+#else
 	blemish.name.SetString(_T("Blemish"));
+#endif
 	blemish.numEntries = 14; 
 	blemish.b_enable = false;
 
@@ -275,7 +283,11 @@ CPassFailSettings::CPassFailSettings(void): b_isReadOnly(false)
 	ois.R_improve_ALL_dB_min.name.SetString(_T("R_improve_ALL_dB_min"));
 	ois.R_improve_ALL_dB_min.value = long_bad_val;
 
+#ifdef LOWER_CASE_INI_SECTIONS
 	ois.name = _T("OIS");
+#else
+	ois.name = _T("ois");
+#endif
 	ois.numEntries = 4;
 	ois.b_enable = false;
 

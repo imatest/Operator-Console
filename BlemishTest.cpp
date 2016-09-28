@@ -40,6 +40,8 @@ static const TestID gTestID[] =
 {
 	{"Dead_pixels_passed", "Dead Pixels"},
 	{"Hot_pixels_passed", "Hot Pixels"},
+	{"Optical_center_offset_X_passed", "Center Offset X" },
+	{"Optical_center_offset_Y_passed", "Center Offset Y" },
 	{"Optical_center_offset_passed", "Center Offset"},
 	{"Relative_illumination_worst_corner_passed", "Corner Darkness"},
 	{"Relative_illumination_corner_diff_pct_passed", "Corner Delta"},
@@ -199,18 +201,25 @@ void BlemishTest::GetResults(const JSONNode& data, const JSONNode &passfail)
 		pixelErrors = data.at("pixelErrors").as_array();
 		total       = sumArrayInt(pixelErrors, PIXEL_ERROR_REGIONS);
 		blemishes   = getIntFromArray(data, "N_blemish_count");
-		blemishSize = data.at("blemishSizePxls").as_array();
+		
+		// Note: 'blemishSizePxls' is only written to JSON output if N_blemish_count > 0
 
-		// Note: blemishSize is limited to 50 entries in the Imatest library and does 
-		// not necessarily equal the JSON entry "N_blemish_count" = blemishes
-		if ( blemishes < (int)blemishSize.size())
-		{
-			getStringArray(blemishSize, blemishes, &sizes);
+		if (blemishes > 0) {
+			blemishSize = data.at("blemishSizePxls").as_array();
+
+
+			// Note: blemishSize is limited to 50 entries in the Imatest library and does 
+			// not necessarily equal the JSON entry "N_blemish_count" = blemishes
+			if (blemishes < (int)blemishSize.size())
+			{
+				getStringArray(blemishSize, blemishes, &sizes);
+			}
+			else
+			{
+				getStringArray(blemishSize, blemishSize.size(), &sizes);
+			}
 		}
-		else
-		{
-			getStringArray(blemishSize, blemishSize.size(), &sizes);
-		}
+
 		dead = passfail.at("Dead_pixels").as_array()[0].as_int();
 		hot = passfail.at("Hot_pixels").as_array()[0].as_int();
 		summary.Format(format, total, dead, hot, blemishes, sizes.c_str());

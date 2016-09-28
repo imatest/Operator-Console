@@ -5,14 +5,26 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OperatorConsole", "Operator
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Win32 = Debug|Win32
-		Release|Win32 = Release|Win32
+		Debug Imatest 4.1 x86|Win32 = Debug Imatest 4.1 x86|Win32
+		Debug Imatest 4.1 x86|x64 = Debug Imatest 4.1 x86|x64
+		Release Imatest 4.1 x86|Win32 = Release Imatest 4.1 x86|Win32
+		Release Imatest 4.1 x86|x64 = Release Imatest 4.1 x86|x64
+		Demo_Imatest_4.5|Win32 = Demo_Imatest_4.5|Win32
+		Demo_Imatest_4.5|x64 = Demo_Imatest_4.5|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug|Win32.ActiveCfg = Debug|Win32
-		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug|Win32.Build.0 = Debug|Win32
-		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release|Win32.ActiveCfg = Release|Win32
-		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release|Win32.Build.0 = Release|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1 x86|Win32.ActiveCfg = Debug Imatest 4.1|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1 x86|Win32.Build.0 = Debug Imatest 4.1|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1 x86|x64.ActiveCfg = Release_2013a|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1 x86|x64.Build.0 = Release_2013a|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|Win32.ActiveCfg = Release Imatest 4.1|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|Win32.Build.0 = Release Imatest 4.1|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|x64.ActiveCfg = Release_2013a|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|x64.Build.0 = Release_2013a|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|Win32.ActiveCfg = Demo_Imatest_4.5|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|Win32.Build.0 = Demo_Imatest_4.5|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|x64.ActiveCfg = Demo_Imatest_4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|x64.Build.0 = Demo_Imatest_4.5|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

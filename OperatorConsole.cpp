@@ -36,8 +36,9 @@
 #define new DEBUG_NEW
 #endif
 
-#define REDIRECT_STDIO				// this redirects stdout and stderr to log window using pipes and threads
-//#define STDIO_DEBUG				// turns on some calls printf and cout (for debugging)
+// This REDIRECT_STDIO causes crashes on 'quit', and I'm not seeing what extra stdout data is displayed in the GUI when it is switched on.
+// #define REDIRECT_STDIO				// this redirects stdout and stderr to log window using pipes and threads
+#define STDIO_DEBUG				// turns on some calls printf and cout (for debugging)
 #define STDOUT_BUFSIZE	32768		// this is the desired buffer size for the redirected stdout
 #define START_TEST_FROM_FRAME_READY	// test (blemish or sfrplus) will be started in OnFrameReady() rather than OnStart()
 
@@ -123,6 +124,35 @@ void addDataTypeAndKey(const std::string& candidateDT, const CString& candidateK
 
 /// COperatorConsoleApp construction
 
+#ifdef INI_SEPARATE_PARAMS
+void MW_CALL_CONV inifile(int nargout, mwArray& varargout, const mwArray& varargin)
+{
+	mwArray filePath = varargin.Get(1, 1);
+	mwArray mode = varargin.Get(1, 2);
+
+	mwArray vararginNew = mwArray(1, varargin.NumberOfElements() - 2, mxCELL_CLASS);
+
+	for (mwSize i = 3; i <= varargin.NumberOfElements(); i++)
+	{
+		vararginNew.Get(1, i - 2).Set(varargin.Get(1, i));
+	}
+
+	inifile(nargout, varargout, filePath, mode, vararginNew);
+}
+
+void MW_CALL_CONV inifile(int nargout, mwArray& varargout)
+{
+
+}
+
+void MW_CALL_CONV inifile(const mwArray& varargin)
+{
+	mwArray vargoutNone = mwArray();
+	inifile(0, vargoutNone, varargin);
+}
+#endif
+
+
 COperatorConsoleApp::COperatorConsoleApp()
 {
 	// support Restart Manager
@@ -140,7 +170,11 @@ COperatorConsoleApp::COperatorConsoleApp()
 	m_PFSettings.m_ini_file.Remove('\n');
 	m_PFSettings.m_ini_file.Remove('\r');
 	m_password = _T(ADMIN_PASSWORD);
+#ifdef NO_AUTHORIZATION
+	m_passFailIsUnlocked = true; // Keep this initialized to false unless you want to completely disable password-protection for pass/fail settings!
+#else
 	m_passFailIsUnlocked = false; // Keep this initialized to false unless you want to completely disable password-protection for pass/fail settings!
+#endif
 	m_image_source = imatest_source;
 	m_logFileName = _T(LOG_FILENAME);
 #if defined(STDIO_DEBUG)
@@ -165,8 +199,6 @@ COperatorConsoleApp::~COperatorConsoleApp()
 
 /// The one and only COperatorConsoleApp object
 COperatorConsoleApp theApp;
-
-
 
 
 /// COperatorConsoleApp initialization
@@ -717,7 +749,7 @@ void COperatorConsoleApp::OnSetSFRplus(WPARAM wParam, LPARAM lParam)
 }
 
 
-void COperatorConsoleApp::OnStart(UINT wParam, LONG lParam)	// the Start button was pressed in the dialog
+void COperatorConsoleApp::OnStart(WPARAM wParam, LPARAM lParam)	// the Start button was pressed in the dialog
 {
 	if (m_status != runningTest)
 	{
@@ -726,12 +758,12 @@ void COperatorConsoleApp::OnStart(UINT wParam, LONG lParam)	// the Start button 
 	}
 }
 
-void COperatorConsoleApp::OnStop(UINT wParam, LONG lParam)
+void COperatorConsoleApp::OnStop(WPARAM wParam, LPARAM lParam)
 {
 	m_status = idle;	// any test in progress will finish, but a new one won't be started
 }
 
-void COperatorConsoleApp::OnShowJSON(UINT wParam, LONG lParam)
+void COperatorConsoleApp::OnShowJSON(WPARAM wParam, LPARAM lParam)
 {
 	if (m_jsonDlgThread != NULL)
 	{
@@ -1145,16 +1177,19 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	mwArray key_acquire("acquire"),key_width("width"),key_height("height"),key_bitdepth("bitdepth"),key_bayer("bayer_pattern"),key_omniregister("register_files"),key_epiphan_deviceid("deviceID");
 	mwArray value_int("i"), value_string(""), value_double("d");
 	mwArray default_0(0), default_emptystring("");
-
+	mwSize getIndex = 1;
 	// NOTE: the mwArray::Get function has input syntax Get(number of indexes, i1, i2,...in)
 
 	// first read the 'acquire' key from [imatest]
-	readKeys.Get(2,1,1).Set(section_imatest);
-	readKeys.Get(2,1,2).Set(subsection_blank);
-	readKeys.Get(2,1,3).Set(key_acquire);
-	readKeys.Get(2,1,4).Set(value_int);
-	readKeys.Get(2,1,5).Set(default_0);
-
+	getIndex = 1;
+	readKeys.Get(2,1,getIndex++).Set(section_imatest);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,1,getIndex++).Set(subsection_blank);
+#endif
+	readKeys.Get(2, 1, getIndex++).Set(key_acquire);
+	readKeys.Get(2, 1, getIndex++).Set(value_int);
+	readKeys.Get(2, 1, getIndex++).Set(default_0);
+	
 	vararginParam.Get(2,1,1).Set(inifilename);
 	vararginParam.Get(2,1,2).Set(mode);
 	vararginParam.Get(2,1,3).Set(readKeys);
@@ -1171,6 +1206,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	{
 		cout << "Run Error!" << endl;
 		cerr << e.what() << endl;
+		const char* x = e.what();
 		e.print_stack_trace();
 	}	
 
@@ -1187,46 +1223,64 @@ bool COperatorConsoleApp::ReadINISettings(void)
 
 	readKeys = mwArray(6,5,mxCELL_CLASS);
 	// to read the Epiphan 'device_ID' key 
-	readKeys.Get(2,1,1).Set(section);
-	readKeys.Get(2,1,2).Set(subsection);
-	readKeys.Get(2,1,3).Set(key_epiphan_deviceid);
-	readKeys.Get(2,1,4).Set(value_int);
-	readKeys.Get(2,1,5).Set(default_0);
+	getIndex = 1;
+	readKeys.Get(2,1,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,1,getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2,1,getIndex++).Set(key_epiphan_deviceid);
+	readKeys.Get(2,1,getIndex++).Set(value_int);
+	readKeys.Get(2,1,getIndex++).Set(default_0);
 
 	// to read the 'width' key 
-	readKeys.Get(2,2,1).Set(section);
-	readKeys.Get(2,2,2).Set(subsection);
-	readKeys.Get(2,2,3).Set(key_width);
-	readKeys.Get(2,2,4).Set(value_int);
-	readKeys.Get(2,2,5).Set(default_0);
+	getIndex = 1;
+	readKeys.Get(2,2,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,2,getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2,2,getIndex++).Set(key_width);
+	readKeys.Get(2,2,getIndex++).Set(value_int);
+	readKeys.Get(2,2,getIndex++).Set(default_0);
 
 	// to read the 'height' key 
-	readKeys.Get(2,3,1).Set(section);
-	readKeys.Get(2,3,2).Set(subsection);
-	readKeys.Get(2,3,3).Set(key_height);
-	readKeys.Get(2,3,4).Set(value_int);
-	readKeys.Get(2,3,5).Set(default_0);
+	getIndex = 1;
+	readKeys.Get(2,3,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,3,getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2,3,getIndex++).Set(key_height);
+	readKeys.Get(2,3,getIndex++).Set(value_int);
+	readKeys.Get(2,3,getIndex++).Set(default_0);
 
 	// to read the 'bitdepth' key 
-	readKeys.Get(2,4,1).Set(section);
-	readKeys.Get(2,4,2).Set(subsection);
-	readKeys.Get(2,4,3).Set(key_bitdepth);
-	readKeys.Get(2,4,4).Set(value_int);
-	readKeys.Get(2,4,5).Set(default_0);
+	getIndex = 1;
+	readKeys.Get(2,4,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,4,getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2,4,getIndex++).Set(key_bitdepth);
+	readKeys.Get(2,4,getIndex++).Set(value_int);
+	readKeys.Get(2,4,getIndex++).Set(default_0);
 
 	// to read the 'bayer_pattern' key
-	readKeys.Get(2,5,1).Set(section);
-	readKeys.Get(2,5,2).Set(subsection);
-	readKeys.Get(2,5,3).Set(key_bayer);
-	readKeys.Get(2,5,4).Set(value_int);
-	readKeys.Get(2,5,5).Set(default_0);
+	getIndex = 1;
+	readKeys.Get(2,5,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,5,getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2,5,getIndex++).Set(key_bayer);
+	readKeys.Get(2,5,getIndex++).Set(value_int);
+	readKeys.Get(2,5,getIndex++).Set(default_0);
 
 	// to read the 'register_files' key
-	readKeys.Get(2,6,1).Set(section);
-	readKeys.Get(2,6,2).Set(subsection);
-	readKeys.Get(2,6,3).Set(key_omniregister);
-	readKeys.Get(2,6,4).Set(value_string);
-	readKeys.Get(2,6,5).Set(default_emptystring);
+	getIndex = 1;
+	readKeys.Get(2,6,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2,6,getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2,6,getIndex++).Set(key_omniregister);
+	readKeys.Get(2,6,getIndex++).Set(value_string);
+	readKeys.Get(2,6,getIndex++).Set(default_emptystring);
 
 	vararginParam.Get(1,1).Set(inifilename);
 	vararginParam.Get(1,2).Set(mode);
@@ -1307,13 +1361,16 @@ void COperatorConsoleApp::WriteINISettings(void)
 	mwArray key_bayer("bayer_pattern"),key_omniregister("register_files"),key_epiphan_deviceid("deviceID");
 	mwArray val_acquire(m_setup.sourceID), val_width(m_setup.width), val_height(m_setup.height), val_bitdepth(m_setup.bits_per_pixel);
 	mwArray val_bayer(m_setup.bayer), val_omniregister(m_setup.omnivision_reg_file), val_epiphan_deviceid(m_setup.epiphan_deviceID);
-
+	mwSize getIndex = 1;
 	// NOTE: the mwArray::Get function has input syntax Get(number of indexes, i1, i2,...in)
 	// first read the 'acquire' key from [imatest]
-	writeKeys.Get(2,1,1).Set(section_imatest);
-	writeKeys.Get(2,1,2).Set(subsection_blank);
-	writeKeys.Get(2,1,3).Set(key_acquire);
-	writeKeys.Get(2,1,4).Set(val_acquire);
+	getIndex = 1;
+	writeKeys.Get(2,1,getIndex++).Set(section_imatest);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,1,getIndex++).Set(subsection_blank);
+#endif
+	writeKeys.Get(2,1,getIndex++).Set(key_acquire);
+	writeKeys.Get(2,1,getIndex++).Set(val_acquire);
 
 	if (m_setup.sourceID == SOURCE_Omnivision) // Omnivision
 	{
@@ -1327,44 +1384,62 @@ void COperatorConsoleApp::WriteINISettings(void)
 	}
 
 	// to write the Epiphan 'device_ID' key 
-	writeKeys.Get(2,2,1).Set(section);
-	writeKeys.Get(2,2,2).Set(subsection);
-	writeKeys.Get(2,2,3).Set(key_epiphan_deviceid);
-	writeKeys.Get(2,2,4).Set(val_epiphan_deviceid);
+	getIndex = 1;
+	writeKeys.Get(2,2,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,2,getIndex++).Set(subsection);
+#endif
+	writeKeys.Get(2,2,getIndex++).Set(key_epiphan_deviceid);
+	writeKeys.Get(2,2,getIndex++).Set(val_epiphan_deviceid);
 
 	// to write the 'width' key 
-	writeKeys.Get(2,3,1).Set(section);
-	writeKeys.Get(2,3,2).Set(subsection);
-	writeKeys.Get(2,3,3).Set(key_width);
-	writeKeys.Get(2,3,4).Set(val_width);
+	getIndex = 1;
+	writeKeys.Get(2,3,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,3,getIndex++).Set(subsection);
+#endif
+	writeKeys.Get(2,3,getIndex++).Set(key_width);
+	writeKeys.Get(2,3,getIndex++).Set(val_width);
 
 
 	// to write the 'height' key 
-	writeKeys.Get(2,4,1).Set(section);
-	writeKeys.Get(2,4,2).Set(subsection);
-	writeKeys.Get(2,4,3).Set(key_height);
-	writeKeys.Get(2,4,4).Set(val_height);
+	getIndex = 1;
+	writeKeys.Get(2,4,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,4,getIndex++).Set(subsection);
+#endif
+	writeKeys.Get(2,4,getIndex++).Set(key_height);
+	writeKeys.Get(2,4,getIndex++).Set(val_height);
 
 
 	// to write the 'bitdepth' key 
-	writeKeys.Get(2,5,1).Set(section);
-	writeKeys.Get(2,5,2).Set(subsection);
-	writeKeys.Get(2,5,3).Set(key_bitdepth);
-	writeKeys.Get(2,5,4).Set(val_bitdepth);
+	getIndex = 1;
+	writeKeys.Get(2,5,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,5,getIndex++).Set(subsection);
+#endif
+	writeKeys.Get(2,5,getIndex++).Set(key_bitdepth);
+	writeKeys.Get(2,5,getIndex++).Set(val_bitdepth);
 
 
 	// to write the 'bayer_pattern' 
-	writeKeys.Get(2,6,1).Set(section);
-	writeKeys.Get(2,6,2).Set(subsection);
-	writeKeys.Get(2,6,3).Set(key_bayer);
-	writeKeys.Get(2,6,4).Set(val_bayer);
+	getIndex = 1;
+	writeKeys.Get(2,6,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,6,getIndex++).Set(subsection);
+#endif
+	writeKeys.Get(2,6,getIndex++).Set(key_bayer);
+	writeKeys.Get(2,6,getIndex++).Set(val_bayer);
 
 
 	// to write the 'register_files' 
-	writeKeys.Get(2,7,1).Set(section);
-	writeKeys.Get(2,7,2).Set(subsection);
-	writeKeys.Get(2,7,3).Set(key_omniregister);
-	writeKeys.Get(2,7,4).Set(val_omniregister);
+	getIndex = 1;
+	writeKeys.Get(2,7,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2,7,getIndex++).Set(subsection);
+#endif
+	writeKeys.Get(2,7,getIndex++).Set(key_omniregister);
+	writeKeys.Get(2,7,getIndex++).Set(val_omniregister);
 
 	vararginParam.Get(2,1,1).Set(inifilename);
 	vararginParam.Get(2,1,2).Set(mode);
@@ -1506,14 +1581,16 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	int badval = -123456;
 	std::string badstring = "-123456%^&%%$**#";
 	mwArray default_0(badval), default_emptystring(badstring.c_str()),default_dbl((double)badval);
+	mwSize getIndex = 1;
 
-
-
-	readKeys.Get(1,1).Set(section);
-	readKeys.Get(1,2).Set(subsection_blank);
-	readKeys.Get(1,3).Set(key_passFail);
-	readKeys.Get(1,4).Set(value_string);
-	readKeys.Get(1,5).Set(default_emptystring);
+	getIndex = 1;
+	readKeys.Get(1,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(1,getIndex++).Set(subsection_blank);
+#endif
+	readKeys.Get(1,getIndex++).Set(key_passFail);
+	readKeys.Get(1,getIndex++).Set(value_string);
+	readKeys.Get(1,getIndex++).Set(default_emptystring);
 
 	vararginParam.Get(1,1).Set(inifilename);
 	vararginParam.Get(1,2).Set(mode);
@@ -1531,10 +1608,19 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		e.print_stack_trace();
 	}
 
-	m_PFSettings.m_pass_fail_file.SetString(_T(readSett.Get(1,1).Get(1,1).ToString()));
-	m_PFSettings.m_pass_fail_file.Remove('\n');
-	m_PFSettings.m_pass_fail_file.Remove('\r');
+	mwArray readSettContainer = readSett.Get(1, 1);
 
+	if (readSettContainer.NumberOfElements() > 0)
+	{
+		m_PFSettings.m_pass_fail_file.SetString(_T(readSett.Get(1, 1).Get(1, 1).ToString()));
+		m_PFSettings.m_pass_fail_file.Remove('\n');
+		m_PFSettings.m_pass_fail_file.Remove('\r');
+	} 
+	else
+	{
+		/// inifile failed
+		cout << "Run Error! Unable to read Pass/Fail file" << endl;
+	}
 	//Now we find the Pass/Fail file and check if it is read-only
 
 
@@ -1551,18 +1637,26 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	mwArray subsections;
 	mwArray passFailFile(m_PFSettings.m_pass_fail_file.GetString());
 	mwArray mode_readall("readall"),mode_read("read");
+#ifdef INI_INCLUDE_SUBSECTION
+	int numArgOut = 3;
+#else
+	int numArgOut = 2;
+#endif
+	mwArray varargout = mwArray(1,numArgOut,mxCELL_CLASS);	
 
-	mwArray varargout = mwArray(1,3,mxCELL_CLASS);	
 	varargout.Get(1,1).Set(keys);
 	varargout.Get(1,2).Set(sections);
+#ifdef INI_INCLUDE_SUBSECTION
 	varargout.Get(1,3).Set(subsections);
+#endif
 
 	mwArray varargin = mwArray(1,2,mxCELL_CLASS);
 	varargin.Get(1,1).Set(passFailFile);
 	varargin.Get(1,2).Set(mode_readall);
 	try
 	{
-		inifile(3, varargout,varargin);
+
+		inifile(numArgOut, varargout, varargin);
 	}
 	catch (mwException& e)
 	{
@@ -1600,7 +1694,14 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 	// Next we can read in the keys for the 'other' section from what we already have for which all values are strings
 
-
+	// Section index is different for 4.2
+#ifdef INI_INCLUDE_SUBSECTION
+	mwSize sectionIndex = 1;
+#else
+	mwSize sectionIndex = 2;
+#endif
+	
+	/*
 	if (m_PFSettings.other.b_enable)
 	{
 		mwArray dims = varargout.Get(1,1).GetDimensions();
@@ -1613,7 +1714,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		std::size_t numRows = (std::size_t)vdims[0];
 		for (std::size_t idx=1; idx <=numRows; ++idx)
 		{
-			CString section = _T(varargout.Get(1,1).Get(2,idx,1).ToString());
+			CString section = _T(varargout.Get(1,sectionIndex).Get(2,idx,1).ToString());
 			section.Remove('\n');
 			section.Remove('\r');
 			CString cstrkey;
@@ -1637,18 +1738,23 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 
 	}
-
+	*/
 	// Now we get to read in the other sections in a manner that respects their data type since a few of the inputs are vectors.
 	// Now is a good time to grab a cup of tea...
 
 	if (m_PFSettings.blemish.b_enable)
 	{
 
-		readKeys = mwArray(m_PFSettings.blemish.numEntries,5,mxCELL_CLASS);
+#ifdef INI_INCLUDE_SUBSECTION
+		readKeys = mwArray(m_PFSettings.blemish.numEntries, 5, mxCELL_CLASS);
+#else
+		readKeys = mwArray(m_PFSettings.blemish.numEntries, 4, mxCELL_CLASS);
+#endif
+
+		mwArray section_Blemish(m_PFSettings.blemish.name.GetString());
+
 		varargin = mwArray(1,3,mxCELL_CLASS);
-		mwArray section_Blemish("Blemish");
-
-
+		
 		std::vector<std::string> data_types;
 		std::vector<CString> blem_keys;
 		// the entry<T> corresponding to a given index in blem_keys will correspond to the same index + 1 in readKeys
@@ -1669,34 +1775,47 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		// add the contents of blem_keys and data_types to readKeys
 		for (std::size_t idx = 0; idx < m_PFSettings.blemish.numEntries; ++idx)
 		{
-			mwArray key(blem_keys[idx].GetString());
-			mwArray value(data_types[idx].c_str());
-			mwArray default_ret;
+			try
+			{
+				mwArray key(blem_keys[idx].GetString());
+				mwArray value(data_types[idx].c_str());
+				mwArray default_ret;
 
-			if (data_types[idx].compare("i")==0)
-			{
-				default_ret = default_0;
-			}
-			else if( data_types[idx].compare("d")==0)
-			{
-				default_ret = default_dbl;
-			}
-			else
-			{
-				default_ret = default_emptystring;
-			}
+				if (data_types[idx].compare("i") == 0)
+				{
+					default_ret = default_0;
+				}
+				else if (data_types[idx].compare("d") == 0)
+				{
+					default_ret = default_dbl;
+				}
+				else
+				{
+					default_ret = default_emptystring;
+				}
 
-			readKeys.Get(2,idx+1,1).Set(section_Blemish);
-			readKeys.Get(2,idx+1,2).Set(subsection_blank);
-			readKeys.Get(2,idx+1,3).Set(key);
-			readKeys.Get(2,idx+1,4).Set(value);
-			readKeys.Get(2,idx+1,5).Set(default_ret);
+				getIndex = 1;
+				readKeys.Get(2, idx + 1, getIndex++).Set(section_Blemish);
+#ifdef INI_INCLUDE_SUBSECTION
+				readKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
+#endif
+				readKeys.Get(2, idx + 1, getIndex++).Set(key);
+				readKeys.Get(2, idx + 1, getIndex++).Set(value);
+				readKeys.Get(2, idx + 1, getIndex++).Set(default_ret);
+			}
+			catch (exception e)
+			{
+				const char *c = e.what();
+				string x = "";
+			}
 		}
 
 		varargin.Get(1,1).Set(passFailFile);
 		varargin.Get(1,2).Set(mode_read);
 		varargin.Get(1,3).Set(readKeys);
-		readSett = mwArray(1,m_PFSettings.blemish.numEntries,mxCELL_CLASS);
+		
+		readSett = mwArray(1, m_PFSettings.blemish.numEntries, mxCELL_CLASS);
+
 		try
 		{
 			inifile(1,readSett,varargin);
@@ -1784,10 +1903,16 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	if ( m_PFSettings.sfrplus.b_enable)
 	{
 
+#ifdef INI_INCLUDE_SUBSECTION
+		readKeys = mwArray(m_PFSettings.sfrplus.numEntries, 5, mxCELL_CLASS);
+#else
+		readKeys = mwArray(m_PFSettings.sfrplus.numEntries, 4, mxCELL_CLASS);
+#endif
 
-		readKeys = mwArray(m_PFSettings.sfrplus.numEntries,5,mxCELL_CLASS);
-		varargin = mwArray(1,3,mxCELL_CLASS);
+
 		mwArray section_sfr(m_PFSettings.sfrplus.name.GetString());
+
+		varargin = mwArray(1,3,mxCELL_CLASS);
 
 		std::vector<std::string> data_types;
 		std::vector<CString> sfr_keys;
@@ -1840,11 +1965,15 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			{
 				default_ret = default_emptystring;
 			}
-			readKeys.Get(2,idx+1,1).Set(section_sfr);
-			readKeys.Get(2,idx+1,2).Set(subsection_blank);
-			readKeys.Get(2,idx+1,3).Set(key);
-			readKeys.Get(2,idx+1,4).Set(value);
-			readKeys.Get(2,idx+1,5).Set(default_ret);
+
+			getIndex = 1;
+			readKeys.Get(2,idx+1,getIndex++).Set(section_sfr);
+#ifdef INI_INCLUDE_SUBSECTION
+			readKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+#endif
+			readKeys.Get(2,idx+1,getIndex++).Set(key);
+			readKeys.Get(2,idx+1,getIndex++).Set(value);
+			readKeys.Get(2,idx+1,getIndex++).Set(default_ret);
 		}
 
 		int intBuf = 0;
@@ -2001,11 +2130,14 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			{
 				default_ret = default_emptystring;
 			}
-			readKeys.Get(2,idx+1,1).Set(section_ois);
-			readKeys.Get(2,idx+1,2).Set(subsection_blank);
-			readKeys.Get(2,idx+1,3).Set(key);
-			readKeys.Get(2,idx+1,4).Set(value);
-			readKeys.Get(2,idx+1,5).Set(default_ret);
+			getIndex = 1;
+			readKeys.Get(2,idx+1,getIndex++).Set(section_ois);
+#ifdef INI_INCLUDE_SUBSECTION
+			readKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+#endif
+			readKeys.Get(2,idx+1,getIndex++).Set(key);
+			readKeys.Get(2,idx+1,getIndex++).Set(value);
+			readKeys.Get(2,idx+1,getIndex++).Set(default_ret);
 		}
 
 		int intBuf = 0;
@@ -2057,6 +2189,7 @@ bool COperatorConsoleApp::WritePassFail(void)
 	mwArray style("plain");
 	mwArray subsection_blank("");
 	mwArray value_int("i"), value_string(""), value_double("d");
+	mwSize getIndex = 1;
 
 
 	if (m_PFSettings.blemish.b_enable)
@@ -2085,10 +2218,13 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			mwArray key(keys[idx].c_str());
 			mwArray val(vals[idx].c_str());
-			writeKeys.Get(2,idx+1,1).Set(section);
-			writeKeys.Get(2,idx+1,2).Set(subsection_blank);
-			writeKeys.Get(2,idx+1,3).Set(key);
-			writeKeys.Get(2,idx+1,4).Set(val);
+			getIndex = 1;
+			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+#endif
+			writeKeys.Get(2,idx+1,getIndex++).Set(key);
+			writeKeys.Get(2,idx+1,getIndex++).Set(val);
 		}
 
 		varargin.Get(1,1).Set(passfailfilename);
@@ -2128,10 +2264,13 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			mwArray key(keys[idx].c_str());
 			mwArray val(vals[idx].c_str());
-			writeKeys.Get(2,idx+1,1).Set(section);
-			writeKeys.Get(2,idx+1,2).Set(subsection_blank);
-			writeKeys.Get(2,idx+1,3).Set(key);
-			writeKeys.Get(2,idx+1,4).Set(val);
+			getIndex = 1;
+			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+#endif
+			writeKeys.Get(2,idx+1,getIndex++).Set(key);
+			writeKeys.Get(2,idx+1,getIndex++).Set(val);
 		}
 
 		varargin.Get(1,1).Set(passfailfilename);
@@ -2163,10 +2302,13 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			mwArray key(m_PFSettings.other.ent_vec[idx].name.GetString());
 			mwArray val(writeEntValueString(m_PFSettings.other.ent_vec[idx]).c_str());
-			writeKeys.Get(2,idx+1,1).Set(section);
-			writeKeys.Get(2,idx+1,2).Set(subsection_blank);
-			writeKeys.Get(2,idx+1,3).Set(key);
-			writeKeys.Get(2,idx+1,4).Set(val);
+			getIndex = 1;
+			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+#endif
+			writeKeys.Get(2,idx+1,getIndex++).Set(key);
+			writeKeys.Get(2,idx+1,getIndex++).Set(val);
 		}
 
 		varargin.Get(1,1).Set(passfailfilename);
@@ -2230,10 +2372,13 @@ bool COperatorConsoleApp::WritePassFail(void)
 		{
 			mwArray key(keys[idx].c_str());
 			mwArray val(vals[idx].c_str());
-			writeKeys.Get(2,idx+1,1).Set(section);
-			writeKeys.Get(2,idx+1,2).Set(subsection_blank);
-			writeKeys.Get(2,idx+1,3).Set(key);
-			writeKeys.Get(2,idx+1,4).Set(val);
+			getIndex = 1;
+			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+#ifdef INI_INCLUDE_SUBSECTION
+			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+#endif
+			writeKeys.Get(2,idx+1,getIndex++).Set(key);
+			writeKeys.Get(2,idx+1,getIndex++).Set(val);
 		}
 
 		varargin.Get(1,1).Set(passfailfilename);

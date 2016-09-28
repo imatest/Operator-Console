@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
-      <Configuration>Debug</Configuration>
+    <ProjectConfiguration Include="Demo_Imatest_4.5|x64">
+      <Configuration>Demo_Imatest_4.5</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug Imatest 4.1|Win32">
+      <Configuration>Debug Imatest 4.1</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release_2013a|Win32">
-      <Configuration>Release_2013a</Configuration>
-      <Platform>Win32</Platform>
-    </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
-      <Configuration>Release</Configuration>
+    <ProjectConfiguration Include="Release Imatest 4.1|Win32">
+      <Configuration>Release Imatest 4.1</Configuration>
       <Platform>Win32</Platform>
     </ProjectConfiguration>
   </ItemGroup>
@@ -20,14 +20,14 @@
     <Keyword>MFCProj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.1|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
@@ -35,7 +35,7 @@
     <CharacterSet>MultiByte</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v110</PlatformToolset>
@@ -46,32 +46,29 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.1|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
-  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'" Label="PropertySheets">
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|Win32'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.1|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'">
-    <LinkIncremental>false</LinkIncremental>
-  </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include_4.1_x86;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
@@ -79,7 +76,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp;include_4.1_x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -94,7 +91,7 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.1|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
@@ -102,7 +99,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\imatest\projects\OpConsole\trunk;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include_4.1_x86;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
       <DebugInformationFormat>None</DebugInformationFormat>
@@ -113,7 +110,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files (x86)\Imatest\IT\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp;include_4.1_x86</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft\mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -128,19 +125,20 @@
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release_2013a|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\imatest\matlab\build\imatest_it\final\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\build\imatest_it\final\libs\acquisition\cpp;..\..\..\build\imatest_it\final\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
       </PrecompiledHeaderOutputFile>
+      <DebugInformationFormat>None</DebugInformationFormat>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -148,13 +146,12 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\imatest\matlab\build\imatest_it\final\libs\library\cpp;C:\Program Files (x86)\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files (x86)\Imatest\IT\bin;C:\Program Files %28x86%29\Imatest\IT\libs\blemish\cpp;C:\Program Files %28x86%29\Imatest\IT\libs\sfrplus\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v901\bin\win64;..\..\..\build\imatest_it\final\libs\library\cpp;..\..\..\build\imatest_it\final\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\lib\win64\microsoft;..\..\..\build\imatest_it\final\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
-      <ValidateAllParameters>true</ValidateAllParameters>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </Midl>
     <ResourceCompile>
@@ -169,7 +166,7 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="CriticalBuf.h" />
     <ClInclude Include="CriticalCString.h" />
-    <ClInclude Include="escapi21\escapi.h" />
+    <ClInclude Include="escapi30\escapi.h" />
     <ClInclude Include="FileAcq.h" />
     <ClInclude Include="FileAcquisition.h" />
     <ClInclude Include="ImageAcquisition.h" />
@@ -231,7 +228,7 @@
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="CriticalBuf.cpp" />
     <ClCompile Include="CriticalCString.cpp" />
-    <ClCompile Include="escapi21\escapi.cpp" />
+    <ClCompile Include="escapi30\escapi.cpp" />
     <ClCompile Include="FileAcq.cpp" />
     <ClCompile Include="FileAcquisition.cpp" />
     <ClCompile Include="ImageAcquisition.cpp" />
@@ -277,21 +274,18 @@
     <ResourceCompile Include="OperatorConsole.rc" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\OperatorConsole.rc2" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\Data\icons\icon256x256.png" />
-    <Image Include="Data\icons\icon16x16_32.bmp" />
-    <Image Include="Data\icons\icon256x256.png" />
-    <Image Include="Data\icons\icon32x32_32.bmp" />
-    <Image Include="Data\icons\icon48x48_32.bmp" />
-    <Image Include="Data\logo_flat_550x150.bmp" />
-    <Image Include="Data\logo_flat_550x150.png" />
-    <Image Include="res\icon1.ico" />
     <Image Include="res\OperatorConsole.ico" />
   </ItemGroup>
   <ItemGroup>
     <Library Include="imatest_library.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Readme.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+    <Text Include="Readme_Compiled.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

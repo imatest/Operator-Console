@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OperatorConsole.vs14", "OperatorConsole.vs14.vcxproj", "{5F479E98-E5B6-4D4D-BE0D-E722117B568C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Imatest 4.1|Win32 = Debug Imatest 4.1|Win32
+		Debug Imatest 4.1|x64 = Debug Imatest 4.1|x64
+		Debug Imatest 4.2|Win32 = Debug Imatest 4.2|Win32
+		Debug Imatest 4.2|x64 = Debug Imatest 4.2|x64
+		Debug Imatest 4.3|Win32 = Debug Imatest 4.3|Win32
+		Debug Imatest 4.3|x64 = Debug Imatest 4.3|x64
+		Debug Imatest 4.4|Win32 = Debug Imatest 4.4|Win32
+		Debug Imatest 4.4|x64 = Debug Imatest 4.4|x64
+		Debug Imatest 4.5|Win32 = Debug Imatest 4.5|Win32
+		Debug Imatest 4.5|x64 = Debug Imatest 4.5|x64
+		Demo_Imatest_4.5|Win32 = Demo_Imatest_4.5|Win32
+		Demo_Imatest_4.5|x64 = Demo_Imatest_4.5|x64
+		Release Imatest 4.2|Win32 = Release Imatest 4.2|Win32
+		Release Imatest 4.2|x64 = Release Imatest 4.2|x64
+		Release Imatest 4.3|Win32 = Release Imatest 4.3|Win32
+		Release Imatest 4.3|x64 = Release Imatest 4.3|x64
+		Release Imatest 4.4|Win32 = Release Imatest 4.4|Win32
+		Release Imatest 4.4|x64 = Release Imatest 4.4|x64
+		Release Imatest 4.5|Win32 = Release Imatest 4.5|Win32
+		Release Imatest 4.5|x64 = Release Imatest 4.5|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1|Win32.ActiveCfg = Debug Imatest 4.1|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1|Win32.Build.0 = Debug Imatest 4.1|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1|x64.ActiveCfg = Debug Imatest 4.1|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.1|x64.Build.0 = Debug Imatest 4.1|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.2|Win32.ActiveCfg = Debug Imatest 4.2|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.2|Win32.Build.0 = Debug Imatest 4.2|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.2|x64.ActiveCfg = Debug Imatest 4.2|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.2|x64.Build.0 = Debug Imatest 4.2|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.3|Win32.ActiveCfg = Debug Imatest 4.3|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.3|Win32.Build.0 = Debug Imatest 4.3|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.3|x64.ActiveCfg = Debug Imatest 4.3|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.3|x64.Build.0 = Debug Imatest 4.3|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.4|Win32.ActiveCfg = Debug Imatest 4.4|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.4|Win32.Build.0 = Debug Imatest 4.4|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.4|x64.ActiveCfg = Debug Imatest 4.4|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.4|x64.Build.0 = Debug Imatest 4.4|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.5|Win32.ActiveCfg = Debug Imatest 4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.5|x64.ActiveCfg = Debug Imatest 4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Debug Imatest 4.5|x64.Build.0 = Debug Imatest 4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|Win32.ActiveCfg = Demo_Imatest_4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|x64.ActiveCfg = Demo_Imatest_4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_4.5|x64.Build.0 = Demo_Imatest_4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.2|Win32.ActiveCfg = Release Imatest 4.2|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.2|Win32.Build.0 = Release Imatest 4.2|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.2|x64.ActiveCfg = Release Imatest 4.2|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.2|x64.Build.0 = Release Imatest 4.2|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.3|Win32.ActiveCfg = Release Imatest 4.3|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.3|Win32.Build.0 = Release Imatest 4.3|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.3|x64.ActiveCfg = Release Imatest 4.3|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.3|x64.Build.0 = Release Imatest 4.3|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.4|Win32.ActiveCfg = Release Imatest 4.4|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.4|Win32.Build.0 = Release Imatest 4.4|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.4|x64.ActiveCfg = Release Imatest 4.4|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.4|x64.Build.0 = Release Imatest 4.4|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.5|Win32.ActiveCfg = Release Imatest 4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.5|x64.ActiveCfg = Release Imatest 4.5|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.5|x64.Build.0 = Release Imatest 4.5|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

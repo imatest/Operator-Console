@@ -1,0 +1,5 @@
+15:28:05 SFRplus started
+15:28:25 SFRplus took 20.481 sec
+15:28:25  Error running SFRplus test
+Matrix dimensions must agree.
+15:28:25 SFRplus started

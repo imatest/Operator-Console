@@ -18,7 +18,7 @@
 ****************************************************************************/
 
 #include "stdafx.h"
-#include "escapi21\escapi.h"
+#include "escapi30\escapi.h"
 #include "SimpleDirectShowAcq.h"
 #include "ThreadControl.h"
 
@@ -52,7 +52,15 @@ bool SimpleDirectShowAcq::Open()
 	{
 		m_numCameras = setupESCAPI();
 
-		if (m_numCameras == 0)
+		if (m_numCameras == -1)
+		{
+			m_logMsg.Format("Error initializing ESCAPI.  Make sure the escap.dll file is in the same directory as the executable.");
+		}
+		if (m_numCameras == -2)
+		{
+			m_logMsg.Format("Error initializing ESCAPI.  Wrong version of ESCAPI. Requires 3.0.");
+		}
+		else if (m_numCameras == 0)
 		{
 			m_logMsg.Format("%s: no cameras found.\n", __FUNCTION__);
 		}

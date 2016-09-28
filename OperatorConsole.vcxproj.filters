@@ -159,9 +159,6 @@
     <ClInclude Include="SimpleDirectShowAcq.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="escapi21\escapi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StaticBmp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -196,6 +193,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ImatestSourceIDs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="escapi30\escapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -302,9 +302,6 @@
     <ClCompile Include="StderrThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="escapi21\escapi.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="SimpleDirectShowAcq.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -333,6 +330,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PasswordDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="escapi30\escapi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -379,5 +379,13 @@
     <Library Include="imatest_library.lib">
       <Filter>Header Files</Filter>
     </Library>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Readme.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Readme_Compiled.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
