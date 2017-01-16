@@ -19,7 +19,9 @@
 
 #pragma once
 #include "ImageAcquisition.h"
-
+#include <vector>
+#include <string>
+#include <iostream>
 
 ///
 /// A class for acquiring directly from a camera with a DirectShow driver
@@ -33,10 +35,20 @@ public:
 	bool	CaptureFrame();	//!< Captures a single frame into m_buf
 	bool	Close();
 	bool	Open(); 
+   bool  setCameraIndex(int);
+   int   getCameraIndex();
+   std::vector<std::string>  getCameraNames();
 
 protected:
-	int		m_numCameras;
-	int		m_cameraIndex;
-	bool	m_inited;	//!< TRUE if camera is initialized
+	int		                m_numCameras;
+	int		                m_cameraIndex;
+	bool	                   m_inited;	//!< TRUE if camera is initialized
+   std::vector<std::string> m_device_names;
+
+private:
+   static int max_string_size;
+
+   bool  refreshDeviceList();
+   bool  refreshNumCameras();
 };
 

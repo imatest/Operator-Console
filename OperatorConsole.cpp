@@ -1095,6 +1095,13 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	int oldWidth = m_setup.width;
 	int oldHeight = m_setup.height;
 	int oldSourceID = m_setup.sourceID;
+   int oldDirectShowID = m_setup.directshow_deviceID;
+   m_setup.directshow_device_names.clear();
+
+   std::vector<std::string> directShowDeviceNames = m_directshow_cam.getCameraNames();
+   for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
+      m_setup.directshow_device_names.push_back(CString(iName->c_str()));
+
 
 	CSetup setup(NULL, m_setup);
 	INT_PTR nRet = setup.DoModal();
@@ -1125,7 +1132,8 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 		WriteINISettings(); // store new settings
 		if ( oldWidth != m_setup.width || oldHeight != m_setup.height 
 			|| (oldSourceID != SOURCE_OpConsoleDirectShow) && (m_setup.sourceID == SOURCE_OpConsoleDirectShow) 
-			|| (oldSourceID == SOURCE_OpConsoleDirectShow) && (m_setup.sourceID != SOURCE_OpConsoleDirectShow))
+			|| (oldSourceID == SOURCE_OpConsoleDirectShow) && (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
+         || (oldDirectShowID != m_setup.directshow_deviceID))
 		{
 
 			if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
@@ -1139,7 +1147,7 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 			else 
 			{
 				m_image_source=directshow_source;
-				if (oldSourceID != SOURCE_OpConsoleDirectShow)
+				if (oldSourceID != SOURCE_OpConsoleDirectShow || (oldDirectShowID != m_setup.directshow_deviceID))
 				{
 					SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
 				}
@@ -2414,7 +2422,12 @@ void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
 
 void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
 {
-	m_camera = &m_directshow_cam;
+   int currentCameraId = m_directshow_cam.getCameraIndex();
+
+   if (currentCameraId != m_setup.directshow_deviceID)
+      m_directshow_cam.setCameraIndex(m_setup.directshow_deviceID);
+
+   m_camera = &m_directshow_cam;
 	m_cameraControl = &m_DirectShowCameraControl;
 
 }

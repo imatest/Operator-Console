@@ -34,6 +34,7 @@ struct setup_settings{
 													/**< Only takes values 1 through 6. 1 => Aptina DevWare, 2 => Omnivision, 3 => Toshiba, 4 => STM Conduit, 5 => Graphin EasyLab, 6 => Epiphan*/
 	int						bayer;					//!< Used for Omnivision only: Bayer pattern index
 													/**< Only takes values 1 through 4.  1 => Red in R1C1, 2=> Red in R1C2, 3=> Red in R2C1, 4=> Red in R2C2 */ 
+   int                  directshow_deviceID;  //!< Used for DirectShow only: the device ID 
 	CString					omnivision_reg_file;	//!< [OPTIONAL INPUT] Used for Omnivision only: a fully-qualified filename (including full path) for a file containing camera register settings 
 	CString					part_number;			//!< [OPTIONAL INPUT] The user supplied camera part number to be used in the JSON output 
 	CString					serial_number;			//!< [OPTIONAL INPUT] The user supplied camera part serial to be used in the JSON output 
@@ -43,12 +44,12 @@ struct setup_settings{
 	std::vector<CString>	device_list;			//!< The list of allowed device names used to fill the c_device_list CListBox in Setup.h/cpp
 	std::vector<CString>	bayer_list;				//!< The list of allowed Bayer patterns used to fill the c_combo_bayer CComboBox in Setup.h/cpp
 	std::vector<int>		allowed_bits_per_pixel; //!< The list of allowed bits-per-pixels used to fill the c_combo_bits_per_pixel CComboBox in Setup.h/cpp
-	
+	std::vector<CString> directshow_device_names;
 	///
 	/// default constructor
 	///
 
-	setup_settings(void): width(0), height(0), bits_per_pixel(0), epiphan_deviceID(1), sourceID(6), bayer(0) { 
+	setup_settings(void): width(0), height(0), bits_per_pixel(0), epiphan_deviceID(1), sourceID(6), bayer(0), directshow_deviceID(0) { 
 		
 		/////////////////////////////////////////////////////
 		//
@@ -78,6 +79,8 @@ struct setup_settings{
 		//allowed_bits_per_pixel.resize(3,8);
 		//allowed_bits_per_pixel[1] = 10;
 		//allowed_bits_per_pixel[2] = 12;
+
+      directshow_device_names.clear();
 	};
 
 };

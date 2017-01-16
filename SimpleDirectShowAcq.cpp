@@ -22,13 +22,18 @@
 #include "SimpleDirectShowAcq.h"
 #include "ThreadControl.h"
 
+
+int SimpleDirectShowAcq::max_string_size = 50;
+
 SimpleDirectShowAcq::SimpleDirectShowAcq(void)
 {
-	m_width     = 0;
-	m_height    = 0;
-	m_numBytes  = 0;
-	m_numPixels = 0;
-	m_buf       = NULL;
+	m_width       = 0;
+	m_height      = 0;
+	m_numBytes    = 0;
+	m_numPixels   = 0;
+	m_buf         = NULL;
+   m_cameraIndex = 0;
+   m_device_names.clear();
 }
 
 
@@ -52,6 +57,8 @@ bool SimpleDirectShowAcq::Open()
 	{
 		m_numCameras = setupESCAPI();
 
+      m_device_names.clear();
+
 		if (m_numCameras == -1)
 		{
 			m_logMsg.Format("Error initializing ESCAPI.  Make sure the escap.dll file is in the same directory as the executable.");
@@ -69,7 +76,8 @@ bool SimpleDirectShowAcq::Open()
 			params.mWidth     = m_width;
 			params.mHeight    = m_height;
 			params.mTargetBuf = (int *)m_buf;	// m_buf gets set in Init()
-			m_cameraIndex     = 0;
+
+         this->refreshDeviceList();
 			
 			if (initCapture(m_cameraIndex, &params))
 			{
@@ -79,6 +87,79 @@ bool SimpleDirectShowAcq::Open()
 	}
 
 	return m_inited;
+}
+
+
+bool SimpleDirectShowAcq::refreshDeviceList() {
+
+   bool success = true;
+   m_device_names.clear();
+
+   for (int iDevice = 0; iDevice < m_numCameras; ++iDevice) {
+
+      char * buffer = new char[max_string_size + 1]();
+
+      try {
+         getCaptureDeviceName(iDevice, buffer, max_string_size);
+         success &= true;
+      } catch(...) {
+         success &= false;
+      }
+
+      m_device_names.push_back(std::string(buffer));
+
+      delete[] buffer;
+   }
+
+   return success;
+}
+
+bool SimpleDirectShowAcq::refreshNumCameras()
+{
+   bool success = false;
+   int temp = 0;
+   try {
+      
+      temp = countCaptureDevices();
+      m_numCameras = temp;
+      success = true;
+
+   } catch (...) {
+   }
+
+   return success;
+}
+
+std::vector<std::string>  SimpleDirectShowAcq::getCameraNames() {
+
+   if (m_inited) {
+      this->refreshNumCameras();
+      this->refreshDeviceList();
+   }
+
+   return m_device_names;
+
+}
+
+bool SimpleDirectShowAcq::setCameraIndex(int id) {
+   bool success = false;
+
+   if (id <= m_numCameras && m_cameraIndex != id) {
+      
+      success = this->Close();
+
+      m_cameraIndex = id;
+
+      success &= this->Open();
+   }
+
+   return success;
+}
+
+int SimpleDirectShowAcq::getCameraIndex() {
+
+   return m_cameraIndex;
+
 }
 
 

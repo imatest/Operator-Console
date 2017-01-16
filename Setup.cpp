@@ -61,6 +61,7 @@ void CSetup::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DEVICE_LIST, c_device_list);
 	DDX_Control(pDX, IDC_DEVICEID, c_combo_deviceid);
 	DDX_Control(pDX, IDC_BITSPERPIXEL, c_combo_bits_per_pixel);
+   DDX_Control(pDX, IDC_DIRECTSHOWID, c_combo_directshow_id);
 	DDX_Control(pDX, IDC_COMBO_BAYER, c_combo_bayer);
 	DDX_Control(pDX, IDC_EDIT_BROWSE, c_edit_browse);
 	DDX_Control(pDX, IDC_EDIT_PARTNUMBER, c_edit_part_number);
@@ -82,6 +83,7 @@ BEGIN_MESSAGE_MAP(CSetup, CDialogEx)
 	ON_EN_CHANGE(IDC_EDITBROWSE_INIFILE, &CSetup::OnChangeEditbrowseInifile)
 	ON_EN_CHANGE(IDC_EDIT_PARTNUMBER, &CSetup::OnChangeEditPartnumber)
 	ON_EN_CHANGE(IDC_EDIT_SERIALNUMBER, &CSetup::OnChangeEditSerialnumber)
+   ON_CBN_SELCHANGE(IDC_DIRECTSHOWID, &CSetup::OnCbnSelchangeDirectshowid)
 END_MESSAGE_MAP()
 
 
@@ -168,6 +170,16 @@ BOOL CSetup::OnInitDialog()
 		c_combo_deviceid.AddString(m_setup_settings.epiphan_deviceID_list[j1]);
 	}
 
+   // file the combo-box of DirectShow device names
+   for (std::size_t j1 = 0; j1 < m_setup_settings.directshow_device_names.size(); ++j1)
+   {
+      c_combo_directshow_id.AddString(m_setup_settings.directshow_device_names[j1]);
+   }
+
+   if (m_setup_settings.directshow_device_names.size() > 0)
+      c_combo_directshow_id.SetCurSel(m_setup_settings.directshow_deviceID);
+   
+
 	////////////////////////////////////////////////////////////////////////////////////
 	// Select the stored value for the device and hide/show objects accordingly
 	////////////////////////////////////////////////////////////////////////////////////
@@ -212,7 +224,7 @@ BOOL CSetup::OnInitDialog()
 			break;
 		case SOURCE_OpConsoleDirectShow:
 			str.SetString(m_setup_settings.device_list[6]); // DirectShow camera
-			ShowNormalElements();
+			ShowDirectShowElements();
 			break;
       case SOURCE_File:
          str.SetString(m_setup_settings.device_list[7]); // Load an image file
@@ -328,7 +340,7 @@ void CSetup::OnLbnSelchangeDeviceList()
 	else if (str.Compare(m_setup_settings.device_list[6]) ==0) // DirectShow camera
 	{
 		m_setup_settings.sourceID = SOURCE_OpConsoleDirectShow;
-		ShowNormalElements();
+		ShowDirectShowElements();
 	}
    else if (str.Compare(m_setup_settings.device_list[7]) ==0) // Image File
 	{
@@ -520,15 +532,22 @@ void CSetup::ShowNormalElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
+   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
+
 	c_combo_deviceid.ShowWindow(SW_HIDE);
 	pDeviceID ->ShowWindow(SW_HIDE);
-	pBayer ->ShowWindow(SW_HIDE);
+
 	c_combo_bayer.ShowWindow(SW_HIDE);
-	pEditBrowse -> ShowWindow(SW_HIDE);
+	pBayer ->ShowWindow(SW_HIDE);
+
 	c_edit_browse.ShowWindow(SW_HIDE);
+	pEditBrowse -> ShowWindow(SW_HIDE);
+
+   c_combo_directshow_id.ShowWindow(SW_HIDE);
+   pDirectShowLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -541,15 +560,50 @@ void CSetup::ShowEpiphanElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
+   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
+
 	c_combo_deviceid.ShowWindow(SW_SHOW);
 	pDeviceID ->ShowWindow(SW_SHOW);
-	pBayer ->ShowWindow(SW_HIDE);
+
 	c_combo_bayer.ShowWindow(SW_HIDE);
-	pEditBrowse -> ShowWindow(SW_HIDE);
+	pBayer ->ShowWindow(SW_HIDE);
+
 	c_edit_browse.ShowWindow(SW_HIDE);
+	pEditBrowse -> ShowWindow(SW_HIDE);
+   
+   c_combo_directshow_id.ShowWindow(SW_HIDE);
+   pDirectShowLabel->ShowWindow(SW_HIDE);
+}
+
+//
+// This function shows the dialog elements that are meant only 
+// for Epiphan and hides those meant only for Omnivision
+//
+void CSetup::ShowDirectShowElements(void)
+{
+	CWnd* pDeviceID = GetDlgItem(IDC_STATIC_DEVICEID);
+	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
+	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
+	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
+   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+
+	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
+	pBitsPerPixel->ShowWindow(SW_HIDE);
+
+	c_combo_deviceid.ShowWindow(SW_HIDE);
+	pDeviceID ->ShowWindow(SW_HIDE);
+
+	c_combo_bayer.ShowWindow(SW_HIDE);
+	pBayer ->ShowWindow(SW_HIDE);
+
+	c_edit_browse.ShowWindow(SW_HIDE);
+	pEditBrowse -> ShowWindow(SW_HIDE);
+
+   c_combo_directshow_id.ShowWindow(SW_SHOW);
+   pDirectShowLabel->ShowWindow(SW_SHOW);
 }
 
 //
@@ -562,15 +616,22 @@ void CSetup::ShowOmnivisionElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
+   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_SHOW);
 	pBitsPerPixel->ShowWindow(SW_SHOW);
+
 	c_combo_deviceid.ShowWindow(SW_HIDE);
 	pDeviceID ->ShowWindow(SW_HIDE);
-	pBayer ->ShowWindow(SW_SHOW);
+
 	c_combo_bayer.ShowWindow(SW_SHOW);
-	pEditBrowse -> ShowWindow(SW_SHOW);
+	pBayer ->ShowWindow(SW_SHOW);
+
 	c_edit_browse.ShowWindow(SW_SHOW);
+	pEditBrowse -> ShowWindow(SW_SHOW);
+   
+   c_combo_directshow_id.ShowWindow(SW_HIDE);
+   pDirectShowLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -583,13 +644,28 @@ void CSetup::ShowAllElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
+   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_SHOW);
 	pBitsPerPixel->ShowWindow(SW_SHOW);
+
 	c_combo_deviceid.ShowWindow(SW_SHOW);
 	pDeviceID ->ShowWindow(SW_SHOW);
-	pBayer ->ShowWindow(SW_SHOW);
+
 	c_combo_bayer.ShowWindow(SW_SHOW);
-	pEditBrowse -> ShowWindow(SW_SHOW);
+	pBayer ->ShowWindow(SW_SHOW);
+
 	c_edit_browse.ShowWindow(SW_SHOW);
+	pEditBrowse -> ShowWindow(SW_SHOW);
+
+   c_combo_directshow_id.ShowWindow(SW_SHOW);
+   pDirectShowLabel->ShowWindow(SW_SHOW);
+}
+
+
+void CSetup::OnCbnSelchangeDirectshowid()
+{
+
+   m_setup_settings.directshow_deviceID = c_combo_directshow_id.GetCurSel();
+
 }
