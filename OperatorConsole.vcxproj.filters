@@ -342,36 +342,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\OperatorConsole.rc2">
-      <Filter>Resource Files</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Image Include="res\OperatorConsole.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\icon1.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\logo_flat_550x150.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\logo_flat_550x150.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\icons\icon16x16_32.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\icons\icon32x32_32.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\icons\icon48x48_32.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Data\icons\icon256x256.png">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\Data\icons\icon256x256.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
