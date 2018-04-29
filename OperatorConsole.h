@@ -126,6 +126,12 @@
 #define INI_V2_FORMAT
 #define LOWER_CASE_INI_SECTIONS
 
+#elif defined IMATEST_5_0
+
+#define INI_SEPARATE_PARAMS
+#define INI_V2_FORMAT
+#define LOWER_CASE_INI_SECTIONS
+
 #else
 
 // All versions below 4.2
