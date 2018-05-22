@@ -182,6 +182,12 @@
 	#define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v4.5\\IT\\bin"
 	#endif
 
+#elif defined IMATEST_5_0
+	#ifdef _M_X64
+	#define PROGRAMPATH			"C:\\Program Files\\Imatest\\v5.0\\IT\\bin"
+	#else
+	#define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v5.0\\IT\\bin"
+	#endif
 
 #else
 #define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v4.1\\IT\\bin"

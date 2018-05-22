@@ -975,7 +975,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_0;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
@@ -989,7 +989,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v92\bin\win64;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v91\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.0\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v92\bin\win64;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.0\IT\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
