@@ -1,4 +1,4 @@
-/****************************************************************************	
+/****************************************************************************
 *	Operator Console - an extensible user interface for the Imatest IT 		*
 *	library																	*
 *	Copyright (C) 2013 Imatest LLC.											*
@@ -56,7 +56,7 @@ END_MESSAGE_MAP()
 ///
 /// Converts the entry<T>.value into a std::string to facilitate writing to the pass/fail file
 ///
-template <typename T> const std::string writeEntValueString( const entry<T>& ent)
+template <typename T> const std::string writeEntValueString(const entry<T>& ent)
 {
 	stringstream ss;
 
@@ -67,7 +67,7 @@ template <typename T> const std::string writeEntValueString( const entry<T>& ent
 ///
 /// Converts the entry<CString>.value into a std::string to facilitate writing to the pass/fail file
 ///
-template <> const std::string writeEntValueString( const entry<CString>& ent)
+template <> const std::string writeEntValueString(const entry<CString>& ent)
 {
 	stringstream ss;
 
@@ -82,7 +82,7 @@ template <typename T> const std::string writeMinMaxEntValueString(const minMaxEn
 {
 	stringstream ss;
 
-	ss<< ent.min_val << " " << ent.max_val;
+	ss << ent.min_val << " " << ent.max_val;
 	return ss.str();
 }
 
@@ -93,7 +93,7 @@ template <typename T> const std::string writeVecEntValueString(const vecEntry<T>
 {
 	stringstream ss;
 
-	for(std::size_t idx =0 ; idx < ent.value.size(); ++idx)
+	for (std::size_t idx = 0; idx < ent.value.size(); ++idx)
 	{
 		ss << ent.value[idx] << " ";
 	}
@@ -159,12 +159,12 @@ COperatorConsoleApp::COperatorConsoleApp()
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_RESTART;
 
 	// Place all significant initialization in InitInstance
-	m_acq               = NULL;
-	m_test              = NULL;
-	m_fileImage         = NULL;
-	m_cameraImage       = NULL;
-	m_jsonDlgThread     = NULL;
-	m_config            = NULL;
+	m_acq = NULL;
+	m_test = NULL;
+	m_fileImage = NULL;
+	m_cameraImage = NULL;
+	m_jsonDlgThread = NULL;
+	m_config = NULL;
 	memset(&m_flags, 0, sizeof(m_flags));
 	m_PFSettings.m_ini_file = _T(INI_FILENAME);
 	m_PFSettings.m_ini_file.Remove('\n');
@@ -187,12 +187,12 @@ COperatorConsoleApp::~COperatorConsoleApp()
 {
 	if (m_fileImage != NULL)
 	{
-		delete [] m_fileImage;
+		delete[] m_fileImage;
 	}
 
 	if (m_cameraImage != NULL)
 	{
-		delete [] m_cameraImage;
+		delete[] m_cameraImage;
 	}
 
 }
@@ -337,10 +337,10 @@ bool COperatorConsoleApp::Init()
 	//m_width  = CAMERA_WIDTH;
 	//m_height = CAMERA_HEIGHT;
 #elif !defined FAKE_CAMERA
-	m_width  = CAMERA_WIDTH;
+	m_width = CAMERA_WIDTH;
 	m_height = CAMERA_HEIGHT;
 #else
-	m_width  = RAW_WIDTH_BLEMISH;
+	m_width = RAW_WIDTH_BLEMISH;
 	m_height = RAW_HEIGHT_BLEMISH;
 #endif
 
@@ -443,7 +443,7 @@ bool COperatorConsoleApp::InitCamera()
 {
 	bool	success = false;
 
-	if (m_image_source==imatest_source)
+	if (m_image_source == imatest_source)
 	{
 		m_camera = &m_imatest_cam;
 		if (m_camera->Init(m_setup.width, m_setup.height, 4))
@@ -455,7 +455,7 @@ bool COperatorConsoleApp::InitCamera()
 		}
 
 	}
-	else if (m_image_source==directshow_source)
+	else if (m_image_source == directshow_source)
 	{
 		m_camera = &m_directshow_cam;
 		if (m_camera->Init(m_setup.width, m_setup.height, 4))
@@ -467,7 +467,7 @@ bool COperatorConsoleApp::InitCamera()
 		}
 
 	}
-	else if (m_image_source==file_source)
+	else if (m_image_source == file_source)
 	{
 		//	m_camera = &m_file_cam;
 		//	m_camera->Init(IMAGE_NAME);
@@ -540,7 +540,7 @@ bool COperatorConsoleApp::InitCameraThread()
 	{
 		SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
 	}
-	return (m_flags.ImatestCameraThread)&& (m_flags.DirectshowCameraThread);
+	return (m_flags.ImatestCameraThread) && (m_flags.DirectshowCameraThread);
 }
 
 
@@ -631,16 +631,16 @@ bool COperatorConsoleApp::InitOutput()
 
 bool COperatorConsoleApp::AllocateImageBuf()
 {
-	if (m_fileImage!=NULL)
+	if (m_fileImage != NULL)
 	{
-		delete [] m_fileImage; 
+		delete[] m_fileImage;
 	}
-	if (m_cameraImage!=NULL)
+	if (m_cameraImage != NULL)
 	{
-		delete [] m_cameraImage; 
+		delete[] m_cameraImage;
 	}
 
-	m_fileImage   = new char[m_blemishAcq.BytesPerFrame()];
+	m_fileImage = new char[m_blemishAcq.BytesPerFrame()];
 	m_cameraImage = new char[m_camera->BytesPerFrame()];
 
 	return m_fileImage != NULL && m_cameraImage != NULL;
@@ -739,13 +739,13 @@ BOOL COperatorConsoleApp::PreTranslateMessage(MSG* pMsg)
 void COperatorConsoleApp::OnSetBlemish(WPARAM wParam, LPARAM lParam)
 {
 	m_test = &m_blemishControl;
-	m_acq  = &m_blemishAcq;
+	m_acq = &m_blemishAcq;
 }
 
 void COperatorConsoleApp::OnSetSFRplus(WPARAM wParam, LPARAM lParam)
 {
 	m_test = &m_sfrPlusControl;
-	m_acq  = &m_sfrPlusAcq;
+	m_acq = &m_sfrPlusAcq;
 }
 
 
@@ -840,8 +840,8 @@ void COperatorConsoleApp::Quit()
 	// c_log as c_log.GetWindowText returns an empty string instead of the contents of c_log. Additionally,
 	// if you use SetSel to set to the entire edit box, the values it returns have nStart > nStop.
 	//SaveLog(LOG_FILENAME); 
-	
-	
+
+
 }
 
 void COperatorConsoleApp::OnRunTest(WPARAM wParam, LPARAM lParam)
@@ -930,7 +930,7 @@ void COperatorConsoleApp::GetStdoutMsg(StdoutThread &data, CString &str)
 void COperatorConsoleApp::UpdateResultsSFRplus(ImageTest *test)
 {
 	COperatorConsoleDlg	*dlg = (COperatorConsoleDlg *)m_pMainWnd;
-	const bool			*qso = 	m_sfrPlus.GetQSO(); // QSO overlay (tic-tac-toe)
+	const bool			*qso = m_sfrPlus.GetQSO(); // QSO overlay (tic-tac-toe)
 
 	UpdateResults(test);
 	dlg->UpdateQuadrants(qso);
@@ -941,7 +941,7 @@ void COperatorConsoleApp::UpdateResults(ImageTest *test)
 {
 	CString				str;
 	bool				passed = test->Passed();
-	COperatorConsoleDlg *dlg   = (COperatorConsoleDlg *)m_pMainWnd;
+	COperatorConsoleDlg *dlg = (COperatorConsoleDlg *)m_pMainWnd;
 
 
 #if !defined NO_LOG
@@ -985,7 +985,7 @@ void COperatorConsoleApp::GetResults(ImageTest *test)
 
 void COperatorConsoleApp::LogTime()
 {
-	CTime	t   = CTime::GetCurrentTime();
+	CTime	t = CTime::GetCurrentTime();
 	CString	str = t.Format("%c ");
 
 	((COperatorConsoleDlg *)m_pMainWnd)->LogMessage(str);
@@ -1004,8 +1004,8 @@ BOOL COperatorConsoleApp::SendAppMessage(int msg)
 
 bool COperatorConsoleApp::CheckFiles(CString &msg)
 {
-	const char	*files[] = {LOGO_NAME, IMAGE_NAME, RAW_BLEMISH_IMAGE, RAW_SFRPLUS_IMAGE, INI_FILENAME};
-	int			numFiles = sizeof(files) / sizeof (*files);
+	const char	*files[] = { LOGO_NAME, IMAGE_NAME, RAW_BLEMISH_IMAGE, RAW_SFRPLUS_IMAGE, INI_FILENAME };
+	int			numFiles = sizeof(files) / sizeof(*files);
 	int			i;
 	char		str[256];
 	bool		success = true;
@@ -1062,15 +1062,15 @@ void COperatorConsoleApp::SaveLog(const CString& filePathName)
 	UINT	len;
 	CString	str;
 	CFile	file(filePathName, CFile::modeWrite | CFile::modeCreate);
-	
+
 
 	//
 	// Copy the contents of the log window into a string
 	//
-	if (m_pMainWnd){
+	if (m_pMainWnd) {
 		((COperatorConsoleDlg *)m_pMainWnd)->GetLog(str);
-	} 
-	
+	}
+
 	//
 	// str may have lines ending with \r\n or just \n.  We want all lines to end with \r\n, so first we need to 
 	// convert any \r\n combinations to \n.  Then we can go back and replace all of the \n characters with \r\n.
@@ -1095,17 +1095,17 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	int oldWidth = m_setup.width;
 	int oldHeight = m_setup.height;
 	int oldSourceID = m_setup.sourceID;
-   int oldDirectShowID = m_setup.directshow_deviceID;
-   m_setup.directshow_device_names.clear();
+	int oldDirectShowID = m_setup.directshow_deviceID;
+	m_setup.directshow_device_names.clear();
 
-   std::vector<std::string> directShowDeviceNames = m_directshow_cam.getCameraNames();
-   for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
-      m_setup.directshow_device_names.push_back(CString(iName->c_str()));
+	std::vector<std::string> directShowDeviceNames = m_directshow_cam.getCameraNames();
+	for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
+		m_setup.directshow_device_names.push_back(CString(iName->c_str()));
 
 
 	CSetup setup(NULL, m_setup);
 	INT_PTR nRet = setup.DoModal();
-	if (nRet==IDOK)
+	if (nRet == IDOK)
 	{
 		m_setup = setup.m_setup_settings;
 		m_camera->m_device_ID = m_setup.epiphan_deviceID; // update the device_ID used by acquire_image
@@ -1119,34 +1119,34 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 		m_config->m_partNumber = m_setup.part_number;
 		m_config->m_programPath = m_setup.program_path;
 
-		m_blemish.m_iniFilePathName = m_config->m_iniFilePathName ;
+		m_blemish.m_iniFilePathName = m_config->m_iniFilePathName;
 		m_blemish.m_serialNumber = m_config->m_serialNumber;
 		m_blemish.m_partNumber = m_config->m_partNumber;
 		m_blemish.m_programPath = m_config->m_programPath;
 
-		m_sfrPlus.m_iniFilePathName = m_config->m_iniFilePathName ;
+		m_sfrPlus.m_iniFilePathName = m_config->m_iniFilePathName;
 		m_sfrPlus.m_serialNumber = m_config->m_serialNumber;
 		m_sfrPlus.m_partNumber = m_config->m_partNumber;
 		m_sfrPlus.m_programPath = m_config->m_programPath;
 
 		WriteINISettings(); // store new settings
-		if ( oldWidth != m_setup.width || oldHeight != m_setup.height 
-			|| (oldSourceID != SOURCE_OpConsoleDirectShow) && (m_setup.sourceID == SOURCE_OpConsoleDirectShow) 
+		if (oldWidth != m_setup.width || oldHeight != m_setup.height
+			|| (oldSourceID != SOURCE_OpConsoleDirectShow) && (m_setup.sourceID == SOURCE_OpConsoleDirectShow)
 			|| (oldSourceID == SOURCE_OpConsoleDirectShow) && (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
-         || (oldDirectShowID != m_setup.directshow_deviceID))
+			|| (oldDirectShowID != m_setup.directshow_deviceID))
 		{
 
 			if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
 			{
-				m_image_source=imatest_source;
+				m_image_source = imatest_source;
 				if (oldSourceID == SOURCE_OpConsoleDirectShow)
 				{
 					SendAppMessage(MSG_SET_IMATEST_CAM);
 				}
 			}
-			else 
+			else
 			{
-				m_image_source=directshow_source;
+				m_image_source = directshow_source;
 				if (oldSourceID != SOURCE_OpConsoleDirectShow || (oldDirectShowID != m_setup.directshow_deviceID))
 				{
 					SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
@@ -1176,13 +1176,13 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 bool COperatorConsoleApp::ReadINISettings(void)
 {
 	bool result = false;
-	mwArray vararginParam = mwArray(1,3,mxCELL_CLASS);
-	mwArray readKeys = mwArray(1,5,mxCELL_CLASS);
+	mwArray vararginParam = mwArray(1, 3, mxCELL_CLASS);
+	mwArray readKeys = mwArray(1, 5, mxCELL_CLASS);
 	mwArray inifilename(INI_FILENAME);
 	mwArray mode("read");
-	mwArray section_ovt("ovt"),section_imatest("imatest"),section_op("op_console"),section;
-	mwArray subsection_blank(""), subsection_current("current"),subsection;
-	mwArray key_acquire("acquire"),key_width("width"),key_height("height"),key_bitdepth("bitdepth"),key_bayer("bayer_pattern"),key_omniregister("register_files"),key_epiphan_deviceid("deviceID");
+	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section;
+	mwArray subsection_blank(""), subsection_current("current"), subsection;
+	mwArray key_acquire("acquire"), key_width("width"), key_height("height"), key_bitdepth("bitdepth"), key_bayer("bayer_pattern"), key_omniregister("register_files"), key_epiphan_deviceid("deviceID");
 	mwArray value_int("i"), value_string(""), value_double("d");
 	mwArray default_0(0), default_emptystring("");
 	mwSize getIndex = 1;
@@ -1190,23 +1190,23 @@ bool COperatorConsoleApp::ReadINISettings(void)
 
 	// first read the 'acquire' key from [imatest]
 	getIndex = 1;
-	readKeys.Get(2,1,getIndex++).Set(section_imatest);
+	readKeys.Get(2, 1, getIndex++).Set(section_imatest);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,1,getIndex++).Set(subsection_blank);
+	readKeys.Get(2, 1, getIndex++).Set(subsection_blank);
 #endif
 	readKeys.Get(2, 1, getIndex++).Set(key_acquire);
 	readKeys.Get(2, 1, getIndex++).Set(value_int);
 	readKeys.Get(2, 1, getIndex++).Set(default_0);
-	
-	vararginParam.Get(2,1,1).Set(inifilename);
-	vararginParam.Get(2,1,2).Set(mode);
-	vararginParam.Get(2,1,3).Set(readKeys);
-	mwArray readSett = mwArray(1,1,mxCELL_CLASS);
+
+	vararginParam.Get(2, 1, 1).Set(inifilename);
+	vararginParam.Get(2, 1, 2).Set(mode);
+	vararginParam.Get(2, 1, 3).Set(readKeys);
+	mwArray readSett = mwArray(1, 1, mxCELL_CLASS);
 	int temp_source_id = m_setup.sourceID;
 	try
 	{
-		inifile(1,readSett,vararginParam);
-		temp_source_id = (int)readSett.Get(1,1).Get(1,1);
+		inifile(1, readSett, vararginParam);
+		temp_source_id = (int)readSett.Get(1, 1).Get(1, 1);
 		m_setup.sourceID = temp_source_id;
 
 	}
@@ -1216,9 +1216,9 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		cerr << e.what() << endl;
 		const char* x = e.what();
 		e.print_stack_trace();
-	}	
+	}
 
-	if (m_setup.sourceID ==2)
+	if (m_setup.sourceID == 2)
 	{
 		section = section_ovt;
 		subsection = subsection_current;
@@ -1229,72 +1229,72 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		subsection = subsection_blank;
 	}
 
-	readKeys = mwArray(6,5,mxCELL_CLASS);
+	readKeys = mwArray(6, 5, mxCELL_CLASS);
 	// to read the Epiphan 'device_ID' key 
 	getIndex = 1;
-	readKeys.Get(2,1,getIndex++).Set(section);
+	readKeys.Get(2, 1, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,1,getIndex++).Set(subsection);
+	readKeys.Get(2, 1, getIndex++).Set(subsection);
 #endif
-	readKeys.Get(2,1,getIndex++).Set(key_epiphan_deviceid);
-	readKeys.Get(2,1,getIndex++).Set(value_int);
-	readKeys.Get(2,1,getIndex++).Set(default_0);
+	readKeys.Get(2, 1, getIndex++).Set(key_epiphan_deviceid);
+	readKeys.Get(2, 1, getIndex++).Set(value_int);
+	readKeys.Get(2, 1, getIndex++).Set(default_0);
 
 	// to read the 'width' key 
 	getIndex = 1;
-	readKeys.Get(2,2,getIndex++).Set(section);
+	readKeys.Get(2, 2, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,2,getIndex++).Set(subsection);
+	readKeys.Get(2, 2, getIndex++).Set(subsection);
 #endif
-	readKeys.Get(2,2,getIndex++).Set(key_width);
-	readKeys.Get(2,2,getIndex++).Set(value_int);
-	readKeys.Get(2,2,getIndex++).Set(default_0);
+	readKeys.Get(2, 2, getIndex++).Set(key_width);
+	readKeys.Get(2, 2, getIndex++).Set(value_int);
+	readKeys.Get(2, 2, getIndex++).Set(default_0);
 
 	// to read the 'height' key 
 	getIndex = 1;
-	readKeys.Get(2,3,getIndex++).Set(section);
+	readKeys.Get(2, 3, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,3,getIndex++).Set(subsection);
+	readKeys.Get(2, 3, getIndex++).Set(subsection);
 #endif
-	readKeys.Get(2,3,getIndex++).Set(key_height);
-	readKeys.Get(2,3,getIndex++).Set(value_int);
-	readKeys.Get(2,3,getIndex++).Set(default_0);
+	readKeys.Get(2, 3, getIndex++).Set(key_height);
+	readKeys.Get(2, 3, getIndex++).Set(value_int);
+	readKeys.Get(2, 3, getIndex++).Set(default_0);
 
 	// to read the 'bitdepth' key 
 	getIndex = 1;
-	readKeys.Get(2,4,getIndex++).Set(section);
+	readKeys.Get(2, 4, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,4,getIndex++).Set(subsection);
+	readKeys.Get(2, 4, getIndex++).Set(subsection);
 #endif
-	readKeys.Get(2,4,getIndex++).Set(key_bitdepth);
-	readKeys.Get(2,4,getIndex++).Set(value_int);
-	readKeys.Get(2,4,getIndex++).Set(default_0);
+	readKeys.Get(2, 4, getIndex++).Set(key_bitdepth);
+	readKeys.Get(2, 4, getIndex++).Set(value_int);
+	readKeys.Get(2, 4, getIndex++).Set(default_0);
 
 	// to read the 'bayer_pattern' key
 	getIndex = 1;
-	readKeys.Get(2,5,getIndex++).Set(section);
+	readKeys.Get(2, 5, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,5,getIndex++).Set(subsection);
+	readKeys.Get(2, 5, getIndex++).Set(subsection);
 #endif
-	readKeys.Get(2,5,getIndex++).Set(key_bayer);
-	readKeys.Get(2,5,getIndex++).Set(value_int);
-	readKeys.Get(2,5,getIndex++).Set(default_0);
+	readKeys.Get(2, 5, getIndex++).Set(key_bayer);
+	readKeys.Get(2, 5, getIndex++).Set(value_int);
+	readKeys.Get(2, 5, getIndex++).Set(default_0);
 
 	// to read the 'register_files' key
 	getIndex = 1;
-	readKeys.Get(2,6,getIndex++).Set(section);
+	readKeys.Get(2, 6, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(2,6,getIndex++).Set(subsection);
+	readKeys.Get(2, 6, getIndex++).Set(subsection);
 #endif
-	readKeys.Get(2,6,getIndex++).Set(key_omniregister);
-	readKeys.Get(2,6,getIndex++).Set(value_string);
-	readKeys.Get(2,6,getIndex++).Set(default_emptystring);
+	readKeys.Get(2, 6, getIndex++).Set(key_omniregister);
+	readKeys.Get(2, 6, getIndex++).Set(value_string);
+	readKeys.Get(2, 6, getIndex++).Set(default_emptystring);
 
-	vararginParam.Get(1,1).Set(inifilename);
-	vararginParam.Get(1,2).Set(mode);
-	vararginParam.Get(1,3).Set(readKeys);
+	vararginParam.Get(1, 1).Set(inifilename);
+	vararginParam.Get(1, 2).Set(mode);
+	vararginParam.Get(1, 3).Set(readKeys);
 
-	readSett = mwArray(1,6,mxCELL_CLASS);
+	readSett = mwArray(1, 6, mxCELL_CLASS);
 	int temp_epiphan_deviceid = m_setup.epiphan_deviceID;
 	int temp_width = m_setup.width;
 	int temp_height = m_setup.height;
@@ -1303,31 +1303,31 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	CString temp_reg_file = m_setup.omnivision_reg_file;
 	try
 	{
-		inifile(1,readSett,vararginParam);
-		temp_epiphan_deviceid =		(int)readSett.Get(1,1).Get(1,1);
-		temp_width =				(int)readSett.Get(1,1).Get(1,2);
-		temp_height =				(int)readSett.Get(1,1).Get(1,3);
-		temp_bits_per_pixel =		(int)readSett.Get(1,1).Get(1,4);
-		temp_bayer =				(int)readSett.Get(1,1).Get(1,5);
-		temp_reg_file =				readSett.Get(1,1).Get(1,6).ToString();
+		inifile(1, readSett, vararginParam);
+		temp_epiphan_deviceid = (int)readSett.Get(1, 1).Get(1, 1);
+		temp_width = (int)readSett.Get(1, 1).Get(1, 2);
+		temp_height = (int)readSett.Get(1, 1).Get(1, 3);
+		temp_bits_per_pixel = (int)readSett.Get(1, 1).Get(1, 4);
+		temp_bayer = (int)readSett.Get(1, 1).Get(1, 5);
+		temp_reg_file = readSett.Get(1, 1).Get(1, 6).ToString();
 
 		// copy the values into the corresponding fields in m_setup
-		m_setup.epiphan_deviceID =		temp_epiphan_deviceid;
-		m_setup.width =					temp_width;
-		m_setup.height =				temp_height;
-		m_setup.bits_per_pixel =		temp_bits_per_pixel;
-		m_setup.bayer =					temp_bayer;
-		m_setup.omnivision_reg_file =	temp_reg_file; 
+		m_setup.epiphan_deviceID = temp_epiphan_deviceid;
+		m_setup.width = temp_width;
+		m_setup.height = temp_height;
+		m_setup.bits_per_pixel = temp_bits_per_pixel;
+		m_setup.bayer = temp_bayer;
+		m_setup.omnivision_reg_file = temp_reg_file;
 
 		// change the image source if needed
 		if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
 		{
-			m_image_source=imatest_source;
+			m_image_source = imatest_source;
 			SendAppMessage(MSG_SET_IMATEST_CAM);
 		}
 		else
 		{
-			m_image_source=directshow_source;
+			m_image_source = directshow_source;
 			SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
 		}
 	}
@@ -1337,17 +1337,17 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		cerr << e.what() << endl;
 		e.print_stack_trace();
 
-	}	
+	}
 
 	m_setup.omnivision_reg_file.Remove('\n'); // inifile() reads newline and carriage return characters into the string
 	m_setup.omnivision_reg_file.Remove('\r'); // which causes the setup window to be unable to find the file. These characters must be removed.
 
-	if (m_setup.omnivision_reg_file.Compare("[]")==0) // Matlab returns empty strings slightly differently when cells are involved...
+	if (m_setup.omnivision_reg_file.Compare("[]") == 0) // Matlab returns empty strings slightly differently when cells are involved...
 	{
-		m_setup.omnivision_reg_file="";
+		m_setup.omnivision_reg_file = "";
 	}
 
-	if ( m_setup.width > 0 && m_setup.height > 0) // we must have the width and height > 0 since we will be allocating buffers soon
+	if (m_setup.width > 0 && m_setup.height > 0) // we must have the width and height > 0 since we will be allocating buffers soon
 	{
 		result = true;
 	}
@@ -1359,26 +1359,26 @@ bool COperatorConsoleApp::ReadINISettings(void)
 // 
 void COperatorConsoleApp::WriteINISettings(void)
 {
-	mwArray vararginParam = mwArray(1,4,mxCELL_CLASS);
-	mwArray writeKeys = mwArray(7,4,mxCELL_CLASS);
+	mwArray vararginParam = mwArray(1, 4, mxCELL_CLASS);
+	mwArray writeKeys = mwArray(7, 4, mxCELL_CLASS);
 	mwArray inifilename(m_config->m_iniFilePathName);
-	mwArray mode("write"),style("plain");
-	mwArray section_ovt("ovt"),section_imatest("imatest"),section_op("op_console"),section("");
-	mwArray subsection_blank(""), subsection_current("current"),subsection("");
-	mwArray key_acquire("acquire"),key_width("width"),key_height("height"),key_bitdepth("bitdepth");
-	mwArray key_bayer("bayer_pattern"),key_omniregister("register_files"),key_epiphan_deviceid("deviceID");
+	mwArray mode("write"), style("plain");
+	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section("");
+	mwArray subsection_blank(""), subsection_current("current"), subsection("");
+	mwArray key_acquire("acquire"), key_width("width"), key_height("height"), key_bitdepth("bitdepth");
+	mwArray key_bayer("bayer_pattern"), key_omniregister("register_files"), key_epiphan_deviceid("deviceID");
 	mwArray val_acquire(m_setup.sourceID), val_width(m_setup.width), val_height(m_setup.height), val_bitdepth(m_setup.bits_per_pixel);
 	mwArray val_bayer(m_setup.bayer), val_omniregister(m_setup.omnivision_reg_file), val_epiphan_deviceid(m_setup.epiphan_deviceID);
 	mwSize getIndex = 1;
 	// NOTE: the mwArray::Get function has input syntax Get(number of indexes, i1, i2,...in)
 	// first read the 'acquire' key from [imatest]
 	getIndex = 1;
-	writeKeys.Get(2,1,getIndex++).Set(section_imatest);
+	writeKeys.Get(2, 1, getIndex++).Set(section_imatest);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,1,getIndex++).Set(subsection_blank);
+	writeKeys.Get(2, 1, getIndex++).Set(subsection_blank);
 #endif
-	writeKeys.Get(2,1,getIndex++).Set(key_acquire);
-	writeKeys.Get(2,1,getIndex++).Set(val_acquire);
+	writeKeys.Get(2, 1, getIndex++).Set(key_acquire);
+	writeKeys.Get(2, 1, getIndex++).Set(val_acquire);
 
 	if (m_setup.sourceID == SOURCE_Omnivision) // Omnivision
 	{
@@ -1393,67 +1393,67 @@ void COperatorConsoleApp::WriteINISettings(void)
 
 	// to write the Epiphan 'device_ID' key 
 	getIndex = 1;
-	writeKeys.Get(2,2,getIndex++).Set(section);
+	writeKeys.Get(2, 2, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,2,getIndex++).Set(subsection);
+	writeKeys.Get(2, 2, getIndex++).Set(subsection);
 #endif
-	writeKeys.Get(2,2,getIndex++).Set(key_epiphan_deviceid);
-	writeKeys.Get(2,2,getIndex++).Set(val_epiphan_deviceid);
+	writeKeys.Get(2, 2, getIndex++).Set(key_epiphan_deviceid);
+	writeKeys.Get(2, 2, getIndex++).Set(val_epiphan_deviceid);
 
 	// to write the 'width' key 
 	getIndex = 1;
-	writeKeys.Get(2,3,getIndex++).Set(section);
+	writeKeys.Get(2, 3, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,3,getIndex++).Set(subsection);
+	writeKeys.Get(2, 3, getIndex++).Set(subsection);
 #endif
-	writeKeys.Get(2,3,getIndex++).Set(key_width);
-	writeKeys.Get(2,3,getIndex++).Set(val_width);
+	writeKeys.Get(2, 3, getIndex++).Set(key_width);
+	writeKeys.Get(2, 3, getIndex++).Set(val_width);
 
 
 	// to write the 'height' key 
 	getIndex = 1;
-	writeKeys.Get(2,4,getIndex++).Set(section);
+	writeKeys.Get(2, 4, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,4,getIndex++).Set(subsection);
+	writeKeys.Get(2, 4, getIndex++).Set(subsection);
 #endif
-	writeKeys.Get(2,4,getIndex++).Set(key_height);
-	writeKeys.Get(2,4,getIndex++).Set(val_height);
+	writeKeys.Get(2, 4, getIndex++).Set(key_height);
+	writeKeys.Get(2, 4, getIndex++).Set(val_height);
 
 
 	// to write the 'bitdepth' key 
 	getIndex = 1;
-	writeKeys.Get(2,5,getIndex++).Set(section);
+	writeKeys.Get(2, 5, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,5,getIndex++).Set(subsection);
+	writeKeys.Get(2, 5, getIndex++).Set(subsection);
 #endif
-	writeKeys.Get(2,5,getIndex++).Set(key_bitdepth);
-	writeKeys.Get(2,5,getIndex++).Set(val_bitdepth);
+	writeKeys.Get(2, 5, getIndex++).Set(key_bitdepth);
+	writeKeys.Get(2, 5, getIndex++).Set(val_bitdepth);
 
 
 	// to write the 'bayer_pattern' 
 	getIndex = 1;
-	writeKeys.Get(2,6,getIndex++).Set(section);
+	writeKeys.Get(2, 6, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,6,getIndex++).Set(subsection);
+	writeKeys.Get(2, 6, getIndex++).Set(subsection);
 #endif
-	writeKeys.Get(2,6,getIndex++).Set(key_bayer);
-	writeKeys.Get(2,6,getIndex++).Set(val_bayer);
+	writeKeys.Get(2, 6, getIndex++).Set(key_bayer);
+	writeKeys.Get(2, 6, getIndex++).Set(val_bayer);
 
 
 	// to write the 'register_files' 
 	getIndex = 1;
-	writeKeys.Get(2,7,getIndex++).Set(section);
+	writeKeys.Get(2, 7, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2,7,getIndex++).Set(subsection);
+	writeKeys.Get(2, 7, getIndex++).Set(subsection);
 #endif
-	writeKeys.Get(2,7,getIndex++).Set(key_omniregister);
-	writeKeys.Get(2,7,getIndex++).Set(val_omniregister);
+	writeKeys.Get(2, 7, getIndex++).Set(key_omniregister);
+	writeKeys.Get(2, 7, getIndex++).Set(val_omniregister);
 
-	vararginParam.Get(2,1,1).Set(inifilename);
-	vararginParam.Get(2,1,2).Set(mode);
-	vararginParam.Get(2,1,3).Set(writeKeys);
-	vararginParam.Get(2,1,4).Set(style);
-	try 
+	vararginParam.Get(2, 1, 1).Set(inifilename);
+	vararginParam.Get(2, 1, 2).Set(mode);
+	vararginParam.Get(2, 1, 3).Set(writeKeys);
+	vararginParam.Get(2, 1, 4).Set(style);
+	try
 	{
 		inifile(vararginParam);
 	}
@@ -1531,13 +1531,13 @@ void COperatorConsoleApp::OnPassFail(WPARAM wParam, LPARAM lParam)
 	{
 		CPasswordDialog pwdDialog;
 		INT_PTR nRetPwd = pwdDialog.DoModal();
-		if (nRetPwd==IDOK && m_password.Compare(pwdDialog.getResponse())==0 ) // if the user enters the correct password and clicks 'OK'
+		if (nRetPwd == IDOK && m_password.Compare(pwdDialog.getResponse()) == 0) // if the user enters the correct password and clicks 'OK'
 		{
 			m_passFailIsUnlocked = pwdDialog.getUnlockStatus();
 			CPassFail passfail(m_PFSettings, NULL);
 			INT_PTR nRet = passfail.DoModal();
-			if (nRet==IDOK)
-			{		
+			if (nRet == IDOK)
+			{
 				if (!m_PFSettings.b_isReadOnly)
 				{
 					m_PFSettings = passfail.PFSettings;
@@ -1549,7 +1549,7 @@ void COperatorConsoleApp::OnPassFail(WPARAM wParam, LPARAM lParam)
 				}
 			}
 		}
-		else if (nRetPwd==IDOK && m_password.Compare(pwdDialog.getResponse())!=0 )
+		else if (nRetPwd == IDOK && m_password.Compare(pwdDialog.getResponse()) != 0)
 		{
 			cout << "Incorrect password." << endl;
 		}
@@ -1558,8 +1558,8 @@ void COperatorConsoleApp::OnPassFail(WPARAM wParam, LPARAM lParam)
 	{
 		CPassFail passfail(m_PFSettings, NULL);
 		INT_PTR nRet = passfail.DoModal();
-		if (nRet==IDOK)
-		{		
+		if (nRet == IDOK)
+		{
 			if (!m_PFSettings.b_isReadOnly)
 			{
 				m_PFSettings = passfail.PFSettings;
@@ -1575,11 +1575,11 @@ void COperatorConsoleApp::OnPassFail(WPARAM wParam, LPARAM lParam)
 
 bool COperatorConsoleApp::ReadPassFail(void)
 {
-	bool result=false;
+	bool result = false;
 
 	// First we must find the name of the Pass/Fail file as listed in imatest.ini
-	mwArray vararginParam = mwArray(1,3,mxCELL_CLASS);
-	mwArray readKeys = mwArray(1,5,mxCELL_CLASS);
+	mwArray vararginParam = mwArray(1, 3, mxCELL_CLASS);
+	mwArray readKeys = mwArray(1, 5, mxCELL_CLASS);
 	mwArray inifilename(m_PFSettings.m_ini_file.GetString());
 	mwArray mode("read");
 	mwArray section("api");
@@ -1588,26 +1588,26 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	mwArray value_int("i"), value_string(""), value_double("d");
 	int badval = -123456;
 	std::string badstring = "-123456%^&%%$**#";
-	mwArray default_0(badval), default_emptystring(badstring.c_str()),default_dbl((double)badval);
+	mwArray default_0(badval), default_emptystring(badstring.c_str()), default_dbl((double)badval);
 	mwSize getIndex = 1;
 
 	getIndex = 1;
-	readKeys.Get(1,getIndex++).Set(section);
+	readKeys.Get(1, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-	readKeys.Get(1,getIndex++).Set(subsection_blank);
+	readKeys.Get(1, getIndex++).Set(subsection_blank);
 #endif
-	readKeys.Get(1,getIndex++).Set(key_passFail);
-	readKeys.Get(1,getIndex++).Set(value_string);
-	readKeys.Get(1,getIndex++).Set(default_emptystring);
+	readKeys.Get(1, getIndex++).Set(key_passFail);
+	readKeys.Get(1, getIndex++).Set(value_string);
+	readKeys.Get(1, getIndex++).Set(default_emptystring);
 
-	vararginParam.Get(1,1).Set(inifilename);
-	vararginParam.Get(1,2).Set(mode);
-	vararginParam.Get(1,3).Set(readKeys);
+	vararginParam.Get(1, 1).Set(inifilename);
+	vararginParam.Get(1, 2).Set(mode);
+	vararginParam.Get(1, 3).Set(readKeys);
 
-	mwArray readSett = mwArray(1,1,mxCELL_CLASS);
+	mwArray readSett = mwArray(1, 1, mxCELL_CLASS);
 	try
 	{
-		inifile(1,readSett,vararginParam);
+		inifile(1, readSett, vararginParam);
 	}
 	catch (mwException& e)
 	{
@@ -1623,7 +1623,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		m_PFSettings.m_pass_fail_file.SetString(_T(readSett.Get(1, 1).Get(1, 1).ToString()));
 		m_PFSettings.m_pass_fail_file.Remove('\n');
 		m_PFSettings.m_pass_fail_file.Remove('\r');
-	} 
+	}
 	else
 	{
 		/// inifile failed
@@ -1632,7 +1632,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	//Now we find the Pass/Fail file and check if it is read-only
 
 
-	if ( GetFileAttributes(m_PFSettings.m_pass_fail_file) % 2 == 1) // this returns an odd number if and only if the file is read-only
+	if (GetFileAttributes(m_PFSettings.m_pass_fail_file) % 2 == 1) // this returns an odd number if and only if the file is read-only
 	{
 		m_PFSettings.b_isReadOnly = TRUE;
 	}
@@ -1644,23 +1644,23 @@ bool COperatorConsoleApp::ReadPassFail(void)
 	mwArray sections;
 	mwArray subsections;
 	mwArray passFailFile(m_PFSettings.m_pass_fail_file.GetString());
-	mwArray mode_readall("readall"),mode_read("read");
+	mwArray mode_readall("readall"), mode_read("read");
 #ifdef INI_INCLUDE_SUBSECTION
 	int numArgOut = 3;
 #else
 	int numArgOut = 2;
 #endif
-	mwArray varargout = mwArray(1,numArgOut,mxCELL_CLASS);	
+	mwArray varargout = mwArray(1, numArgOut, mxCELL_CLASS);
 
-	varargout.Get(1,1).Set(keys);
-	varargout.Get(1,2).Set(sections);
+	varargout.Get(1, 1).Set(keys);
+	varargout.Get(1, 2).Set(sections);
 #ifdef INI_INCLUDE_SUBSECTION
-	varargout.Get(1,3).Set(subsections);
+	varargout.Get(1, 3).Set(subsections);
 #endif
 
-	mwArray varargin = mwArray(1,2,mxCELL_CLASS);
-	varargin.Get(1,1).Set(passFailFile);
-	varargin.Get(1,2).Set(mode_readall);
+	mwArray varargin = mwArray(1, 2, mxCELL_CLASS);
+	varargin.Get(1, 1).Set(passFailFile);
+	varargin.Get(1, 2).Set(mode_readall);
 	try
 	{
 
@@ -1671,25 +1671,25 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		cout << "Run Error! Unable to read Pass/Fail file" << endl;
 		cerr << e.what() << endl;
 		e.print_stack_trace();
-	} 
+	}
 
-	std::size_t numSections = varargout.Get(1,2).NumberOfElements();
+	std::size_t numSections = varargout.Get(1, 2).NumberOfElements();
 	for (std::size_t idx = 1; idx <= numSections; ++idx)
 	{
-		CString section = _T(varargout.Get(1,2).Get(1,idx).ToString());
+		CString section = _T(varargout.Get(1, 2).Get(1, idx).ToString());
 
 		section.Remove('\n');
 		section.Remove('\r');
 
-		if (section.CompareNoCase(_T("SFRplus")) ==0)
+		if (section.CompareNoCase(_T("SFRplus")) == 0)
 		{
 			m_PFSettings.sfrplus.b_enable = true;
 		}
-		else if(section.CompareNoCase(_T("Blemish"))==0)
+		else if (section.CompareNoCase(_T("Blemish")) == 0)
 		{
 			m_PFSettings.blemish.b_enable = true;
 		}
-		else if(section.CompareNoCase(_T("OIS"))==0)
+		else if (section.CompareNoCase(_T("OIS")) == 0)
 		{
 			m_PFSettings.ois.b_enable = true;
 		}
@@ -1708,7 +1708,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 #else
 	mwSize sectionIndex = 2;
 #endif
-	
+
 	/*
 	if (m_PFSettings.other.b_enable)
 	{
@@ -1733,7 +1733,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 				cstrkey = _T(varargout.Get(1,1).Get(2,idx,3).ToString());
 				cstrkey.Remove('\n');
 				cstrkey.Remove('\r');
-				cstrval = _T(varargout.Get(1,1).Get(2,idx,4).ToString()); 
+				cstrval = _T(varargout.Get(1,1).Get(2,idx,4).ToString());
 				cstrval.Remove('\n');
 				cstrval.Remove('\r');
 				ent.name = cstrkey;
@@ -1761,25 +1761,25 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 		mwArray section_Blemish(m_PFSettings.blemish.name.GetString());
 
-		varargin = mwArray(1,3,mxCELL_CLASS);
-		
+		varargin = mwArray(1, 3, mxCELL_CLASS);
+
 		std::vector<std::string> data_types;
 		std::vector<CString> blem_keys;
 		// the entry<T> corresponding to a given index in blem_keys will correspond to the same index + 1 in readKeys
-		addDataTypeAndKey(m_PFSettings.blemish.Blemish_maximum_count.data_type, m_PFSettings.blemish.Blemish_maximum_count.group_name,data_types,blem_keys);										// 1
-		addDataTypeAndKey(m_PFSettings.blemish.Blemish_size_pixels.data_type, m_PFSettings.blemish.Blemish_size_pixels.group_name,data_types,blem_keys);											// 2
-		addDataTypeAndKey(m_PFSettings.blemish.Dead_pixels_max.data_type, m_PFSettings.blemish.Dead_pixels_max.name,data_types,blem_keys);															// 3
-		addDataTypeAndKey(m_PFSettings.blemish.Dead_pixel_clusters_max.data_type, m_PFSettings.blemish.Dead_pixel_clusters_max.name,data_types,blem_keys);											// 4
-		addDataTypeAndKey(m_PFSettings.blemish.Defective_pixels_max_count.data_type, m_PFSettings.blemish.Defective_pixels_max_count.name,data_types,blem_keys);									// 5
-		addDataTypeAndKey(m_PFSettings.blemish.Hot_pixel_clusters_max.data_type, m_PFSettings.blemish.Hot_pixel_clusters_max.name,data_types,blem_keys);											// 6
-		addDataTypeAndKey(m_PFSettings.blemish.Hot_pixels_max.data_type, m_PFSettings.blemish.Hot_pixels_max.name,data_types,blem_keys);															// 7
-		addDataTypeAndKey(m_PFSettings.blemish.Optical_center_offset_max.data_type, m_PFSettings.blemish.Optical_center_offset_max.name,data_types,blem_keys);										// 8
-		addDataTypeAndKey(m_PFSettings.blemish.Optical_center_offset_X_max.data_type, m_PFSettings.blemish.Optical_center_offset_X_max.name,data_types,blem_keys);									// 9
-		addDataTypeAndKey(m_PFSettings.blemish.Optical_center_offset_Y_max.data_type, m_PFSettings.blemish.Optical_center_offset_Y_max.name,data_types,blem_keys);									//10
-		addDataTypeAndKey(m_PFSettings.blemish.Relative_illumination_corner_diff_pct_max.data_type, m_PFSettings.blemish.Relative_illumination_corner_diff_pct_max.name,data_types,blem_keys);		//11
-		addDataTypeAndKey(m_PFSettings.blemish.Relative_illumination_worst_corner_pct_min.data_type, m_PFSettings.blemish.Relative_illumination_worst_corner_pct_min.name,data_types,blem_keys);	//12
-		addDataTypeAndKey(m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.data_type, m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.name,data_types,blem_keys);						//13
-		addDataTypeAndKey(m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.data_type, m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.name,data_types,blem_keys);						//14
+		addDataTypeAndKey(m_PFSettings.blemish.Blemish_maximum_count.data_type, m_PFSettings.blemish.Blemish_maximum_count.group_name, data_types, blem_keys);										// 1
+		addDataTypeAndKey(m_PFSettings.blemish.Blemish_size_pixels.data_type, m_PFSettings.blemish.Blemish_size_pixels.group_name, data_types, blem_keys);											// 2
+		addDataTypeAndKey(m_PFSettings.blemish.Dead_pixels_max.data_type, m_PFSettings.blemish.Dead_pixels_max.name, data_types, blem_keys);															// 3
+		addDataTypeAndKey(m_PFSettings.blemish.Dead_pixel_clusters_max.data_type, m_PFSettings.blemish.Dead_pixel_clusters_max.name, data_types, blem_keys);											// 4
+		addDataTypeAndKey(m_PFSettings.blemish.Defective_pixels_max_count.data_type, m_PFSettings.blemish.Defective_pixels_max_count.name, data_types, blem_keys);									// 5
+		addDataTypeAndKey(m_PFSettings.blemish.Hot_pixel_clusters_max.data_type, m_PFSettings.blemish.Hot_pixel_clusters_max.name, data_types, blem_keys);											// 6
+		addDataTypeAndKey(m_PFSettings.blemish.Hot_pixels_max.data_type, m_PFSettings.blemish.Hot_pixels_max.name, data_types, blem_keys);															// 7
+		addDataTypeAndKey(m_PFSettings.blemish.Optical_center_offset_max.data_type, m_PFSettings.blemish.Optical_center_offset_max.name, data_types, blem_keys);										// 8
+		addDataTypeAndKey(m_PFSettings.blemish.Optical_center_offset_X_max.data_type, m_PFSettings.blemish.Optical_center_offset_X_max.name, data_types, blem_keys);									// 9
+		addDataTypeAndKey(m_PFSettings.blemish.Optical_center_offset_Y_max.data_type, m_PFSettings.blemish.Optical_center_offset_Y_max.name, data_types, blem_keys);									//10
+		addDataTypeAndKey(m_PFSettings.blemish.Relative_illumination_corner_diff_pct_max.data_type, m_PFSettings.blemish.Relative_illumination_corner_diff_pct_max.name, data_types, blem_keys);		//11
+		addDataTypeAndKey(m_PFSettings.blemish.Relative_illumination_worst_corner_pct_min.data_type, m_PFSettings.blemish.Relative_illumination_worst_corner_pct_min.name, data_types, blem_keys);	//12
+		addDataTypeAndKey(m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.data_type, m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.name, data_types, blem_keys);						//13
+		addDataTypeAndKey(m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.data_type, m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.name, data_types, blem_keys);						//14
 		// add the contents of blem_keys and data_types to readKeys
 		for (std::size_t idx = 0; idx < m_PFSettings.blemish.numEntries; ++idx)
 		{
@@ -1818,15 +1818,15 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			}
 		}
 
-		varargin.Get(1,1).Set(passFailFile);
-		varargin.Get(1,2).Set(mode_read);
-		varargin.Get(1,3).Set(readKeys);
-		
+		varargin.Get(1, 1).Set(passFailFile);
+		varargin.Get(1, 2).Set(mode_read);
+		varargin.Get(1, 3).Set(readKeys);
+
 		readSett = mwArray(1, m_PFSettings.blemish.numEntries, mxCELL_CLASS);
 
 		try
 		{
-			inifile(1,readSett,varargin);
+			inifile(1, readSett, varargin);
 		}
 		catch (mwException& e)
 		{
@@ -1839,27 +1839,31 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 		std::vector<int> intVecBuf;
 		std::size_t vecSize;
-		vecSize = readSett.Get(1,1).Get(1,1).NumberOfElements();
+		mwArray temp;
+
+		vecSize = readSett.Get(1, 1).Get(1, 1).NumberOfElements();
 		intVecBuf.resize(vecSize);
-		readSett.Get(1,1).Get(1,1).GetData(&intVecBuf[0], vecSize);
+		temp = readSett.Get(1, 1).Get(1, 1);
+		temp.GetData(&intVecBuf[0], vecSize);
 		m_PFSettings.blemish.Blemish_maximum_count.value.resize(vecSize);
 		if (intVecBuf[0] != badval)
 		{
-			for ( std::size_t idx=0; idx < vecSize; ++idx)
+			for (std::size_t idx = 0; idx < vecSize; ++idx)
 			{
 				m_PFSettings.blemish.Blemish_maximum_count.value[idx] = intVecBuf[idx];
 			}
 			m_PFSettings.blemish.Blemish_maximum_count.b_isUsed = true;
 		}
 
-		vecSize = readSett.Get(1,1).Get(1,2).NumberOfElements();
+		vecSize = readSett.Get(1, 1).Get(1, 2).NumberOfElements();
 		intVecBuf.clear();
 		intVecBuf.resize(vecSize);
 		m_PFSettings.blemish.Blemish_size_pixels.value.resize(vecSize);
-		readSett.Get(1,1).Get(1,2).GetData(&intVecBuf[0], vecSize);
+		temp = readSett.Get(1, 1).Get(1, 2);
+		temp.GetData(&intVecBuf[0], vecSize);
 		if (intVecBuf[0] != badval)
 		{
-			for ( std::size_t idx=0; idx < vecSize; ++idx)
+			for (std::size_t idx = 0; idx < vecSize; ++idx)
 			{
 				m_PFSettings.blemish.Blemish_size_pixels.value[idx] = intVecBuf[idx];
 			}
@@ -1869,46 +1873,58 @@ bool COperatorConsoleApp::ReadPassFail(void)
 		int intBuf = 0;
 		double dblBuf = 0.0;
 
-		readSett.Get(1,1).Get(1,3).GetData(&intBuf, 1);
-		m_PFSettings.blemish.Dead_pixels_max.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 3);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.blemish.Dead_pixels_max.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,4).GetData(&intBuf, 1);
-		m_PFSettings.blemish.Dead_pixel_clusters_max.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 4);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.blemish.Dead_pixel_clusters_max.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,5).GetData(&intBuf, 1);
-		m_PFSettings.blemish.Defective_pixels_max_count.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 5);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.blemish.Defective_pixels_max_count.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,6).GetData(&intBuf, 1);
-		m_PFSettings.blemish.Hot_pixel_clusters_max.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 6);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.blemish.Hot_pixel_clusters_max.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,7).GetData(&intBuf, 1);
-		m_PFSettings.blemish.Hot_pixels_max.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 7);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.blemish.Hot_pixels_max.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,8).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Optical_center_offset_max.assign_value(dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 8);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Optical_center_offset_max.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,9).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Optical_center_offset_X_max.assign_value(dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 9);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Optical_center_offset_X_max.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,10).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Optical_center_offset_Y_max.assign_value(dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 10);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Optical_center_offset_Y_max.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,11).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Relative_illumination_corner_diff_pct_max.assign_value(dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 11);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Relative_illumination_corner_diff_pct_max.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,12).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Relative_illumination_worst_corner_pct_min.assign_value(dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 12);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Relative_illumination_worst_corner_pct_min.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,13).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 13);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,14).GetData(&dblBuf, 1);
-		m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 14);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.assign_value(dblBuf, (double)badval);
 
 
 	}
 
-	if ( m_PFSettings.sfrplus.b_enable)
+	if (m_PFSettings.sfrplus.b_enable)
 	{
 
 #ifdef INI_INCLUDE_SUBSECTION
@@ -1920,39 +1936,39 @@ bool COperatorConsoleApp::ReadPassFail(void)
 
 		mwArray section_sfr(m_PFSettings.sfrplus.name.GetString());
 
-		varargin = mwArray(1,3,mxCELL_CLASS);
+		varargin = mwArray(1, 3, mxCELL_CLASS);
 
 		std::vector<std::string> data_types;
 		std::vector<CString> sfr_keys;
 		// the entry<T> corresponding to a given index in sfr_keys will correspond to the same index + 1 in readKeys
-		addDataTypeAndKey(m_PFSettings.sfrplus.All_Edge_IDs_detected.data_type,m_PFSettings.sfrplus.All_Edge_IDs_detected.name,data_types,sfr_keys);														// 1
-		addDataTypeAndKey(m_PFSettings.sfrplus.Bayer_decode.data_type,m_PFSettings.sfrplus.Bayer_decode.name,data_types,sfr_keys);																			// 2
-		addDataTypeAndKey(m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.data_type,m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.group_name,data_types,sfr_keys);									// 3
-		addDataTypeAndKey(m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.data_type,m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.name,data_types,sfr_keys);											// 4
-		addDataTypeAndKey(m_PFSettings.sfrplus.Color_expected_detected.data_type,m_PFSettings.sfrplus.Color_expected_detected.name,data_types,sfr_keys);													// 5
-		addDataTypeAndKey(m_PFSettings.sfrplus.DeltaE_00_mean_max.data_type,m_PFSettings.sfrplus.DeltaE_00_mean_max.name,data_types,sfr_keys);
-		addDataTypeAndKey(m_PFSettings.sfrplus.Convergence_angle_max.data_type,m_PFSettings.sfrplus.Convergence_angle_max.name,data_types,sfr_keys);														// 6
-		addDataTypeAndKey(m_PFSettings.sfrplus.FOV_degrees_diagonal_min.data_type,m_PFSettings.sfrplus.FOV_degrees_diagonal_min.name,data_types,sfr_keys);													// 7
-		addDataTypeAndKey(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.data_type,m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.name,data_types,sfr_keys);								// 8
-		addDataTypeAndKey(m_PFSettings.sfrplus.Horizontal_bars_OK_min.data_type,m_PFSettings.sfrplus.Horizontal_bars_OK_min.name,data_types,sfr_keys);														// 9
-		addDataTypeAndKey(m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.data_type,m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.name,data_types,sfr_keys);								//10
-		addDataTypeAndKey(m_PFSettings.sfrplus.Mirrored_chart.data_type,m_PFSettings.sfrplus.Mirrored_chart.name,data_types,sfr_keys);																		//11
-		addDataTypeAndKey(m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.data_type,m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.name,data_types,sfr_keys);											//12
-		addDataTypeAndKey(m_PFSettings.sfrplus.MTF50P_ratio_min.data_type,m_PFSettings.sfrplus.MTF50P_ratio_min.name,data_types,sfr_keys);																	//13
-		addDataTypeAndKey(m_PFSettings.sfrplus.passfail_ini_file_date.data_type,m_PFSettings.sfrplus.passfail_ini_file_date.name,data_types,sfr_keys);														//14
-		addDataTypeAndKey(m_PFSettings.sfrplus.Rotation_degrees_max.data_type,m_PFSettings.sfrplus.Rotation_degrees_max.name,data_types,sfr_keys);															//15
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.data_type,m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.name,data_types,sfr_keys);							//16
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.data_type,m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.name,data_types,sfr_keys);								//17
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.data_type,m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.name,data_types,sfr_keys);								//18
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.data_type,m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.name,data_types,sfr_keys);			//19 
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.data_type,m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.name,data_types,sfr_keys);	//20
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.data_type,m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.name,data_types,sfr_keys);							//21
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.data_type,m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.name,data_types,sfr_keys);								//22
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.data_type,m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.name,data_types,sfr_keys);								//23
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.data_type,m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.name,data_types,sfr_keys);			//24
-		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.data_type,m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.name,data_types,sfr_keys);	//25
-		addDataTypeAndKey(m_PFSettings.sfrplus.Stepchart_expected_detected.data_type,m_PFSettings.sfrplus.Stepchart_expected_detected.name,data_types,sfr_keys);											//26
-		addDataTypeAndKey(m_PFSettings.sfrplus.upside_down.data_type,m_PFSettings.sfrplus.upside_down.name,data_types,sfr_keys);																			//27
+		addDataTypeAndKey(m_PFSettings.sfrplus.All_Edge_IDs_detected.data_type, m_PFSettings.sfrplus.All_Edge_IDs_detected.name, data_types, sfr_keys);														// 1
+		addDataTypeAndKey(m_PFSettings.sfrplus.Bayer_decode.data_type, m_PFSettings.sfrplus.Bayer_decode.name, data_types, sfr_keys);																			// 2
+		addDataTypeAndKey(m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.data_type, m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.group_name, data_types, sfr_keys);									// 3
+		addDataTypeAndKey(m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.data_type, m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.name, data_types, sfr_keys);											// 4
+		addDataTypeAndKey(m_PFSettings.sfrplus.Color_expected_detected.data_type, m_PFSettings.sfrplus.Color_expected_detected.name, data_types, sfr_keys);													// 5
+		addDataTypeAndKey(m_PFSettings.sfrplus.DeltaE_00_mean_max.data_type, m_PFSettings.sfrplus.DeltaE_00_mean_max.name, data_types, sfr_keys);
+		addDataTypeAndKey(m_PFSettings.sfrplus.Convergence_angle_max.data_type, m_PFSettings.sfrplus.Convergence_angle_max.name, data_types, sfr_keys);														// 6
+		addDataTypeAndKey(m_PFSettings.sfrplus.FOV_degrees_diagonal_min.data_type, m_PFSettings.sfrplus.FOV_degrees_diagonal_min.name, data_types, sfr_keys);													// 7
+		addDataTypeAndKey(m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.data_type, m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.name, data_types, sfr_keys);								// 8
+		addDataTypeAndKey(m_PFSettings.sfrplus.Horizontal_bars_OK_min.data_type, m_PFSettings.sfrplus.Horizontal_bars_OK_min.name, data_types, sfr_keys);														// 9
+		addDataTypeAndKey(m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.data_type, m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.name, data_types, sfr_keys);								//10
+		addDataTypeAndKey(m_PFSettings.sfrplus.Mirrored_chart.data_type, m_PFSettings.sfrplus.Mirrored_chart.name, data_types, sfr_keys);																		//11
+		addDataTypeAndKey(m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.data_type, m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.name, data_types, sfr_keys);											//12
+		addDataTypeAndKey(m_PFSettings.sfrplus.MTF50P_ratio_min.data_type, m_PFSettings.sfrplus.MTF50P_ratio_min.name, data_types, sfr_keys);																	//13
+		addDataTypeAndKey(m_PFSettings.sfrplus.passfail_ini_file_date.data_type, m_PFSettings.sfrplus.passfail_ini_file_date.name, data_types, sfr_keys);														//14
+		addDataTypeAndKey(m_PFSettings.sfrplus.Rotation_degrees_max.data_type, m_PFSettings.sfrplus.Rotation_degrees_max.name, data_types, sfr_keys);															//15
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.data_type, m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.name, data_types, sfr_keys);							//16
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.data_type, m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.name, data_types, sfr_keys);								//17
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.data_type, m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.name, data_types, sfr_keys);								//18
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.data_type, m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.name, data_types, sfr_keys);			//19 
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.data_type, m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.name, data_types, sfr_keys);	//20
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.data_type, m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.name, data_types, sfr_keys);							//21
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.data_type, m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.name, data_types, sfr_keys);								//22
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.data_type, m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.name, data_types, sfr_keys);								//23
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.data_type, m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.name, data_types, sfr_keys);			//24
+		addDataTypeAndKey(m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.data_type, m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.name, data_types, sfr_keys);	//25
+		addDataTypeAndKey(m_PFSettings.sfrplus.Stepchart_expected_detected.data_type, m_PFSettings.sfrplus.Stepchart_expected_detected.name, data_types, sfr_keys);											//26
+		addDataTypeAndKey(m_PFSettings.sfrplus.upside_down.data_type, m_PFSettings.sfrplus.upside_down.name, data_types, sfr_keys);																			//27
 
 		// add the contents of sfr_keys and data_types to readKeys
 		for (std::size_t idx = 0; idx < m_PFSettings.sfrplus.numEntries; ++idx)
@@ -1961,11 +1977,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			mwArray value(data_types[idx].c_str());
 			mwArray default_ret;
 
-			if (data_types[idx].compare("i")==0)
+			if (data_types[idx].compare("i") == 0)
 			{
 				default_ret = default_0;
 			}
-			else if(data_types[idx].compare("d")==0)
+			else if (data_types[idx].compare("d") == 0)
 			{
 				default_ret = default_dbl;
 			}
@@ -1975,27 +1991,29 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			}
 
 			getIndex = 1;
-			readKeys.Get(2,idx+1,getIndex++).Set(section_sfr);
+			readKeys.Get(2, idx + 1, getIndex++).Set(section_sfr);
 #ifdef INI_INCLUDE_SUBSECTION
-			readKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+			readKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
 #endif
-			readKeys.Get(2,idx+1,getIndex++).Set(key);
-			readKeys.Get(2,idx+1,getIndex++).Set(value);
-			readKeys.Get(2,idx+1,getIndex++).Set(default_ret);
+			readKeys.Get(2, idx + 1, getIndex++).Set(key);
+			readKeys.Get(2, idx + 1, getIndex++).Set(value);
+			readKeys.Get(2, idx + 1, getIndex++).Set(default_ret);
 		}
 
 		int intBuf = 0;
 		double dblBuf = 0.0;
 		std::vector<int> intVecBuf;
 		std::vector<double> dblVecBuf;
-		varargin.Get(1,1).Set(passFailFile);
-		varargin.Get(1,2).Set(mode_read);
-		varargin.Get(1,3).Set(readKeys);
-		readSett = mwArray(1,m_PFSettings.sfrplus.numEntries,mxCELL_CLASS);
+		varargin.Get(1, 1).Set(passFailFile);
+		varargin.Get(1, 2).Set(mode_read);
+		varargin.Get(1, 3).Set(readKeys);
+		readSett = mwArray(1, m_PFSettings.sfrplus.numEntries, mxCELL_CLASS);
+
+		mwArray temp;
 
 		try
 		{
-			inifile(1,readSett,varargin);
+			inifile(1, readSett, varargin);
 		}
 		catch (mwException& e)
 		{
@@ -2004,51 +2022,65 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			e.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.sfrplus
-		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.All_Edge_IDs_detected.assign_value( intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 1);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.All_Edge_IDs_detected.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,2).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.Bayer_decode.assign_value( intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 2);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.Bayer_decode.assign_value(intBuf, badval);
 
-		std::size_t vecSize = readSett.Get(1,1).Get(1,3).NumberOfElements();
+		std::size_t vecSize = readSett.Get(1, 1).Get(1, 3).NumberOfElements();
 		dblVecBuf.resize(vecSize);
-		readSett.Get(1,1).Get(1,3).GetData(&dblVecBuf[0], vecSize);
-		m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.assign_value(dblVecBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 3);
+		temp.GetData(&dblVecBuf[0], vecSize);
+		m_PFSettings.sfrplus.Chart_mean_pixel_level_bounds.assign_value(dblVecBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,4).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.assign_value( dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 4);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Chart_radial_pixel_shift_max.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,5).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.Color_expected_detected.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 5);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.Color_expected_detected.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,6).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Convergence_angle_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 6);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Convergence_angle_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,6).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.DeltaE_00_mean_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 6);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.DeltaE_00_mean_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,7).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.FOV_degrees_diagonal_min.assign_value(dblBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 7);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.FOV_degrees_diagonal_min.assign_value(dblBuf, badval);
 
-		readSett.Get(1,1).Get(1,8).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 8);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.High_pixel_saturation_fraction_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,9).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.Horizontal_bars_OK_min.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 9);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.Horizontal_bars_OK_min.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,10).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 10);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Low_pixel_saturation_fraction_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,11).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.Mirrored_chart.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 11);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.Mirrored_chart.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,12).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 12);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.MTF50P_CP_weighted_mean_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,13).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.MTF50P_ratio_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 13);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.MTF50P_ratio_min.assign_value(dblBuf, (double)badval);
 
-		m_PFSettings.sfrplus.passfail_ini_file_date.value = _T(readSett.Get(1,1).Get(1,14).ToString());
+		m_PFSettings.sfrplus.passfail_ini_file_date.value = _T(readSett.Get(1, 1).Get(1, 14).ToString());
 		m_PFSettings.sfrplus.passfail_ini_file_date.value.Remove('\n');
 		m_PFSettings.sfrplus.passfail_ini_file_date.value.Remove('\r');
 		if (m_PFSettings.sfrplus.passfail_ini_file_date.value.Compare(_T(badstring.c_str())) != 0)
@@ -2064,61 +2096,75 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			m_PFSettings.sfrplus.passfail_ini_file_date.b_isUsed = false;
 		}
 
-		readSett.Get(1,1).Get(1,15).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Rotation_degrees_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 15);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Rotation_degrees_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,16).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 16);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_1_center_mean_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,17).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 17);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_1_outer_mean_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,18).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 18);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_1_outer_min_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,19).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 19);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_delta_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,20).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 20);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_1_outer_quadrant_mean_min_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,21).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 21);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_2_center_mean_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,22).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 22);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_2_outer_mean_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,23).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 23);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_2_outer_min_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,24).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 24);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_delta_max.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,25).GetData(&dblBuf, 1);
-		m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.assign_value(dblBuf,(double)badval);
+		temp = readSett.Get(1, 1).Get(1, 25);
+		temp.GetData(&dblBuf, 1);
+		m_PFSettings.sfrplus.Secondary_readout_2_outer_quadrant_mean_min_min.assign_value(dblBuf, (double)badval);
 
-		readSett.Get(1,1).Get(1,26).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.Stepchart_expected_detected.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 26);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.Stepchart_expected_detected.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,27).GetData(&intBuf, 1);
-		m_PFSettings.sfrplus.upside_down.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1).Get(1, 27);
+		temp.GetData(&intBuf, 1);
+		m_PFSettings.sfrplus.upside_down.assign_value(intBuf, badval);
 
-	}
+}
 
 	if (m_PFSettings.ois.b_enable)
 	{
 
-		readKeys = mwArray(m_PFSettings.ois.numEntries,5,mxCELL_CLASS);
-		varargin = mwArray(1,3,mxCELL_CLASS);
+		readKeys = mwArray(m_PFSettings.ois.numEntries, 5, mxCELL_CLASS);
+		varargin = mwArray(1, 3, mxCELL_CLASS);
 		mwArray section_ois(m_PFSettings.ois.name.GetString());
+		mwArray temp;
 
 		std::vector<std::string> data_types;
 		std::vector<CString> ois_keys;
 
-		addDataTypeAndKey(m_PFSettings.ois.L_MTF50_delta2_gain_summary_all_dB_min.data_type,m_PFSettings.ois.L_MTF50_delta2_gain_summary_all_dB_min.name,data_types,ois_keys);	// 1
-		addDataTypeAndKey(m_PFSettings.ois.R_improve_ALL_dB_min.data_type,m_PFSettings.ois.R_improve_ALL_dB_min.name,data_types,ois_keys);										// 2
-		addDataTypeAndKey(m_PFSettings.ois.R_improve_H_dB_min.data_type,m_PFSettings.ois.R_improve_H_dB_min.name,data_types,ois_keys);											// 3
-		addDataTypeAndKey(m_PFSettings.ois.R_improve_V_dB_min.data_type,m_PFSettings.ois.R_improve_V_dB_min.name,data_types,ois_keys);											// 4
+		addDataTypeAndKey(m_PFSettings.ois.L_MTF50_delta2_gain_summary_all_dB_min.data_type, m_PFSettings.ois.L_MTF50_delta2_gain_summary_all_dB_min.name, data_types, ois_keys);	// 1
+		addDataTypeAndKey(m_PFSettings.ois.R_improve_ALL_dB_min.data_type, m_PFSettings.ois.R_improve_ALL_dB_min.name, data_types, ois_keys);										// 2
+		addDataTypeAndKey(m_PFSettings.ois.R_improve_H_dB_min.data_type, m_PFSettings.ois.R_improve_H_dB_min.name, data_types, ois_keys);											// 3
+		addDataTypeAndKey(m_PFSettings.ois.R_improve_V_dB_min.data_type, m_PFSettings.ois.R_improve_V_dB_min.name, data_types, ois_keys);											// 4
 		// add the contents of ois_keys and data_types to readKeys
 		for (std::size_t idx = 0; idx < m_PFSettings.ois.numEntries; ++idx)
 		{
@@ -2126,11 +2172,11 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			mwArray value(data_types[idx].c_str());
 			mwArray default_ret;
 
-			if (data_types[idx].compare("i")==0)
+			if (data_types[idx].compare("i") == 0)
 			{
 				default_ret = default_0;
 			}
-			else if(data_types[idx].compare("d")==0)
+			else if (data_types[idx].compare("d") == 0)
 			{
 				default_ret = default_dbl;
 			}
@@ -2139,27 +2185,27 @@ bool COperatorConsoleApp::ReadPassFail(void)
 				default_ret = default_emptystring;
 			}
 			getIndex = 1;
-			readKeys.Get(2,idx+1,getIndex++).Set(section_ois);
+			readKeys.Get(2, idx + 1, getIndex++).Set(section_ois);
 #ifdef INI_INCLUDE_SUBSECTION
-			readKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+			readKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
 #endif
-			readKeys.Get(2,idx+1,getIndex++).Set(key);
-			readKeys.Get(2,idx+1,getIndex++).Set(value);
-			readKeys.Get(2,idx+1,getIndex++).Set(default_ret);
+			readKeys.Get(2, idx + 1, getIndex++).Set(key);
+			readKeys.Get(2, idx + 1, getIndex++).Set(value);
+			readKeys.Get(2, idx + 1, getIndex++).Set(default_ret);
 		}
 
 		int intBuf = 0;
 		double dblBuf = 0.0;
 		std::vector<int> intVecBuf;
 
-		varargin.Get(1,1).Set(passFailFile);
-		varargin.Get(1,2).Set(mode_read);
-		varargin.Get(1,3).Set(readKeys);
-		readSett = mwArray(1,m_PFSettings.ois.numEntries,mxCELL_CLASS);
+		varargin.Get(1, 1).Set(passFailFile);
+		varargin.Get(1, 2).Set(mode_read);
+		varargin.Get(1, 3).Set(readKeys);
+		readSett = mwArray(1, m_PFSettings.ois.numEntries, mxCELL_CLASS);
 
 		try
 		{
-			inifile(1,readSett,varargin);
+			inifile(1, readSett, varargin);
 		}
 		catch (mwException& e)
 		{
@@ -2168,28 +2214,32 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			e.print_stack_trace();
 		}
 		// copy the values read from file to the appropriate entries in m_PFSettings.ois
-		readSett.Get(1,1).Get(1,1).GetData(&intBuf, 1);
-		m_PFSettings.ois.L_MTF50_delta2_gain_summary_all_dB_min.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1);
+		temp.Get(1, 1).GetData(&intBuf, 1);
+		m_PFSettings.ois.L_MTF50_delta2_gain_summary_all_dB_min.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,2).GetData(&intBuf, 1);
-		m_PFSettings.ois.R_improve_ALL_dB_min.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1);
+		temp.Get(1, 2).GetData(&intBuf, 1);
+		m_PFSettings.ois.R_improve_ALL_dB_min.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,3).GetData(&intBuf, 1);
-		m_PFSettings.ois.R_improve_H_dB_min.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1);
+		temp.Get(1, 3).GetData(&intBuf, 1);
+		m_PFSettings.ois.R_improve_H_dB_min.assign_value(intBuf, badval);
 
-		readSett.Get(1,1).Get(1,4).GetData(&intBuf, 1);
-		m_PFSettings.ois.R_improve_V_dB_min.assign_value(intBuf,badval);
+		temp = readSett.Get(1, 1);
+		temp.Get(1, 4).GetData(&intBuf, 1);
+		m_PFSettings.ois.R_improve_V_dB_min.assign_value(intBuf, badval);
 	}
 
 	return result;
-}
+	}
 
 
 bool COperatorConsoleApp::WritePassFail(void)
 {
 	bool result = false;
 
-	mwArray varargin = mwArray(1,4,mxCELL_CLASS);
+	mwArray varargin = mwArray(1, 4, mxCELL_CLASS);
 
 	mwArray inifilename(m_PFSettings.m_ini_file.GetString());
 	mwArray passfailfilename(m_PFSettings.m_pass_fail_file.GetString());
@@ -2201,14 +2251,14 @@ bool COperatorConsoleApp::WritePassFail(void)
 
 
 	if (m_PFSettings.blemish.b_enable)
-	{		
+	{
 		mwArray section(m_PFSettings.blemish.name.GetString());
 		std::vector<std::string> keys;
 		std::vector<std::string> vals;
 
 		addKeysAndValues(m_PFSettings.blemish.Blemish_maximum_count.group_name.GetString(), writeVecEntValueString(m_PFSettings.blemish.Blemish_maximum_count), keys, vals, m_PFSettings.blemish.Blemish_maximum_count.b_isUsed);				// 1
-		addKeysAndValues(m_PFSettings.blemish.Blemish_size_pixels.group_name.GetString(),writeVecEntValueString(m_PFSettings.blemish.Blemish_size_pixels),keys,vals,m_PFSettings.blemish.Blemish_size_pixels.b_isUsed);						// 2
-		addKeysAndValues(m_PFSettings.blemish.Dead_pixels_max.name.GetString(),writeEntValueString(m_PFSettings.blemish.Dead_pixels_max), keys, vals, m_PFSettings.blemish.Dead_pixels_max.b_isUsed);											// 3
+		addKeysAndValues(m_PFSettings.blemish.Blemish_size_pixels.group_name.GetString(), writeVecEntValueString(m_PFSettings.blemish.Blemish_size_pixels), keys, vals, m_PFSettings.blemish.Blemish_size_pixels.b_isUsed);						// 2
+		addKeysAndValues(m_PFSettings.blemish.Dead_pixels_max.name.GetString(), writeEntValueString(m_PFSettings.blemish.Dead_pixels_max), keys, vals, m_PFSettings.blemish.Dead_pixels_max.b_isUsed);											// 3
 		addKeysAndValues(m_PFSettings.blemish.Dead_pixel_clusters_max.name.GetString(), writeEntValueString(m_PFSettings.blemish.Dead_pixel_clusters_max), keys, vals, m_PFSettings.blemish.Dead_pixel_clusters_max.b_isUsed);				// 4
 		addKeysAndValues(m_PFSettings.blemish.Defective_pixels_max_count.name.GetString(), writeEntValueString(m_PFSettings.blemish.Defective_pixels_max_count), keys, vals, m_PFSettings.blemish.Defective_pixels_max_count.b_isUsed);		// 5
 		addKeysAndValues(m_PFSettings.blemish.Hot_pixel_clusters_max.name.GetString(), writeEntValueString(m_PFSettings.blemish.Hot_pixel_clusters_max), keys, vals, m_PFSettings.blemish.Hot_pixel_clusters_max.b_isUsed);					// 6
@@ -2221,24 +2271,24 @@ bool COperatorConsoleApp::WritePassFail(void)
 		addKeysAndValues(m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.name.GetString(), writeEntValueString(m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max), keys, vals, m_PFSettings.blemish.Uniformity_BoverG_corners_pct_max.b_isUsed);								//13
 		addKeysAndValues(m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.name.GetString(), writeEntValueString(m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max), keys, vals, m_PFSettings.blemish.Uniformity_RoverG_corners_pct_max.b_isUsed);								//14
 		// add the contents of keys and vals to writeKeys
-		mwArray writeKeys = mwArray(keys.size(),4,mxCELL_CLASS);
-		for (std::size_t idx=0; idx < keys.size(); ++idx)
+		mwArray writeKeys = mwArray(keys.size(), 4, mxCELL_CLASS);
+		for (std::size_t idx = 0; idx < keys.size(); ++idx)
 		{
 			mwArray key(keys[idx].c_str());
 			mwArray val(vals[idx].c_str());
 			getIndex = 1;
-			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
 #endif
-			writeKeys.Get(2,idx+1,getIndex++).Set(key);
-			writeKeys.Get(2,idx+1,getIndex++).Set(val);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(key);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(val);
 		}
 
-		varargin.Get(1,1).Set(passfailfilename);
-		varargin.Get(1,2).Set(mode);
-		varargin.Get(1,3).Set(writeKeys);
-		varargin.Get(1,4).Set(style);
+		varargin.Get(1, 1).Set(passfailfilename);
+		varargin.Get(1, 2).Set(mode);
+		varargin.Get(1, 3).Set(writeKeys);
+		varargin.Get(1, 4).Set(style);
 
 		try
 		{
@@ -2266,25 +2316,25 @@ bool COperatorConsoleApp::WritePassFail(void)
 		addKeysAndValues(m_PFSettings.ois.R_improve_H_dB_min.name.GetString(), writeEntValueString(m_PFSettings.ois.R_improve_H_dB_min), keys, vals, m_PFSettings.ois.R_improve_H_dB_min.b_isUsed);		// 3
 		addKeysAndValues(m_PFSettings.ois.R_improve_V_dB_min.name.GetString(), writeEntValueString(m_PFSettings.ois.R_improve_V_dB_min), keys, vals, m_PFSettings.ois.R_improve_V_dB_min.b_isUsed);		// 4
 
-		mwArray writeKeys = mwArray(keys.size(),4,mxCELL_CLASS);
+		mwArray writeKeys = mwArray(keys.size(), 4, mxCELL_CLASS);
 		// add the contents of keys and vals to writeKeys
-		for (std::size_t idx=0; idx < keys.size(); ++idx)
+		for (std::size_t idx = 0; idx < keys.size(); ++idx)
 		{
 			mwArray key(keys[idx].c_str());
 			mwArray val(vals[idx].c_str());
 			getIndex = 1;
-			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
 #endif
-			writeKeys.Get(2,idx+1,getIndex++).Set(key);
-			writeKeys.Get(2,idx+1,getIndex++).Set(val);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(key);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(val);
 		}
 
-		varargin.Get(1,1).Set(passfailfilename);
-		varargin.Get(1,2).Set(mode);
-		varargin.Get(1,3).Set(writeKeys);
-		varargin.Get(1,4).Set(style);
+		varargin.Get(1, 1).Set(passfailfilename);
+		varargin.Get(1, 2).Set(mode);
+		varargin.Get(1, 3).Set(writeKeys);
+		varargin.Get(1, 4).Set(style);
 
 		try
 		{
@@ -2299,30 +2349,30 @@ bool COperatorConsoleApp::WritePassFail(void)
 			result = false;
 		}
 
-	}
+		}
 
 	if (m_PFSettings.other.b_enable)
 	{
-		mwArray writeKeys = mwArray(m_PFSettings.other.ent_vec.size(),4,mxCELL_CLASS);
+		mwArray writeKeys = mwArray(m_PFSettings.other.ent_vec.size(), 4, mxCELL_CLASS);
 		mwArray section(m_PFSettings.other.name.GetString());
 		// add the contents of ent_vec to writeKeys
-		for (std::size_t idx=0; idx < m_PFSettings.other.ent_vec.size(); ++idx)
+		for (std::size_t idx = 0; idx < m_PFSettings.other.ent_vec.size(); ++idx)
 		{
 			mwArray key(m_PFSettings.other.ent_vec[idx].name.GetString());
 			mwArray val(writeEntValueString(m_PFSettings.other.ent_vec[idx]).c_str());
 			getIndex = 1;
-			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
 #endif
-			writeKeys.Get(2,idx+1,getIndex++).Set(key);
-			writeKeys.Get(2,idx+1,getIndex++).Set(val);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(key);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(val);
 		}
 
-		varargin.Get(1,1).Set(passfailfilename);
-		varargin.Get(1,2).Set(mode);
-		varargin.Get(1,3).Set(writeKeys);
-		varargin.Get(1,4).Set(style);
+		varargin.Get(1, 1).Set(passfailfilename);
+		varargin.Get(1, 2).Set(mode);
+		varargin.Get(1, 3).Set(writeKeys);
+		varargin.Get(1, 4).Set(style);
 
 		try
 		{
@@ -2339,8 +2389,8 @@ bool COperatorConsoleApp::WritePassFail(void)
 
 	}
 
-	if ( m_PFSettings.sfrplus.b_enable)
-	{		
+	if (m_PFSettings.sfrplus.b_enable)
+	{
 		mwArray section(m_PFSettings.sfrplus.name.GetString());
 		std::vector<std::string> keys;
 		std::vector<std::string> vals;
@@ -2374,25 +2424,25 @@ bool COperatorConsoleApp::WritePassFail(void)
 		addKeysAndValues(m_PFSettings.sfrplus.Stepchart_expected_detected.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.Stepchart_expected_detected), keys, vals, m_PFSettings.sfrplus.Stepchart_expected_detected.b_isUsed);							//27
 		addKeysAndValues(m_PFSettings.sfrplus.upside_down.name.GetString(), writeEntValueString(m_PFSettings.sfrplus.upside_down), keys, vals, m_PFSettings.sfrplus.upside_down.b_isUsed);																			//28
 
-		mwArray writeKeys = mwArray(keys.size(),4,mxCELL_CLASS);
+		mwArray writeKeys = mwArray(keys.size(), 4, mxCELL_CLASS);
 		// add the contents of keys and vals to writeKeys
-		for (std::size_t idx=0; idx < keys.size(); ++idx)
+		for (std::size_t idx = 0; idx < keys.size(); ++idx)
 		{
 			mwArray key(keys[idx].c_str());
 			mwArray val(vals[idx].c_str());
 			getIndex = 1;
-			writeKeys.Get(2,idx+1,getIndex++).Set(section);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(section);
 #ifdef INI_INCLUDE_SUBSECTION
-			writeKeys.Get(2,idx+1,getIndex++).Set(subsection_blank);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(subsection_blank);
 #endif
-			writeKeys.Get(2,idx+1,getIndex++).Set(key);
-			writeKeys.Get(2,idx+1,getIndex++).Set(val);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(key);
+			writeKeys.Get(2, idx + 1, getIndex++).Set(val);
 		}
 
-		varargin.Get(1,1).Set(passfailfilename);
-		varargin.Get(1,2).Set(mode);
-		varargin.Get(1,3).Set(writeKeys);
-		varargin.Get(1,4).Set(style);
+		varargin.Get(1, 1).Set(passfailfilename);
+		varargin.Get(1, 2).Set(mode);
+		varargin.Get(1, 3).Set(writeKeys);
+		varargin.Get(1, 4).Set(style);
 
 		try
 		{
@@ -2409,7 +2459,7 @@ bool COperatorConsoleApp::WritePassFail(void)
 	}
 
 	return result;
-}
+	}
 
 
 void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
@@ -2422,12 +2472,12 @@ void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
 
 void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
 {
-   int currentCameraId = m_directshow_cam.getCameraIndex();
+	int currentCameraId = m_directshow_cam.getCameraIndex();
 
-   if (currentCameraId != m_setup.directshow_deviceID)
-      m_directshow_cam.setCameraIndex(m_setup.directshow_deviceID);
+	if (currentCameraId != m_setup.directshow_deviceID)
+		m_directshow_cam.setCameraIndex(m_setup.directshow_deviceID);
 
-   m_camera = &m_directshow_cam;
+	m_camera = &m_directshow_cam;
 	m_cameraControl = &m_DirectShowCameraControl;
 
 }
