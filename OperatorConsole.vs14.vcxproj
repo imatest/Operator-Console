@@ -1033,6 +1033,13 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\library\\cpp\\imatest_library.dll" "$(TargetDir)"
+copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\acquisition\\cpp\\imatest_acquisition.dll" "$(TargetDir)"
+copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\bin\\ShaferFilechck.dll" "$(TargetDir)"
+mkdir "$(TargetDir)\\Data"
+copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'">
     <ClCompile>
@@ -1138,6 +1145,13 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\library\\cpp\\imatest_library.dll" "$(TargetDir)"
+copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\acquisition\\cpp\\imatest_acquisition.dll" "$(TargetDir)"
+copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\bin\\ShaferFilechck.dll" "$(TargetDir)"
+mkdir "$(TargetDir)\\Data"
+copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Build Demo_Imatest_4.5|x64'">
     <ClCompile>
@@ -1386,6 +1400,13 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\library\\cpp\\imatest_library.dll" "$(TargetDir)"
+copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\acquisition\\cpp\\imatest_acquisition.dll" "$(TargetDir)"
+copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\bin\\ShaferFilechck.dll" "$(TargetDir)"
+mkdir "$(TargetDir)\\Data"
+copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.3|x64'">
     <ClCompile>
