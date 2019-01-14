@@ -1038,7 +1038,8 @@
 copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\acquisition\\cpp\\imatest_acquisition.dll" "$(TargetDir)"
 copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\bin\\ShaferFilechck.dll" "$(TargetDir)"
 mkdir "$(TargetDir)\\Data"
-copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
+copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"
+copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'">
@@ -1150,7 +1151,8 @@ copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
 copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\acquisition\\cpp\\imatest_acquisition.dll" "$(TargetDir)"
 copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\bin\\ShaferFilechck.dll" "$(TargetDir)"
 mkdir "$(TargetDir)\\Data"
-copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
+copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"
+copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Build Demo_Imatest_4.5|x64'">
@@ -1405,7 +1407,8 @@ copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
 copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\libs\\acquisition\\cpp\\imatest_acquisition.dll" "$(TargetDir)"
 copy /Y "C:\\Program Files\\Imatest\\v5.1\\IT\\bin\\ShaferFilechck.dll" "$(TargetDir)"
 mkdir "$(TargetDir)\\Data"
-copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"</Command>
+copy /Y "$(SolutionDir)\\Data" "$(TargetDir)\\Data"
+copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.3|x64'">
