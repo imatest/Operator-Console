@@ -50,7 +50,7 @@
 #define LOG_FILENAME ".\\log.txt"	// contents of log window will be saved to this file when the program exits
 
 // This CLogger and its associated handler is meant for logging details about the Operator Console's operations, not Imatest IT per se.
-static CLogger logger("Bob");
+static CLogger logger("OperatorConsole");
 
 static CFileLogHandler fileLogHandler(LOGGER_LEVEL, "operator_console"); // A file extension is not necessary; *.log is automatically appended.
 
