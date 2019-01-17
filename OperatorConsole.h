@@ -53,6 +53,7 @@
 #include "setup_settings.h"
 #include "PassFailSettings.h"
 #include "OperatorConsoleDlg.h"
+#include "logger.h"
 //
 // Hard coded values go here.  Most or all will eventually come from a Config or Setup dialog.
 //

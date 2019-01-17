@@ -1007,7 +1007,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;.\logger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1120,7 +1120,7 @@ copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_1;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;.\logger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1375,7 +1375,7 @@ copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_5_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;.\logger;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1556,6 +1556,7 @@ copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
     <ClInclude Include="JSON\JSON_Base64.h" />
     <ClInclude Include="JSON\NumberToString.h" />
     <ClInclude Include="libjson.h" />
+    <ClInclude Include="logger\logger.h" />
     <ClInclude Include="ModelessDialogThread.h" />
     <ClInclude Include="OperatorConsole.h" />
     <ClInclude Include="OperatorConsoleDlg.h" />
@@ -1608,6 +1609,7 @@ copy /Y "$(SolutionDir)\\escapi30\\x64\\escapi.dll" "$(TargetDir)"</Command>
     <ClCompile Include="JSON\JSONWriter.cpp" />
     <ClCompile Include="JSON\JSON_Base64.cpp" />
     <ClCompile Include="JSON\libjson.cpp" />
+    <ClCompile Include="logger\logger.cpp" />
     <ClCompile Include="ModelessDialogThread.cpp" />
     <ClCompile Include="OperatorConsole.cpp" />
     <ClCompile Include="OperatorConsoleDlg.cpp" />
