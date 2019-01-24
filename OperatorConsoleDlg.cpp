@@ -1,4 +1,4 @@
-/****************************************************************************	
+/****************************************************************************
 *	Operator Console - an extensible user interface for the Imatest IT 		*
 *	library																	*
 *	Copyright (C) 2013 Imatest LLC.											*
@@ -97,9 +97,9 @@ COperatorConsoleDlg::COperatorConsoleDlg(CWnd* pParent /*=NULL*/)
 void COperatorConsoleDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialogEx::DoDataExchange(pDX);
-	DDX_Control(pDX, IDC_STOP,  c_stopButton);
+	DDX_Control(pDX, IDC_STOP, c_stopButton);
 	DDX_Control(pDX, IDC_START, c_startButton);
-	DDX_Control(pDX, IDC_LOG,   c_log);
+	DDX_Control(pDX, IDC_LOG, c_log);
 	DDX_Control(pDX, IDC_SUMMARY, c_summary);
 	DDX_Control(pDX, IDC_STATUS, c_status);
 	DDX_Control(pDX, IDC_REASON, c_reason);
@@ -124,7 +124,7 @@ BEGIN_MESSAGE_MAP(COperatorConsoleDlg, CDialogEx)
 	ON_WM_QUERYDRAGICON()
 	ON_WM_CTLCOLOR()
 	ON_BN_CLICKED(IDC_START, &COperatorConsoleDlg::OnBnClickedStart)
-	ON_BN_CLICKED(IDC_STOP,  &COperatorConsoleDlg::OnBnClickedStop)
+	ON_BN_CLICKED(IDC_STOP, &COperatorConsoleDlg::OnBnClickedStop)
 	ON_BN_CLICKED(IDC_RADIO_SFR, &COperatorConsoleDlg::OnBnClickedRadioSfr)
 	ON_BN_CLICKED(IDC_RADIO_BLEMISH, &COperatorConsoleDlg::OnBnClickedRadioBlemish)
 	ON_WM_DRAWITEM()
@@ -222,7 +222,7 @@ BOOL COperatorConsoleDlg::OnInitDialog()
 	// same as the current font except that the point size is changed.
 	//
 	CreateFont(&c_status, STATUS_SIZE, &m_statusFont);
-	CreateFont(&c_qsoUL,  QSO_SIZE,    &m_qsoFont);
+	CreateFont(&c_qsoUL, QSO_SIZE, &m_qsoFont);
 
 	c_status.SetFont(&m_statusFont);
 	c_qsoUL.SetFont(&m_qsoFont);
@@ -303,7 +303,7 @@ void COperatorConsoleDlg::OnBnClickedStart()
 	// This is test code that toggles the values of the QSO display
 	// without running an actual test
 	//
-	static bool quad[eNumQuadrants] = {false, false, false, false, false};
+	static bool quad[eNumQuadrants] = { false, false, false, false, false };
 	//static bool quad[eNumQuadrants] = {true, true, true, true, true};
 	UpdateQuadrants(quad);
 	for (int i = 0; i < eNumQuadrants; i++)
@@ -327,12 +327,12 @@ void COperatorConsoleDlg::ShowStartStop(bool start, bool stop)
 	// Show or hide the start and stop buttons
 	//
 	c_startButton.ShowWindow(start ? SW_SHOW : SW_HIDE);
-	c_stopButton.ShowWindow(stop   ? SW_SHOW : SW_HIDE);
+	c_stopButton.ShowWindow(stop ? SW_SHOW : SW_HIDE);
 }
 
-void COperatorConsoleDlg::UpdateImage(void *buf)
+void COperatorConsoleDlg::UpdateImage(void *buf, int width, int height)
 {
-	c_image.Update(buf);
+	c_image.Update(buf, width, height);
 }
 
 void COperatorConsoleDlg::UpdateStatus(bool passed, LPCTSTR reason)
@@ -364,11 +364,11 @@ void COperatorConsoleDlg::UpdateSummary(LPCTSTR summary)
 
 void COperatorConsoleDlg::UpdateQuadrants(const bool *data)
 {
-	UpdateQuadrant(data, eUpperLeft,  &c_qsoUL);
+	UpdateQuadrant(data, eUpperLeft, &c_qsoUL);
 	UpdateQuadrant(data, eUpperRight, &c_qsoUR);
-	UpdateQuadrant(data, eLowerLeft,  &c_qsoLL);
+	UpdateQuadrant(data, eLowerLeft, &c_qsoLL);
 	UpdateQuadrant(data, eLowerRight, &c_qsoLR);
-	UpdateQuadrant(data, eCenter,     &c_qsoCENTER);
+	UpdateQuadrant(data, eCenter, &c_qsoCENTER);
 
 	c_image.Invalidate();	// if we don't do this the old QSO value doesn't get erased
 }
@@ -376,10 +376,10 @@ void COperatorConsoleDlg::UpdateQuadrants(const bool *data)
 
 void COperatorConsoleDlg::UpdateFPS(long long ms)
 {
-	double	fps = 1000./(double)ms;
+	double	fps = 1000. / (double)ms;
 	char	str[40];
 
-	sprintf_s(str, sizeof(str)-1, "%.3lf FPS", fps);
+	sprintf_s(str, sizeof(str) - 1, "%.3lf FPS", fps);
 
 	c_fps.SetWindowText(str);
 	c_fps.Invalidate();
@@ -395,12 +395,12 @@ void COperatorConsoleDlg::UpdateQuadrant(const bool *passed, EQuadrant quadrant,
 	if (passed[quadrant])
 	{
 		color = PASS_COLOR;
-		str   = QSO_PASSED;
+		str = QSO_PASSED;
 	}
 	else
 	{
 		color = FAIL_COLOR;
-		str   = QSO_FAILED;
+		str = QSO_FAILED;
 	}
 
 	m_qsoColor[quadrant] = color;
@@ -584,9 +584,9 @@ void COperatorConsoleDlg::DrawLogo(LPDRAWITEMSTRUCT info)
 	int	srcWidth, srcHeight;
 	int dstWidth, dstHeight;
 
-	srcWidth  = m_logo.GetWidth();
+	srcWidth = m_logo.GetWidth();
 	srcHeight = m_logo.GetHeight();
-	dstWidth  = info->rcItem.right  - info->rcItem.left;
+	dstWidth = info->rcItem.right - info->rcItem.left;
 	dstHeight = info->rcItem.bottom - info->rcItem.top;
 
 	m_logo.SetHasAlphaChannel(false);
@@ -610,17 +610,17 @@ void COperatorConsoleDlg::QsoMove()
 	// Calculate the distance in x and y from the center
 	// of the image rect to the center of a quadrant
 	//
-	dx = (width  / 4);
+	dx = (width / 4);
 	dy = (height / 4);
 
 	//
 	// Now move each window so that it's centered at the center of its quadrant
 	//
-	CenterWindow(&c_qsoUL,     center.x - dx, center.y - dy);	// upper left
-	CenterWindow(&c_qsoUR,     center.x + dx, center.y - dy);	// upper right
-	CenterWindow(&c_qsoLL,     center.x - dx, center.y + dy);	// lower left
-	CenterWindow(&c_qsoLR,     center.x + dx, center.y + dy);	// lower right
-	CenterWindow(&c_qsoCENTER, center.x,      center.y);		// center
+	CenterWindow(&c_qsoUL, center.x - dx, center.y - dy);	// upper left
+	CenterWindow(&c_qsoUR, center.x + dx, center.y - dy);	// upper right
+	CenterWindow(&c_qsoLL, center.x - dx, center.y + dy);	// lower left
+	CenterWindow(&c_qsoLR, center.x + dx, center.y + dy);	// lower right
+	CenterWindow(&c_qsoCENTER, center.x, center.y);		// center
 }
 
 
@@ -704,7 +704,7 @@ void COperatorConsoleDlg::Quit()
 	// empty string.
 
 	theApp.Quit();
-	theApp.SaveLog(); 
+	theApp.SaveLog();
 }
 
 
@@ -715,7 +715,7 @@ BOOL COperatorConsoleDlg::OnEraseBkgnd(CDC* pDC)
 	CRect	rect;
 	CWnd	*wnd = pDC->GetWindow();
 
-	if ((wnd == &c_qsoUL)  || (wnd == &c_qsoUR) || (wnd == &c_qsoLL) || (wnd == &c_qsoLR) || (wnd == &c_qsoCENTER))
+	if ((wnd == &c_qsoUL) || (wnd == &c_qsoUR) || (wnd == &c_qsoLL) || (wnd == &c_qsoLR) || (wnd == &c_qsoCENTER))
 	{
 		wnd->GetWindowRect(&rect);
 		pDC->FillSolidRect(rect, BLACK);
@@ -767,15 +767,15 @@ void COperatorConsoleDlg::Resize()
 		// Move the rest of the items dx pixels to the right.  We're not going to change
 		// the y coordinates, so we set m_delta.cy to 0.
 		//
-		m_delta.cy  = 0;
+		m_delta.cy = 0;
 
 		//
 		// Move all of the dialog items to compensate for the new size of the image item.  EnumChildWindows() 
 		// will call OffsetChildPos() for each of the Dialog's child windows (i.e. all dialog items).  We want
 		// to move every item except for the image item.  
 		//
-		data.delta  = &m_delta;
-		data.skip   = c_image.m_hWnd;	// we don't want to move the image dialog item
+		data.delta = &m_delta;
+		data.skip = c_image.m_hWnd;	// we don't want to move the image dialog item
 		data.dialog = m_hWnd;			// handle to the dialog window (we need this for converting coordinates)
 		::EnumChildWindows(this->m_hWnd, OffsetChildPos, (LPARAM)&data);
 
@@ -803,7 +803,7 @@ BOOL CALLBACK COperatorConsoleDlg::OffsetChildPos(HWND hwnd, LPARAM lParam)
 		ul.y = rect.top;
 		::ScreenToClient(data->dialog, &ul);	// make ul coordinates relative to dialog
 
-		width  = rect.right  - rect.left;
+		width = rect.right - rect.left;
 		height = rect.bottom - rect.top;
 
 		::MoveWindow(hwnd, ul.x + data->delta->cx, ul.y + data->delta->cy, width, height, TRUE);
@@ -816,12 +816,12 @@ BOOL CALLBACK COperatorConsoleDlg::OffsetChildPos(HWND hwnd, LPARAM lParam)
 void COperatorConsoleDlg::GetImageWindowDelta()
 {
 	int	imageWidth, imageHeight;
-	int	itemWidth,  itemHeight;
+	int	itemWidth, itemHeight;
 
 	//
 	// Get the actual width and height of the image
 	//
-	imageWidth  = theApp.GetImageWidth();
+	imageWidth = theApp.GetImageWidth();
 	imageHeight = theApp.GetImageHeight();
 
 	//
@@ -834,7 +834,7 @@ void COperatorConsoleDlg::GetImageWindowDelta()
 	// This is how much the sizes of the image item and dialog need to be increased.
 	// This is also how much we need to move the other dialog items to accommodate the new image size.
 	//
-	m_delta.cx = imageWidth  - itemWidth;
+	m_delta.cx = imageWidth - itemWidth;
 	m_delta.cy = imageHeight - itemHeight;
 
 #if 0
@@ -874,7 +874,7 @@ void COperatorConsoleDlg::GetWindowSize(CWnd *wnd, int *width, int *height, CRec
 
 		if (width != NULL)
 		{
-			*width  = r->Width();
+			*width = r->Width();
 		}
 
 		if (height != NULL)
@@ -912,21 +912,24 @@ void COperatorConsoleDlg::OnBnClickedSetupButton()
 	//
 	// Tell the application to launch the setup dialog
 	//
-	PostParentMessage(MSG_SETUP,0,0);
+	PostParentMessage(MSG_SETUP, 0, 0);
 }
 
 
 void COperatorConsoleDlg::ReInitDialog(void)
 {
 	ShowWindow(SW_HIDE);
-	c_image.Update(NULL);
+	int width = theApp.GetImageWidth();
+	int height = theApp.GetImageWidth();
+	c_image.Update(NULL, width, height);
 	//	Resize();							// resize dialog to make it big enough for image item (also resizes c_image if needed)
 	ResizeDlg resize;
 	resize.BidirectionalResize(this, &c_image, theApp.GetImageWidth(), theApp.GetImageHeight());
 	CWnd::CenterWindow();				// center the dialog on the screen
 	QsoMove();
 	MoveFPS();
-	c_image.Init();						// create bitmap and drawing context-- do this after the control has been resized [i.e. after calling Resize()]
+	//c_image.Init();						// create bitmap and drawing context-- do this after the control has been resized [i.e. after calling Resize()]
+	c_image.ReInit();						// create bitmap and drawing context-- do this after the control has been resized [i.e. after calling Resize()]
 	ShowWindow(SW_NORMAL);
 }
 
@@ -936,5 +939,5 @@ void COperatorConsoleDlg::OnClickedPassFail()
 	//
 	// Tell the application to launch the pass/fail dialog
 	//
-	PostParentMessage(MSG_PASS_FAIL,0,0);
+	PostParentMessage(MSG_PASS_FAIL, 0, 0);
 }

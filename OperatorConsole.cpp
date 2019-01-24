@@ -168,6 +168,7 @@ COperatorConsoleApp::COperatorConsoleApp()
 
 	// Place all significant initialization in InitInstance
 	m_acq = NULL;
+	m_testControl = NULL;
 	m_test = NULL;
 	m_fileImage = NULL;
 	m_cameraImage = NULL;
@@ -693,23 +694,48 @@ bool COperatorConsoleApp::InitOutput()
 bool COperatorConsoleApp::AllocateImageBuf()
 {
 	FINEST_LOG(logger, "Entering COperatorConsoleApp::AllocateImageBuf().");
-	if (m_fileImage != NULL)
-	{
-		FINE_LOG(logger, "Deallocating m_fileImage.");
-		delete[] m_fileImage;
-	}
+
+	bool fileBufSuccess = AllocateFileImageBuf(m_blemishAcq.BytesPerFrame());
+
+	bool imageBufSuccess = AllocateCameraImageBuf(m_camera->BytesPerFrame());
+
+	FINEST_LOG(logger, "Exiting COperatorConsoleApp::AllocateImageBuf().");
+	return fileBufSuccess && imageBufSuccess;
+}
+
+bool COperatorConsoleApp::AllocateCameraImageBuf(unsigned int numBytes)
+{
+	FINEST_LOG(logger, "Entering COperatorConsoleApp::AllocateCameraImageBuf().");
+	m_cameraImageBufLen = numBytes;
+
 	if (m_cameraImage != NULL)
 	{
 		FINE_LOG(logger, "Deallocating m_cameraImage.");
 		delete[] m_cameraImage;
 	}
 
-	m_fileImage = new char[m_blemishAcq.BytesPerFrame()];
-	m_cameraImage = new char[m_camera->BytesPerFrame()];
+	m_cameraImage = new char[m_cameraImageBufLen];
 
-	FINEST_LOG(logger, "Exiting COperatorConsoleApp::AllocateImageBuf().");
-	return m_fileImage != NULL && m_cameraImage != NULL;
+	FINEST_LOG(logger, "Exiting COperatorConsoleApp::AllocateCameraImageBuf().");
+	return m_cameraImage != NULL;
 }
+
+bool COperatorConsoleApp::AllocateFileImageBuf(unsigned int numBytes)
+{
+	FINEST_LOG(logger, "Entering COperatorConsoleApp::AllocateFileImageBuf().");
+
+	if (m_fileImage != NULL)
+	{
+		FINE_LOG(logger, "Deallocating m_fileImage.");
+		delete[] m_fileImage;
+	}
+	m_fileImage = new char[numBytes];
+
+	FINEST_LOG(logger, "Exiting COperatorConsoleApp::AllocateFileImageBuf().");
+	return m_fileImage != NULL;
+}
+
+
 
 
 ////////////////////////////////////
@@ -819,13 +845,15 @@ BOOL COperatorConsoleApp::PreTranslateMessage(MSG* pMsg)
 
 void COperatorConsoleApp::OnSetBlemish(WPARAM wParam, LPARAM lParam)
 {
-	m_test = &m_blemishControl;
+	m_testControl = &m_blemishControl;
+	m_test = &m_blemish;
 	m_acq = &m_blemishAcq;
 }
 
 void COperatorConsoleApp::OnSetSFRplus(WPARAM wParam, LPARAM lParam)
 {
-	m_test = &m_sfrPlusControl;
+	m_testControl = &m_sfrPlusControl;
+	m_test = &m_sfrPlus;
 	m_acq = &m_sfrPlusAcq;
 }
 
@@ -939,22 +967,33 @@ void COperatorConsoleApp::OnRunTest(WPARAM wParam, LPARAM lParam)
 #endif
 
 #ifdef IMATEST_CAMERA
+	if (m_camera->BytesPerFrame() != m_cameraImageBufLen) {
+		AllocateCameraImageBuf(m_camera->BytesPerFrame());
+		m_test->Init(m_cameraImage, m_camera->GetWidth(), m_camera->GetHeight(), m_config);
+	}
 	m_camera->GetFrame(m_cameraImage);
 	m_cameraControl->Run();	// capture 1 frame from the camera (we'll run the test after the frame is captured)
 #elif !defined START_TEST_FROM_FRAME_READY
-	m_test->Run();							// tell the thread to run 1 test (it will send our thread a message when it's done)
+	m_testControl->Run();							// tell the thread to run 1 test (it will send our thread a message when it's done)
 #else
-	m_cameraControl.Run();	// capture 1 frame from the camera (we'll run the test after the frame is captured)
+	m_cameraControl->Run();	// capture 1 frame from the camera (we'll run the test after the frame is captured)
 #endif
 }
 
 void COperatorConsoleApp::OnFrameReady(WPARAM w, LPARAM l)
 {
 #if defined START_TEST_FROM_FRAME_READY
+	if (m_camera->BytesPerFrame() != m_cameraImageBufLen) {
+		AllocateCameraImageBuf(m_camera->BytesPerFrame());
+		m_test->Init(m_cameraImage, m_camera->GetWidth(), m_camera->GetHeight(), m_config);
+	}
+
 	m_camera->GetFrame(m_cameraImage);
-	m_test->Run();	// tell the thread to run 1 test (it will send our thread a message when it's done)
+	m_testControl->Run();	// tell the thread to run 1 test (it will send our thread a message when it's done)
 #else
-	((COperatorConsoleDlg *)m_pMainWnd)->UpdateImage(m_cameraImage);	// display it in the dialog
+	int width = m_camera->GetWidth();
+	int height = m_camera->GetHeight();
+	((COperatorConsoleDlg *)m_pMainWnd)->UpdateImage(m_cameraImage, width, height);	// display it in the dialog
 	m_cameraControl.Run();												// get another frame
 #endif
 }
@@ -1031,7 +1070,9 @@ void COperatorConsoleApp::UpdateResults(ImageTest *test)
 #endif
 
 #if defined START_TEST_FROM_FRAME_READY
-	dlg->UpdateImage(m_cameraImage);	// display the image in the dialog
+	int width = m_camera->GetWidth();
+	int height = m_camera->GetHeight();
+	dlg->UpdateImage(m_cameraImage, width, height);	// display the image in the dialog
 #endif
 
 	//

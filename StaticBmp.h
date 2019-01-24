@@ -30,13 +30,19 @@ public:
 
 	void Draw(const CWnd *parent);
 	bool Init();
-	void Update(void *buf);
+	bool Init(int width, int height);
+	void Update(void *buf, int width, int height);
+	bool ReInit();
 
 protected:
 	CDC				m_cdc;			//!< memory drawing context to hold image
-	CBitmap			m_bmp;			//!< bitmap for m_cdc
+	CBitmap*		m_bmp;			//!< bitmap for m_cdc
+	CBitmap*        m_dummy;        //!< this acts as a placeholder to allow for replacing the CBitmap associated with m_cdc with a new one (cf. ReInitBitmap())
 	int				m_width;
 	int				m_height;
-	void			*m_buf;
+	void			*m_buf;         //!< buffer for the image display. NOTE: CStaticBmp does not own this pointer
+
+	bool            InitBitMap(CDC* cdc, int width, int height);
+	bool            ReInitBitMap(int width, int height);
 };
 

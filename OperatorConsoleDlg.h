@@ -75,7 +75,7 @@ public:
 	void LogMessage(LPCTSTR msg, bool timestamp=true);
 	void ReInitDialog(void);				//!< Allows the display to be resized after the user changes the image size
 	void UpdateFPS(long long ms);
-	void UpdateImage(void *buf);
+	void UpdateImage(void *buf, int width, int height);
 	void UpdateStatus(bool passed, LPCTSTR reason);
 	void UpdateSummary(LPCTSTR summary);
 	void UpdateQuadrants(const bool *data);

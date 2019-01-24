@@ -1,4 +1,4 @@
-/****************************************************************************	
+/****************************************************************************
 *	Operator Console - an extensible user interface for the Imatest IT 		*
 *	library																	*
 *	Copyright (C) 2013 Imatest LLC.											*
@@ -22,9 +22,10 @@
 
 CStaticBmp::CStaticBmp(void)
 {
-	m_buf    = NULL;
-	m_width  = 0;
+	m_buf = NULL;
+	m_width = 0;
 	m_height = 0;
+	m_bmp = new CBitmap();
 }
 
 CStaticBmp::~CStaticBmp(void)
@@ -33,34 +34,82 @@ CStaticBmp::~CStaticBmp(void)
 
 bool CStaticBmp::Init()
 {
-	CDC		*cdc = GetDC();
 	CRect	rect;
-	bool	success;
 
+	//
+	// Initialize with the current CWnd width and height
+	//
+	GetWindowRect(&rect);
+	m_width = rect.Width();
+	m_height = rect.Height();
+
+	return Init(rect.Width(), rect.Height());
+}
+
+
+bool CStaticBmp::Init(int width, int height) {
+
+	CDC		*cdc = GetDC();
+	bool	success;
 
 	//
 	// Create a memory drawing context and bitmap the size of the window
 	//
-	GetWindowRect(&rect);
-	m_width  = rect.Width();
-	m_height = rect.Height();
 
-	if (m_cdc.CreateCompatibleDC(cdc))
+	CDC* p_cdc = m_cdc.FromHandle(m_cdc);
+	if (p_cdc != NULL || m_cdc.CreateCompatibleDC(cdc))
 	{
-		if (m_bmp.CreateCompatibleBitmap(cdc, m_width, m_height))
-		{
-			m_cdc.SelectObject(&m_bmp);
-			success = true;
-		}
+		success = InitBitMap(cdc, width, height);
 	}
 
 	return success;
 }
 
-void CStaticBmp::Update(void *buf)
+void CStaticBmp::Update(void *buf, int width, int height)
 {
 	m_buf = buf;
+
+	if (m_width != width || m_height != height)
+	{
+		ReInitBitMap(width, height);
+	}
+
 	Invalidate();
+}
+
+bool CStaticBmp::ReInit()
+{
+	return ReInitBitMap(m_width, m_height);
+}
+
+bool CStaticBmp::InitBitMap(CDC* cdc, int width, int height)
+{
+	bool	success;
+
+	m_width = width;
+	m_height = height;
+
+	if (m_bmp->CreateCompatibleBitmap(cdc, m_width, m_height))
+	{
+		m_dummy	= m_cdc.SelectObject(m_bmp);
+		success = true;
+	}
+	return success;
+}
+
+bool CStaticBmp::ReInitBitMap(int width, int height)
+{
+	bool success = false;
+	CDC* cdc = GetDC();
+
+	// Reinitialize m_bmp
+	m_cdc.SelectObject(m_dummy);
+	DeleteObject(m_bmp);
+	m_bmp = new CBitmap();
+
+	success = InitBitMap(cdc, width, height);
+
+	return success;
 }
 
 void CStaticBmp::Draw(const CWnd *parent)
@@ -70,9 +119,9 @@ void CStaticBmp::Draw(const CWnd *parent)
 
 	GetWindowRect(&rect);
 	parent->ScreenToClient(&rect);
-	m_bmp.SetBitmapBits(numBytes, m_buf);
+	m_bmp->SetBitmapBits(numBytes, m_buf);
 	CDC *cdc = GetDC();
 
-	cdc->BitBlt(rect.left, rect.top, m_width, m_height, &m_cdc, 0, 0, SRCCOPY);
+	cdc->StretchBlt(rect.left, rect.top, rect.Width(), rect.Height(), &m_cdc, 0, 0, m_width, m_height, SRCCOPY);
 
 }

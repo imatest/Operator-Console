@@ -95,8 +95,8 @@ bool ImatestLibAcq::CaptureFrame()
 
    mwArray source_id((mxDouble)m_source_ID);
 
-   mwArray toRGBrows =  mwArray(1,1,mxDOUBLE_CLASS);
-   toRGBrows=1.0;// by being TRUE we call for the image to be in column major format
+   bool requestRGBRows = true;
+   mwArray toRGBrows =  mwArray(requestRGBRows); // by being TRUE we call for the image to be in column major format
 
    mwArray deviceID((mxDouble)m_device_ID);// select which source we are using
 
@@ -126,20 +126,44 @@ bool ImatestLibAcq::CaptureFrame()
       e.print_stack_trace();
    }
 
-   //im_orig.GetData((mxUint64*)m_buf,(mwSize)im_orig.ElementSize());
    mwSize dataSize = im_orig.NumberOfElements();
-
-   if (dataSize*im_orig.ElementSize() != m_numBytes && m_buf != NULL)
+   int elementSize = im_orig.ElementSize();
+   if (dataSize*elementSize != m_numBytes && m_buf != NULL)
    {
-      m_numBytes = dataSize*im_orig.ElementSize();
+	   mwArray dims = im_orig.GetDimensions();
+	   int nDims = im_orig.NumberOfDimensions();
+	   int width = 1;
+	   int height = 1;
+	   int nChannels = 4;
 
-      delete[] m_buf;
+	   if (!requestRGBRows) {
+		   // A Row-major, planar image is returned
+		   if (nDims > 0) {
+			   height = (int)dims.Get(1, 1);
+		   }
+		   if (nDims > 1) {
+			   width = (int)dims.Get(1, 2);
+		   }
+		   if (nDims > 2) {
+			   nChannels = (int)dims.Get(1, 3);
+		   }
+	   }
+	   else {
+		   // A Column-major, interleaved image is returned (i.e. RGBA quads)
+		   nChannels = 4;
+		   if (nDims > 0)
+		   {
+			   width = (int)dims.Get(1, 1);
+		   }
 
-      m_buf = new byte[m_numBytes];
-      if (NULL == m_buf)
-      {
-         m_logMsg.Format("%s: Unable to allocate image buffer (%u bytes)", __FUNCTION__, m_numPixels);
-      }
+		   if (nDims > 1) {
+			   height = ((int)dims.Get(1, 2)) / nChannels;
+		   }
+
+	   }
+
+	   this->Init(width, height, nChannels*elementSize);
+
    }
 
    im_orig.GetData((mxUint8*)m_buf, dataSize);
