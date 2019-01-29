@@ -19,8 +19,8 @@
 
 #pragma once
 
-#include "afxstr.h"
-#include "mclcppclass.h"
+#include "atlstr.h"
+#include "imatest_acquisition.h"
 
 #include <algorithm>
 #include <string>

@@ -59,8 +59,8 @@ int AcquisitionDeviceInfo::extractDeviceID(mwArray structObj)
 	int16_t deviceID = -1;
 	std::string fieldName = "DeviceID";
 
-	if (hasField(structObj, fieldName.c_str)) {
-		mwArray deviceIDField = structObj.Get(fieldName.c_str, 1, 1);
+	if (hasField(structObj, fieldName.c_str())) {
+		mwArray deviceIDField = structObj.Get(fieldName.c_str(), 1, 1);
 
 		if (deviceIDField.NumberOfElements() >= 0) {
 			deviceIDField.GetData(&deviceID, 1);
