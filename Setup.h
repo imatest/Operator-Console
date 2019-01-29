@@ -1,4 +1,4 @@
-/****************************************************************************	
+/****************************************************************************
 *	Operator Console - an extensible user interface for the Imatest IT 		*
 *	library																	*
 *	Copyright (C) 2013 Imatest LLC.											*
@@ -37,7 +37,7 @@ class CSetup : public CDialogEx
 
 public:
 	CSetup(CWnd* pParent = NULL);   // standard constructor
-	CSetup(CWnd* pParent , const setup_settings& input_settings);   // non-standard constructor
+	CSetup(CWnd* pParent, const setup_settings& input_settings);   // non-standard constructor
 	virtual ~CSetup();
 
 	// Dialog Data
@@ -59,11 +59,11 @@ public:
 	CEdit c_edit_serial_number;					//!< [OPTIONAL INPUT] The CEdit box for the camera serial number to be reported in the JSON output
 	CMFCEditBrowseCtrl c_editbrowse_inifile;	//!< The MFCEditBrowse that allows the user to navigate the file system to locate an Imatest INI file
 	CMFCEditBrowseCtrl c_editbrowse_prog_path;	//!< [Currently set to read-only] The MFCEditBrowse that allows the user to navigate the file system to locate the Imatest program path
-   CComboBox c_combo_directshow_id; //!< The CCombobox drop-down list containing the two valid device IDs (only visible for DirectShow)
+	CComboBox c_combo_directshow_id; //!< The CCombobox drop-down list containing the two valid device IDs (only visible for DirectShow)
 
 	virtual BOOL OnInitDialog();
 	afx_msg void OnChangeWidth();
-	afx_msg void OnChangeHeight();	
+	afx_msg void OnChangeHeight();
 	afx_msg void OnLbnSelchangeDeviceList();
 	afx_msg void OnSelchangeDeviceid();
 	afx_msg void OnSelchangeBitsperpixel();
@@ -80,15 +80,15 @@ public:
 public:
 	setup_settings m_setup_settings;	//!< this contains settings for the setup dialog including the strings to fill the various CcomboBoxes and CListBoxes
 										//!< and is fed back to the OperatorConsoleApp through a copy operation
-	
+
 private:
 	void ShowOmnivisionElements(void);  //!< This function shows dialog elements that are meant only for Omnivision and hides those meant for Epiphan
 	void ShowNormalElements(void);		//!< This function hides dialog elements that are meant only for Omnivision or Epiphan
 	void ShowEpiphanElements(void);		//!< This function shows dialog elements that are meant only for Epiphan and hides those meant for Omnivision
 	void ShowAllElements(void);			//!< This function shows dialog elements that are meant only for Omnivision or Epiphan
-   void ShowDirectShowElements(void);
+	void ShowDirectShowElements(void);
 public:
-   afx_msg void OnCbnSelchangeDeviceid2();
-   afx_msg void OnStnClickedStaticDeviceid2();
-   afx_msg void OnCbnSelchangeDirectshowid();
+	afx_msg void OnCbnSelchangeDeviceid2();
+	afx_msg void OnStnClickedStaticDeviceid2();
+	afx_msg void OnCbnSelchangeDirectshowid();
 };

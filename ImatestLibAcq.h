@@ -19,7 +19,9 @@
 
 #pragma once
 #include "ImageAcquisition.h"
+#include "AcquisitionDeviceInfo.h"
 #include <string>
+#include <vector>
 
 ///
 /// A class for acquiring live images through the Imatest library.
@@ -33,6 +35,7 @@ public:
 	bool	CaptureFrame();	//!< capture a single frame into m_buf
 	bool	Close();
 	bool	Open();
+	std::vector<AcquisitionDeviceInfo> GetAttachedDevices();
 
 protected:
 	int		m_numCameras;

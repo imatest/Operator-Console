@@ -1224,6 +1224,7 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
 		m_setup.directshow_device_names.push_back(CString(iName->c_str()));
 
+	m_setup.deviceInfos = m_imatest_cam.GetAttachedDevices();
 
 	CSetup setup(NULL, m_setup);
 	INT_PTR nRet = setup.DoModal();

@@ -1,4 +1,4 @@
-/****************************************************************************	
+/****************************************************************************
 *	Operator Console - an extensible user interface for the Imatest IT 		*
 *	library																	*
 *	Copyright (C) 2013 Imatest LLC.											*
@@ -31,7 +31,7 @@
 
 IMPLEMENT_DYNAMIC(CSetup, CDialogEx)
 
-	CSetup::CSetup(CWnd* pParent /*=NULL*/)
+CSetup::CSetup(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CSetup::IDD, pParent)
 {
 	m_setup_settings.width = 0;
@@ -43,7 +43,7 @@ IMPLEMENT_DYNAMIC(CSetup, CDialogEx)
 }
 
 
-CSetup::CSetup(CWnd* pParent , const setup_settings& input_settings)
+CSetup::CSetup(CWnd* pParent, const setup_settings& input_settings)
 	: CDialogEx(CSetup::IDD, pParent)
 {
 	m_setup_settings = input_settings;
@@ -61,7 +61,7 @@ void CSetup::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DEVICE_LIST, c_device_list);
 	DDX_Control(pDX, IDC_DEVICEID, c_combo_deviceid);
 	DDX_Control(pDX, IDC_BITSPERPIXEL, c_combo_bits_per_pixel);
-   DDX_Control(pDX, IDC_DIRECTSHOWID, c_combo_directshow_id);
+	DDX_Control(pDX, IDC_DIRECTSHOWID, c_combo_directshow_id);
 	DDX_Control(pDX, IDC_COMBO_BAYER, c_combo_bayer);
 	DDX_Control(pDX, IDC_EDIT_BROWSE, c_edit_browse);
 	DDX_Control(pDX, IDC_EDIT_PARTNUMBER, c_edit_part_number);
@@ -83,7 +83,7 @@ BEGIN_MESSAGE_MAP(CSetup, CDialogEx)
 	ON_EN_CHANGE(IDC_EDITBROWSE_INIFILE, &CSetup::OnChangeEditbrowseInifile)
 	ON_EN_CHANGE(IDC_EDIT_PARTNUMBER, &CSetup::OnChangeEditPartnumber)
 	ON_EN_CHANGE(IDC_EDIT_SERIALNUMBER, &CSetup::OnChangeEditSerialnumber)
-   ON_CBN_SELCHANGE(IDC_DIRECTSHOWID, &CSetup::OnCbnSelchangeDirectshowid)
+	ON_CBN_SELCHANGE(IDC_DIRECTSHOWID, &CSetup::OnCbnSelchangeDirectshowid)
 END_MESSAGE_MAP()
 
 
@@ -91,13 +91,13 @@ END_MESSAGE_MAP()
 
 
 void CSetup::OnChangeWidth()
-{	
+{
 	CString str;
 	int value = 0;
 	c_setup_width.GetWindowTextA(str);
-	value = (int) strtol(str.GetString(),NULL,10);	
+	value = (int)strtol(str.GetString(), NULL, 10);
 
-	if ( value > 0 || value ==0)
+	if (value > 0 || value == 0)
 	{
 		m_setup_settings.width = value;
 	}
@@ -105,7 +105,7 @@ void CSetup::OnChangeWidth()
 	{
 		m_setup_settings.width = -value;
 		str.Empty();
-		str.Format(_T("%d"),m_setup_settings.width);
+		str.Format(_T("%d"), m_setup_settings.width);
 		c_setup_width.SetWindowTextA(str);
 	}
 }
@@ -116,8 +116,8 @@ void CSetup::OnChangeHeight()
 	CString str;
 	int value = 0;
 	c_setup_height.GetWindowTextA(str);
-	value = (int) strtol(str.GetString(),NULL,10);
-	if ( value > 0 || value ==0)
+	value = (int)strtol(str.GetString(), NULL, 10);
+	if (value > 0 || value == 0)
 	{
 		m_setup_settings.height = value;
 	}
@@ -125,7 +125,7 @@ void CSetup::OnChangeHeight()
 	{
 		m_setup_settings.height = -value;
 		str.Empty();
-		str.Format(_T("%d"),m_setup_settings.height);
+		str.Format(_T("%d"), m_setup_settings.height);
 		c_setup_height.SetWindowTextA(str);
 	}
 }
@@ -139,8 +139,8 @@ BOOL CSetup::OnInitDialog()
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	c_combo_deviceid.ShowWindow(SW_HIDE);
 
-	strheight.Format(_T("%d"),m_setup_settings.height);
-	strwidth.Format(_T("%d"),m_setup_settings.width);
+	strheight.Format(_T("%d"), m_setup_settings.height);
+	strwidth.Format(_T("%d"), m_setup_settings.width);
 	c_setup_height.SetWindowTextA(strheight);
 	c_setup_width.SetWindowTextA(strwidth);
 
@@ -148,6 +148,9 @@ BOOL CSetup::OnInitDialog()
 	for (std::size_t i1 = 0; i1 < m_setup_settings.device_list.size(); ++i1)
 	{
 		c_device_list.AddString(m_setup_settings.device_list[i1]);
+	}
+	for (size_t i1 = 0; i1 < m_setup_settings.deviceInfos.size(); ++i1) {
+		c_device_list.AddString(m_setup_settings.deviceInfos[i1].m_deviceName);
 	}
 
 	// fill the list of Bayer patterns
@@ -160,25 +163,25 @@ BOOL CSetup::OnInitDialog()
 	for (std::size_t j1 = 0; j1 < m_setup_settings.allowed_bits_per_pixel.size(); ++j1)
 	{
 		CString str;
-		str.Format(_T("%d"), m_setup_settings.allowed_bits_per_pixel[j1] );
+		str.Format(_T("%d"), m_setup_settings.allowed_bits_per_pixel[j1]);
 		c_combo_bits_per_pixel.AddString(str);
 	}
 
 	// fill the combo-box of Epiphan device IDs
-	for ( std::size_t j1 = 0; j1 < m_setup_settings.epiphan_deviceID_list.size(); ++j1)
+	for (std::size_t j1 = 0; j1 < m_setup_settings.epiphan_deviceID_list.size(); ++j1)
 	{
 		c_combo_deviceid.AddString(m_setup_settings.epiphan_deviceID_list[j1]);
 	}
 
-   // file the combo-box of DirectShow device names
-   for (std::size_t j1 = 0; j1 < m_setup_settings.directshow_device_names.size(); ++j1)
-   {
-      c_combo_directshow_id.AddString(m_setup_settings.directshow_device_names[j1]);
-   }
+	// file the combo-box of DirectShow device names
+	for (std::size_t j1 = 0; j1 < m_setup_settings.directshow_device_names.size(); ++j1)
+	{
+		c_combo_directshow_id.AddString(m_setup_settings.directshow_device_names[j1]);
+	}
 
-   if (m_setup_settings.directshow_device_names.size() > 0)
-      c_combo_directshow_id.SetCurSel(m_setup_settings.directshow_deviceID);
-   
+	if (m_setup_settings.directshow_device_names.size() > 0)
+		c_combo_directshow_id.SetCurSel(m_setup_settings.directshow_deviceID);
+
 
 	////////////////////////////////////////////////////////////////////////////////////
 	// Select the stored value for the device and hide/show objects accordingly
@@ -226,16 +229,16 @@ BOOL CSetup::OnInitDialog()
 			str.SetString(m_setup_settings.device_list[6]); // DirectShow camera
 			ShowDirectShowElements();
 			break;
-      case SOURCE_File:
-         str.SetString(m_setup_settings.device_list[7]); // Load an image file
-         ShowNormalElements();
-         break;
+		case SOURCE_File:
+			str.SetString(m_setup_settings.device_list[7]); // Load an image file
+			ShowNormalElements();
+			break;
 		default:
 			str.SetString(m_setup_settings.device_list[0]); // Default: Aptina DevWare
 			ShowNormalElements();
 		}
 
-		c_device_list.SelectString(-1,str); // select and highlight the previously stored entry
+		c_device_list.SelectString(-1, str); // select and highlight the previously stored entry
 
 	}
 
@@ -249,7 +252,7 @@ BOOL CSetup::OnInitDialog()
 		m_setup_settings.bayer = 1;
 	}
 
-	if ( m_setup_settings.bits_per_pixel > 0) // select the bits per pixel item using the stored value
+	if (m_setup_settings.bits_per_pixel > 0) // select the bits per pixel item using the stored value
 	{
 		CString str;
 		str.Format(_T("%d"), m_setup_settings.bits_per_pixel);
@@ -275,7 +278,7 @@ BOOL CSetup::OnInitDialog()
 	// enable (or disable) the various edit-browse controls
 	CString devstr;
 	devstr.Format(_T("%d"), m_setup_settings.epiphan_deviceID);
-	int idx = c_combo_deviceid.FindString(-1,devstr);	
+	int idx = c_combo_deviceid.FindString(-1, devstr);
 	c_combo_deviceid.SetCurSel(idx);
 
 	c_edit_browse.EnableFileBrowseButton();
@@ -305,53 +308,64 @@ void CSetup::OnLbnSelchangeDeviceList()
 	int nIndex;
 	CString str;
 	nIndex = c_device_list.GetCurSel();
-	c_device_list.GetText(nIndex,str);
+	c_device_list.GetText(nIndex, str);
 
-	if (str.Compare(m_setup_settings.device_list[0]) ==0) // Aptina DevWare
+	if (str.Compare(m_setup_settings.device_list[0]) == 0) // Aptina DevWare
 	{
 		m_setup_settings.sourceID = SOURCE_Aptina;
 		ShowNormalElements();
 	}
-	else if (str.Compare(m_setup_settings.device_list[1]) ==0) // Omnivision OVTA
+	else if (str.Compare(m_setup_settings.device_list[1]) == 0) // Omnivision OVTA
 	{
 		m_setup_settings.sourceID = SOURCE_Omnivision;
 		ShowOmnivisionElements();
 	}
-	else if (str.Compare(m_setup_settings.device_list[2]) ==0) // Toshiba ImaTuning
+	else if (str.Compare(m_setup_settings.device_list[2]) == 0) // Toshiba ImaTuning
 	{
 		m_setup_settings.sourceID = SOURCE_Toshiba;
 		ShowNormalElements();
 	}
-	else if (str.Compare(m_setup_settings.device_list[3]) ==0) // STM Conduit
+	else if (str.Compare(m_setup_settings.device_list[3]) == 0) // STM Conduit
 	{
 		m_setup_settings.sourceID = SOURCE_STM;
 		ShowNormalElements();
 	}
-	else if (str.Compare(m_setup_settings.device_list[4]) ==0) // Graphin EasyLab
+	else if (str.Compare(m_setup_settings.device_list[4]) == 0) // Graphin EasyLab
 	{
 		m_setup_settings.sourceID = SOURCE_Graphin;
 		ShowNormalElements();
 	}
-	else if (str.Compare(m_setup_settings.device_list[5]) ==0) // Epiphan
+	else if (str.Compare(m_setup_settings.device_list[5]) == 0) // Epiphan
 	{
 		m_setup_settings.sourceID = SOURCE_Epiphan;
 		ShowEpiphanElements();
 	}
-	else if (str.Compare(m_setup_settings.device_list[6]) ==0) // DirectShow camera
+	else if (str.Compare(m_setup_settings.device_list[6]) == 0) // DirectShow camera
 	{
 		m_setup_settings.sourceID = SOURCE_OpConsoleDirectShow;
 		ShowDirectShowElements();
 	}
-   else if (str.Compare(m_setup_settings.device_list[7]) ==0) // Image File
+	else if (str.Compare(m_setup_settings.device_list[7]) == 0) // Image File
 	{
 		m_setup_settings.sourceID = SOURCE_File;
 		ShowNormalElements();
 	}
 	else
 	{
-		m_setup_settings.sourceID = SOURCE_Aptina;
-		fprintf(stderr,"Error: Unknown device selection. The program will revert to Aptina DevWare");
-		ShowNormalElements();
+
+		auto selection = std::find_if(m_setup_settings.deviceInfos.begin(), m_setup_settings.deviceInfos.end(), [str](AcquisitionDeviceInfo x) { return str.Compare(x.m_deviceName) == 0; });
+		if (selection != m_setup_settings.deviceInfos.end()) {
+			m_setup_settings.sourceID = selection->m_deviceID;
+			fprintf(stdout, "%S selected with sourceID %d", selection->m_deviceName, selection->m_deviceID);
+			ShowNormalElements();
+		}
+		else {
+			m_setup_settings.sourceID = SOURCE_Aptina;
+			fprintf(stderr, "Error: Unknown device selection. The program will revert to Aptina DevWare");
+			ShowNormalElements();
+		}
+		
+		
 	}
 }
 
@@ -362,11 +376,11 @@ void CSetup::OnSelchangeDeviceid()
 
 	c_combo_deviceid.GetWindowTextA(str);
 
-	if (str.CompareNoCase(m_setup_settings.epiphan_deviceID_list[0])==0)
+	if (str.CompareNoCase(m_setup_settings.epiphan_deviceID_list[0]) == 0)
 	{
 		m_setup_settings.epiphan_deviceID = 0;
 	}
-	else if (str.CompareNoCase(m_setup_settings.epiphan_deviceID_list[1])==0)
+	else if (str.CompareNoCase(m_setup_settings.epiphan_deviceID_list[1]) == 0)
 	{
 		m_setup_settings.epiphan_deviceID = 1;
 	}
@@ -390,11 +404,11 @@ void CSetup::OnSelchangeBitsperpixel()
 	int value = 0;
 
 	c_combo_bits_per_pixel.GetWindowTextA(str);
-	value = (int) strtol(str.GetString(),NULL,10);
+	value = (int)strtol(str.GetString(), NULL, 10);
 	// double check that the found value is allowed.
 	std::vector<int>::iterator itr = std::find(m_setup_settings.allowed_bits_per_pixel.begin(), m_setup_settings.allowed_bits_per_pixel.end(), value);
 
-	if ( itr != m_setup_settings.allowed_bits_per_pixel.end())
+	if (itr != m_setup_settings.allowed_bits_per_pixel.end())
 	{
 		m_setup_settings.bits_per_pixel = value;
 	}
@@ -411,19 +425,19 @@ void CSetup::OnSelchangeComboBayer()
 	int value = 0;
 	c_combo_bayer.GetWindowTextA(str);
 
-	if (str.CompareNoCase(m_setup_settings.bayer_list[0])==0) // Red in R1C1 (RG/GB)
+	if (str.CompareNoCase(m_setup_settings.bayer_list[0]) == 0) // Red in R1C1 (RG/GB)
 	{
 		m_setup_settings.bayer = 1;
 	}
-	else if (str.CompareNoCase(m_setup_settings.bayer_list[1])==0) // Red in R1C2 (GR/BG)
+	else if (str.CompareNoCase(m_setup_settings.bayer_list[1]) == 0) // Red in R1C2 (GR/BG)
 	{
 		m_setup_settings.bayer = 2;
 	}
-	else if (str.CompareNoCase(m_setup_settings.bayer_list[2])==0) // Red in R2C1 (GB/RG)
+	else if (str.CompareNoCase(m_setup_settings.bayer_list[2]) == 0) // Red in R2C1 (GB/RG)
 	{
 		m_setup_settings.bayer = 3;
 	}
-	else if (str.CompareNoCase(m_setup_settings.bayer_list[3])==0) // Red in R2C2 (BG/GR)
+	else if (str.CompareNoCase(m_setup_settings.bayer_list[3]) == 0) // Red in R2C2 (BG/GR)
 	{
 		m_setup_settings.bayer = 4;
 	}
@@ -443,16 +457,16 @@ void CSetup::OnChangeEditBrowse()
 	FileName.Remove('\n'); // remove these characters, just in case, as they cause the file search to fail
 	FileName.Remove('\r');
 
-	if ( FileName.Compare(_T("")) != 0) // Check for an empty string
+	if (FileName.Compare(_T("")) != 0) // Check for an empty string
 	{
-		if (CFile::GetStatus( FileName, status )) // if we find the file, propagate the filename
+		if (CFile::GetStatus(FileName, status)) // if we find the file, propagate the filename
 		{
 			m_setup_settings.omnivision_reg_file.SetString(FileName);
 		}
 		else
 		{
 			fprintf(stderr, "Error: Omnivision register settings file not found. The program will revert to the previous file.\n");
-		}	
+		}
 	}
 	else // allow the user to not supply a register file after previously supplying one
 	{
@@ -470,16 +484,16 @@ void CSetup::OnChangeEditbrowseProgpath()
 	c_editbrowse_prog_path.GetWindowTextA(PathName);
 	PathName.Remove('\n'); // remove these characters, just in case, as they cause the folder search to fail
 	PathName.Remove('\r');
-	if ( PathName.Compare(_T("")) != 0) // Check for an empty string
+	if (PathName.Compare(_T("")) != 0) // Check for an empty string
 	{
-		if (CFile::GetStatus( PathName, status )) // if we find the folder, propagate the path name
+		if (CFile::GetStatus(PathName, status)) // if we find the folder, propagate the path name
 		{
 			m_setup_settings.program_path.SetString(PathName);
 		}
 		else
 		{
 			fprintf(stderr, "Program path not found. The program will revert to the previous path.\n");
-		}	
+		}
 	}
 }
 
@@ -493,9 +507,9 @@ void CSetup::OnChangeEditbrowseInifile()
 	FileName.Remove('\n'); // remove these characters, just in, case as they cause the file search to fail
 	FileName.Remove('\r');
 
-	if ( FileName.Compare(_T("")) != 0) // Check for an empty string
+	if (FileName.Compare(_T("")) != 0) // Check for an empty string
 	{
-		if (CFile::GetStatus( FileName, status )) // if we find the file, propagate the filename
+		if (CFile::GetStatus(FileName, status)) // if we find the file, propagate the filename
 		{
 			m_setup_settings.ini_file.SetString(FileName);
 		}
@@ -504,7 +518,7 @@ void CSetup::OnChangeEditbrowseInifile()
 			fprintf(stderr, "Error: INI file not found. The program will revert to the previous file.\n");
 		}
 	}
-	else 
+	else
 	{
 		c_editbrowse_inifile.SetWindowTextA(m_setup_settings.ini_file);
 	}
@@ -532,22 +546,22 @@ void CSetup::ShowNormalElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
-   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
 
 	c_combo_deviceid.ShowWindow(SW_HIDE);
-	pDeviceID ->ShowWindow(SW_HIDE);
+	pDeviceID->ShowWindow(SW_HIDE);
 
 	c_combo_bayer.ShowWindow(SW_HIDE);
-	pBayer ->ShowWindow(SW_HIDE);
+	pBayer->ShowWindow(SW_HIDE);
 
 	c_edit_browse.ShowWindow(SW_HIDE);
-	pEditBrowse -> ShowWindow(SW_HIDE);
+	pEditBrowse->ShowWindow(SW_HIDE);
 
-   c_combo_directshow_id.ShowWindow(SW_HIDE);
-   pDirectShowLabel->ShowWindow(SW_HIDE);
+	c_combo_directshow_id.ShowWindow(SW_HIDE);
+	pDirectShowLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -560,22 +574,22 @@ void CSetup::ShowEpiphanElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
-   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
 
 	c_combo_deviceid.ShowWindow(SW_SHOW);
-	pDeviceID ->ShowWindow(SW_SHOW);
+	pDeviceID->ShowWindow(SW_SHOW);
 
 	c_combo_bayer.ShowWindow(SW_HIDE);
-	pBayer ->ShowWindow(SW_HIDE);
+	pBayer->ShowWindow(SW_HIDE);
 
 	c_edit_browse.ShowWindow(SW_HIDE);
-	pEditBrowse -> ShowWindow(SW_HIDE);
-   
-   c_combo_directshow_id.ShowWindow(SW_HIDE);
-   pDirectShowLabel->ShowWindow(SW_HIDE);
+	pEditBrowse->ShowWindow(SW_HIDE);
+
+	c_combo_directshow_id.ShowWindow(SW_HIDE);
+	pDirectShowLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -588,22 +602,22 @@ void CSetup::ShowDirectShowElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
-   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
 
 	c_combo_deviceid.ShowWindow(SW_HIDE);
-	pDeviceID ->ShowWindow(SW_HIDE);
+	pDeviceID->ShowWindow(SW_HIDE);
 
 	c_combo_bayer.ShowWindow(SW_HIDE);
-	pBayer ->ShowWindow(SW_HIDE);
+	pBayer->ShowWindow(SW_HIDE);
 
 	c_edit_browse.ShowWindow(SW_HIDE);
-	pEditBrowse -> ShowWindow(SW_HIDE);
+	pEditBrowse->ShowWindow(SW_HIDE);
 
-   c_combo_directshow_id.ShowWindow(SW_SHOW);
-   pDirectShowLabel->ShowWindow(SW_SHOW);
+	c_combo_directshow_id.ShowWindow(SW_SHOW);
+	pDirectShowLabel->ShowWindow(SW_SHOW);
 }
 
 //
@@ -616,22 +630,22 @@ void CSetup::ShowOmnivisionElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
-   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_SHOW);
 	pBitsPerPixel->ShowWindow(SW_SHOW);
 
 	c_combo_deviceid.ShowWindow(SW_HIDE);
-	pDeviceID ->ShowWindow(SW_HIDE);
+	pDeviceID->ShowWindow(SW_HIDE);
 
 	c_combo_bayer.ShowWindow(SW_SHOW);
-	pBayer ->ShowWindow(SW_SHOW);
+	pBayer->ShowWindow(SW_SHOW);
 
 	c_edit_browse.ShowWindow(SW_SHOW);
-	pEditBrowse -> ShowWindow(SW_SHOW);
-   
-   c_combo_directshow_id.ShowWindow(SW_HIDE);
-   pDirectShowLabel->ShowWindow(SW_HIDE);
+	pEditBrowse->ShowWindow(SW_SHOW);
+
+	c_combo_directshow_id.ShowWindow(SW_HIDE);
+	pDirectShowLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -644,28 +658,28 @@ void CSetup::ShowAllElements(void)
 	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
-   CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_SHOW);
 	pBitsPerPixel->ShowWindow(SW_SHOW);
 
 	c_combo_deviceid.ShowWindow(SW_SHOW);
-	pDeviceID ->ShowWindow(SW_SHOW);
+	pDeviceID->ShowWindow(SW_SHOW);
 
 	c_combo_bayer.ShowWindow(SW_SHOW);
-	pBayer ->ShowWindow(SW_SHOW);
+	pBayer->ShowWindow(SW_SHOW);
 
 	c_edit_browse.ShowWindow(SW_SHOW);
-	pEditBrowse -> ShowWindow(SW_SHOW);
+	pEditBrowse->ShowWindow(SW_SHOW);
 
-   c_combo_directshow_id.ShowWindow(SW_SHOW);
-   pDirectShowLabel->ShowWindow(SW_SHOW);
+	c_combo_directshow_id.ShowWindow(SW_SHOW);
+	pDirectShowLabel->ShowWindow(SW_SHOW);
 }
 
 
 void CSetup::OnCbnSelchangeDirectshowid()
 {
 
-   m_setup_settings.directshow_deviceID = c_combo_directshow_id.GetCurSel();
+	m_setup_settings.directshow_deviceID = c_combo_directshow_id.GetCurSel();
 
 }

@@ -70,6 +70,23 @@ bool ImatestLibAcq::Open()
    return m_inited;
 }
 
+std::vector<AcquisitionDeviceInfo> ImatestLibAcq::GetAttachedDevices()
+{
+	std::vector<AcquisitionDeviceInfo> devices;
+	mwArray deviceArray;
+
+	// Get the details of the attached devices that can be dynamically detected
+	list_devices(1, deviceArray);
+	assert(deviceArray.ClassID() == mxCELL_CLASS);
+
+	size_t numDevices = deviceArray.NumberOfElements();
+	for (int idx = 1; idx <= numDevices; idx++) {
+		devices.push_back(AcquisitionDeviceInfo(deviceArray.Get(1, idx)));
+	}
+
+	return devices;
+}
+
 
 
 bool ImatestLibAcq::Close()
@@ -127,11 +144,11 @@ bool ImatestLibAcq::CaptureFrame()
    }
 
    mwSize dataSize = im_orig.NumberOfElements();
-   int elementSize = im_orig.ElementSize();
+   int elementSize = (int)im_orig.ElementSize();
    if (dataSize*elementSize != m_numBytes && m_buf != NULL)
    {
 	   mwArray dims = im_orig.GetDimensions();
-	   int nDims = im_orig.NumberOfDimensions();
+	   size_t nDims = im_orig.NumberOfDimensions();
 	   int width = 1;
 	   int height = 1;
 	   int nChannels = 4;

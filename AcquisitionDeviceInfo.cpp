@@ -56,14 +56,16 @@ bool AcquisitionDeviceInfo::load(mwArray structObj)
 
 int AcquisitionDeviceInfo::extractDeviceID(mwArray structObj)
 {
-	int16_t deviceID = -1;
+	mxInt16 deviceID = -1;
+
 	std::string fieldName = "DeviceID";
 
 	if (hasField(structObj, fieldName.c_str())) {
 		mwArray deviceIDField = structObj.Get(fieldName.c_str(), 1, 1);
-
+		assert(deviceIDField.ClassID() == mxINT16_CLASS);
 		if (deviceIDField.NumberOfElements() >= 0) {
-			deviceIDField.GetData(&deviceID, 1);
+			deviceID = deviceIDField(1);
+			assert(deviceID >= 128);
 		}
 	}
 
@@ -93,7 +95,7 @@ std::vector<CString> AcquisitionDeviceInfo::extractSupportedFormats(mwArray stru
 	if (hasField(structObj, fieldName.c_str())) {
 		mwArray field = structObj.Get(fieldName.c_str(), 1, 1);
 
-		int numFormats = field.NumberOfElements();
+		size_t numFormats = field.NumberOfElements();
 		if (numFormats > 0 && field.ClassID() == mxCELL_CLASS) {
 			assert(field.Get(1, 1).ClassID() == mxCHAR_CLASS);
 
@@ -124,7 +126,7 @@ bool AcquisitionDeviceInfo::extractDeviceFileSupported(mwArray structObj)
 		assert(field.ClassID() == mxLOGICAL_CLASS);
 
 		if (field.ClassID() == mxLOGICAL_CLASS && field.NumberOfElements() > 0) {
-			field.GetLogicalData(&isSupported, 1);
+			isSupported = field(1);
 		}
 	}
 
