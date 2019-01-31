@@ -116,20 +116,35 @@ bool ImatestLibAcq::CaptureFrame()
    mwArray toRGBrows =  mwArray(requestRGBRows); // by being TRUE we call for the image to be in column major format
 
    mwArray deviceID((mxDouble)m_device_ID);// select which source we are using
+   mwArray videoFormat(m_video_format.c_str());
+   mwArray deviceName(m_device_name.c_str());
 
    mwArray ini_file(m_ini_file.c_str());	// the Omnivision part of acquire_image needs to read from 
    // the correct imatest.ini file
    //const double varArgIn[] = {1.0, 1.0};   
-   mwArray vararginParam = mwArray(1,2,mxCELL_CLASS);
-   vararginParam.Get(1,1).Set(toRGBrows);		
+   mwArray vararginParam; 
 
-   if ( m_source_ID == SOURCE_Omnivision)
-   {
-      vararginParam.Get(1,2).Set(ini_file);				// Path to INI file
+   if (m_source_ID < SOURCE_ImageAcq_first) {
+	   vararginParam = mwArray(1, 2, mxCELL_CLASS);
+	   vararginParam.Get(1, 1).Set(toRGBrows);
+
+	   if (m_source_ID == SOURCE_Omnivision)
+	   {
+		   vararginParam.Get(1, 2).Set(ini_file);				// Path to INI file
+	   }
+	   else
+	   {
+		   vararginParam.Get(1, 2).Set(deviceID);				// 16bit RAW data
+	   }
    }
-   else
-   {
-      vararginParam.Get(1,2).Set(deviceID);				// 16bit RAW data
+   else {
+	   // Handle the dynamically detected devices
+	   vararginParam = mwArray(1, 4, mxCELL_CLASS);
+	   
+	   vararginParam.Get(1, 1).Set(toRGBrows);
+	   vararginParam.Get(1, 2).Set(ini_file);
+	   vararginParam.Get(1, 3).Set(deviceName);
+	   vararginParam.Get(1, 4).Set(videoFormat);
    }
 
    try 

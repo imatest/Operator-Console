@@ -68,6 +68,8 @@ void CSetup::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_EDIT_SERIALNUMBER, c_edit_serial_number);
 	DDX_Control(pDX, IDC_EDITBROWSE_INIFILE, c_editbrowse_inifile);
 	DDX_Control(pDX, IDC_EDITBROWSE_PROGPATH, c_editbrowse_prog_path);
+	DDX_Control(pDX, IDC_DIRECTSHOWID, c_combo_directshow_id);
+	DDX_Control(pDX, IDC_COMBO_VIDEO_FORMAT, c_combo_video_format);
 }
 
 
@@ -84,6 +86,7 @@ BEGIN_MESSAGE_MAP(CSetup, CDialogEx)
 	ON_EN_CHANGE(IDC_EDIT_PARTNUMBER, &CSetup::OnChangeEditPartnumber)
 	ON_EN_CHANGE(IDC_EDIT_SERIALNUMBER, &CSetup::OnChangeEditSerialnumber)
 	ON_CBN_SELCHANGE(IDC_DIRECTSHOWID, &CSetup::OnCbnSelchangeDirectshowid)
+	ON_CBN_SELCHANGE(IDC_COMBO_VIDEO_FORMAT, &CSetup::OnCbnSelchangeComboVideoFormat)
 END_MESSAGE_MAP()
 
 
@@ -234,8 +237,23 @@ BOOL CSetup::OnInitDialog()
 			ShowNormalElements();
 			break;
 		default:
-			str.SetString(m_setup_settings.device_list[0]); // Default: Aptina DevWare
-			ShowNormalElements();
+			if (m_setup_settings.sourceID >= 128 && m_setup_settings.deviceInfos.size() > 0) {
+				int sourceID = m_setup_settings.sourceID;
+				auto selection = std::find_if(m_setup_settings.deviceInfos.begin(), m_setup_settings.deviceInfos.end(), [sourceID](AcquisitionDeviceInfo& x) {return x.m_deviceID == sourceID; });
+				if (selection != m_setup_settings.deviceInfos.end()) {
+					str.SetString(selection->m_deviceName);
+					ShowDynamicDeviceElements(*selection);
+
+				}
+				else {
+					str.SetString(m_setup_settings.device_list[0]); // Default: Aptina DevWare
+					ShowNormalElements();
+				}
+			}
+			else {
+				str.SetString(m_setup_settings.device_list[0]); // Default: Aptina DevWare
+				ShowNormalElements();
+			}
 		}
 
 		c_device_list.SelectString(-1, str); // select and highlight the previously stored entry
@@ -309,6 +327,7 @@ void CSetup::OnLbnSelchangeDeviceList()
 	CString str;
 	nIndex = c_device_list.GetCurSel();
 	c_device_list.GetText(nIndex, str);
+	m_setup_settings.device_name = str;
 
 	if (str.Compare(m_setup_settings.device_list[0]) == 0) // Aptina DevWare
 	{
@@ -357,15 +376,15 @@ void CSetup::OnLbnSelchangeDeviceList()
 		if (selection != m_setup_settings.deviceInfos.end()) {
 			m_setup_settings.sourceID = selection->m_deviceID;
 			fprintf(stdout, "%S selected with sourceID %d", selection->m_deviceName, selection->m_deviceID);
-			ShowNormalElements();
+			ShowDynamicDeviceElements(*selection);
 		}
 		else {
 			m_setup_settings.sourceID = SOURCE_Aptina;
 			fprintf(stderr, "Error: Unknown device selection. The program will revert to Aptina DevWare");
 			ShowNormalElements();
 		}
-		
-		
+
+
 	}
 }
 
@@ -547,6 +566,7 @@ void CSetup::ShowNormalElements(void)
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
 	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
@@ -562,6 +582,9 @@ void CSetup::ShowNormalElements(void)
 
 	c_combo_directshow_id.ShowWindow(SW_HIDE);
 	pDirectShowLabel->ShowWindow(SW_HIDE);
+
+	c_combo_video_format.ShowWindow(SW_HIDE);
+	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -575,6 +598,7 @@ void CSetup::ShowEpiphanElements(void)
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
 	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
@@ -590,6 +614,9 @@ void CSetup::ShowEpiphanElements(void)
 
 	c_combo_directshow_id.ShowWindow(SW_HIDE);
 	pDirectShowLabel->ShowWindow(SW_HIDE);
+
+	c_combo_video_format.ShowWindow(SW_HIDE);
+	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -603,6 +630,7 @@ void CSetup::ShowDirectShowElements(void)
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
 	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
 	pBitsPerPixel->ShowWindow(SW_HIDE);
@@ -618,7 +646,61 @@ void CSetup::ShowDirectShowElements(void)
 
 	c_combo_directshow_id.ShowWindow(SW_SHOW);
 	pDirectShowLabel->ShowWindow(SW_SHOW);
+
+	c_combo_video_format.ShowWindow(SW_HIDE);
+	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
+
+void CSetup::ShowDynamicDeviceElements(const AcquisitionDeviceInfo & device)
+{
+	CWnd* pDeviceID = GetDlgItem(IDC_STATIC_DEVICEID);
+	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
+	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
+	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
+	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
+
+	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
+	pBitsPerPixel->ShowWindow(SW_HIDE);
+
+	c_combo_deviceid.ShowWindow(SW_HIDE);
+	pDeviceID->ShowWindow(SW_HIDE);
+
+	c_combo_bayer.ShowWindow(SW_HIDE);
+	pBayer->ShowWindow(SW_HIDE);
+
+	c_edit_browse.ShowWindow(SW_HIDE);
+	pEditBrowse->ShowWindow(SW_HIDE);
+
+	c_combo_directshow_id.ShowWindow(SW_HIDE);
+	pDirectShowLabel->ShowWindow(SW_HIDE);
+
+	UpdateVideoFormatDropdown(device);
+	c_combo_video_format.ShowWindow(SW_SHOW);
+	pVideoFormatLabel->ShowWindow(SW_SHOW);
+
+}
+
+void CSetup::UpdateVideoFormatDropdown(const AcquisitionDeviceInfo & device)
+{
+	c_combo_video_format.ResetContent();
+	for (auto iFormat = device.m_supportedFormats.begin(); iFormat != device.m_supportedFormats.end(); ++iFormat)
+		c_combo_video_format.AddString(_T(*iFormat));
+
+	CString formatString;
+	if (m_setup_settings.video_format.IsEmpty()) {
+		// Set the selection to the default video format
+		formatString = device.m_defaultFormat;
+	}
+	else {
+		formatString = m_setup_settings.video_format;
+	}
+
+	int cursorSelection = c_combo_video_format.FindStringExact(0, formatString);
+	cursorSelection = cursorSelection >= 0 ? cursorSelection : 0;
+	c_combo_video_format.SetCurSel(cursorSelection);
+}
+
 
 //
 // This function shows the dialog elements that are meant only 
@@ -631,6 +713,7 @@ void CSetup::ShowOmnivisionElements(void)
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
 	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_SHOW);
 	pBitsPerPixel->ShowWindow(SW_SHOW);
@@ -646,6 +729,9 @@ void CSetup::ShowOmnivisionElements(void)
 
 	c_combo_directshow_id.ShowWindow(SW_HIDE);
 	pDirectShowLabel->ShowWindow(SW_HIDE);
+
+	c_combo_video_format.ShowWindow(SW_HIDE);
+	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
 
 //
@@ -659,6 +745,7 @@ void CSetup::ShowAllElements(void)
 	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
 	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
 	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
+	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
 
 	c_combo_bits_per_pixel.ShowWindow(SW_SHOW);
 	pBitsPerPixel->ShowWindow(SW_SHOW);
@@ -674,6 +761,9 @@ void CSetup::ShowAllElements(void)
 
 	c_combo_directshow_id.ShowWindow(SW_SHOW);
 	pDirectShowLabel->ShowWindow(SW_SHOW);
+
+	c_combo_video_format.ShowWindow(SW_SHOW);
+	pVideoFormatLabel->ShowWindow(SW_SHOW);
 }
 
 
@@ -681,5 +771,18 @@ void CSetup::OnCbnSelchangeDirectshowid()
 {
 
 	m_setup_settings.directshow_deviceID = c_combo_directshow_id.GetCurSel();
+
+}
+
+
+void CSetup::OnCbnSelchangeComboVideoFormat()
+{
+	int index = c_combo_video_format.GetCurSel();
+	CString selection = "";
+
+	c_combo_video_format.GetLBText(index, selection);
+	if (!selection.IsEmpty()) {
+		m_setup_settings.video_format = selection;
+	}
 
 }

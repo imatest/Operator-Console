@@ -59,7 +59,8 @@ public:
 	CEdit c_edit_serial_number;					//!< [OPTIONAL INPUT] The CEdit box for the camera serial number to be reported in the JSON output
 	CMFCEditBrowseCtrl c_editbrowse_inifile;	//!< The MFCEditBrowse that allows the user to navigate the file system to locate an Imatest INI file
 	CMFCEditBrowseCtrl c_editbrowse_prog_path;	//!< [Currently set to read-only] The MFCEditBrowse that allows the user to navigate the file system to locate the Imatest program path
-	CComboBox c_combo_directshow_id; //!< The CCombobox drop-down list containing the two valid device IDs (only visible for DirectShow)
+	CComboBox c_combo_directshow_id;            //!< The CCombobox drop-down list containing the two valid device IDs (only visible for DirectShow)
+	CComboBox c_combo_video_format;
 
 	virtual BOOL OnInitDialog();
 	afx_msg void OnChangeWidth();
@@ -87,8 +88,11 @@ private:
 	void ShowEpiphanElements(void);		//!< This function shows dialog elements that are meant only for Epiphan and hides those meant for Omnivision
 	void ShowAllElements(void);			//!< This function shows dialog elements that are meant only for Omnivision or Epiphan
 	void ShowDirectShowElements(void);
+	void ShowDynamicDeviceElements(const AcquisitionDeviceInfo& device);
+	void UpdateVideoFormatDropdown(const AcquisitionDeviceInfo& device);
 public:
 	afx_msg void OnCbnSelchangeDeviceid2();
 	afx_msg void OnStnClickedStaticDeviceid2();
 	afx_msg void OnCbnSelchangeDirectshowid();
+	afx_msg void OnCbnSelchangeComboVideoFormat();
 };

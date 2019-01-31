@@ -41,6 +41,8 @@ struct setup_settings {
 	CString					serial_number;			//!< [OPTIONAL INPUT] The user supplied camera part serial to be used in the JSON output 
 	CString					ini_file;				//!< The fully-qualified file name (including full path) for the imatest.ini file 
 	CString					program_path;			//!< The Imatest IT program path
+	CString                 video_format;           //!< The video format for dynamically detected devices
+	CString                 device_name;            
 	std::vector<CString>	epiphan_deviceID_list;	//!< The list of allowed Epiphan device IDs used to fill the c_combo_deviceid CComboBox in Setup.h/cpp
 	std::vector<CString>	device_list;			//!< The list of allowed device names used to fill the c_device_list CListBox in Setup.h/cpp
 	std::vector<CString>	bayer_list;				//!< The list of allowed Bayer patterns used to fill the c_combo_bayer CComboBox in Setup.h/cpp
@@ -83,6 +85,8 @@ struct setup_settings {
 		//allowed_bits_per_pixel[2] = 12;
 
 		directshow_device_names.clear();
+		deviceInfos.clear();
+		video_format = _T("");
 	};
 
 };

@@ -1234,7 +1234,8 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 		m_camera->m_device_ID = m_setup.epiphan_deviceID; // update the device_ID used by acquire_image
 		m_camera->m_source_ID = m_setup.sourceID; // update the source_ID used by acquire_image
 		m_camera->m_ini_file.assign(m_setup.ini_file); //TDC
-
+		m_camera->m_video_format.assign(m_setup.video_format);
+		m_camera->m_device_name.assign(m_setup.device_name);
 
 		// transfer the configuration details to the other classes
 		m_config->m_iniFilePathName = m_setup.ini_file;
@@ -1306,6 +1307,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section;
 	mwArray subsection_blank(""), subsection_current("current"), subsection;
 	mwArray key_acquire("acquire"), key_width("width"), key_height("height"), key_bitdepth("bitdepth"), key_bayer("bayer_pattern"), key_omniregister("register_files"), key_epiphan_deviceid("deviceID");
+	mwArray key_vid_format("vid_format");
 	mwArray value_int("i"), value_string(""), value_double("d");
 	mwArray default_0(0), default_emptystring("");
 	mwSize getIndex = 1;
@@ -1352,7 +1354,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		subsection = subsection_blank;
 	}
 
-	readKeys = mwArray(6, 5, mxCELL_CLASS);
+	readKeys = mwArray(7, 5, mxCELL_CLASS);
 	// to read the Epiphan 'device_ID' key 
 	getIndex = 1;
 	readKeys.Get(2, 1, getIndex++).Set(section);
@@ -1413,17 +1415,28 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	readKeys.Get(2, 6, getIndex++).Set(value_string);
 	readKeys.Get(2, 6, getIndex++).Set(default_emptystring);
 
+	// to read the 'vid_format' key 
+	getIndex = 1;
+	readKeys.Get(2, 7, getIndex++).Set(section_imatest);
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2, 7, getIndex++).Set(subsection);
+#endif
+	readKeys.Get(2, 7, getIndex++).Set(key_vid_format);
+	readKeys.Get(2, 7, getIndex++).Set(value_string);
+	readKeys.Get(2, 7, getIndex++).Set(default_emptystring);
+
 	vararginParam.Get(1, 1).Set(inifilename);
 	vararginParam.Get(1, 2).Set(mode);
 	vararginParam.Get(1, 3).Set(readKeys);
 
-	readSett = mwArray(1, 6, mxCELL_CLASS);
+	readSett = mwArray(1, 7, mxCELL_CLASS);
 	int temp_epiphan_deviceid = m_setup.epiphan_deviceID;
 	int temp_width = m_setup.width;
 	int temp_height = m_setup.height;
 	int temp_bits_per_pixel = m_setup.bits_per_pixel;
 	int temp_bayer = m_setup.bayer;
 	CString temp_reg_file = m_setup.omnivision_reg_file;
+	CString temp_vid_format = m_setup.video_format;
 	try
 	{
 		inifile(1, readSett, vararginParam);
@@ -1433,6 +1446,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		temp_bits_per_pixel = (int)readSett.Get(1, 1).Get(1, 4);
 		temp_bayer = (int)readSett.Get(1, 1).Get(1, 5);
 		temp_reg_file = readSett.Get(1, 1).Get(1, 6).ToString();
+		temp_vid_format = readSett.Get(1, 1).Get(1, 7).ToString();
 
 		// copy the values into the corresponding fields in m_setup
 		m_setup.epiphan_deviceID = temp_epiphan_deviceid;
@@ -1441,6 +1455,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		m_setup.bits_per_pixel = temp_bits_per_pixel;
 		m_setup.bayer = temp_bayer;
 		m_setup.omnivision_reg_file = temp_reg_file;
+		m_setup.video_format = temp_vid_format;
 
 		// change the image source if needed
 		if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
@@ -1483,15 +1498,17 @@ bool COperatorConsoleApp::ReadINISettings(void)
 void COperatorConsoleApp::WriteINISettings(void)
 {
 	mwArray vararginParam = mwArray(1, 4, mxCELL_CLASS);
-	mwArray writeKeys = mwArray(7, 4, mxCELL_CLASS);
+	mwArray writeKeys = mwArray(8, 4, mxCELL_CLASS);
 	mwArray inifilename(m_config->m_iniFilePathName);
 	mwArray mode("write"), style("plain");
 	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section("");
 	mwArray subsection_blank(""), subsection_current("current"), subsection("");
 	mwArray key_acquire("acquire"), key_width("width"), key_height("height"), key_bitdepth("bitdepth");
 	mwArray key_bayer("bayer_pattern"), key_omniregister("register_files"), key_epiphan_deviceid("deviceID");
+	mwArray key_vid_format("vid_format");
 	mwArray val_acquire(m_setup.sourceID), val_width(m_setup.width), val_height(m_setup.height), val_bitdepth(m_setup.bits_per_pixel);
 	mwArray val_bayer(m_setup.bayer), val_omniregister(m_setup.omnivision_reg_file), val_epiphan_deviceid(m_setup.epiphan_deviceID);
+	mwArray val_vid_format(m_setup.video_format);
 	mwSize getIndex = 1;
 	// NOTE: the mwArray::Get function has input syntax Get(number of indexes, i1, i2,...in)
 	// first read the 'acquire' key from [imatest]
@@ -1502,6 +1519,8 @@ void COperatorConsoleApp::WriteINISettings(void)
 #endif
 	writeKeys.Get(2, 1, getIndex++).Set(key_acquire);
 	writeKeys.Get(2, 1, getIndex++).Set(val_acquire);
+
+
 
 	if (m_setup.sourceID == SOURCE_Omnivision) // Omnivision
 	{
@@ -1571,6 +1590,15 @@ void COperatorConsoleApp::WriteINISettings(void)
 #endif
 	writeKeys.Get(2, 7, getIndex++).Set(key_omniregister);
 	writeKeys.Get(2, 7, getIndex++).Set(val_omniregister);
+
+	// write the 'vid_format' key from [imatest]
+	getIndex = 1;
+	writeKeys.Get(2, 8, getIndex++).Set(section_imatest);
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2, 8, getIndex++).Set(subsection_blank);
+#endif
+	writeKeys.Get(2, 8, getIndex++).Set(key_vid_format);
+	writeKeys.Get(2, 8, getIndex++).Set(val_vid_format);
 
 	vararginParam.Get(2, 1, 1).Set(inifilename);
 	vararginParam.Get(2, 1, 2).Set(mode);

@@ -29,6 +29,7 @@ ImageAcquisition::ImageAcquisition(void)
 	m_numBytes  = 0;
 	m_numPixels = 0;
 	m_buf       = NULL;
+	m_video_format = "";
 }
 
 
