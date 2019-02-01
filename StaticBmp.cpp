@@ -26,10 +26,18 @@ CStaticBmp::CStaticBmp(void)
 	m_width = 0;
 	m_height = 0;
 	m_bmp = new CBitmap();
+	m_dummy = NULL;
 }
 
 CStaticBmp::~CStaticBmp(void)
 {
+
+	CBitmap* old = m_cdc.SelectObject(m_dummy);
+	VERIFY(m_bmp->DeleteObject());
+	if (old != m_bmp)
+		old->DeleteObject();
+	if (m_bmp != NULL)
+		delete m_bmp;
 }
 
 bool CStaticBmp::Init()
@@ -56,8 +64,9 @@ bool CStaticBmp::Init(int width, int height) {
 	// Create a memory drawing context and bitmap the size of the window
 	//
 
-	CDC* p_cdc = m_cdc.FromHandle(m_cdc);
-	if (p_cdc != NULL || m_cdc.CreateCompatibleDC(cdc))
+	//CDC* p_cdc = m_cdc.FromHandle(m_cdc);
+	//if (p_cdc != NULL || m_cdc.CreateCompatibleDC(cdc))
+	if ( m_cdc.CreateCompatibleDC(cdc))
 	{
 		success = InitBitMap(cdc, width, height);
 	}
@@ -91,7 +100,7 @@ bool CStaticBmp::InitBitMap(CDC* cdc, int width, int height)
 
 	if (m_bmp->CreateCompatibleBitmap(cdc, m_width, m_height))
 	{
-		m_dummy	= m_cdc.SelectObject(m_bmp);
+		m_dummy = m_cdc.SelectObject(m_bmp);
 		success = true;
 	}
 	return success;
@@ -103,8 +112,17 @@ bool CStaticBmp::ReInitBitMap(int width, int height)
 	CDC* cdc = GetDC();
 
 	// Reinitialize m_bmp
-	m_cdc.SelectObject(m_dummy);
-	DeleteObject(m_bmp);
+	CBitmap* oldBitmap = m_cdc.SelectObject(m_dummy);
+	if (oldBitmap != m_bmp) {
+		VERIFY(oldBitmap->DeleteObject());
+		delete oldBitmap;
+	}
+
+	if (m_bmp != NULL) {
+		VERIFY(m_bmp->DeleteObject());
+		delete m_bmp;
+	}
+
 	m_bmp = new CBitmap();
 
 	success = InitBitMap(cdc, width, height);
