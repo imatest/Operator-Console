@@ -32,6 +32,7 @@
 #include "PasswordDialog.h"
 #include "ImatestSourceIDs.h"
 #include <sstream>
+#include <string>
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #define LOGGER_LEVEL LEVEL_FINE
@@ -1354,7 +1355,11 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		subsection = subsection_blank;
 	}
 
+#ifdef INI_INCLUDE_SECTION
 	readKeys = mwArray(7, 5, mxCELL_CLASS);
+#else
+	readKeys = mwArray(7, 4, mxCELL_CLASS);
+#endif
 	// to read the Epiphan 'device_ID' key 
 	getIndex = 1;
 	readKeys.Get(2, 1, getIndex++).Set(section);
@@ -1367,7 +1372,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 
 	// to read the 'width' key 
 	getIndex = 1;
-	readKeys.Get(2, 2, getIndex++).Set(section);
+	readKeys.Get(2, 2, getIndex++).Set(section_op);
 #ifdef INI_INCLUDE_SUBSECTION
 	readKeys.Get(2, 2, getIndex++).Set(subsection);
 #endif
@@ -1377,7 +1382,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 
 	// to read the 'height' key 
 	getIndex = 1;
-	readKeys.Get(2, 3, getIndex++).Set(section);
+	readKeys.Get(2, 3, getIndex++).Set(section_op);
 #ifdef INI_INCLUDE_SUBSECTION
 	readKeys.Get(2, 3, getIndex++).Set(subsection);
 #endif
@@ -1440,14 +1445,30 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	try
 	{
 		inifile(1, readSett, vararginParam);
-		temp_epiphan_deviceid = (int)readSett.Get(1, 1).Get(1, 1);
-		temp_width = (int)readSett.Get(1, 1).Get(1, 2);
-		temp_height = (int)readSett.Get(1, 1).Get(1, 3);
-		temp_bits_per_pixel = (int)readSett.Get(1, 1).Get(1, 4);
-		temp_bayer = (int)readSett.Get(1, 1).Get(1, 5);
-		temp_reg_file = readSett.Get(1, 1).Get(1, 6).ToString();
-		temp_vid_format = readSett.Get(1, 1).Get(1, 7).ToString();
+		mwArray settings = readSett.Get(1, 1);
+		
+		// This is a work-around to a bug in the Matlab Matrix API 
+		//  - retrieving numerical values by normal means fails, but ToString() reports the expected values
+		std::string temp;
 
+		temp = settings.Get(1, 1).ToString();
+		temp_epiphan_deviceid = std::stoi(temp);
+
+		temp = settings.Get(1, 2).ToString();
+		temp_width = std::stoi(temp);
+
+		temp = settings.Get(1, 3).ToString();
+		temp_height = std::stoi(temp);
+
+		temp = settings.Get(1, 4).ToString();
+		temp_bits_per_pixel = std::stoi(temp);
+
+		temp = settings.Get(1, 5).ToString();
+		temp_bayer = std::stoi(temp);
+
+		temp_reg_file = settings.Get(1, 6).ToString();
+		temp_vid_format = settings.Get(1, 7).ToString();
+			
 		// copy the values into the corresponding fields in m_setup
 		m_setup.epiphan_deviceID = temp_epiphan_deviceid;
 		m_setup.width = temp_width;
