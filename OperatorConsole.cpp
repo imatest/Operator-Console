@@ -1332,7 +1332,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	try
 	{
 		inifile(1, readSett, vararginParam);
-		temp_source_id = (int)readSett.Get(1, 1).Get(1, 1);
+		temp_source_id = (int)readSett.Get(1, 1).Get(1, 1).Get(1,1);
 		m_setup.sourceID = temp_source_id;
 
 	}
@@ -1446,26 +1446,11 @@ bool COperatorConsoleApp::ReadINISettings(void)
 	{
 		inifile(1, readSett, vararginParam);
 		mwArray settings = readSett.Get(1, 1);
-		
-		// This is a work-around to a bug in the Matlab Matrix API 
-		//  - retrieving numerical values by normal means fails, but ToString() reports the expected values
-		std::string temp;
-
-		temp = settings.Get(1, 1).ToString();
-		temp_epiphan_deviceid = std::stoi(temp);
-
-		temp = settings.Get(1, 2).ToString();
-		temp_width = std::stoi(temp);
-
-		temp = settings.Get(1, 3).ToString();
-		temp_height = std::stoi(temp);
-
-		temp = settings.Get(1, 4).ToString();
-		temp_bits_per_pixel = std::stoi(temp);
-
-		temp = settings.Get(1, 5).ToString();
-		temp_bayer = std::stoi(temp);
-
+		temp_epiphan_deviceid = settings.Get(1, 1).Get(1,1);
+		temp_width = settings.Get(1, 2).Get(1, 1);
+		temp_height = settings.Get(1, 3).Get(1, 1);
+		temp_bits_per_pixel = settings.Get(1, 4).Get(1, 1);
+		temp_bayer = settings.Get(1, 5).Get(1, 1);
 		temp_reg_file = settings.Get(1, 6).ToString();
 		temp_vid_format = settings.Get(1, 7).ToString();
 			
