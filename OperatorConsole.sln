@@ -13,6 +13,8 @@ Global
 		Demo_Imatest_5.0|x64 = Demo_Imatest_5.0|x64
 		Demo_Imatest_5.1|Win32 = Demo_Imatest_5.1|Win32
 		Demo_Imatest_5.1|x64 = Demo_Imatest_5.1|x64
+		Demo_Imatest_5.2|Win32 = Demo_Imatest_5.2|Win32
+		Demo_Imatest_5.2|x64 = Demo_Imatest_5.2|x64
 		Release Imatest 4.1 x86|Win32 = Release Imatest 4.1 x86|Win32
 		Release Imatest 4.1 x86|x64 = Release Imatest 4.1 x86|x64
 	EndGlobalSection
@@ -31,6 +33,10 @@ Global
 		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.1|Win32.Build.0 = Demo_Imatest_5.1|Win32
 		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.1|x64.ActiveCfg = Demo_Imatest_5.1|x64
 		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.1|x64.Build.0 = Demo_Imatest_5.1|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.2|Win32.ActiveCfg = Demo_Imatest_5.2|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.2|Win32.Build.0 = Demo_Imatest_5.2|Win32
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.2|x64.ActiveCfg = Demo_Imatest_5.2|x64
+		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Demo_Imatest_5.2|x64.Build.0 = Demo_Imatest_5.2|x64
 		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|Win32.ActiveCfg = Release Imatest 4.1|Win32
 		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|Win32.Build.0 = Release Imatest 4.1|Win32
 		{5F479E98-E5B6-4D4D-BE0D-E722117B568C}.Release Imatest 4.1 x86|x64.ActiveCfg = Demo_Imatest_4.5|x64

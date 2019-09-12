@@ -53,7 +53,6 @@
 #include "setup_settings.h"
 #include "PassFailSettings.h"
 #include "OperatorConsoleDlg.h"
-#include "logger.h"
 //
 // Hard coded values go here.  Most or all will eventually come from a Config or Setup dialog.
 //
@@ -139,6 +138,12 @@
 #define INI_V2_FORMAT
 #define LOWER_CASE_INI_SECTIONS
 
+#elif defined IMATEST_5_2
+
+#define INI_SEPARATE_PARAMS
+#define INI_V2_FORMAT
+#define LOWER_CASE_INI_SECTIONS
+
 #else
 
 // All versions below 4.2
@@ -201,6 +206,13 @@
 	#define PROGRAMPATH			"C:\\Program Files\\Imatest\\v5.1\\IT\\bin"
 	#else
 	#define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v5.1\\IT\\bin"
+	#endif
+
+#elif defined IMATEST_5_2
+	#ifdef _M_X64
+	#define PROGRAMPATH			"C:\\Program Files\\Imatest\\v5.2\\IT\\bin"
+	#else
+	#define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v5.2\\IT\\bin"
 	#endif
 
 #else
@@ -319,13 +331,11 @@ public:
 
 protected:
 	bool				AllocateImageBuf();
-	bool                AllocateCameraImageBuf(unsigned int numBytes);
-	bool                AllocateFileImageBuf(unsigned int numBytes);
 	bool				CheckFiles(CString &msg);
 	void				CloseLibs();								//!< Function that closes the Imatest library. Note that once closed, the library cannot be reinitialized.
 	void				GetResults(ImageTest *test);
 	void				GetStdoutMsg(StdoutThread &data, CString &str);
-	const char			*GetTestName() { return (m_testControl == NULL) ? "" : ((ImageTest *)m_testControl->m_data)->m_name;}
+	const char			*GetTestName() { return (m_test == NULL) ? "" : ((ImageTest *)m_test->m_data)->m_name;}
 	bool				Init();
 	bool				InitBlemishAcq();
 	bool				InitBlemishThread();
@@ -375,11 +385,16 @@ protected:
 	Config					*m_config;			//!< pointer to current config struct to use
 	char					*m_fileImage;		//!< buffer to hold a single image frame from the file   (will eventually be combined with m_cameraImage)
 	char					*m_cameraImage;		//!< buffer to hold a single image frame from the camera (will eventually be combined with m_fileImage)
-	unsigned int            m_cameraImageBufLen;//!< buffer length
 	FileAcquisition			m_blemishAcq;		//!< raw data for blemish tests (no longer needed, now that live capture is working)
 	FileAcquisition			m_sfrPlusAcq;		//!< raw data for SFRplus tests (no longer needed, now that live capture is working)
 	ImageAcquisition		*m_acq;				//!< pointer to current acquisition object being used
-
+//#if defined IMATEST_CAMERA
+//	ImatestLibAcq			m_camera;			//!< live acquisition using Imatest acquire_image()
+//#elif !defined FAKE_CAMERA
+//	SimpleDirectShowAcq		m_camera;			// live acquisition using a camera
+//#else
+//	FileAcq					m_camera;			// acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
+//#endif
 	ImatestLibAcq			m_imatest_cam;		//!< live acquisition using Imatest acquire_image()	
 	SimpleDirectShowAcq		m_directshow_cam;	//!< live acquisition using a camera
 	//FileAcq					m_file_cam;			//!< acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
@@ -390,13 +405,13 @@ protected:
 	setup_settings			m_setup;			//!< this contains settings from/for the setup dialog
 	BlemishTest				m_blemish;			//!< this will run the blemish tests
 	SFRplusTest				m_sfrPlus;			//!< this will run the SFRplus tests
-	ImageTest              *m_test;
 	ThreadControl			m_blemishControl;	//!< this is the thread control for running Blemish tests
 	ThreadControl			m_sfrPlusControl;	//!< this is the thread control for running SFRplus tests
 	ThreadControl			m_ImatestCameraControl;
 	ThreadControl			m_DirectShowCameraControl;
 	ThreadControl			*m_cameraControl;	//!< points to the current image source's  control thread
-	ThreadControl			*m_testControl;			//!< the current test being run (either &m_blemishControl or &sfrPlusControl)
+	//ThreadControl			m_cameraControl;	//!< this captures images from the acquisition source
+	ThreadControl			*m_test;			//!< the current test being run (either &m_blemishControl or &sfrPlusControl)
 
 	ModelessDialogThread	*m_jsonDlgThread;
 	TestResults				m_results;
