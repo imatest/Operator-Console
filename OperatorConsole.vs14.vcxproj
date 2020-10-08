@@ -719,7 +719,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -749,7 +749,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;C:\Program Files\Imatest\v4.1\IT\libs\acquisition\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;C:\Program Files\Imatest\v4.1\IT\libs\acquisition\cpp;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1034,7 +1034,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1069,7 +1069,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1104,7 +1104,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1139,7 +1139,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1174,7 +1174,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1209,7 +1209,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_2020_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1244,7 +1244,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v91\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v91\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1279,7 +1279,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_0;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1314,7 +1314,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_1;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1349,7 +1349,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_2;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1384,7 +1384,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_2020_1;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1454,7 +1454,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1489,7 +1489,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1524,7 +1524,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1559,7 +1559,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1631,7 +1631,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_5_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1667,7 +1667,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_5_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1703,7 +1703,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_2020_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1739,7 +1739,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.3\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.3\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1775,7 +1775,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1811,7 +1811,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1928,6 +1928,7 @@
     <ClCompile Include="JSON\JSONWriter.cpp" />
     <ClCompile Include="JSON\JSON_Base64.cpp" />
     <ClCompile Include="JSON\libjson.cpp" />
+    <ClCompile Include="logger\logger.cpp" />
     <ClCompile Include="ModelessDialogThread.cpp" />
     <ClCompile Include="OperatorConsole.cpp" />
     <ClCompile Include="OperatorConsoleDlg.cpp" />

@@ -33,6 +33,7 @@
 #include "ImatestSourceIDs.h"
 #include <sstream>
 #include <string>
+#include "logger.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #define LOGGER_LEVEL LEVEL_FINE
