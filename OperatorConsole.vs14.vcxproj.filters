@@ -198,6 +198,9 @@
     <ClInclude Include="escapi30\escapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AcquisitionDeviceInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OperatorConsole.cpp">
@@ -336,6 +339,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="logger\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AcquisitionDeviceInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

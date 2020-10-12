@@ -1839,6 +1839,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="AcquisitionDeviceInfo.h" />
     <ClInclude Include="AppThread.h" />
     <ClInclude Include="BlemishTest.h" />
     <ClInclude Include="Config.h" />
@@ -1902,6 +1903,7 @@
     <ClInclude Include="Timestamp.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AcquisitionDeviceInfo.cpp" />
     <ClCompile Include="BlemishTest.cpp" />
     <ClCompile Include="Config.cpp" />
     <ClCompile Include="CriticalBuf.cpp" />
