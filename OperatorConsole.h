@@ -340,6 +340,7 @@ public:
 
 protected:
 	bool				AllocateImageBuf();
+	bool AllocateCameraImageBuf(unsigned int numBytes);
 	bool				CheckFiles(CString &msg);
 	void				CloseLibs();								//!< Function that closes the Imatest library. Note that once closed, the library cannot be reinitialized.
 	void				GetResults(ImageTest *test);
@@ -374,6 +375,7 @@ protected:
 	void				OnUpdateStdout();							//!< Called after MSG_STDOUT is received
 	bool				SaveConfig();
 	void				SaveLog(const CString& filePathName);
+	bool AllocateFileImageBuf(unsigned int numBytes);
 	BOOL				PreTranslateMessage(MSG* pMsg);				//!< Intercepts messages of interest before Windows or MFC.
 	BOOL				SendAppMessage(int msg);
 	void				LogTime();
@@ -411,6 +413,8 @@ protected:
 
 	int						m_width;
 	int						m_height;
+	size_t                  m_cameraImageBufLen;
+	
 	setup_settings			m_setup;			//!< this contains settings from/for the setup dialog
 	BlemishTest				m_blemish;			//!< this will run the blemish tests
 	SFRplusTest				m_sfrPlus;			//!< this will run the SFRplus tests
@@ -420,8 +424,8 @@ protected:
 	ThreadControl			m_DirectShowCameraControl;
 	ThreadControl			*m_cameraControl;	//!< points to the current image source's  control thread
 	//ThreadControl			m_cameraControl;	//!< this captures images from the acquisition source
-	ThreadControl			*m_test;			//!< the current test being run (either &m_blemishControl or &sfrPlusControl)
-
+	ImageTest			    *m_test;			//!< the current test being run (either &m_blemishControl or &sfrPlusControl)
+	ThreadControl           *m_testControl;
 	ModelessDialogThread	*m_jsonDlgThread;
 	TestResults				m_results;
 	StdoutThread			m_stdoutThread;
