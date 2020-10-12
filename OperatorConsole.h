@@ -340,12 +340,12 @@ public:
 
 protected:
 	bool				AllocateImageBuf();
-	bool AllocateCameraImageBuf(unsigned int numBytes);
+	bool                AllocateCameraImageBuf(unsigned int numBytes);
 	bool				CheckFiles(CString &msg);
 	void				CloseLibs();								//!< Function that closes the Imatest library. Note that once closed, the library cannot be reinitialized.
 	void				GetResults(ImageTest *test);
 	void				GetStdoutMsg(StdoutThread &data, CString &str);
-	const char			*GetTestName() { return (m_test == NULL) ? "" : ((ImageTest *)m_test->m_data)->m_name;}
+	const char		    *GetTestName() { return (m_testControl == NULL) ? "" : ((ImageTest *)m_testControl->m_data)->m_name;}
 	bool				Init();
 	bool				InitBlemishAcq();
 	bool				InitBlemishThread();
