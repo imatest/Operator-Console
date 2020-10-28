@@ -488,19 +488,19 @@ bool COperatorConsoleApp::InitCamera()
 		}
 
 	}
-	else if (m_image_source == directshow_source)
-	{
-		FINE_LOG(logger, "directshow_source is selected.");
-		m_camera = &m_directshow_cam;
-		if (m_camera->Init(m_setup.width, m_setup.height, 4))
-		{
-			success = m_camera->Open();
-			m_camera->m_device_ID = m_setup.epiphan_deviceID;
-			m_camera->m_source_ID = m_setup.sourceID;
-			m_camera->m_ini_file.assign(m_setup.ini_file);
-		}
+	//else if (m_image_source == directshow_source)
+	//{
+	//	FINE_LOG(logger, "directshow_source is selected.");
+	//	m_camera = &m_directshow_cam;
+	//	if (m_camera->Init(m_setup.width, m_setup.height, 4))
+	//	{
+	//		success = m_camera->Open();
+	//		m_camera->m_device_ID = m_setup.epiphan_deviceID;
+	//		m_camera->m_source_ID = m_setup.sourceID;
+	//		m_camera->m_ini_file.assign(m_setup.ini_file);
+	//	}
 
-	}
+	//}
 	else if (m_image_source == file_source)
 	{
 		//	m_camera = &m_file_cam;
@@ -573,19 +573,12 @@ bool COperatorConsoleApp::InitCameraThread()
 	FINEST_LOG(logger, "Entering COperatorConsoleApp::InitCameraThread().");
 	//m_flags.cameraThread = m_cameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_camera.ThreadProc, &m_camera);
 	m_flags.ImatestCameraThread = m_ImatestCameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_imatest_cam.ThreadProc, &m_imatest_cam);
-	m_flags.DirectshowCameraThread = m_DirectShowCameraControl.Init(MSG_FRAME_READY, m_nThreadID, m_directshow_cam.ThreadProc, &m_directshow_cam);
-	if (m_image_source == imatest_source)
-	{
-		FINE_LOG(logger, "Sending message to declare imatest_source as the current images source.");
-		SendAppMessage(MSG_SET_IMATEST_CAM);
-	}
-	else if (m_image_source == directshow_source)
-	{
-		FINE_LOG(logger, "Sending message to declare directshow_source as the current images source.");
-		SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
-	}
+
+	FINE_LOG(logger, "Sending message to declare imatest_source as the current images source.");
+	SendAppMessage(MSG_SET_IMATEST_CAM);
+
 	FINEST_LOG(logger, "Exiting COperatorConsoleApp::InitCameraThread().");
-	return (m_flags.ImatestCameraThread) && (m_flags.DirectshowCameraThread);
+	return m_flags.ImatestCameraThread;
 }
 
 
@@ -835,11 +828,11 @@ BOOL COperatorConsoleApp::PreTranslateMessage(MSG* pMsg)
 		OnSetImatestCamera(pMsg->wParam, pMsg->lParam);
 		handled = TRUE;
 		break;
-	case MSG_SET_DIRECTSHOW_CAM:
-		FINE_LOG(logger, "PreTranslateMessage received MSG_SET_DIRECTSHOW_CAM.");
-		OnSetDirectshowCamera(pMsg->wParam, pMsg->lParam);
-		handled = TRUE;
-		break;
+	//case MSG_SET_DIRECTSHOW_CAM:
+	//	FINE_LOG(logger, "PreTranslateMessage received MSG_SET_DIRECTSHOW_CAM.");
+	//	OnSetDirectshowCamera(pMsg->wParam, pMsg->lParam);
+	//	handled = TRUE;
+	//	break;
 	}
 	FINEST_LOG(logger, "Exiting COperatorConsoleApp::PreTranslateMessage().");
 	return handled;
@@ -916,12 +909,6 @@ void COperatorConsoleApp::Quit()
 	//	m_cameraControl.Quit();	// wait for the camera thread to quit
 	//	m_flags.cameraThread = false;
 	//}
-
-	if (m_flags.DirectshowCameraThread)
-	{
-		m_DirectShowCameraControl.Quit(); // wait for the DirectShow camera thread to quit
-		m_flags.DirectshowCameraThread = false;
-	}
 
 	if (m_flags.ImatestCameraThread)
 	{
@@ -1220,11 +1207,12 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	int oldHeight = m_setup.height;
 	int oldSourceID = m_setup.sourceID;
 	int oldDirectShowID = m_setup.directshow_deviceID;
-	m_setup.directshow_device_names.clear();
+	//TODO: Delete reference to m_setup.directshow_device_names
+	//m_setup.directshow_device_names.clear();
 
-	std::vector<std::string> directShowDeviceNames = m_directshow_cam.getCameraNames();
-	for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
-		m_setup.directshow_device_names.push_back(CString(iName->c_str()));
+	//std::vector<std::string> directShowDeviceNames = m_directshow_cam.getCameraNames();
+	//for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
+	//	m_setup.directshow_device_names.push_back(CString(iName->c_str()));
 
 	m_setup.deviceInfos = m_imatest_cam.GetAttachedDevices();
 
@@ -1262,6 +1250,7 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 			|| (oldDirectShowID != m_setup.directshow_deviceID))
 		{
 
+			// TODO: Is this still necessary?
 			if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
 			{
 				m_image_source = imatest_source;
@@ -1270,14 +1259,8 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 					SendAppMessage(MSG_SET_IMATEST_CAM);
 				}
 			}
-			else
-			{
-				m_image_source = directshow_source;
-				if (oldSourceID != SOURCE_OpConsoleDirectShow || (oldDirectShowID != m_setup.directshow_deviceID))
-				{
-					SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
-				}
-			}
+
+
 			// image dimensions have changed, so we must reallocate
 			try
 			{
@@ -1464,17 +1447,13 @@ bool COperatorConsoleApp::ReadINISettings(void)
 		m_setup.omnivision_reg_file = temp_reg_file;
 		m_setup.video_format = temp_vid_format;
 
-		// change the image source if needed
+		// TODO: Is this still necessary?
 		if (m_setup.sourceID != SOURCE_OpConsoleDirectShow)
 		{
 			m_image_source = imatest_source;
 			SendAppMessage(MSG_SET_IMATEST_CAM);
 		}
-		else
-		{
-			m_image_source = directshow_source;
-			SendAppMessage(MSG_SET_DIRECTSHOW_CAM);
-		}
+
 	}
 	catch (mwException& e)
 	{
@@ -2628,14 +2607,14 @@ void COperatorConsoleApp::OnSetImatestCamera(WPARAM wParam, LPARAM lParam)
 }
 
 
-void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
-{
-	int currentCameraId = m_directshow_cam.getCameraIndex();
-
-	if (currentCameraId != m_setup.directshow_deviceID)
-		m_directshow_cam.setCameraIndex(m_setup.directshow_deviceID);
-
-	m_camera = &m_directshow_cam;
-	m_cameraControl = &m_DirectShowCameraControl;
-
-}
+//void COperatorConsoleApp::OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam)
+//{
+//	int currentCameraId = m_directshow_cam.getCameraIndex();
+//
+//	if (currentCameraId != m_setup.directshow_deviceID)
+//		m_directshow_cam.setCameraIndex(m_setup.directshow_deviceID);
+//
+//	m_camera = &m_directshow_cam;
+//	m_cameraControl = &m_DirectShowCameraControl;
+//
+//}

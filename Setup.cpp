@@ -176,14 +176,15 @@ BOOL CSetup::OnInitDialog()
 		c_combo_deviceid.AddString(m_setup_settings.epiphan_deviceID_list[j1]);
 	}
 
+	// TODO: Delete this code related to directshow
 	// file the combo-box of DirectShow device names
-	for (std::size_t j1 = 0; j1 < m_setup_settings.directshow_device_names.size(); ++j1)
-	{
-		c_combo_directshow_id.AddString(m_setup_settings.directshow_device_names[j1]);
-	}
+	//for (std::size_t j1 = 0; j1 < m_setup_settings.directshow_device_names.size(); ++j1)
+	//{
+	//	c_combo_directshow_id.AddString(m_setup_settings.directshow_device_names[j1]);
+	//}
 
-	if (m_setup_settings.directshow_device_names.size() > 0)
-		c_combo_directshow_id.SetCurSel(m_setup_settings.directshow_deviceID);
+	//if (m_setup_settings.directshow_device_names.size() > 0)
+	//	c_combo_directshow_id.SetCurSel(m_setup_settings.directshow_deviceID);
 
 
 	////////////////////////////////////////////////////////////////////////////////////

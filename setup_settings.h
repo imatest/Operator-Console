@@ -47,7 +47,8 @@ struct setup_settings {
 	std::vector<CString>	device_list;			//!< The list of allowed device names used to fill the c_device_list CListBox in Setup.h/cpp
 	std::vector<CString>	bayer_list;				//!< The list of allowed Bayer patterns used to fill the c_combo_bayer CComboBox in Setup.h/cpp
 	std::vector<int>		allowed_bits_per_pixel; //!< The list of allowed bits-per-pixels used to fill the c_combo_bits_per_pixel CComboBox in Setup.h/cpp
-	std::vector<CString> directshow_device_names;
+	// TODO: Delete direct_show_device_names
+	//std::vector<CString> directshow_device_names;
 	std::vector<AcquisitionDeviceInfo> deviceInfos;
 	///
 	/// default constructor
@@ -84,7 +85,8 @@ struct setup_settings {
 		//allowed_bits_per_pixel[1] = 10;
 		//allowed_bits_per_pixel[2] = 12;
 
-		directshow_device_names.clear();
+		//TODO Delete refercne t0 directshow_device_names
+		//directshow_device_names.clear();
 		deviceInfos.clear();
 		video_format = _T("");
 	};
