@@ -88,7 +88,7 @@ private:
 	void ShowNormalElements(void);		//!< This function hides dialog elements that are meant only for Omnivision or Epiphan
 	void ShowEpiphanElements(void);		//!< This function shows dialog elements that are meant only for Epiphan and hides those meant for Omnivision
 	void ShowAllElements(void);			//!< This function shows dialog elements that are meant only for Omnivision or Epiphan
-	void ShowDirectShowElements(void);
+	//void ShowDirectShowElements(void);
 	void ShowDynamicDeviceElements(const AcquisitionDeviceInfo& device);
 	void UpdateVideoFormatDropdown(const AcquisitionDeviceInfo& device);
 
