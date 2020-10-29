@@ -21,6 +21,7 @@
 #include "afxwin.h"
 #include "setup_settings.h"
 #include "afxeditbrowsectrl.h"
+#include "logger.h"
 //
 // CSetup dialog
 //
@@ -90,6 +91,9 @@ private:
 	void ShowDirectShowElements(void);
 	void ShowDynamicDeviceElements(const AcquisitionDeviceInfo& device);
 	void UpdateVideoFormatDropdown(const AcquisitionDeviceInfo& device);
+
+	CLogger m_logger;
+	CFileLogHandler m_fileLogHandler;
 public:
 	afx_msg void OnCbnSelchangeDeviceid2();
 	afx_msg void OnStnClickedStaticDeviceid2();

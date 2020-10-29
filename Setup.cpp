@@ -26,13 +26,16 @@
 #include "afxdialogex.h"
 #include <algorithm>
 #include "ImatestSourceIDs.h"
+#include "logger_preferences.h"
+
+
 
 // CSetup dialog
 
 IMPLEMENT_DYNAMIC(CSetup, CDialogEx)
 
 CSetup::CSetup(CWnd* pParent /*=NULL*/)
-	: CDialogEx(CSetup::IDD, pParent)
+	: CDialogEx(CSetup::IDD, pParent), m_logger("Setup"), m_fileLogHandler(LOGGER_LEVEL, LOG_FILE_NAME)
 {
 	m_setup_settings.width = 0;
 	m_setup_settings.height = 0;
@@ -40,17 +43,21 @@ CSetup::CSetup(CWnd* pParent /*=NULL*/)
 	m_setup_settings.sourceID = 0;
 	m_setup_settings.epiphan_deviceID = 0;
 	m_setup_settings.bayer = 0;
+
+	m_logger.AddHandler(&m_fileLogHandler);
 }
 
 
 CSetup::CSetup(CWnd* pParent, const setup_settings& input_settings)
-	: CDialogEx(CSetup::IDD, pParent)
+	: CDialogEx(CSetup::IDD, pParent), m_logger("Setup"), m_fileLogHandler(LOGGER_LEVEL, LOG_FILE_NAME)
 {
 	m_setup_settings = input_settings;
+	m_logger.AddHandler(&m_fileLogHandler);
 }
 
 CSetup::~CSetup()
 {
+
 }
 
 void CSetup::DoDataExchange(CDataExchange* pDX)
@@ -61,14 +68,12 @@ void CSetup::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_DEVICE_LIST, c_device_list);
 	DDX_Control(pDX, IDC_DEVICEID, c_combo_deviceid);
 	DDX_Control(pDX, IDC_BITSPERPIXEL, c_combo_bits_per_pixel);
-	DDX_Control(pDX, IDC_DIRECTSHOWID, c_combo_directshow_id);
 	DDX_Control(pDX, IDC_COMBO_BAYER, c_combo_bayer);
 	DDX_Control(pDX, IDC_EDIT_BROWSE, c_edit_browse);
 	DDX_Control(pDX, IDC_EDIT_PARTNUMBER, c_edit_part_number);
 	DDX_Control(pDX, IDC_EDIT_SERIALNUMBER, c_edit_serial_number);
 	DDX_Control(pDX, IDC_EDITBROWSE_INIFILE, c_editbrowse_inifile);
 	DDX_Control(pDX, IDC_EDITBROWSE_PROGPATH, c_editbrowse_prog_path);
-	DDX_Control(pDX, IDC_DIRECTSHOWID, c_combo_directshow_id);
 	DDX_Control(pDX, IDC_COMBO_VIDEO_FORMAT, c_combo_video_format);
 }
 
@@ -581,9 +586,6 @@ void CSetup::ShowNormalElements(void)
 	c_edit_browse.ShowWindow(SW_HIDE);
 	pEditBrowse->ShowWindow(SW_HIDE);
 
-	c_combo_directshow_id.ShowWindow(SW_HIDE);
-	pDirectShowLabel->ShowWindow(SW_HIDE);
-
 	c_combo_video_format.ShowWindow(SW_HIDE);
 	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
@@ -612,9 +614,6 @@ void CSetup::ShowEpiphanElements(void)
 
 	c_edit_browse.ShowWindow(SW_HIDE);
 	pEditBrowse->ShowWindow(SW_HIDE);
-
-	c_combo_directshow_id.ShowWindow(SW_HIDE);
-	pDirectShowLabel->ShowWindow(SW_HIDE);
 
 	c_combo_video_format.ShowWindow(SW_HIDE);
 	pVideoFormatLabel->ShowWindow(SW_HIDE);
@@ -645,9 +644,6 @@ void CSetup::ShowDirectShowElements(void)
 	c_edit_browse.ShowWindow(SW_HIDE);
 	pEditBrowse->ShowWindow(SW_HIDE);
 
-	c_combo_directshow_id.ShowWindow(SW_SHOW);
-	pDirectShowLabel->ShowWindow(SW_SHOW);
-
 	c_combo_video_format.ShowWindow(SW_HIDE);
 	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
@@ -673,8 +669,6 @@ void CSetup::ShowDynamicDeviceElements(const AcquisitionDeviceInfo & device)
 	c_edit_browse.ShowWindow(SW_HIDE);
 	pEditBrowse->ShowWindow(SW_HIDE);
 
-	c_combo_directshow_id.ShowWindow(SW_HIDE);
-	pDirectShowLabel->ShowWindow(SW_HIDE);
 
 	UpdateVideoFormatDropdown(device);
 	c_combo_video_format.ShowWindow(SW_SHOW);
@@ -728,9 +722,6 @@ void CSetup::ShowOmnivisionElements(void)
 	c_edit_browse.ShowWindow(SW_SHOW);
 	pEditBrowse->ShowWindow(SW_SHOW);
 
-	c_combo_directshow_id.ShowWindow(SW_HIDE);
-	pDirectShowLabel->ShowWindow(SW_HIDE);
-
 	c_combo_video_format.ShowWindow(SW_HIDE);
 	pVideoFormatLabel->ShowWindow(SW_HIDE);
 }
@@ -759,9 +750,6 @@ void CSetup::ShowAllElements(void)
 
 	c_edit_browse.ShowWindow(SW_SHOW);
 	pEditBrowse->ShowWindow(SW_SHOW);
-
-	c_combo_directshow_id.ShowWindow(SW_SHOW);
-	pDirectShowLabel->ShowWindow(SW_SHOW);
 
 	c_combo_video_format.ShowWindow(SW_SHOW);
 	pVideoFormatLabel->ShowWindow(SW_SHOW);
