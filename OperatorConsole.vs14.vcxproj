@@ -1883,6 +1883,7 @@
     <ClInclude Include="JSON\JSON_Base64.h" />
     <ClInclude Include="JSON\NumberToString.h" />
     <ClInclude Include="libjson.h" />
+    <ClInclude Include="logger_preferences.h" />
     <ClInclude Include="ModelessDialogThread.h" />
     <ClInclude Include="OperatorConsole.h" />
     <ClInclude Include="OperatorConsoleDlg.h" />

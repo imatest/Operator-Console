@@ -201,6 +201,9 @@
     <ClInclude Include="AcquisitionDeviceInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="logger_preferences.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OperatorConsole.cpp">
