@@ -252,7 +252,7 @@ BOOL CSetup::OnInitDialog()
 		//	ShowDirectShowElements();
 		//	break;
 		case SOURCE_File:
-			str.SetString(m_setup_settings.device_list[7]); // Load an image file
+			str.SetString(m_setup_settings.device_list[6]); // Load an image file
 			ShowNormalElements();
 			break;
 		default:
@@ -386,7 +386,7 @@ void CSetup::OnLbnSelchangeDeviceList()
 	//	m_setup_settings.sourceID = SOURCE_OpConsoleDirectShow;
 	//	ShowDirectShowElements();
 	//}
-	else if (str.Compare(m_setup_settings.device_list[7]) == 0) // Image File
+	else if (str.Compare(m_setup_settings.device_list[6]) == 0) // Image File
 	{
 		m_setup_settings.sourceID = SOURCE_File;
 		ShowNormalElements();

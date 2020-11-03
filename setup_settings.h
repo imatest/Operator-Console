@@ -65,15 +65,14 @@ struct setup_settings {
 		epiphan_deviceID_list.resize(2, _T("0"));
 		epiphan_deviceID_list[1] = _T("1");
 
-		device_list.resize(8, _T(""));
+		device_list.resize(7, _T(""));
 		device_list[0] = _T("Aptina DevWare");
 		device_list[1] = _T("Omnivision OVTA");
 		device_list[2] = _T("Toshiba ImaTuning");
 		device_list[3] = _T("STM Conduit");
 		device_list[4] = _T("Graphin EasyLab");
 		device_list[5] = _T("Epiphan");
-		device_list[6] = _T("DirectShow camera");
-		device_list[7] = _T("Load file");
+		device_list[6] = _T("Load file");
 
 		bayer_list.resize(4, _T("Red in R1C1 (RG/GB)"));
 		bayer_list[1] = _T("Red in R1C2 (GR/BG)");
@@ -85,7 +84,7 @@ struct setup_settings {
 		//allowed_bits_per_pixel[1] = 10;
 		//allowed_bits_per_pixel[2] = 12;
 
-		//TODO Delete refercne t0 directshow_device_names
+		//TODO Delete refercne to directshow_device_names
 		//directshow_device_names.clear();
 		deviceInfos.clear();
 		video_format = _T("");

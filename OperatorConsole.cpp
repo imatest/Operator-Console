@@ -1221,7 +1221,7 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	//	m_setup.directshow_device_names.push_back(CString(iName->c_str()));
 
 	FINE_LOG(logger, "Polling for attached devices.");
-	m_setup.deviceInfos = m_imatest_cam.GetAttachedDevices();
+    m_setup.deviceInfos = m_imatest_cam.GetAttachedDevices();
 	FINE_LOG(logger, "Done polling for devices.");
 	
 	CSetup setup(NULL, m_setup);
