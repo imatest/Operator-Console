@@ -150,6 +150,12 @@
 #define INI_V2_FORMAT
 #define LOWER_CASE_INI_SECTIONS
 
+#elif defined IMATEST_2020_2
+
+#define INI_SEPARATE_PARAMS
+#define INI_V2_FORMAT
+#define LOWER_CASE_INI_SECTIONS
+
 #else
 
 // All versions below 4.2
@@ -223,6 +229,9 @@
 
 #elif defined IMATEST_2020_1
 #define PROGRAMPATH			"C:\\Program Files\\Imatest\\v2020.1\\IT\\bin"
+
+#elif defined IMATEST_2020_2
+#define PROGRAMPATH			"C:\\Program Files\\Imatest\\v2020.2\\IT\\bin"
 
 #else
 #define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v4.1\\IT\\bin"

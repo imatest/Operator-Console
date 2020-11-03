@@ -605,7 +605,11 @@ bool COperatorConsoleApp::InitLibs()
 			SEVERE_LOG(logger, "imatest_libraryInitialize() call failed.");
 			str = "Unable to initialize imatest library.";
 		}
-		FINE_LOG(logger, "imatest_libraryInitialize() call succeeded.");
+		else
+		{
+			FINE_LOG(logger, "imatest_libraryInitialize() call succeeded.");
+		}
+
 		m_flags.imatestAcq = imatest_acquisitionInitialize();
 
 		if (!m_flags.imatestAcq)
@@ -613,8 +617,12 @@ bool COperatorConsoleApp::InitLibs()
 			SEVERE_LOG(logger, "imatest_acquisitionInitialize() call failed.");
 			str = "Unable to initialize imatest acquisition library.";
 		}
+		else
+		{
+			FINE_LOG(logger, "imatest_acquisitionInitialize() call succeeded.");
+		}
 
-		FINE_LOG(logger, "imatest_acquisitionInitialize() call succeeded.");
+		
 	}
 
 	if (!str.IsEmpty())
@@ -1199,6 +1207,8 @@ void COperatorConsoleApp::SaveLog(const CString& filePathName)
 
 void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 {
+	FINEST_LOG(logger, "Entering COperatorConsoleApp::OnSetup()");
+
 	int oldWidth = m_setup.width;
 	int oldHeight = m_setup.height;
 	int oldSourceID = m_setup.sourceID;
@@ -1210,8 +1220,10 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	//for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
 	//	m_setup.directshow_device_names.push_back(CString(iName->c_str()));
 
+	FINE_LOG(logger, "Polling for attached devices.");
 	m_setup.deviceInfos = m_imatest_cam.GetAttachedDevices();
-
+	FINE_LOG(logger, "Done polling for devices.");
+	
 	CSetup setup(NULL, m_setup);
 	INT_PTR nRet = setup.DoModal();
 	if (nRet == IDOK)
@@ -1272,6 +1284,8 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 			}
 		}
 	}
+
+	FINEST_LOG(logger, "Exiting COperatorConsoleApp::OnSetup()");
 }
 
 ///
@@ -1947,7 +1961,7 @@ bool COperatorConsoleApp::ReadPassFail(void)
 			catch (exception e)
 			{
 				const char *c = e.what();
-				string x = "";
+				std::string x = "";
 			}
 		}
 
