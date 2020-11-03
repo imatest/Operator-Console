@@ -92,7 +92,6 @@ BEGIN_MESSAGE_MAP(CSetup, CDialogEx)
 	ON_EN_CHANGE(IDC_EDITBROWSE_INIFILE, &CSetup::OnChangeEditbrowseInifile)
 	ON_EN_CHANGE(IDC_EDIT_PARTNUMBER, &CSetup::OnChangeEditPartnumber)
 	ON_EN_CHANGE(IDC_EDIT_SERIALNUMBER, &CSetup::OnChangeEditSerialnumber)
-	ON_CBN_SELCHANGE(IDC_DIRECTSHOWID, &CSetup::OnCbnSelchangeDirectshowid)
 	ON_CBN_SELCHANGE(IDC_COMBO_VIDEO_FORMAT, &CSetup::OnCbnSelchangeComboVideoFormat)
 END_MESSAGE_MAP()
 
@@ -193,15 +192,6 @@ BOOL CSetup::OnInitDialog()
 		c_combo_deviceid.AddString(m_setup_settings.epiphan_deviceID_list[j1]);
 	}
 
-	// TODO: Delete this code related to directshow
-	// file the combo-box of DirectShow device names
-	//for (std::size_t j1 = 0; j1 < m_setup_settings.directshow_device_names.size(); ++j1)
-	//{
-	//	c_combo_directshow_id.AddString(m_setup_settings.directshow_device_names[j1]);
-	//}
-
-	//if (m_setup_settings.directshow_device_names.size() > 0)
-	//	c_combo_directshow_id.SetCurSel(m_setup_settings.directshow_deviceID);
 
 
 	////////////////////////////////////////////////////////////////////////////////////
@@ -215,7 +205,7 @@ BOOL CSetup::OnInitDialog()
 	//device_list[3] = _T("STM Conduit");
 	//device_list[4] = _T("Graphin EasyLab");
 	//device_list[5] = _T("Epiphan");	
-	//device_list[6] = _T("DirectShow camera");
+	//device_list[6] = _T("Load file");
 	if (m_setup_settings.sourceID >= 0)
 	{
 		CString str;
@@ -246,11 +236,6 @@ BOOL CSetup::OnInitDialog()
 			str.SetString(m_setup_settings.device_list[5]); // Epiphan
 			ShowEpiphanElements();
 			break;
-		// TODO: Delete
-		//case SOURCE_OpConsoleDirectShow:
-		//	str.SetString(m_setup_settings.device_list[6]); // DirectShow camera
-		//	ShowDirectShowElements();
-		//	break;
 		case SOURCE_File:
 			str.SetString(m_setup_settings.device_list[6]); // Load an image file
 			ShowNormalElements();
@@ -380,12 +365,6 @@ void CSetup::OnLbnSelchangeDeviceList()
 		m_setup_settings.sourceID = SOURCE_Epiphan;
 		ShowEpiphanElements();
 	}
-	//TODO: Delete
-	//else if (str.Compare(m_setup_settings.device_list[6]) == 0) // DirectShow camera
-	//{
-	//	m_setup_settings.sourceID = SOURCE_OpConsoleDirectShow;
-	//	ShowDirectShowElements();
-	//}
 	else if (str.Compare(m_setup_settings.device_list[6]) == 0) // Image File
 	{
 		m_setup_settings.sourceID = SOURCE_File;
@@ -666,34 +645,6 @@ void CSetup::ShowEpiphanElements(void)
 	FINEST_LOG(m_logger, "Exiting ShowEpiphanElements()");
 }
 
-// TODO: Delete ShowDirectShowElements
-// This function shows the dialog elements that are meant only 
-// for Epiphan and hides those meant only for Omnivision
-//
-//void CSetup::ShowDirectShowElements(void)
-//{
-//	CWnd* pDeviceID = GetDlgItem(IDC_STATIC_DEVICEID);
-//	CWnd* pBitsPerPixel = GetDlgItem(IDC_STATIC_BITSPERPIXEL);
-//	CWnd* pBayer = GetDlgItem(IDC_STATIC_BAYER);
-//	CWnd* pEditBrowse = GetDlgItem(IDC_STATIC_BROWSE);
-//	CWnd* pDirectShowLabel = GetDlgItem(IDC_STATIC_DIRECTSHOWLABEL);
-//	CWnd* pVideoFormatLabel = GetDlgItem(IDC_STATIC_VIDEO_FORMAT);
-//
-//	c_combo_bits_per_pixel.ShowWindow(SW_HIDE);
-//	pBitsPerPixel->ShowWindow(SW_HIDE);
-//
-//	c_combo_deviceid.ShowWindow(SW_HIDE);
-//	pDeviceID->ShowWindow(SW_HIDE);
-//
-//	c_combo_bayer.ShowWindow(SW_HIDE);
-//	pBayer->ShowWindow(SW_HIDE);
-//
-//	c_edit_browse.ShowWindow(SW_HIDE);
-//	pEditBrowse->ShowWindow(SW_HIDE);
-//
-//	c_combo_video_format.ShowWindow(SW_HIDE);
-//	pVideoFormatLabel->ShowWindow(SW_HIDE);
-//}
 
 void CSetup::ShowDynamicDeviceElements(const AcquisitionDeviceInfo & device)
 {
@@ -812,14 +763,6 @@ void CSetup::ShowAllElements(void)
 	pVideoFormatLabel->ShowWindow(SW_SHOW);
 
 	FINEST_LOG(m_logger, "Exiting ShowAllElements()");
-}
-
-// TODO: Delete OnCbnSelchangeDirectshowid
-void CSetup::OnCbnSelchangeDirectshowid()
-{
-
-	m_setup_settings.directshow_deviceID = c_combo_directshow_id.GetCurSel();
-
 }
 
 

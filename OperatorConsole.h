@@ -261,8 +261,7 @@
 #define MSG_SETUP				(WM_APP + 0x21)	// gets sent when the Setup button is clicked in dialog
 #define MSG_PASS_FAIL			(WM_APP + 0x22) // gets sent when the 'Set Pass/Fail' button is clicked in dialog
 #define MSG_SET_IMATEST_CAM		(WM_APP + 0x23) // gets sent when one of the Imatest library camera devices is selected
-//TODO: Delete MSG_SET_DIRECTSHOW_CAM
-// #define MSG_SET_DIRECTSHOW_CAM	(WM_APP + 0x24) // gets sent when the DirectShow camera is selected
+
 
 typedef enum AppStatus
 {
@@ -374,8 +373,6 @@ protected:
 	void				OnSetBlemish(WPARAM wParam, LPARAM lParam);	//!< Called after MSG_SET_BLEMISH is received
 	void				OnSetSFRplus(WPARAM wParam, LPARAM lParam);	//!< Called after MSG_SET_SFRPLUS is received
 	void				OnSetImatestCamera(WPARAM wParam, LPARAM lParam);
-	// TODO: Delete OnSetDirectshowCamera
-	//void				OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam);
 	void				OnShowJSON(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_JSON is received
 	void				OnStop(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_STOP is received
 	void				OnStart(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_START is received

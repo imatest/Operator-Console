@@ -1213,12 +1213,6 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	int oldHeight = m_setup.height;
 	int oldSourceID = m_setup.sourceID;
 	int oldDirectShowID = m_setup.directshow_deviceID;
-	//TODO: Delete reference to m_setup.directshow_device_names
-	//m_setup.directshow_device_names.clear();
-
-	//std::vector<std::string> directShowDeviceNames = m_directshow_cam.getCameraNames();
-	//for (auto iName = directShowDeviceNames.begin(); iName != directShowDeviceNames.end(); ++iName)
-	//	m_setup.directshow_device_names.push_back(CString(iName->c_str()));
 
 	FINE_LOG(logger, "Polling for attached devices.");
     m_setup.deviceInfos = m_imatest_cam.GetAttachedDevices();
