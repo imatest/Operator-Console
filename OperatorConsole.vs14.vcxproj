@@ -2033,7 +2033,6 @@
     <ClInclude Include="Config.h" />
     <ClInclude Include="CriticalBuf.h" />
     <ClInclude Include="CriticalCString.h" />
-    <ClInclude Include="escapi30\escapi.h" />
     <ClInclude Include="FileAcq.h" />
     <ClInclude Include="FileAcquisition.h" />
     <ClInclude Include="ImageAcquisition.h" />
@@ -2078,7 +2077,6 @@
     <ClInclude Include="Setup.h" />
     <ClInclude Include="setup_settings.h" />
     <ClInclude Include="SFRplusTest.h" />
-    <ClInclude Include="SimpleDirectShowAcq.h" />
     <ClInclude Include="StaticBmp.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="StderrRedirect.h" />
@@ -2129,7 +2127,6 @@
     <ClCompile Include="ResizeDlg.cpp" />
     <ClCompile Include="Setup.cpp" />
     <ClCompile Include="SFRplusTest.cpp" />
-    <ClCompile Include="SimpleDirectShowAcq.cpp" />
     <ClCompile Include="StaticBmp.cpp" />
     <ClCompile Include="StderrRedirect.cpp" />
     <ClCompile Include="StderrThread.cpp" />

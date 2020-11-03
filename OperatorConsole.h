@@ -43,7 +43,6 @@
 #include "ImatestLibAcq.h"
 #include "ModelessDialogThread.h"
 #include "SFRplusTest.h"
-#include "SimpleDirectShowAcq.h"
 #include "StderrRedirect.h"
 #include "StderrThread.h"
 #include "StdoutRedirect.h"
