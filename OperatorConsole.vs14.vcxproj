@@ -549,6 +549,7 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 2020.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -567,6 +568,7 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_2020.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -594,6 +596,7 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.2.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 2020.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -1805,7 +1808,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_5_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1820,7 +1823,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v96\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
