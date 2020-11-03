@@ -156,9 +156,6 @@
     <ClInclude Include="AppThread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleDirectShowAcq.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="StaticBmp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -195,10 +192,10 @@
     <ClInclude Include="ImatestSourceIDs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="escapi30\escapi.h">
+    <ClInclude Include="AcquisitionDeviceInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AcquisitionDeviceInfo.h">
+    <ClInclude Include="logger_preferences.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -303,9 +300,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StderrThread.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SimpleDirectShowAcq.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="StaticBmp.cpp">

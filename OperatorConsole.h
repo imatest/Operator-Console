@@ -43,7 +43,6 @@
 #include "ImatestLibAcq.h"
 #include "ModelessDialogThread.h"
 #include "SFRplusTest.h"
-#include "SimpleDirectShowAcq.h"
 #include "StderrRedirect.h"
 #include "StderrThread.h"
 #include "StdoutRedirect.h"
@@ -150,6 +149,12 @@
 #define INI_V2_FORMAT
 #define LOWER_CASE_INI_SECTIONS
 
+#elif defined IMATEST_2020_2
+
+#define INI_SEPARATE_PARAMS
+#define INI_V2_FORMAT
+#define LOWER_CASE_INI_SECTIONS
+
 #else
 
 // All versions below 4.2
@@ -224,6 +229,9 @@
 #elif defined IMATEST_2020_1
 #define PROGRAMPATH			"C:\\Program Files\\Imatest\\v2020.1\\IT\\bin"
 
+#elif defined IMATEST_2020_2
+#define PROGRAMPATH			"C:\\Program Files\\Imatest\\v2020.2\\IT\\bin"
+
 #else
 #define PROGRAMPATH			"C:\\Program Files (x86)\\Imatest\\v4.1\\IT\\bin"
 #endif
@@ -252,7 +260,7 @@
 #define MSG_SETUP				(WM_APP + 0x21)	// gets sent when the Setup button is clicked in dialog
 #define MSG_PASS_FAIL			(WM_APP + 0x22) // gets sent when the 'Set Pass/Fail' button is clicked in dialog
 #define MSG_SET_IMATEST_CAM		(WM_APP + 0x23) // gets sent when one of the Imatest library camera devices is selected
-#define MSG_SET_DIRECTSHOW_CAM	(WM_APP + 0x24) // gets sent when the DirectShow camera is selected
+
 
 typedef enum AppStatus
 {
@@ -288,7 +296,6 @@ typedef struct AppFlags
 	unsigned int	stdOut:1;			//!< stdout pipe is open
 	unsigned int	stdErr:1;			//!< stderr pipe is open
 	unsigned int	ImatestCameraThread:1;
-	unsigned int	DirectshowCameraThread:1;
 } AppFlags;
 
 ///
@@ -296,7 +303,6 @@ typedef struct AppFlags
 ///
 typedef enum image_source_t{
 	imatest_source,	//!< image acquisition using the Imatest library
-	directshow_source, //!< imaging from a DirectShow camera
 	file_source		//!< loading a file for the image source
 };
 
@@ -366,7 +372,6 @@ protected:
 	void				OnSetBlemish(WPARAM wParam, LPARAM lParam);	//!< Called after MSG_SET_BLEMISH is received
 	void				OnSetSFRplus(WPARAM wParam, LPARAM lParam);	//!< Called after MSG_SET_SFRPLUS is received
 	void				OnSetImatestCamera(WPARAM wParam, LPARAM lParam);
-	void				OnSetDirectshowCamera(WPARAM wParam, LPARAM lParam);
 	void				OnShowJSON(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_JSON is received
 	void				OnStop(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_STOP is received
 	void				OnStart(WPARAM wParam, LPARAM lParam);		//!< Called after MSG_START is received
@@ -407,7 +412,6 @@ protected:
 //	FileAcq					m_camera;			// acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
 //#endif
 	ImatestLibAcq			m_imatest_cam;		//!< live acquisition using Imatest acquire_image()	
-	SimpleDirectShowAcq		m_directshow_cam;	//!< live acquisition using a camera
 	//FileAcq					m_file_cam;			//!< acquisition comes from a file, with data in RGB format (array of RGBQUAD structs)
 	ImageAcquisition		*m_camera;	
 

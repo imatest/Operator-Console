@@ -37,7 +37,7 @@ public:
 #endif
 
 protected:
-	void ParseResults(string &results);
+	void ParseResults(std::string &results);
 	void GetResults(const JSONNode& data, const JSONNode &passfail);
 };
 

@@ -253,7 +253,7 @@ void ImageTest::Run()
 		//
 		stringstream ss (stringstream::in | stringstream::out);
 		ss << out;
-		string jsonResults = ss.str();
+		std::string jsonResults = ss.str();
 		ParseResults(jsonResults);
 		SetJSON(jsonResults);	// copy results into m_jsonResults (m_jsonResults is shared between threads, so we don't want to access it directly)
 	}
@@ -274,7 +274,7 @@ void ImageTest::Run()
 
 
 
-bool ImageTest::GetDataNode(string &results, JSONNode &data, bool logErrors)
+bool ImageTest::GetDataNode(std::string &results, JSONNode &data, bool logErrors)
 {
 	bool		success = false;
 	JSONNode	node;

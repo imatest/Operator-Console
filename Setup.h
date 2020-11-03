@@ -21,6 +21,7 @@
 #include "afxwin.h"
 #include "setup_settings.h"
 #include "afxeditbrowsectrl.h"
+#include "logger.h"
 //
 // CSetup dialog
 //
@@ -87,12 +88,13 @@ private:
 	void ShowNormalElements(void);		//!< This function hides dialog elements that are meant only for Omnivision or Epiphan
 	void ShowEpiphanElements(void);		//!< This function shows dialog elements that are meant only for Epiphan and hides those meant for Omnivision
 	void ShowAllElements(void);			//!< This function shows dialog elements that are meant only for Omnivision or Epiphan
-	void ShowDirectShowElements(void);
 	void ShowDynamicDeviceElements(const AcquisitionDeviceInfo& device);
 	void UpdateVideoFormatDropdown(const AcquisitionDeviceInfo& device);
+
+	CLogger m_logger;
+	CFileLogHandler m_fileLogHandler;
 public:
 	afx_msg void OnCbnSelchangeDeviceid2();
 	afx_msg void OnStnClickedStaticDeviceid2();
-	afx_msg void OnCbnSelchangeDirectshowid();
 	afx_msg void OnCbnSelchangeComboVideoFormat();
 };

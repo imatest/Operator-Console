@@ -89,7 +89,7 @@ public:
 	ImageTest(void);
 	virtual ~ImageTest(void);
 
-	virtual void	ParseResults(string &results) = 0;	//!< This must be implemented by subclass
+	virtual void	ParseResults(std::string &results) = 0;	//!< This must be implemented by subclass
 	virtual void	Run();
 	virtual void	Run(void *raw_pixels, int width, int height, const Config *config);
 
@@ -112,7 +112,7 @@ protected:
 	void			ClearFailInfo() {m_failInfo.Clear();}
 	void			ClearSummary() {m_summary.Clear();}
 	void			DeleteRGB();
-	bool			GetDataNode(string &results, JSONNode &data, bool logErrors=true);
+	bool			GetDataNode(std::string &results, JSONNode &data, bool logErrors=true);
 	bool			GetPassFailNode(JSONNode &data, JSONNode &passFail, bool logErrors=true);
 	void			PlanesFromRGB();
 	void			GetString(JSONNode &node, const char *name, json_string &string, bool logErrors=true);
@@ -120,7 +120,7 @@ protected:
 	void			ParseFailures(const JSONNode *data);
 	void			RGBFromPlanes(UINT *rgb);
 	void			SaveImage(RGBQUAD *buf, const char *filename);
-	void			SetJSON(string &src) {m_jsonResults.Set(src);}
+	void			SetJSON(std::string &src) {m_jsonResults.Set(src);}
 	void			SetSummary(CString &src) {m_summary.Set(src);}
 
 public:
