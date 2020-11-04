@@ -796,7 +796,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files %28x86%29\Imatest\v4.1\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.1\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -926,7 +926,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.3\IT\bin;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -962,7 +962,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.4\IT\bin;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -998,7 +998,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\bin\win32;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.2\IT\bin;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1035,7 +1035,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.3\IT\bin;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1072,7 +1072,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.4\IT\bin;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1109,7 +1109,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\bin\win32;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\extern\lib\win32\microsoft</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
