@@ -507,45 +507,56 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.1.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.1.x64.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.3|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.3.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.4|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.4.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.2|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.2.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.3|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.3.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.4|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.4.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.2|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.2.x86.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.5|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.5.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.0|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.0.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.1.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -561,12 +572,15 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.5.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.0|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.0.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.1.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -582,21 +596,27 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.3|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.3.x64.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.4|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.4.x64.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.2.x64.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.5|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.5.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.0|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.0.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.1|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_5.1.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -612,12 +632,15 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.3|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.3.x64.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.4|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.4.x64.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.2|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="Imatest_4.2.x64.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -763,7 +786,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\extern\include;C:\Program Files %28x86%29\Imatest\v4.1\IT\libs\acquisition\cpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -773,7 +796,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\bin\win32;C:\Program Files %28x86%29\MATLAB\MATLAB Compiler Runtime\v81\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files %28x86%29\Imatest\v4.1\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.1\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -824,7 +847,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;C:\Program Files\Imatest\v4.1\IT\libs\acquisition\cpp;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -834,7 +857,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.1\IT\libs\library\cpp;C:\Program Files\Imatest\v4.1\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.1\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -890,7 +913,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -903,7 +926,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.3\IT\bin;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -926,7 +949,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -939,7 +962,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.4\IT\bin;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -962,7 +985,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -975,7 +998,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\bin\win32;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.2\IT\bin;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -998,7 +1021,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1012,7 +1035,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.3\IT\bin;C:\Program Files %28x86%29\Imatest\v4.3\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1035,7 +1058,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1049,7 +1072,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\bin\win32;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v90\extern\lib\win32\microsoft;C:\Program Files %28x86%29\Imatest\v4.4\IT\bin;C:\Program Files %28x86%29\Imatest\v4.4\IT\libs\acquisition\cpp</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1072,7 +1095,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>false</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\extern\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1086,7 +1109,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\bin\win32;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files %28x86%29\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files %28x86%29\MATLAB\MATLAB Runtime\v85\extern\lib\win32\microsoft</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1144,7 +1167,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1157,7 +1180,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v901\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1179,7 +1202,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1192,7 +1215,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v92\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1214,7 +1237,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1227,7 +1250,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v93\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1354,7 +1377,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v91\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1367,7 +1390,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v91\bin\win64;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v91\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.0\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1389,7 +1412,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_0;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1402,7 +1425,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v92\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v92\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.0\IT\libs\library\cpp;C:\Program Files\Imatest\v5.0\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.0\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1424,7 +1447,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_5_1;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1437,7 +1460,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v97\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v97\extern\lib\win64\microsoft;C:\Program Files\Imatest\v2020.1\IT\libs\library\cpp;C:\Program Files\Imatest\v2020.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v2020.1\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1472,7 +1495,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v96\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v96\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.2\IT\libs\library\cpp;C:\Program Files\Imatest\v5.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.2\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1599,7 +1622,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1612,7 +1635,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.5\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1634,7 +1657,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1647,7 +1670,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.4\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1669,7 +1692,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1682,7 +1705,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.2\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1704,7 +1727,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_5;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1719,7 +1742,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v901\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v901\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.5\IT\libs\library\cpp;C:\Program Files\Imatest\v4.5\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.5\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1777,7 +1800,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_5_1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1792,7 +1815,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v93\bin\win64;C:\Program Files\MATLAB\MATLAB Runtime\v93\extern\lib\win64\microsoft;C:\Program Files\Imatest\v5.1\IT\libs\library\cpp;C:\Program Files\Imatest\v5.1\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v5.1\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1925,7 +1948,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;IMATEST_4_3;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.3\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1939,7 +1962,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.3\IT\libs\library\cpp;C:\Program Files\Imatest\v4.3\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.3\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1961,7 +1984,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_4;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -1976,7 +1999,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.4\IT\libs\library\cpp;C:\Program Files\Imatest\v4.4\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.4\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
@@ -1998,7 +2021,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_4_2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>
@@ -2012,7 +2035,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalLibraryDirectories>C:\Program Files\MATLAB\MATLAB Runtime\v90\bin\win64;C:\Program Files\Imatest\v4.2\IT\libs\library\cpp;C:\Program Files\Imatest\v4.2\IT\libs\acquisition\cpp;C:\Program Files\MATLAB\MATLAB Runtime\v90\extern\lib\win64\microsoft;C:\Program Files\Imatest\v4.2\IT\bin</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(MATLAB_RUNTIME_ROOT)\bin\win64;$(MATLAB_RUNTIME_ROOT)\extern\lib\win64\microsoft;$(IT_INSTALL_ROOT)\libs\library\cpp;$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\bin</AdditionalLibraryDirectories>
       <AdditionalDependencies>imatest_library.lib;imatest_acquisition.lib;mclmcrrt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <LargeAddressAware>true</LargeAddressAware>
     </Link>
