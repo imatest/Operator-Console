@@ -426,7 +426,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_2020_1;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;IMATEST_2020_2;DEMO_VERSION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IT_INSTALL_ROOT)\libs\acquisition\cpp;$(IT_INSTALL_ROOT)\libs\library\cpp;$(MATLAB_RUNTIME_ROOT)\extern\include;%(AdditionalIncludeDirectories);$(SolutionDir)\logger</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile>
       </PrecompiledHeaderFile>
