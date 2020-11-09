@@ -335,6 +335,12 @@
     <ClCompile Include="escapi30\escapi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="logger\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AcquisitionDeviceInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="OperatorConsole.rc">
