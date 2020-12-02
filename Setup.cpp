@@ -104,9 +104,8 @@ void CSetup::OnChangeWidth()
 	FINEST_LOG(m_logger, "Entering OnChangeWidth()");
 	
 	CString str;
-	int value = 0;
 	c_setup_width.GetWindowTextA(str);
-	value = (int)strtol(str.GetString(), NULL, 10);
+	int value = static_cast<int>(strtol(str.GetString(), nullptr, 10));
 
 	if (value > 0 || value == 0)
 	{
@@ -129,9 +128,8 @@ void CSetup::OnChangeHeight()
 	FINEST_LOG(m_logger, "Entering OnChangeHeight()");
 	
 	CString str;
-	int value = 0;
 	c_setup_height.GetWindowTextA(str);
-	value = (int)strtol(str.GetString(), NULL, 10);
+	int value = static_cast<int>(strtol(str.GetString(), nullptr, 10));
 	if (value > 0 || value == 0)
 	{
 		m_setup_settings.height = value;
@@ -425,10 +423,9 @@ void CSetup::OnSelchangeBitsperpixel()
 {
 	FINEST_LOG(m_logger, "Entering OnSelchangeBitsperpixel()");
 	CString str;
-	int value = 0;
 
 	c_combo_bits_per_pixel.GetWindowTextA(str);
-	value = (int)strtol(str.GetString(), NULL, 10);
+	int value = static_cast<int>(strtol(str.GetString(), nullptr, 10));
 	// double check that the found value is allowed.
 	std::vector<int>::iterator itr = std::find(m_setup_settings.allowed_bits_per_pixel.begin(), m_setup_settings.allowed_bits_per_pixel.end(), value);
 
@@ -450,7 +447,7 @@ void CSetup::OnSelchangeComboBayer()
 	FINEST_LOG(m_logger, "Entering OnSelchangeComboBayer()");
 	
 	CString str;
-	int value = 0;
+
 	c_combo_bayer.GetWindowTextA(str);
 
 	if (str.CompareNoCase(m_setup_settings.bayer_list[0]) == 0) // Red in R1C1 (RG/GB)
