@@ -20,8 +20,8 @@ CLogRecord::CLogRecord(LEVEL level, CString loggerName,
 CString CLogRecord::GetFormatedMessage(void)
 {
 	CString	result;
-
-	char	tempBuffer[256];
+	const size_t bufferSize = 255;
+	char	tempBuffer[bufferSize + 1];
 
 	result += "\nLogger name: ";
 	result += m_loggerName + "\n";
@@ -29,24 +29,29 @@ CString CLogRecord::GetFormatedMessage(void)
 	result += levelNames[m_level];
 	result += "\n";
 	struct tm*	tempTm = localtime(&m_timeStamp.time);
-	strftime(tempBuffer, 255, "%d/%m/%Y %H:%M:%S.", tempTm);
+	strftime(tempBuffer, bufferSize, "%d/%m/%Y %H:%M:%S.", tempTm);
 	result += "Time: ";
 	result += tempBuffer;
-	result += itoa((int) m_timeStamp.millitm, tempBuffer, 10);
+	_itoa_s(static_cast<int>(m_timeStamp.millitm), tempBuffer, bufferSize, 10);
+	result += tempBuffer;
 	result += "\n";
 	result += "Sequence: ";
-	result += itoa(m_sequenceNumber, tempBuffer, 10);
+	_itoa_s(m_sequenceNumber, tempBuffer, bufferSize, 10);
+	result += tempBuffer;
 	result += "\n";
 	result += "Source file: ";
 	result += m_sourceFile + "\n";
 	result += "Source line: ";
-	result += itoa(m_sourceLine, tempBuffer, 10);
+	_itoa_s(m_sourceLine, tempBuffer, bufferSize, 10);
+	result += tempBuffer;
 	result += "\n";
 	result += "Thread ID: ";
-	result += itoa(m_threadID, tempBuffer, 10);
+	_itoa_s(m_threadID, tempBuffer, bufferSize, 10);
+	result += tempBuffer;
 	result += "\n";
 	result += "Process ID: ";
-	result += itoa(m_processID, tempBuffer, 10);
+	_itoa_s(m_processID, tempBuffer, bufferSize, 10);
+	result += tempBuffer;
 	result += "\n";
 	result += "Message: ";
 	result += m_message + "\n";
@@ -172,7 +177,8 @@ BOOL CWndLogHandler::Publish(CLogRecord& record)
 	}
 	record.SetSequenceNumber(m_sequenceNumber++);
 
-	char	tempBuffer[256];
+	const size_t bufferSize = 255;
+	char	tempBuffer[bufferSize + 1];
 	LV_ITEM	item;
 	item.mask = LVIF_TEXT;
 	item.iItem = ListView_GetItemCount(m_listbox);
@@ -198,9 +204,10 @@ BOOL CWndLogHandler::Publish(CLogRecord& record)
 
 	timeb		tempTimeb = record.GetTimeStamp();
 	struct tm*	tempTm = localtime(&tempTimeb.time);
-	strftime(tempBuffer, 255, "%Y/%m/%d %H:%M:%S.", tempTm);
+	strftime(tempBuffer, bufferSize, "%Y/%m/%d %H:%M:%S.", tempTm);
 	str = tempBuffer;
-	str += itoa((int) tempTimeb.millitm, tempBuffer, 10);
+	_itoa_s(static_cast<int>(tempTimeb.millitm), tempBuffer, bufferSize, 10);
+	str += tempBuffer;
 	item.iSubItem = 2;
 	item.pszText = str.GetBuffer(str.GetLength());
 	if (ListView_SetItem(m_listbox, &item) < 0)
