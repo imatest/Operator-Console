@@ -373,10 +373,10 @@ void CSetup::OnLbnSelchangeDeviceList()
 	else
 	{
 
-		auto selection = std::find_if(m_setup_settings.deviceInfos.begin(), m_setup_settings.deviceInfos.end(), [str](AcquisitionDeviceInfo x) { return str.Compare(x.m_deviceName) == 0; });
+		const auto selection = std::find_if(m_setup_settings.deviceInfos.begin(), m_setup_settings.deviceInfos.end(), [str](AcquisitionDeviceInfo x) { return str.Compare(x.m_deviceName) == 0; });
 		if (selection != m_setup_settings.deviceInfos.end()) {
 			m_setup_settings.sourceID = selection->m_deviceID;
-			fprintf(stdout, "%S selected with sourceID %d", (LPCWSTR)CStringW(selection->m_deviceName), selection->m_deviceID);
+			fprintf(stdout, "%S selected with sourceID %d", static_cast<LPCWSTR>(CStringW(selection->m_deviceName)), selection->m_deviceID);
 			ShowDynamicDeviceElements(*selection);
 		}
 		else {
