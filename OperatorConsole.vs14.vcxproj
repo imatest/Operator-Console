@@ -779,6 +779,11 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|Win32'">
     <ClCompile>
@@ -810,6 +815,11 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -840,6 +850,11 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.1|x64'">
     <ClCompile>
@@ -870,6 +885,11 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -904,6 +924,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.3|Win32'">
     <ClCompile>
@@ -940,6 +965,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.4|Win32'">
     <ClCompile>
@@ -976,6 +1006,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.2|Win32'">
     <ClCompile>
@@ -1012,6 +1047,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.3|Win32'">
     <ClCompile>
@@ -1049,6 +1089,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.4|Win32'">
     <ClCompile>
@@ -1086,6 +1131,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.2|Win32'">
     <ClCompile>
@@ -1123,6 +1173,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -1158,6 +1213,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.5|x64'">
     <ClCompile>
@@ -1193,6 +1253,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.0|x64'">
     <ClCompile>
@@ -1228,6 +1293,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.1|x64'">
     <ClCompile>
@@ -1263,6 +1333,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.2|x64'">
     <ClCompile>
@@ -1298,6 +1373,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 2020.1|x64'">
     <ClCompile>
@@ -1333,6 +1413,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 2020.2|x64'">
     <ClCompile>
@@ -1368,6 +1453,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_4.5|x64'">
     <ClCompile>
@@ -1403,6 +1493,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.0|x64'">
     <ClCompile>
@@ -1438,6 +1533,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.1|x64'">
     <ClCompile>
@@ -1473,6 +1573,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.2|x64'">
     <ClCompile>
@@ -1508,6 +1613,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_2020.1|x64'">
     <ClCompile>
@@ -1543,6 +1653,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_2020.2|x64'">
     <ClCompile>
@@ -1578,6 +1693,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Build Demo_Imatest_4.5|x64'">
     <ClCompile>
@@ -1648,6 +1768,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.4|x64'">
     <ClCompile>
@@ -1683,6 +1808,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 4.2|x64'">
     <ClCompile>
@@ -1718,6 +1848,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.5|x64'">
     <ClCompile>
@@ -1755,6 +1890,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.0|x64'">
     <ClCompile>
@@ -1828,6 +1968,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.2|x64'">
     <ClCompile>
@@ -1865,6 +2010,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 2020.1|x64'">
     <ClCompile>
@@ -1902,6 +2052,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 2020.2|x64'">
     <ClCompile>
@@ -1939,6 +2094,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.3|x64'">
     <ClCompile>
@@ -1975,6 +2135,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.4|x64'">
     <ClCompile>
@@ -2012,6 +2177,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 4.2|x64'">
     <ClCompile>
@@ -2048,6 +2218,109 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 2020.2|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 2020.1|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 2020.2|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 2020.1|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_2020.1|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_2020.2|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.2|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.0|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Demo_Imatest_5.1|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.2|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.1|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release Imatest 5.0|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.2|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug Imatest 5.1|Win32'">
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(IT_INSTALL_ROOT)\libs\library\cpp\imatest_library.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\libs\acquisition\cpp\imatest_acquisition.dll" "$(OutDir)"
+xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="AcquisitionDeviceInfo.h" />
