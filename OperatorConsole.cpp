@@ -54,6 +54,7 @@ static CLogger logger("OperatorConsole");
 static CFileLogHandler fileLogHandler(LOGGER_LEVEL, LOG_FILE_NAME); // A file extension is not necessary; *.log is automatically appended.
 
 
+
 // COperatorConsoleApp
 BEGIN_MESSAGE_MAP(COperatorConsoleApp, CWinApp)
 	ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
@@ -255,32 +256,6 @@ BOOL COperatorConsoleApp::InitInstance()
 	cout << "Hello from cout." << endl;			// for debugging
 #endif
 
-	// Setup the path for the Operator Console's INI file
-	PWSTR pAppDataPath = nullptr;
-	
-	if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_DEFAULT, nullptr, &pAppDataPath)))
-	{
-		free((void*)m_pszProfileName);
-
-		PathAppendW(pAppDataPath, L"Imatest");
-		PathAppendW(pAppDataPath, L"OperatorConsole.ini");
-		std::wstring  w_iniPath = pAppDataPath;
-
-		std::wstring_convert<std::codecvt<wchar_t, char, std::mbstate_t>, wchar_t> converter;
-		std::string c_iniPath = converter.to_bytes(w_iniPath);
-		
-		char* p_iniPath = (char*)calloc(c_iniPath.size()+1, sizeof(char));
-		memset((void*)p_iniPath, 0, (c_iniPath.size() +1)* sizeof(char));
-		std::copy(c_iniPath.begin(), c_iniPath.end(), p_iniPath);
-		
-		
-		m_pszProfileName = const_cast<const char*>(p_iniPath);
-		
-	}
-
-	if (nullptr != pAppDataPath) {
-		CoTaskMemFree(pAppDataPath);
-	}
 
 	if (!InitLibs()) // InitLibs must be called before any calls to Imatest library functions
 	{
@@ -391,9 +366,9 @@ bool COperatorConsoleApp::Init()
 	// Initialize the Config object.  These values are used in the calls to blemish_shell() and sfrplus_shell().  
 	// Right now they're all hard coded (they're defined in OperatorConsole.h)
 	//
-	CString iniFilePath = GetProfileStringA(_T("imatest"), _T("ini_file_path"), _T(INI_FILENAME));
-	m_configRAW.Init(iniFilePath, PROGRAMPATH, RAW_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 1);
-	m_configRGB.Init(iniFilePath, PROGRAMPATH, RGB_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 3);
+	
+	m_configRAW.Init(m_setup.ini_file, PROGRAMPATH, RAW_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 1);
+	m_configRGB.Init(m_setup.ini_file, PROGRAMPATH, RGB_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 3);
 
 
 
@@ -402,10 +377,10 @@ bool COperatorConsoleApp::Init()
 #else
 	m_config = &m_configRAW;
 #endif
-	m_setup.ini_file = m_config->m_iniFilePathName;
+	//m_setup.ini_file = m_config->m_iniFilePathName;
 	m_setup.program_path = m_config->m_programPath;
-	m_setup.serial_number = m_config->m_serialNumber;
-	m_setup.part_number = m_config->m_partNumber;
+	//m_setup.serial_number = m_config->m_serialNumber;
+	//m_setup.part_number = m_config->m_partNumber;
 	if (!CheckFiles(errMsg))	// make sure that all of the hard coded files exist
 	{
 		SEVERE_LOG(logger, "CheckFiles() failed.");
@@ -1248,7 +1223,7 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 	
 	CSetup setup(NULL, m_setup);
 	INT_PTR nRet = setup.DoModal();
-	if (nRet == IDOK)
+	if (IDOK == nRet)
 	{
 		m_setup = setup.m_setup_settings;
 		m_camera->m_device_ID = m_setup.epiphan_deviceID; // update the device_ID used by acquire_image
@@ -1316,12 +1291,12 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 
 bool COperatorConsoleApp::ReadINISettings(void)
 {
-	CString iniFilePath = GetProfileStringA(_T("imatest"), _T("ini_file_path"), _T(INI_FILENAME));
-	m_setup.ini_file = iniFilePath;
+	m_setup.readOpConsoleKeys();
+	
 	bool result = false;
 	mwArray vararginParam = mwArray(1, 3, mxCELL_CLASS);
 	mwArray readKeys = mwArray(1, 5, mxCELL_CLASS);
-	mwArray inifilename(iniFilePath);
+	mwArray inifilename((const char*)m_setup.ini_file);
 	mwArray mode("read");
 	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section;
 	mwArray subsection_blank(""), subsection_current("current"), subsection;
@@ -1635,7 +1610,7 @@ void COperatorConsoleApp::WriteINISettings(void)
 		e.print_stack_trace();
 	}
 
-	this->WriteProfileStringA(_T("imatest"), _T("ini_file_path"), m_setup.ini_file);
+	m_setup.writeOpConsoleKeys();
 }
 
 //

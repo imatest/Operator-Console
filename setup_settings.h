@@ -23,10 +23,21 @@
 #include "afxstr.h"
 #include "AcquisitionDeviceInfo.h"
 #include <vector>
+
+#define IMATEST_INI_SECTION "imatest"
+#define OP_CONSOLE_SECTION "op_console"
+#define INI_FILE_PATH_KEY "ini_file_path"
+#define PART_NUMBER_KEY "part_number"
+#define DEVICE_NAME_KEY "device_name"
+#define SERIAL_NUMBER_KEY "serial_number"
+
 ///
 /// A struct that contains the various data controlled by the setup dialog.
 ///
-struct setup_settings {
+class setup_settings {
+
+public:
+	
 	int						width;					//!< image width in pixels
 	int						height;					//!< image height in pixels
 	int						bits_per_pixel;			//!< Used for Omnivision only: number of bits per pixel (8,10,12 only) 
@@ -39,7 +50,8 @@ struct setup_settings {
 	CString					omnivision_reg_file;	//!< [OPTIONAL INPUT] Used for Omnivision only: a fully-qualified filename (including full path) for a file containing camera register settings 
 	CString					part_number;			//!< [OPTIONAL INPUT] The user supplied camera part number to be used in the JSON output 
 	CString					serial_number;			//!< [OPTIONAL INPUT] The user supplied camera part serial to be used in the JSON output 
-	CString					ini_file;				//!< The fully-qualified file name (including full path) for the imatest.ini file 
+	CString					ini_file;				//!< The fully-qualified file name (including full path) for the Imatest INI file
+	CString                 op_console_ini_file;    //!< The 
 	CString					program_path;			//!< The Imatest IT program path
 	CString                 video_format;           //!< The video format for dynamically detected devices
 	CString                 device_name;            
@@ -51,41 +63,18 @@ struct setup_settings {
 	///
 	/// default constructor
 	///
+	setup_settings();
 
-	setup_settings(void) : width(0), height(0), bits_per_pixel(0), epiphan_deviceID(1), sourceID(6), bayer(0), directshow_deviceID(0) {
+	static void addStringWriteRequest(mwArray& writeKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, const char* value) noexcept;
+	void writeOpConsoleKeys();
+	static void addStringReadRequest(mwArray& readKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, const char* default_value) noexcept;
+	void readOpConsoleKeys();
 
-		/////////////////////////////////////////////////////
-		//
-		// Do not change these vectors without updating 
-		// the functions that rely upon them in Setup.cpp,CSetup::OnLbnSelchangeDeviceList() and CSetup::OnInitDialog()!!!!
-		//
-		/////////////////////////////////////////////////////
-		epiphan_deviceID_list.resize(2, _T("0"));
-		epiphan_deviceID_list[1] = _T("1");
-
-		device_list.resize(7, _T(""));
-		device_list[0] = _T("Aptina DevWare");
-		device_list[1] = _T("Omnivision OVTA");
-		device_list[2] = _T("Toshiba ImaTuning");
-		device_list[3] = _T("STM Conduit");
-		device_list[4] = _T("Graphin EasyLab");
-		device_list[5] = _T("Epiphan");
-		device_list[6] = _T("Load file");
-
-		bayer_list.resize(4, _T("Red in R1C1 (RG/GB)"));
-		bayer_list[1] = _T("Red in R1C2 (GR/BG)");
-		bayer_list[2] = _T("Red in R2C1 (GB/RG)");
-		bayer_list[3] = _T("Red in R2C2 (BG/GR)");
-
-		allowed_bits_per_pixel.resize(1, 8); // only 1-byte pixels for now
-		//allowed_bits_per_pixel.resize(3,8);
-		//allowed_bits_per_pixel[1] = 10;
-		//allowed_bits_per_pixel[2] = 12;
-
-		deviceInfos.clear();
-		video_format = _T("");
+private:
+	static CString getImatestINIFolderPath();
+	
 	};
 
-};
+
 
 #endif

@@ -198,6 +198,9 @@
     <ClInclude Include="logger_preferences.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="op_console_preferences.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OperatorConsole.cpp">
@@ -336,6 +339,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AcquisitionDeviceInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="setup_settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
