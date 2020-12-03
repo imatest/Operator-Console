@@ -35,6 +35,7 @@
 #include <string>
 #include "logger.h"
 #include "logger_preferences.h"
+#include <locale>
 
 // This REDIRECT_STDIO causes crashes on 'quit', and I'm not seeing what extra stdout data is displayed in the GUI when it is switched on.
 // #define REDIRECT_STDIO				// this redirects stdout and stderr to log window using pipes and threads
@@ -254,6 +255,32 @@ BOOL COperatorConsoleApp::InitInstance()
 	cout << "Hello from cout." << endl;			// for debugging
 #endif
 
+	// Setup the path for the Operator Console's INI file
+	PWSTR pAppDataPath = nullptr;
+	
+	if (SUCCEEDED(SHGetKnownFolderPath(FOLDERID_RoamingAppData, KF_FLAG_DEFAULT, nullptr, &pAppDataPath)))
+	{
+		free((void*)m_pszProfileName);
+
+		PathAppendW(pAppDataPath, L"Imatest");
+		PathAppendW(pAppDataPath, L"OperatorConsole.ini");
+		std::wstring  w_iniPath = pAppDataPath;
+
+		std::wstring_convert<std::codecvt<wchar_t, char, std::mbstate_t>, wchar_t> converter;
+		std::string c_iniPath = converter.to_bytes(w_iniPath);
+		
+		char* p_iniPath = (char*)calloc(c_iniPath.size()+1, sizeof(char));
+		memset((void*)p_iniPath, 0, (c_iniPath.size() +1)* sizeof(char));
+		std::copy(c_iniPath.begin(), c_iniPath.end(), p_iniPath);
+		
+		
+		m_pszProfileName = const_cast<const char*>(p_iniPath);
+		
+	}
+
+	if (nullptr != pAppDataPath) {
+		CoTaskMemFree(pAppDataPath);
+	}
 
 	if (!InitLibs()) // InitLibs must be called before any calls to Imatest library functions
 	{
@@ -364,8 +391,9 @@ bool COperatorConsoleApp::Init()
 	// Initialize the Config object.  These values are used in the calls to blemish_shell() and sfrplus_shell().  
 	// Right now they're all hard coded (they're defined in OperatorConsole.h)
 	//
-	m_configRAW.Init(INI_FILENAME, PROGRAMPATH, RAW_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 1);
-	m_configRGB.Init(INI_FILENAME, PROGRAMPATH, RGB_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 3);
+	CString iniFilePath = GetProfileStringA(_T("imatest"), _T("ini_file_path"), _T(INI_FILENAME));
+	m_configRAW.Init(iniFilePath, PROGRAMPATH, RAW_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 1);
+	m_configRGB.Init(iniFilePath, PROGRAMPATH, RGB_EXTENSION, FILE_ROOT, SERIAL_NUMBER, PART_NUMBER, 3);
 
 
 
@@ -1288,10 +1316,12 @@ void COperatorConsoleApp::OnSetup(WPARAM wParam, LPARAM lParam)
 
 bool COperatorConsoleApp::ReadINISettings(void)
 {
+	CString iniFilePath = GetProfileStringA(_T("imatest"), _T("ini_file_path"), _T(INI_FILENAME));
+	m_setup.ini_file = iniFilePath;
 	bool result = false;
 	mwArray vararginParam = mwArray(1, 3, mxCELL_CLASS);
 	mwArray readKeys = mwArray(1, 5, mxCELL_CLASS);
-	mwArray inifilename(INI_FILENAME);
+	mwArray inifilename(iniFilePath);
 	mwArray mode("read");
 	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section;
 	mwArray subsection_blank(""), subsection_current("current"), subsection;
@@ -1604,6 +1634,8 @@ void COperatorConsoleApp::WriteINISettings(void)
 		cerr << e.what() << endl;
 		e.print_stack_trace();
 	}
+
+	this->WriteProfileStringA(_T("imatest"), _T("ini_file_path"), m_setup.ini_file);
 }
 
 //
