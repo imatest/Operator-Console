@@ -26,6 +26,7 @@
 
 #define IMATEST_INI_SECTION "imatest"
 #define OP_CONSOLE_SECTION "op_console"
+#define OMNIVISION_SECTION "ovt"
 
 #define INI_FILE_PATH_KEY "ini_file_path"
 #define PART_NUMBER_KEY "part_number"
