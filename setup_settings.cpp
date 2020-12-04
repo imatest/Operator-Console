@@ -4,11 +4,13 @@
 #include "logger.h"
 #include "logger_preferences.h"
 #include "op_console_preferences.h"
+#include "ImatestSourceIDs.h"
+#include "ini_helpers.h"
 
-// This CLogger and its associated handler is meant for logging details about the Operator Console's operations, not Imatest IT per se.
-static CLogger logger("SetupSettings");
 
-static CFileLogHandler fileLogHandler(LOGGER_LEVEL, "setup_settings"); // A file extension is not necessary; *.log is automatically appended.
+//static CLogger logger("SetupSettings");
+//
+//static CFileLogHandler fileLogHandler(LOGGER_LEVEL, "setup_settings"); // A file extension is not necessary; *.log is automatically appended.
 
 
 setup_settings::setup_settings() : width(0), height(0), bits_per_pixel(0), epiphan_deviceID(1), sourceID(6), bayer(0), directshow_deviceID(0) {
@@ -59,33 +61,54 @@ void setup_settings::addStringWriteRequest(mwArray& writeKeys, mwSize rowIndex, 
 	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(value));
 }
 
-void setup_settings::writeOpConsoleKeys()
+void setup_settings::addIntWriteRequest(mwArray & writeKeys, mwSize rowIndex, const char * section, const char * subsection, const char * key, int value) noexcept
+{
+	mwSize getIndex = 1;
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(section));
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(subsection));
+#endif
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(key));
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(value));
+}
+
+void setup_settings::addDoubleWriteRequest(mwArray & writeKeys, mwSize rowIndex, const char * section, const char * subsection, const char * key, double value) noexcept
+{
+	mwSize getIndex = 1;
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(section));
+#ifdef INI_INCLUDE_SUBSECTION
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(subsection));
+#endif
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(key));
+	writeKeys.Get(2, rowIndex, getIndex++).Set(mwArray(value));
+}
+
+void setup_settings::writeOpConsoleKeys() const
 {
 #ifdef INI_INCLUDE_SECTION
 	const mwSize numWriteColumns = 4;
 #else
 	const mwSize numWriteColumns = 3;
 #endif
-	mwArray vararginParam = mwArray(1, 2, mxCELL_CLASS);
+	mwArray vararginParam = mwArray(1, 4, mxCELL_CLASS);
 	mwArray writeKeys = mwArray(4, numWriteColumns, mxCELL_CLASS);
 	mwArray inifilename((const char*)op_console_ini_file);
 	mwArray mode("write");
 	mwArray style("plain");
 	static const char* subsection_blank = "";
 
-
-
 	addStringWriteRequest(writeKeys, 1, IMATEST_INI_SECTION, subsection_blank, INI_FILE_PATH_KEY, (const char*)ini_file);
 	addStringWriteRequest(writeKeys, 2, OP_CONSOLE_SECTION, subsection_blank, PART_NUMBER_KEY, (const char*)part_number);
 	addStringWriteRequest(writeKeys, 3, OP_CONSOLE_SECTION, subsection_blank, SERIAL_NUMBER_KEY, (const char*)serial_number);
 	addStringWriteRequest(writeKeys, 4, OP_CONSOLE_SECTION, subsection_blank, DEVICE_NAME_KEY, (const char*)device_name);
 
-
-	vararginParam.Get(2, 1, 1).Set(writeKeys);
-	vararginParam.Get(2, 1, 2).Set(style);
+	vararginParam.Get(2, 1, 1).Set(inifilename);
+	vararginParam.Get(2, 1, 2).Set(mode);
+	vararginParam.Get(2, 1, 3).Set(writeKeys);
+	vararginParam.Get(2, 1, 4).Set(style);
 	try
 	{
-		inifile(inifilename, mode, vararginParam);
+		inifile(vararginParam);
 	}
 	catch (mwException& e)
 	{
@@ -96,20 +119,107 @@ void setup_settings::writeOpConsoleKeys()
 	
 }
 
+void setup_settings::writeImatestKeys() const
+{
+	mwArray vararginParam = mwArray(1, 4, mxCELL_CLASS);
+	mwArray writeKeys = mwArray(8, 4, mxCELL_CLASS);
+	mwArray inifilename(ini_file);
+	mwArray mode("write"), style("plain");
+	static const char* section_ovt = "ovt";
+	static const char* subsection_blank = "";
+	static const char* subsection_current = "current";
+	std::string subsection;
+	std::string section;
+
+
+	if (sourceID == SOURCE_Omnivision) // Omnivision
+	{
+		section = section_ovt;
+		subsection = subsection_current;
+	}
+	else
+	{
+		section = OP_CONSOLE_SECTION;
+		subsection = subsection_blank;
+	}
+	
+	// NOTE: the mwArray::Get function has input syntax Get(number of indexes, i1, i2,...in)
+	// first read the 'acquire' key from [imatest]
+	addIntWriteRequest(writeKeys, 1, IMATEST_INI_SECTION, subsection_blank, ACQUIRE_KEY, sourceID);
+	
+	// to write the Epiphan 'device_ID' key 
+	addIntWriteRequest(writeKeys, 2, section.c_str(), subsection.c_str(), DEVICE_ID_KEY, epiphan_deviceID);
+
+	// to write the 'width' key 
+	addIntWriteRequest(writeKeys, 3, section.c_str(), subsection.c_str(), WIDTH_KEY, width);
+
+	// to write the 'height' key 
+	addIntWriteRequest(writeKeys, 4, section.c_str(), subsection.c_str(), HEIGHT_KEY, height);
+
+	// to write the 'bitdepth' key 
+	addIntWriteRequest(writeKeys, 5, section.c_str(), subsection.c_str(), BITDEPTH_KEY, bits_per_pixel);
+
+	// to write the 'bayer_pattern' 
+	addIntWriteRequest(writeKeys, 6, section.c_str(), subsection.c_str(), BAYER_PATTERN_KEY, bayer);
+
+	// to write the 'register_files' 
+	addStringWriteRequest(writeKeys, 7, section.c_str(), subsection.c_str(), OMNI_REGISTER_FILE_KEY, (const char*)omnivision_reg_file);
+
+	// write the 'vid_format' key from [imatest]
+	addStringWriteRequest(writeKeys, 8, IMATEST_INI_SECTION, subsection_blank, VIDEO_FORMAT_KEY, (const char*)video_format);
+
+	vararginParam.Get(2, 1, 1).Set(inifilename);
+	vararginParam.Get(2, 1, 2).Set(mode);
+	vararginParam.Get(2, 1, 3).Set(writeKeys);
+	vararginParam.Get(2, 1, 4).Set(style);
+	try
+	{
+		inifile(vararginParam);
+	}
+	catch (mwException& e)
+	{
+		std::cout << "Run Error!" << std::endl;
+		std::cerr << e.what() << std::endl;
+		e.print_stack_trace();
+	}
+
+	writeOpConsoleKeys();
+	
+}
+
 void setup_settings::addStringReadRequest(mwArray& readKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, const char* default_value) noexcept
 {
 	mwSize getIndex = 1;
-	mwArray temp;
 	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(section));
-	
 #ifdef INI_INCLUDE_SUBSECTION
 	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(subsection));
 #endif
-	
 	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(key));
-	
 	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray("")); // Indicates a string entry in the INI
-	
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(default_value));
+}
+
+void setup_settings::addIntReadRequest(mwArray & readKeys, mwSize rowIndex, const char * section, const char * subsection, const char * key, int default_value) noexcept
+{
+	mwSize getIndex = 1;
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(section));
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(subsection));
+#endif
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(key));
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray("i")); // Indicates an integer entry in the INI
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(default_value));
+}
+
+void setup_settings::addDoubleReadRequest(mwArray & readKeys, mwSize rowIndex, const char * section, const char * subsection, const char * key, double default_value) noexcept
+{
+	mwSize getIndex = 1;
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(section));
+#ifdef INI_INCLUDE_SUBSECTION
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(subsection));
+#endif
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(key));
+	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray("d")); // Indicates an integer entry in the INI
 	readKeys.Get(2, rowIndex, getIndex++).Set(mwArray(default_value));
 }
 
@@ -120,16 +230,16 @@ void setup_settings::readOpConsoleKeys()
 #else
 	const mwSize numReadColumns = 4;
 #endif
-	logger.AddHandler(&fileLogHandler);
+
 	mwArray vararginParam = mwArray(1, 1, mxCELL_CLASS);
 	mwArray readKeys = mwArray(4, numReadColumns, mxCELL_CLASS);
 	mwArray inifilename((const char*)op_console_ini_file);
 	mwArray mode("read");
 	static const char*  subsection_blank = "";
-	mwSize iniIndex = 1;
-	mwSize serialNumIndex = iniIndex + 1;
-	mwSize partNumIndex = serialNumIndex + 1;
-	mwSize deviceNameIndex = partNumIndex + 1;
+	const mwSize iniIndex = 1;
+	const mwSize serialNumIndex = iniIndex + 1;
+	const mwSize partNumIndex = serialNumIndex + 1;
+	const mwSize deviceNameIndex = partNumIndex + 1;
 	
 	addStringReadRequest(readKeys, iniIndex, IMATEST_INI_SECTION, subsection_blank, INI_FILE_PATH_KEY, ini_file);
 	addStringReadRequest(readKeys, serialNumIndex, OP_CONSOLE_SECTION, subsection_blank, SERIAL_NUMBER_KEY, serial_number);
@@ -158,6 +268,10 @@ void setup_settings::readOpConsoleKeys()
 	}
 
 
+}
+
+void setup_settings::readImatestKeys()
+{
 }
 
 

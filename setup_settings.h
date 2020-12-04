@@ -26,10 +26,19 @@
 
 #define IMATEST_INI_SECTION "imatest"
 #define OP_CONSOLE_SECTION "op_console"
+
 #define INI_FILE_PATH_KEY "ini_file_path"
 #define PART_NUMBER_KEY "part_number"
 #define DEVICE_NAME_KEY "device_name"
 #define SERIAL_NUMBER_KEY "serial_number"
+#define WIDTH_KEY "width"
+#define HEIGHT_KEY "height"
+#define ACQUIRE_KEY "acquire"
+#define BITDEPTH_KEY "bitdepth"
+#define BAYER_PATTERN_KEY "bayer_pattern"
+#define OMNI_REGISTER_FILE_KEY "register_files"
+#define DEVICE_ID_KEY "deviceID"
+#define VIDEO_FORMAT_KEY "vid_format"
 
 ///
 /// A struct that contains the various data controlled by the setup dialog.
@@ -66,9 +75,18 @@ public:
 	setup_settings();
 
 	static void addStringWriteRequest(mwArray& writeKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, const char* value) noexcept;
-	void writeOpConsoleKeys();
+	static void addIntWriteRequest(mwArray& writeKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, int value) noexcept;
+	static void addDoubleWriteRequest(mwArray& writeKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, double value) noexcept;
+	
 	static void addStringReadRequest(mwArray& readKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, const char* default_value) noexcept;
+	static void addIntReadRequest(mwArray& readKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, int default_value) noexcept;
+	static void addDoubleReadRequest(mwArray& readKeys, mwSize rowIndex, const char* section, const char* subsection, const char* key, double default_value) noexcept;
+	
+	void writeOpConsoleKeys() const;
+	void writeImatestKeys() const;
+	
 	void readOpConsoleKeys();
+	void readImatestKeys();
 
 private:
 	static CString getImatestINIFolderPath();

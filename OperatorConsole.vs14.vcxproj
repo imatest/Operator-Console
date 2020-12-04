@@ -2336,6 +2336,7 @@ xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
     <ClInclude Include="ImatestLibAcq.h" />
     <ClInclude Include="ImatestSourceIDs.h" />
     <ClInclude Include="imatest_library.h" />
+    <ClInclude Include="ini_helpers.h" />
     <ClInclude Include="jsonhelpers.h" />
     <ClInclude Include="JSONOptions.h" />
     <ClInclude Include="JSON\internalJSONNode.h" />
@@ -2398,6 +2399,7 @@ xcopy /Y "$(IT_INSTALL_ROOT)\bin\ShaferFilechck.dll" "$(OutDir)"</Command>
     <ClCompile Include="ImageAcquisition.cpp" />
     <ClCompile Include="ImageTest.cpp" />
     <ClCompile Include="ImatestLibAcq.cpp" />
+    <ClCompile Include="ini_helpers.cpp" />
     <ClCompile Include="jsonhelpers.cpp" />
     <ClCompile Include="JSON\internalJSONNode.cpp" />
     <ClCompile Include="JSON\JSONAllocator.cpp" />
