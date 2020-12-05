@@ -350,10 +350,9 @@ bool COperatorConsoleApp::Init()
 #else
 	m_config = &m_configRAW;
 #endif
-	//m_setup.ini_file = m_config->m_iniFilePathName;
+
 	m_setup.program_path = m_config->m_programPath;
-	//m_setup.serial_number = m_config->m_serialNumber;
-	//m_setup.part_number = m_config->m_partNumber;
+
 	if (!CheckFiles(errMsg))	// make sure that all of the hard coded files exist
 	{
 		SEVERE_LOG(logger, "CheckFiles() failed.");
@@ -1286,125 +1285,7 @@ bool COperatorConsoleApp::ReadINISettings(void)
 // 
 void COperatorConsoleApp::WriteINISettings(void)
 {
-	mwArray vararginParam = mwArray(1, 4, mxCELL_CLASS);
-	mwArray writeKeys = mwArray(8, 4, mxCELL_CLASS);
-	mwArray inifilename(m_config->m_iniFilePathName);
-	mwArray mode("write"), style("plain");
-	mwArray section_ovt("ovt"), section_imatest("imatest"), section_op("op_console"), section("");
-	mwArray subsection_blank(""), subsection_current("current"), subsection("");
-	mwArray key_acquire("acquire"), key_width("width"), key_height("height"), key_bitdepth("bitdepth");
-	mwArray key_bayer("bayer_pattern"), key_omniregister("register_files"), key_epiphan_deviceid("deviceID");
-	mwArray key_vid_format("vid_format");
-	mwArray val_acquire(m_setup.sourceID), val_width(m_setup.width), val_height(m_setup.height), val_bitdepth(m_setup.bits_per_pixel);
-	mwArray val_bayer(m_setup.bayer), val_omniregister(m_setup.omnivision_reg_file), val_epiphan_deviceid(m_setup.epiphan_deviceID);
-	mwArray val_vid_format(m_setup.video_format);
-	mwSize getIndex = 1;
-	// NOTE: the mwArray::Get function has input syntax Get(number of indexes, i1, i2,...in)
-	// first read the 'acquire' key from [imatest]
-	getIndex = 1;
-	writeKeys.Get(2, 1, getIndex++).Set(section_imatest);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 1, getIndex++).Set(subsection_blank);
-#endif
-	writeKeys.Get(2, 1, getIndex++).Set(key_acquire);
-	writeKeys.Get(2, 1, getIndex++).Set(val_acquire);
-
-
-
-	if (m_setup.sourceID == SOURCE_Omnivision) // Omnivision
-	{
-		section = section_ovt;
-		subsection = subsection_current;
-	}
-	else
-	{
-		section = section_op;
-		subsection = subsection_blank;
-	}
-
-	// to write the Epiphan 'device_ID' key 
-	getIndex = 1;
-	writeKeys.Get(2, 2, getIndex++).Set(section);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 2, getIndex++).Set(subsection);
-#endif
-	writeKeys.Get(2, 2, getIndex++).Set(key_epiphan_deviceid);
-	writeKeys.Get(2, 2, getIndex++).Set(val_epiphan_deviceid);
-
-	// to write the 'width' key 
-	getIndex = 1;
-	writeKeys.Get(2, 3, getIndex++).Set(section);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 3, getIndex++).Set(subsection);
-#endif
-	writeKeys.Get(2, 3, getIndex++).Set(key_width);
-	writeKeys.Get(2, 3, getIndex++).Set(val_width);
-
-
-	// to write the 'height' key 
-	getIndex = 1;
-	writeKeys.Get(2, 4, getIndex++).Set(section);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 4, getIndex++).Set(subsection);
-#endif
-	writeKeys.Get(2, 4, getIndex++).Set(key_height);
-	writeKeys.Get(2, 4, getIndex++).Set(val_height);
-
-
-	// to write the 'bitdepth' key 
-	getIndex = 1;
-	writeKeys.Get(2, 5, getIndex++).Set(section);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 5, getIndex++).Set(subsection);
-#endif
-	writeKeys.Get(2, 5, getIndex++).Set(key_bitdepth);
-	writeKeys.Get(2, 5, getIndex++).Set(val_bitdepth);
-
-
-	// to write the 'bayer_pattern' 
-	getIndex = 1;
-	writeKeys.Get(2, 6, getIndex++).Set(section);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 6, getIndex++).Set(subsection);
-#endif
-	writeKeys.Get(2, 6, getIndex++).Set(key_bayer);
-	writeKeys.Get(2, 6, getIndex++).Set(val_bayer);
-
-
-	// to write the 'register_files' 
-	getIndex = 1;
-	writeKeys.Get(2, 7, getIndex++).Set(section);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 7, getIndex++).Set(subsection);
-#endif
-	writeKeys.Get(2, 7, getIndex++).Set(key_omniregister);
-	writeKeys.Get(2, 7, getIndex++).Set(val_omniregister);
-
-	// write the 'vid_format' key from [imatest]
-	getIndex = 1;
-	writeKeys.Get(2, 8, getIndex++).Set(section_imatest);
-#ifdef INI_INCLUDE_SUBSECTION
-	writeKeys.Get(2, 8, getIndex++).Set(subsection_blank);
-#endif
-	writeKeys.Get(2, 8, getIndex++).Set(key_vid_format);
-	writeKeys.Get(2, 8, getIndex++).Set(val_vid_format);
-
-	vararginParam.Get(2, 1, 1).Set(inifilename);
-	vararginParam.Get(2, 1, 2).Set(mode);
-	vararginParam.Get(2, 1, 3).Set(writeKeys);
-	vararginParam.Get(2, 1, 4).Set(style);
-	try
-	{
-		inifile(vararginParam);
-	}
-	catch (mwException& e)
-	{
-		cout << "Run Error!" << endl;
-		cerr << e.what() << endl;
-		e.print_stack_trace();
-	}
-
-	m_setup.writeOpConsoleKeys();
+	m_setup.writeImatestKeys();
 }
 
 //
