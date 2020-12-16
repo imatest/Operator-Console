@@ -2,8 +2,8 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <IT_INSTALL_ROOT>C:\Program Files\Imatest\v2020.2\IT</IT_INSTALL_ROOT>
-    <MATLAB_RUNTIME_ROOT>C:\Program Files\MATLAB\MATLAB Runtime\v98</MATLAB_RUNTIME_ROOT>
+    <IT_INSTALL_ROOT>C:\Program Files\Imatest\v2020.1\IT</IT_INSTALL_ROOT>
+    <MATLAB_RUNTIME_ROOT>C:\Program Files\MATLAB\MATLAB Runtime\v97</MATLAB_RUNTIME_ROOT>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
