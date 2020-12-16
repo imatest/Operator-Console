@@ -198,6 +198,9 @@
     <ClInclude Include="escapi30\escapi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ini_helpers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OperatorConsole.cpp">
@@ -339,6 +342,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="AcquisitionDeviceInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ini_helpers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="setup_settings.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
