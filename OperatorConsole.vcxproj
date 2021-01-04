@@ -554,6 +554,7 @@
     <ClInclude Include="ModelessDialogThread.h" />
     <ClInclude Include="OperatorConsole.h" />
     <ClInclude Include="OperatorConsoleDlg.h" />
+    <ClInclude Include="op_console_preferences.h" />
     <ClInclude Include="PassFail.h" />
     <ClInclude Include="PassFailSettings.h" />
     <ClInclude Include="PasswordDialog.h" />
